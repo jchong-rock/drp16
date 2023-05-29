@@ -13,7 +13,7 @@
 		E05733302A24F61C00B7A32D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E057332E2A24F61C00B7A32D /* Main.storyboard */; };
 		E05733322A24F61F00B7A32D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E05733312A24F61F00B7A32D /* Assets.xcassets */; };
 		E05733352A24F61F00B7A32D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E05733332A24F61F00B7A32D /* LaunchScreen.storyboard */; };
-		E05733382A24F61F00B7A32D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E05733372A24F61F00B7A32D /* main.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E05733382A24F61F00B7A32D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E05733372A24F61F00B7A32D /* main.m */; };
 		E05733422A24F61F00B7A32D /* GigmaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E05733412A24F61F00B7A32D /* GigmaTests.m */; };
 		E057334C2A24F61F00B7A32D /* GigmaUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E057334B2A24F61F00B7A32D /* GigmaUITests.m */; };
 		E057334E2A24F61F00B7A32D /* GigmaUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E057334D2A24F61F00B7A32D /* GigmaUITestsLaunchTests.m */; };
