@@ -14,16 +14,14 @@
 @implementation AddFriendViewController
 
 @synthesize deviceIDHash;
+@synthesize nearbyDevicePicker;
+@synthesize nicknameField;
+@synthesize chosenNickname;
 
 - (void) viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    // NSLog(@"here");
     nearbyDevicesList = [[NSArray alloc] initWithObjects:@"friend1", @"friend2", nil];
-}
-
-- (IBAction) pickerValueChanged:(id) sender {
-    
 }
 
 - (NSInteger) numberOfComponentsInPickerView:(UIPickerView *) pickerView {
@@ -38,7 +36,26 @@
     return [nearbyDevicesList objectAtIndex: row];
 }
 
+- (IBAction) addButtonPressed:(id) sender {
+    NSString * chosenDevice = [ nearbyDevicesList objectAtIndex:
+                               [nearbyDevicePicker selectedRowInComponent: 0] ];
+    NSLog(@"you chose %@ and typed %@", chosenDevice, chosenNickname);
+}
+
+- (IBAction) nicknameFieldDoneEditing:(id)sender {
+    chosenNickname = nicknameField.text;
+}
+
+- (BOOL) textFieldShouldReturn:(UITextField *) textField {
+    [self.view endEditing: YES];
+    return NO;
+}
+
 - (void) dealloc {
+    [chosenNickname release];
+    [nicknameField release];
+    [deviceIDHash release];
+    [nearbyDevicePicker release];
     [nearbyDevicesList release];
     [super dealloc];
 }

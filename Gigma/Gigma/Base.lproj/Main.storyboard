@@ -70,6 +70,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="nicknameFieldDoneEditing:" destination="6SL-4g-POU" eventType="editingDidEnd" id="qAu-F3-I6l"/>
+                                    <outlet property="delegate" destination="6SL-4g-POU" id="p0b-sV-g5X"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xS8-uy-yon">
                                 <rect key="frame" x="157" y="125" width="76" height="21"/>
@@ -90,6 +94,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Add"/>
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="6SL-4g-POU" eventType="touchUpInside" id="iQQ-Ow-inM"/>
+                                </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ebl-tU-Mps">
                                 <rect key="frame" x="0.0" y="238" width="390" height="344"/>
@@ -104,6 +111,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="7eW-0g-PDO"/>
+                    <connections>
+                        <outlet property="nearbyDevicePicker" destination="Ebl-tU-Mps" id="rxq-8E-aiL"/>
+                        <outlet property="nicknameField" destination="RyC-D0-bFb" id="KMd-cd-7VB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mC4-w8-Eg3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

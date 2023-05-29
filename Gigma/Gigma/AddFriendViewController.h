@@ -7,13 +7,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddFriendViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource> {
-    NSArray * nearbyDevicesList;
+@interface AddFriendViewController : UIViewController
+    <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate> {
+        NSArray * nearbyDevicesList;
+        IBOutlet UIPickerView * nearbyDevicePicker;
+        IBOutlet UITextField * nicknameField;
 }
 
+@property (retain, nonatomic) UITextField * nicknameField;
+@property (retain, nonatomic) UIPickerView * nearbyDevicePicker;
 @property (retain, nonatomic) NSString * deviceIDHash;
+@property (retain, nonatomic) NSString * chosenNickname;
 
-- (IBAction) pickerValueChanged:(id) sender;
+- (IBAction) addButtonPressed:(id) sender;
+- (IBAction) nicknameFieldDoneEditing:(id) sender;
 
 @end
 
