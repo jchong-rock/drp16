@@ -39,17 +39,41 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xl4-uN-SDf">
+                                <rect key="frame" x="324" y="70" width="50" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
+                                <connections>
+                                    <segue destination="6SL-4g-POU" kind="show" id="2nz-ma-8Z9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nrQ-rE-QiS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Friends" image="person.fill" catalog="system" id="lhB-GA-JuB"/>
+                    <tabBarItem key="tabBarItem" title="Friends" image="person.2.circle" catalog="system" id="lhB-GA-JuB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tcC-cv-8Vk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="321.53846153846155" y="311.37440758293837"/>
         </scene>
-        <!--Group-->
+        <!--View Controller-->
+        <scene sceneID="a2E-Dv-dx2">
+            <objects>
+                <viewController id="6SL-4g-POU" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ubR-un-3fb">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="DTg-bB-0Id"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7eW-0g-PDO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mC4-w8-Eg3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1096.9230769230769" y="263.74407582938386"/>
+        </scene>
+        <!--Messages-->
         <scene sceneID="xeH-Wi-2zO">
             <objects>
                 <viewController id="6cl-Gd-w9c" sceneMemberID="viewController">
@@ -57,18 +81,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Group" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMu-E8-TI4">
-                                <rect key="frame" x="16" y="71" width="98" height="45"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Messages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMu-E8-TI4">
+                                <rect key="frame" x="16" y="71" width="163" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="37"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SvX-8T-oy2">
+                                <rect key="frame" x="324" y="71" width="50" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QMg-mP-etv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Group" image="person.2.circle" catalog="system" id="yEU-ri-L1p"/>
+                    <tabBarItem key="tabBarItem" title="Messages" image="message.fill" catalog="system" id="yEU-ri-L1p"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u5E-3v-MsC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -114,8 +143,9 @@
     <resources>
         <image name="creditcard" catalog="system" width="128" height="88"/>
         <image name="map" catalog="system" width="128" height="112"/>
+        <image name="message.fill" catalog="system" width="128" height="114"/>
         <image name="person.2.circle" catalog="system" width="128" height="123"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
