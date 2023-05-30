@@ -10,13 +10,14 @@
 		E05733272A24F61C00B7A32D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E05733262A24F61C00B7A32D /* AppDelegate.m */; };
 		E057332A2A24F61C00B7A32D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E05733292A24F61C00B7A32D /* SceneDelegate.m */; };
 		E057332D2A24F61C00B7A32D /* AddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E057332C2A24F61C00B7A32D /* AddFriendViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		E05733302A24F61C00B7A32D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E057332E2A24F61C00B7A32D /* Main.storyboard */; };
 		E05733322A24F61F00B7A32D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E05733312A24F61F00B7A32D /* Assets.xcassets */; };
 		E05733352A24F61F00B7A32D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E05733332A24F61F00B7A32D /* LaunchScreen.storyboard */; };
 		E05733382A24F61F00B7A32D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E05733372A24F61F00B7A32D /* main.m */; };
 		E05733422A24F61F00B7A32D /* GigmaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E05733412A24F61F00B7A32D /* GigmaTests.m */; };
 		E057334C2A24F61F00B7A32D /* GigmaUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E057334B2A24F61F00B7A32D /* GigmaUITests.m */; };
 		E057334E2A24F61F00B7A32D /* GigmaUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E057334D2A24F61F00B7A32D /* GigmaUITestsLaunchTests.m */; };
+		E05733612A2601A100B7A32D /* FriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E05733602A2601A100B7A32D /* FriendViewController.m */; };
+		E05733672A2608B900B7A32D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E05733652A2608B900B7A32D /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +45,6 @@
 		E05733292A24F61C00B7A32D /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		E057332B2A24F61C00B7A32D /* AddFriendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddFriendViewController.h; sourceTree = "<group>"; };
 		E057332C2A24F61C00B7A32D /* AddFriendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddFriendViewController.m; sourceTree = "<group>"; };
-		E057332F2A24F61C00B7A32D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E05733312A24F61F00B7A32D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E05733342A24F61F00B7A32D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E05733362A24F61F00B7A32D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,6 +54,9 @@
 		E05733472A24F61F00B7A32D /* GigmaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GigmaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E057334B2A24F61F00B7A32D /* GigmaUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GigmaUITests.m; sourceTree = "<group>"; };
 		E057334D2A24F61F00B7A32D /* GigmaUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GigmaUITestsLaunchTests.m; sourceTree = "<group>"; };
+		E05733602A2601A100B7A32D /* FriendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendViewController.m; sourceTree = "<group>"; };
+		E05733622A2601CB00B7A32D /* FriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendViewController.h; sourceTree = "<group>"; };
+		E05733662A2608B900B7A32D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +113,10 @@
 				E05733292A24F61C00B7A32D /* SceneDelegate.m */,
 				E057332B2A24F61C00B7A32D /* AddFriendViewController.h */,
 				E057332C2A24F61C00B7A32D /* AddFriendViewController.m */,
-				E057332E2A24F61C00B7A32D /* Main.storyboard */,
+				E05733622A2601CB00B7A32D /* FriendViewController.h */,
+				E05733602A2601A100B7A32D /* FriendViewController.m */,
 				E05733312A24F61F00B7A32D /* Assets.xcassets */,
+				E05733652A2608B900B7A32D /* Main.storyboard */,
 				E05733332A24F61F00B7A32D /* LaunchScreen.storyboard */,
 				E05733362A24F61F00B7A32D /* Info.plist */,
 				E05733372A24F61F00B7A32D /* main.m */,
@@ -239,9 +244,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E05733672A2608B900B7A32D /* Main.storyboard in Resources */,
 				E05733352A24F61F00B7A32D /* LaunchScreen.storyboard in Resources */,
 				E05733322A24F61F00B7A32D /* Assets.xcassets in Resources */,
-				E05733302A24F61C00B7A32D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +274,7 @@
 				E057332D2A24F61C00B7A32D /* AddFriendViewController.m in Sources */,
 				E05733272A24F61C00B7A32D /* AppDelegate.m in Sources */,
 				E05733382A24F61F00B7A32D /* main.m in Sources */,
+				E05733612A2601A100B7A32D /* FriendViewController.m in Sources */,
 				E057332A2A24F61C00B7A32D /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,20 +312,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E057332E2A24F61C00B7A32D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E057332F2A24F61C00B7A32D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E05733332A24F61F00B7A32D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				E05733342A24F61F00B7A32D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E05733652A2608B900B7A32D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E05733662A2608B900B7A32D /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
