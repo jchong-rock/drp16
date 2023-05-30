@@ -14,6 +14,8 @@
 
 @implementation AddFriendViewController
 
+@synthesize delegate;
+@synthesize nicknameTextLabel;
 @synthesize deviceIDHash;
 @synthesize nearbyDevicePicker;
 @synthesize nicknameField;
@@ -40,7 +42,13 @@
 - (IBAction) addButtonPressed:(id) sender {
     NSString * chosenDevice = [nearbyDevicesList objectAtIndex:
                                [nearbyDevicePicker selectedRowInComponent: 0]];
-    BOOL didAddSuccessfully = YES; // call method "addFriend" in FriendViewController
+    BOOL didAddSuccessfully = [delegate addFriend: chosenNickname withID: chosenDevice];
+    if (didAddSuccessfully) {
+        [self dismissViewControllerAnimated: YES completion: nil];
+    }
+    else {
+        nicknameTextLabel.text = @"Nickname already in use";
+    }
     NSLog(@"you chose %@ and typed %@", chosenDevice, chosenNickname);
 }
 

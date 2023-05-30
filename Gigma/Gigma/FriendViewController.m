@@ -20,12 +20,28 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     // change this to init instead of initWithObjects
-    friendButtonList = [[NSMutableArray alloc] initWithObjects:@"friend1", nil];
+    friendButtonList = [[NSMutableArray alloc] init];
     friends = [[NSMutableDictionary alloc] init];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *) segue sender:(id) sender {
-    
+    id destination = [segue destinationViewController];
+    if ([destination isKindOfClass: [AddFriendViewController class]]) {
+        ((AddFriendViewController *) destination).delegate = self;
+    }
+}
+
+- (BOOL) tableView:(UITableView *) tableView canEditRowAtIndexPath:(NSIndexPath *) indexPath {
+    return YES;
+}
+
+- (void) tableView:(UITableView *) tableView commitEditingStyle:(UITableViewCellEditingStyle) editingStyle forRowAtIndexPath:(NSIndexPath *) indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        id keyToRemove = [friendButtonList objectAtIndex: indexPath.row];
+        [friends removeObjectForKey: keyToRemove];
+        [friendButtonList removeObjectAtIndex: indexPath.row];
+        [buttonStack reloadData];
+    }
 }
 
 - (UITableViewCell *) tableView:(UITableView *) tableView cellForRowAtIndexPath:(nonnull NSIndexPath *) indexPath {
@@ -35,7 +51,6 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"FriendCellIdentifier"];
     }
-    
     cell.textLabel.text = [friendButtonList objectAtIndex: indexPath.row];
     return cell;
 }
@@ -49,9 +64,10 @@
 }
 
 - (BOOL) addFriend:(NSString *) name withID:(NSString *) uid {
-    if ([friends objectForKey: name] == nil) {
+    if (name != nil && [friends objectForKey: name] == nil) {
         [friends setObject: uid forKey: name];
         [friendButtonList addObject: name];
+        [buttonStack reloadData];
         return YES;
     }
     return NO;

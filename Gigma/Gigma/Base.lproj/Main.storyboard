@@ -110,8 +110,8 @@
                                     <outlet property="delegate" destination="6SL-4g-POU" id="p0b-sV-g5X"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xS8-uy-yon">
-                                <rect key="frame" x="157" y="125" width="76" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nickname" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xS8-uy-yon">
+                                <rect key="frame" x="40" y="125" width="310" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -134,13 +134,20 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ebl-tU-Mps">
-                                <rect key="frame" x="0.0" y="238" width="389" height="344"/>
+                                <rect key="frame" x="0.0" y="279" width="389" height="344"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="6SL-4g-POU" id="uPy-11-dFp"/>
                                     <outlet property="delegate" destination="6SL-4g-POU" id="kea-q2-Zsp"/>
                                 </connections>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bluetooth devices in range:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eb9-43-Pqc">
+                                <rect key="frame" x="92" y="250" width="207" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DTg-bB-0Id"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -149,6 +156,7 @@
                     <connections>
                         <outlet property="nearbyDevicePicker" destination="Ebl-tU-Mps" id="rxq-8E-aiL"/>
                         <outlet property="nicknameField" destination="RyC-D0-bFb" id="KMd-cd-7VB"/>
+                        <outlet property="nicknameTextLabel" destination="xS8-uy-yon" id="JzV-Wv-kSU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mC4-w8-Eg3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
