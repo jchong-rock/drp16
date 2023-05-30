@@ -6,6 +6,7 @@
 //
 
 #import "AddFriendViewController.h"
+#import "FriendViewController.h"
 
 @interface AddFriendViewController ()
 
@@ -21,7 +22,7 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    nearbyDevicesList = [[NSArray alloc] initWithObjects:@"friend1", @"friend2", nil];
+    nearbyDevicesList = [[NSMutableArray alloc] initWithObjects:@"device1", @"device2", nil];
 }
 
 - (NSInteger) numberOfComponentsInPickerView:(UIPickerView *) pickerView {
@@ -37,8 +38,9 @@
 }
 
 - (IBAction) addButtonPressed:(id) sender {
-    NSString * chosenDevice = [ nearbyDevicesList objectAtIndex:
-                               [nearbyDevicePicker selectedRowInComponent: 0] ];
+    NSString * chosenDevice = [nearbyDevicesList objectAtIndex:
+                               [nearbyDevicePicker selectedRowInComponent: 0]];
+    BOOL didAddSuccessfully = YES; // call method "addFriend" in FriendViewController
     NSLog(@"you chose %@ and typed %@", chosenDevice, chosenNickname);
 }
 

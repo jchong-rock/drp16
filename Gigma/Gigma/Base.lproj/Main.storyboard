@@ -27,7 +27,7 @@
         <!--Friends-->
         <scene sceneID="G1C-Ln-yuF">
             <objects>
-                <viewController title="Friends" id="9nV-TC-Sn8" sceneMemberID="viewController">
+                <viewController title="Friends" id="9nV-TC-Sn8" customClass="FriendViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jhO-fP-QIb">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,11 +47,46 @@
                                     <segue destination="6SL-4g-POU" kind="show" id="2nz-ma-8Z9"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="FcZ-uP-2of">
+                                <rect key="frame" x="16" y="141" width="358" height="594"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCellIdentifier" id="4kk-GC-KsE">
+                                        <rect key="frame" x="0.0" y="50" width="358" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4kk-GC-KsE" id="haf-DY-8RH">
+                                            <rect key="frame" x="0.0" y="0.0" width="358" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhs-Ik-rfZ" userLabel="Message">
+                                                    <rect key="frame" x="295" y="4" width="53" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="message" catalog="system"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MrE-UZ-pIu" userLabel="Locate">
+                                                    <rect key="frame" x="258" y="4" width="50" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="location.circle" catalog="system"/>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="9nV-TC-Sn8" id="N7x-8v-MG9"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nrQ-rE-QiS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Friends" image="person.2.circle" catalog="system" id="lhB-GA-JuB"/>
+                    <connections>
+                        <outlet property="buttonStack" destination="FcZ-uP-2of" id="55d-qF-Pxk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tcC-cv-8Vk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -99,7 +134,7 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ebl-tU-Mps">
-                                <rect key="frame" x="0.0" y="238" width="390" height="344"/>
+                                <rect key="frame" x="0.0" y="238" width="389" height="344"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="6SL-4g-POU" id="uPy-11-dFp"/>
@@ -189,7 +224,9 @@
     </scenes>
     <resources>
         <image name="creditcard" catalog="system" width="128" height="88"/>
+        <image name="location.circle" catalog="system" width="128" height="123"/>
         <image name="map" catalog="system" width="128" height="112"/>
+        <image name="message" catalog="system" width="128" height="116"/>
         <image name="message.fill" catalog="system" width="128" height="114"/>
         <image name="person.2.circle" catalog="system" width="128" height="123"/>
         <image name="plus" catalog="system" width="128" height="113"/>
