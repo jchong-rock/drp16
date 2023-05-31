@@ -12,7 +12,7 @@
         <!--Map-->
         <scene sceneID="97b-Fv-Rcg">
             <objects>
-                <viewController title="Map" id="0de-fE-ZB6" customClass="MapViewController" sceneMemberID="viewController">
+                <viewController title="Map" id="0de-fE-ZB6" customClass="MapViewController" customModule="Gigma" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2PX-6p-fIY">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -54,7 +54,6 @@
         <!--MapSettings-->
         <scene sceneID="Ws0-nW-h7N">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zLD-JU-8ru" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="Jzb-oo-lUV" userLabel="MapSettings" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jCm-ik-GBz">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
@@ -64,6 +63,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="lnD-8p-ITK"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zLD-JU-8ru" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="338" y="1007"/>
         </scene>
@@ -177,7 +177,7 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ebl-tU-Mps">
-                                <rect key="frame" x="0.0" y="279" width="389" height="344"/>
+                                <rect key="frame" x="0.0" y="279" width="388" height="344"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="6SL-4g-POU" id="uPy-11-dFp"/>
