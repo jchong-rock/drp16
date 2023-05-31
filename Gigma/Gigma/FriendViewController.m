@@ -12,7 +12,7 @@
 #import "Friend+CoreDataProperties.h"
 
 @interface FriendViewController () {
-    NSString * pathToFriendsList;
+    NSManagedObjectContext * managedObjectContext;
 }
 
 @end
@@ -25,19 +25,26 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     // change this to init instead of initWithObjects
-    pathToFriendsList = [[NSBundle mainBundle] pathForResource: @"FriendsList" ofType: @"plist"];
-    friendButtonList = [[NSMutableArray alloc] init];
-    friends = [[NSMutableDictionary alloc] initWithContentsOfFile: pathToFriendsList];
-    for (id key in friends) {
-        [friendButtonList addObject: key];
-    }
+    
+    AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    managedObjectContext = appDelegate.persistentContainer.viewContext;
 }
 
 - (void) viewWillAppear:(BOOL) animated {
-    [super viewWillAppear: <#animated#>];
-    AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext * managedObjectContext = appDelegate.managedObjectContext;
+    [super viewWillAppear: animated];
+    NSEntityDescription * entity = [NSEntityDescription entityForName: @"Friend" inManagedObjectContext: managedObjectContext];
+    NSFetchRequest * request = [[NSFetchRequest alloc] init];
+    [request setEntity: entity];
+    NSSortDescriptor * sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"friendName" ascending: YES];
+    NSArray * sortDescriptors = [[NSArray alloc] initWithObjects: sortDescriptor, nil];
+    [request setSortDescriptors: sortDescriptors];
     
+    NSError * error;
+    NSMutableArray * mutableFetchResults = [[managedObjectContext executeFetchRequest: request error: &error] mutableCopy];
+    if (mutableFetchResults == nil) {
+        NSLog(@"Failed to load Friends list");
+    }
+    friendButtonList = mutableFetchResults;
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *) segue sender:(id) sender {
@@ -45,7 +52,7 @@
     if ([destination isKindOfClass: [AddFriendViewController class]]) {
         ((AddFriendViewController *) destination).delegate = self;
     }
-    [friends writeToFile: pathToFriendsList atomically: YES];
+    //[friends writeToFile: pathToFriendsList atomically: YES];
     NSLog(@"written");
 }
 
@@ -55,21 +62,25 @@
 
 - (void) tableView:(UITableView *) tableView commitEditingStyle:(UITableViewCellEditingStyle) editingStyle forRowAtIndexPath:(NSIndexPath *) indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        id keyToRemove = [friendButtonList objectAtIndex: indexPath.row];
-        [friends removeObjectForKey: keyToRemove];
+        
+        NSLog(@"%@, %ld", ((Friend *)[friendButtonList objectAtIndex: indexPath.row]).friendName, (long) indexPath.row);
+        
+        [managedObjectContext deleteObject: [friendButtonList objectAtIndex: indexPath.row]];
         [friendButtonList removeObjectAtIndex: indexPath.row];
         [buttonStack reloadData];
+        NSError * error;
+        [managedObjectContext save: &error];
     }
 }
 
 - (UITableViewCell *) tableView:(UITableView *) tableView cellForRowAtIndexPath:(nonnull NSIndexPath *) indexPath {
-    
-    //static NSString * CellIdentifier = @"Cell";
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier: @"FriendCellIdentifier"];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"FriendCellIdentifier"];
     }
-    cell.textLabel.text = [friendButtonList objectAtIndex: indexPath.row];
+    
+    Friend * friend = [friendButtonList objectAtIndex: indexPath.row];
+    cell.textLabel.text = friend.friendName;
     return cell;
 }
 
@@ -82,10 +93,20 @@
 }
 
 - (BOOL) addFriend:(NSString *) name withID:(NSString *) uid {
-    if (name != nil && [friends objectForKey: name] == nil) {
-        [friends setObject: uid forKey: name];
-        [friendButtonList addObject: name];
+    for (Friend * f in friendButtonList) {
+        if (f.friendName == name) {
+            return NO;
+        }
+    }
+    
+    if (name != nil) {
+        Friend * friend = [NSEntityDescription insertNewObjectForEntityForName:@"Friend" inManagedObjectContext:managedObjectContext];
+        friend.friendName = name;
+        friend.deviceID = uid;
+        [friendButtonList addObject: friend];
         [buttonStack reloadData];
+        NSError * error;
+        [managedObjectContext save: &error];
         return YES;
     }
     return NO;

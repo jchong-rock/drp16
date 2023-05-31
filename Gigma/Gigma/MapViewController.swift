@@ -18,7 +18,7 @@ class MapViewController : UIViewController {
         mapView.delegate = self
         let config = MapCacheConfig(withUrlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
         let mapCache = MapCache(withConfig: config)
-        let coords = MKCoordinateRegion(center: CLLocationCoordinate2DMake(37.78275123, -122.40345442), latitudinalMeters: 200, longitudinalMeters: 200)
+        let coords = MKCoordinateRegion(center: CLLocationCoordinate2DMake(51.499043, -0.179375), latitudinalMeters: 200, longitudinalMeters: 200)
         mapView.setRegion(coords, animated: true)
         mapView.useCache(mapCache)
     }
