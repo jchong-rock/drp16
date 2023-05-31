@@ -17,7 +17,6 @@
     IBOutlet UITableView * buttonStack;
     NSMutableArray * friendButtonList;
     NSMutableDictionary * friends;
-    
 }
 
 @property (retain, nonatomic) UITableView * buttonStack;

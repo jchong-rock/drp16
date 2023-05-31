@@ -47,9 +47,9 @@
         [self dismissViewControllerAnimated: YES completion: nil];
     }
     else {
+        nicknameTextLabel.textColor = UIColor.redColor;
         nicknameTextLabel.text = @"Nickname already in use";
     }
-    NSLog(@"you chose %@ and typed %@", chosenDevice, chosenNickname);
 }
 
 - (IBAction) nicknameFieldDoneEditing:(id)sender {
@@ -59,15 +59,6 @@
 - (BOOL) textFieldShouldReturn:(UITextField *) textField {
     [self.view endEditing: YES];
     return NO;
-}
-
-- (void) dealloc {
-    [chosenNickname release];
-    [nicknameField release];
-    [deviceIDHash release];
-    [nearbyDevicePicker release];
-    [nearbyDevicesList release];
-    [super dealloc];
 }
 
 @end

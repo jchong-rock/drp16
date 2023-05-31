@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		E05733272A24F61C00B7A32D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E05733262A24F61C00B7A32D /* AppDelegate.m */; };
 		E057332A2A24F61C00B7A32D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E05733292A24F61C00B7A32D /* SceneDelegate.m */; };
-		E057332D2A24F61C00B7A32D /* AddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E057332C2A24F61C00B7A32D /* AddFriendViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E057332D2A24F61C00B7A32D /* AddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E057332C2A24F61C00B7A32D /* AddFriendViewController.m */; };
 		E05733322A24F61F00B7A32D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E05733312A24F61F00B7A32D /* Assets.xcassets */; };
 		E05733352A24F61F00B7A32D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E05733332A24F61F00B7A32D /* LaunchScreen.storyboard */; };
 		E05733382A24F61F00B7A32D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E05733372A24F61F00B7A32D /* main.m */; };
@@ -18,6 +18,10 @@
 		E057334E2A24F61F00B7A32D /* GigmaUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E057334D2A24F61F00B7A32D /* GigmaUITestsLaunchTests.m */; };
 		E05733612A2601A100B7A32D /* FriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E05733602A2601A100B7A32D /* FriendViewController.m */; };
 		E05733672A2608B900B7A32D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E05733652A2608B900B7A32D /* Main.storyboard */; };
+		E05733692A26A41F00B7A32D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E05733682A26A41F00B7A32D /* MapViewController.m */; };
+		E05733712A275B9D00B7A32D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E05733702A275B9D00B7A32D /* GoogleService-Info.plist */; };
+		E05733722A275B9D00B7A32D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E05733702A275B9D00B7A32D /* GoogleService-Info.plist */; };
+		E05733732A275B9D00B7A32D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E05733702A275B9D00B7A32D /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,9 @@
 		E05733602A2601A100B7A32D /* FriendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendViewController.m; sourceTree = "<group>"; };
 		E05733622A2601CB00B7A32D /* FriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendViewController.h; sourceTree = "<group>"; };
 		E05733662A2608B900B7A32D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E05733682A26A41F00B7A32D /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		E057336A2A26A44200B7A32D /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		E05733702A275B9D00B7A32D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,10 +122,13 @@
 				E057332C2A24F61C00B7A32D /* AddFriendViewController.m */,
 				E05733622A2601CB00B7A32D /* FriendViewController.h */,
 				E05733602A2601A100B7A32D /* FriendViewController.m */,
+				E057336A2A26A44200B7A32D /* MapViewController.h */,
+				E05733682A26A41F00B7A32D /* MapViewController.m */,
 				E05733312A24F61F00B7A32D /* Assets.xcassets */,
 				E05733652A2608B900B7A32D /* Main.storyboard */,
 				E05733332A24F61F00B7A32D /* LaunchScreen.storyboard */,
 				E05733362A24F61F00B7A32D /* Info.plist */,
+				E05733702A275B9D00B7A32D /* GoogleService-Info.plist */,
 				E05733372A24F61F00B7A32D /* main.m */,
 			);
 			path = Gigma;
@@ -245,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E05733672A2608B900B7A32D /* Main.storyboard in Resources */,
+				E05733712A275B9D00B7A32D /* GoogleService-Info.plist in Resources */,
 				E05733352A24F61F00B7A32D /* LaunchScreen.storyboard in Resources */,
 				E05733322A24F61F00B7A32D /* Assets.xcassets in Resources */,
 			);
@@ -254,6 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E05733722A275B9D00B7A32D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E05733732A275B9D00B7A32D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +287,7 @@
 				E057332D2A24F61C00B7A32D /* AddFriendViewController.m in Sources */,
 				E05733272A24F61C00B7A32D /* AppDelegate.m in Sources */,
 				E05733382A24F61F00B7A32D /* main.m in Sources */,
+				E05733692A26A41F00B7A32D /* MapViewController.m in Sources */,
 				E05733612A2601A100B7A32D /* FriendViewController.m in Sources */,
 				E057332A2A24F61C00B7A32D /* SceneDelegate.m in Sources */,
 			);
