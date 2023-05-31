@@ -1,0 +1,613 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E0472D272A27870600782EA0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E0472D262A27870600782EA0 /* AppDelegate.m */; };
+		E0472D2A2A27870600782EA0 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E0472D292A27870600782EA0 /* SceneDelegate.m */; };
+		E0472D2D2A27870600782EA0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0472D2C2A27870600782EA0 /* ViewController.m */; };
+		E0472D302A27870600782EA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0472D2E2A27870600782EA0 /* Main.storyboard */; };
+		E0472D332A27870600782EA0 /* GigmaModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E0472D312A27870600782EA0 /* GigmaModel.xcdatamodeld */; };
+		E0472D352A27870800782EA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0472D342A27870800782EA0 /* Assets.xcassets */; };
+		E0472D382A27870800782EA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0472D362A27870800782EA0 /* LaunchScreen.storyboard */; };
+		E0472D3B2A27870800782EA0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E0472D3A2A27870800782EA0 /* main.m */; };
+		E0472D452A27870800782EA0 /* GigmaModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E0472D442A27870800782EA0 /* GigmaModelTests.m */; };
+		E0472D4F2A27870800782EA0 /* GigmaModelUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E0472D4E2A27870800782EA0 /* GigmaModelUITests.m */; };
+		E0472D512A27870800782EA0 /* GigmaModelUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E0472D502A27870800782EA0 /* GigmaModelUITestsLaunchTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E0472D412A27870800782EA0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E0472D1A2A27870600782EA0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E0472D212A27870600782EA0;
+			remoteInfo = GigmaModel;
+		};
+		E0472D4B2A27870800782EA0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E0472D1A2A27870600782EA0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E0472D212A27870600782EA0;
+			remoteInfo = GigmaModel;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E0472D222A27870600782EA0 /* GigmaModel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GigmaModel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0472D252A27870600782EA0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E0472D262A27870600782EA0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E0472D282A27870600782EA0 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		E0472D292A27870600782EA0 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		E0472D2B2A27870600782EA0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E0472D2C2A27870600782EA0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E0472D2F2A27870600782EA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E0472D322A27870600782EA0 /* GigmaModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GigmaModel.xcdatamodel; sourceTree = "<group>"; };
+		E0472D342A27870800782EA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E0472D372A27870800782EA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E0472D392A27870800782EA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0472D3A2A27870800782EA0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E0472D402A27870800782EA0 /* GigmaModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GigmaModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0472D442A27870800782EA0 /* GigmaModelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GigmaModelTests.m; sourceTree = "<group>"; };
+		E0472D4A2A27870800782EA0 /* GigmaModelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GigmaModelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0472D4E2A27870800782EA0 /* GigmaModelUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GigmaModelUITests.m; sourceTree = "<group>"; };
+		E0472D502A27870800782EA0 /* GigmaModelUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GigmaModelUITestsLaunchTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E0472D1F2A27870600782EA0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0472D3D2A27870800782EA0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0472D472A27870800782EA0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E0472D192A27870600782EA0 = {
+			isa = PBXGroup;
+			children = (
+				E0472D242A27870600782EA0 /* GigmaModel */,
+				E0472D432A27870800782EA0 /* GigmaModelTests */,
+				E0472D4D2A27870800782EA0 /* GigmaModelUITests */,
+				E0472D232A27870600782EA0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E0472D232A27870600782EA0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E0472D222A27870600782EA0 /* GigmaModel.app */,
+				E0472D402A27870800782EA0 /* GigmaModelTests.xctest */,
+				E0472D4A2A27870800782EA0 /* GigmaModelUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E0472D242A27870600782EA0 /* GigmaModel */ = {
+			isa = PBXGroup;
+			children = (
+				E0472D252A27870600782EA0 /* AppDelegate.h */,
+				E0472D262A27870600782EA0 /* AppDelegate.m */,
+				E0472D282A27870600782EA0 /* SceneDelegate.h */,
+				E0472D292A27870600782EA0 /* SceneDelegate.m */,
+				E0472D2B2A27870600782EA0 /* ViewController.h */,
+				E0472D2C2A27870600782EA0 /* ViewController.m */,
+				E0472D2E2A27870600782EA0 /* Main.storyboard */,
+				E0472D342A27870800782EA0 /* Assets.xcassets */,
+				E0472D362A27870800782EA0 /* LaunchScreen.storyboard */,
+				E0472D392A27870800782EA0 /* Info.plist */,
+				E0472D3A2A27870800782EA0 /* main.m */,
+				E0472D312A27870600782EA0 /* GigmaModel.xcdatamodeld */,
+			);
+			path = GigmaModel;
+			sourceTree = "<group>";
+		};
+		E0472D432A27870800782EA0 /* GigmaModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				E0472D442A27870800782EA0 /* GigmaModelTests.m */,
+			);
+			path = GigmaModelTests;
+			sourceTree = "<group>";
+		};
+		E0472D4D2A27870800782EA0 /* GigmaModelUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E0472D4E2A27870800782EA0 /* GigmaModelUITests.m */,
+				E0472D502A27870800782EA0 /* GigmaModelUITestsLaunchTests.m */,
+			);
+			path = GigmaModelUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E0472D212A27870600782EA0 /* GigmaModel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E0472D542A27870800782EA0 /* Build configuration list for PBXNativeTarget "GigmaModel" */;
+			buildPhases = (
+				E0472D1E2A27870600782EA0 /* Sources */,
+				E0472D1F2A27870600782EA0 /* Frameworks */,
+				E0472D202A27870600782EA0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GigmaModel;
+			productName = GigmaModel;
+			productReference = E0472D222A27870600782EA0 /* GigmaModel.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E0472D3F2A27870800782EA0 /* GigmaModelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E0472D572A27870800782EA0 /* Build configuration list for PBXNativeTarget "GigmaModelTests" */;
+			buildPhases = (
+				E0472D3C2A27870800782EA0 /* Sources */,
+				E0472D3D2A27870800782EA0 /* Frameworks */,
+				E0472D3E2A27870800782EA0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E0472D422A27870800782EA0 /* PBXTargetDependency */,
+			);
+			name = GigmaModelTests;
+			productName = GigmaModelTests;
+			productReference = E0472D402A27870800782EA0 /* GigmaModelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E0472D492A27870800782EA0 /* GigmaModelUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E0472D5A2A27870800782EA0 /* Build configuration list for PBXNativeTarget "GigmaModelUITests" */;
+			buildPhases = (
+				E0472D462A27870800782EA0 /* Sources */,
+				E0472D472A27870800782EA0 /* Frameworks */,
+				E0472D482A27870800782EA0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E0472D4C2A27870800782EA0 /* PBXTargetDependency */,
+			);
+			name = GigmaModelUITests;
+			productName = GigmaModelUITests;
+			productReference = E0472D4A2A27870800782EA0 /* GigmaModelUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E0472D1A2A27870600782EA0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					E0472D212A27870600782EA0 = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
+					E0472D3F2A27870800782EA0 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = E0472D212A27870600782EA0;
+					};
+					E0472D492A27870800782EA0 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = E0472D212A27870600782EA0;
+					};
+				};
+			};
+			buildConfigurationList = E0472D1D2A27870600782EA0 /* Build configuration list for PBXProject "GigmaModel" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E0472D192A27870600782EA0;
+			productRefGroup = E0472D232A27870600782EA0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E0472D212A27870600782EA0 /* GigmaModel */,
+				E0472D3F2A27870800782EA0 /* GigmaModelTests */,
+				E0472D492A27870800782EA0 /* GigmaModelUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E0472D202A27870600782EA0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0472D382A27870800782EA0 /* LaunchScreen.storyboard in Resources */,
+				E0472D352A27870800782EA0 /* Assets.xcassets in Resources */,
+				E0472D302A27870600782EA0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0472D3E2A27870800782EA0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0472D482A27870800782EA0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E0472D1E2A27870600782EA0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0472D3B2A27870800782EA0 /* main.m in Sources */,
+				E0472D2D2A27870600782EA0 /* ViewController.m in Sources */,
+				E0472D332A27870600782EA0 /* GigmaModel.xcdatamodeld in Sources */,
+				E0472D272A27870600782EA0 /* AppDelegate.m in Sources */,
+				E0472D2A2A27870600782EA0 /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0472D3C2A27870800782EA0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0472D452A27870800782EA0 /* GigmaModelTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0472D462A27870800782EA0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0472D512A27870800782EA0 /* GigmaModelUITestsLaunchTests.m in Sources */,
+				E0472D4F2A27870800782EA0 /* GigmaModelUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E0472D422A27870800782EA0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E0472D212A27870600782EA0 /* GigmaModel */;
+			targetProxy = E0472D412A27870800782EA0 /* PBXContainerItemProxy */;
+		};
+		E0472D4C2A27870800782EA0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E0472D212A27870600782EA0 /* GigmaModel */;
+			targetProxy = E0472D4B2A27870800782EA0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E0472D2E2A27870600782EA0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E0472D2F2A27870600782EA0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E0472D362A27870800782EA0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E0472D372A27870800782EA0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E0472D522A27870800782EA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E0472D532A27870800782EA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E0472D552A27870800782EA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GigmaModel/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = DRP.GigmaModel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E0472D562A27870800782EA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GigmaModel/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = DRP.GigmaModel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E0472D582A27870800782EA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = DRP.GigmaModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GigmaModel.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GigmaModel";
+			};
+			name = Debug;
+		};
+		E0472D592A27870800782EA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = DRP.GigmaModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GigmaModel.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GigmaModel";
+			};
+			name = Release;
+		};
+		E0472D5B2A27870800782EA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = DRP.GigmaModelUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GigmaModel;
+			};
+			name = Debug;
+		};
+		E0472D5C2A27870800782EA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = DRP.GigmaModelUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GigmaModel;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E0472D1D2A27870600782EA0 /* Build configuration list for PBXProject "GigmaModel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0472D522A27870800782EA0 /* Debug */,
+				E0472D532A27870800782EA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E0472D542A27870800782EA0 /* Build configuration list for PBXNativeTarget "GigmaModel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0472D552A27870800782EA0 /* Debug */,
+				E0472D562A27870800782EA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E0472D572A27870800782EA0 /* Build configuration list for PBXNativeTarget "GigmaModelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0472D582A27870800782EA0 /* Debug */,
+				E0472D592A27870800782EA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E0472D5A2A27870800782EA0 /* Build configuration list for PBXNativeTarget "GigmaModelUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0472D5B2A27870800782EA0 /* Debug */,
+				E0472D5C2A27870800782EA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E0472D312A27870600782EA0 /* GigmaModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E0472D322A27870600782EA0 /* GigmaModel.xcdatamodel */,
+			);
+			currentVersion = E0472D322A27870600782EA0 /* GigmaModel.xcdatamodel */;
+			path = GigmaModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E0472D1A2A27870600782EA0 /* Project object */;
+}

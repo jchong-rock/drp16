@@ -1,0 +1,6 @@
+framework module Pods_Gigma {
+  umbrella header "Pods-Gigma-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -11,6 +11,8 @@
 		A523707B6191CFEB6328E345 /* Pods_GigmaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3E0DA8260CB815B3922D04 /* Pods_GigmaTests.framework */; };
 		A5DD1D030C1CE129E1B5200A /* Pods_Gigma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D143A8E7E729429E511BFD7 /* Pods_Gigma.framework */; };
 		E0472C812A27687B00782EA0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0472C802A27687B00782EA0 /* MapViewController.swift */; };
+		E0472C8A2A27787400782EA0 /* GigmaModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E0472C882A27787400782EA0 /* GigmaModel.xcdatamodeld */; };
+		E0472C902A2782FF00782EA0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0472C8F2A2782FF00782EA0 /* MainViewController.m */; };
 		E05733272A24F61C00B7A32D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E05733262A24F61C00B7A32D /* AppDelegate.m */; };
 		E057332A2A24F61C00B7A32D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E05733292A24F61C00B7A32D /* SceneDelegate.m */; };
 		E057332D2A24F61C00B7A32D /* AddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E057332C2A24F61C00B7A32D /* AddFriendViewController.m */; };
@@ -56,6 +58,9 @@
 		DE3E0DA8260CB815B3922D04 /* Pods_GigmaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GigmaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0472C7F2A27687A00782EA0 /* Gigma-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gigma-Bridging-Header.h"; sourceTree = "<group>"; };
 		E0472C802A27687B00782EA0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		E0472C892A27787400782EA0 /* GigmaModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GigmaModel.xcdatamodel; sourceTree = "<group>"; };
+		E0472C8E2A2782DE00782EA0 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		E0472C8F2A2782FF00782EA0 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		E05733222A24F61C00B7A32D /* Gigma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gigma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E05733252A24F61C00B7A32D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E05733262A24F61C00B7A32D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -149,6 +154,8 @@
 				E057332C2A24F61C00B7A32D /* AddFriendViewController.m */,
 				E05733622A2601CB00B7A32D /* FriendViewController.h */,
 				E05733602A2601A100B7A32D /* FriendViewController.m */,
+				E0472C8E2A2782DE00782EA0 /* MainViewController.h */,
+				E0472C8F2A2782FF00782EA0 /* MainViewController.m */,
 				E0472C802A27687B00782EA0 /* MapViewController.swift */,
 				E05733312A24F61F00B7A32D /* Assets.xcassets */,
 				E05733652A2608B900B7A32D /* Main.storyboard */,
@@ -157,6 +164,7 @@
 				E05733702A275B9D00B7A32D /* GoogleService-Info.plist */,
 				E05733372A24F61F00B7A32D /* main.m */,
 				E0472C7F2A27687A00782EA0 /* Gigma-Bridging-Header.h */,
+				E0472C882A27787400782EA0 /* GigmaModel.xcdatamodeld */,
 			);
 			path = Gigma;
 			sourceTree = "<group>";
@@ -436,6 +444,8 @@
 				E057332D2A24F61C00B7A32D /* AddFriendViewController.m in Sources */,
 				E05733272A24F61C00B7A32D /* AppDelegate.m in Sources */,
 				E05733382A24F61F00B7A32D /* main.m in Sources */,
+				E0472C902A2782FF00782EA0 /* MainViewController.m in Sources */,
+				E0472C8A2A27787400782EA0 /* GigmaModel.xcdatamodeld in Sources */,
 				E05733612A2601A100B7A32D /* FriendViewController.m in Sources */,
 				E057332A2A24F61C00B7A32D /* SceneDelegate.m in Sources */,
 				E0472C812A27687B00782EA0 /* MapViewController.swift in Sources */,
@@ -777,6 +787,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E0472C882A27787400782EA0 /* GigmaModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E0472C892A27787400782EA0 /* GigmaModel.xcdatamodel */,
+			);
+			currentVersion = E0472C892A27787400782EA0 /* GigmaModel.xcdatamodel */;
+			path = GigmaModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E057331A2A24F61C00B7A32D /* Project object */;
 }

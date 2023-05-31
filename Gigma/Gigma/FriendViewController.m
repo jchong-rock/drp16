@@ -7,8 +7,13 @@
 
 #import "FriendViewController.h"
 #import "AddFriendViewController.h"
+#import "Friend+CoreDataProperties.h"
+#import "AppDelegate.h"
+#import "Friend+CoreDataProperties.h"
 
-@interface FriendViewController ()
+@interface FriendViewController () {
+    NSString * pathToFriendsList;
+}
 
 @end
 
@@ -20,8 +25,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     // change this to init instead of initWithObjects
+    pathToFriendsList = [[NSBundle mainBundle] pathForResource: @"FriendsList" ofType: @"plist"];
     friendButtonList = [[NSMutableArray alloc] init];
-    friends = [[NSMutableDictionary alloc] init];
+    friends = [[NSMutableDictionary alloc] initWithContentsOfFile: pathToFriendsList];
+    for (id key in friends) {
+        [friendButtonList addObject: key];
+    }
+}
+
+- (void) viewWillAppear:(BOOL) animated {
+    [super viewWillAppear: <#animated#>];
+    AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext * managedObjectContext = appDelegate.managedObjectContext;
+    
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *) segue sender:(id) sender {
@@ -29,6 +45,8 @@
     if ([destination isKindOfClass: [AddFriendViewController class]]) {
         ((AddFriendViewController *) destination).delegate = self;
     }
+    [friends writeToFile: pathToFriendsList atomically: YES];
+    NSLog(@"written");
 }
 
 - (BOOL) tableView:(UITableView *) tableView canEditRowAtIndexPath:(NSIndexPath *) indexPath {

@@ -1,0 +1,6 @@
+framework module Pods_GigmaTests {
+  umbrella header "Pods-GigmaTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
