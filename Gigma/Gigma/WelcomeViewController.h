@@ -7,6 +7,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainViewController : UITabBarController
+@interface WelcomeViewController : UIViewController
+
+- (IBAction) continueButtonPressed:(id) sender;
 
 @end

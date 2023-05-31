@@ -168,7 +168,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BsV-ED-DYm">
-                                <rect key="frame" x="140" y="641" width="111" height="44"/>
+                                <rect key="frame" x="16" y="631" width="358" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Add"/>
@@ -177,7 +177,7 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ebl-tU-Mps">
-                                <rect key="frame" x="0.0" y="279" width="388" height="344"/>
+                                <rect key="frame" x="-1" y="279" width="388" height="344"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="6SL-4g-POU" id="uPy-11-dFp"/>
@@ -236,17 +236,17 @@
             </objects>
             <point key="canvasLocation" x="-458" y="-798"/>
         </scene>
-        <!--Tickets-->
+        <!--Info-->
         <scene sceneID="8ds-tm-GOh">
             <objects>
-                <viewController title="Tickets" id="Vip-uw-9vP" sceneMemberID="viewController">
+                <viewController title="Tickets" id="Vip-uw-9vP" userLabel="Info" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kJ5-42-Opc">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="PPd-i7-bRp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Tickets" image="creditcard" catalog="system" id="stc-Ug-qS7"/>
+                    <tabBarItem key="tabBarItem" title="Info" image="info.circle" catalog="system" id="stc-Ug-qS7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3e8-6C-EF9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -292,6 +292,7 @@
         <scene sceneID="nAa-Bm-9VV">
             <objects>
                 <tabBarController title="MainView" id="g0P-qa-hzP" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="eNm-fe-FiZ"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="D5V-x2-nQR">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -311,8 +312,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="creditcard" catalog="system" width="128" height="88"/>
         <image name="gearshape" catalog="system" width="128" height="123"/>
+        <image name="info.circle" catalog="system" width="128" height="123"/>
         <image name="location.circle" catalog="system" width="128" height="123"/>
         <image name="map" catalog="system" width="128" height="112"/>
         <image name="message" catalog="system" width="128" height="116"/>
