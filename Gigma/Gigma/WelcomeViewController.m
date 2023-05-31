@@ -13,8 +13,8 @@
 
 @implementation WelcomeViewController
 
-- (void) viewDidLoad {
-    [super viewDidLoad];
+- (void) viewDidAppear:(BOOL) animated {
+    [super viewDidAppear: animated];
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSInteger festivalIsSet = [prefs integerForKey: @"FestivalIsSet"];
     if (festivalIsSet == 1) {
