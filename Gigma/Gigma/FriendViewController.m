@@ -52,8 +52,6 @@
     if ([destination isKindOfClass: [AddFriendViewController class]]) {
         ((AddFriendViewController *) destination).delegate = self;
     }
-    //[friends writeToFile: pathToFriendsList atomically: YES];
-    NSLog(@"written");
 }
 
 - (BOOL) tableView:(UITableView *) tableView canEditRowAtIndexPath:(NSIndexPath *) indexPath {
@@ -100,7 +98,7 @@
     }
     
     if (name != nil) {
-        Friend * friend = [NSEntityDescription insertNewObjectForEntityForName:@"Friend" inManagedObjectContext:managedObjectContext];
+        Friend * friend = [NSEntityDescription insertNewObjectForEntityForName: @"Friend" inManagedObjectContext:managedObjectContext];
         friend.friendName = name;
         friend.deviceID = uid;
         [friendButtonList addObject: friend];

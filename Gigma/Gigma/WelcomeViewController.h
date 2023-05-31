@@ -6,8 +6,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Gigma-Swift.h"
 
-@interface WelcomeViewController : UIViewController
+@interface WelcomeViewController : UIViewController {
+    IBOutlet UITableView * buttonStack;
+}
+
+@property (retain, nonatomic) UITableView * buttonStack;
+@property NSArray * festivalButtonList;
+@property NSObject <DataBaseDownloader> * data;
 
 - (IBAction) continueButtonPressed:(id) sender;
 

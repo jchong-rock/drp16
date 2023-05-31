@@ -239,7 +239,7 @@
         <!--Info-->
         <scene sceneID="8ds-tm-GOh">
             <objects>
-                <viewController title="Tickets" id="Vip-uw-9vP" userLabel="Info" sceneMemberID="viewController">
+                <viewController title="Tickets" id="Vip-uw-9vP" userLabel="Info" customClass="FestivalViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kJ5-42-Opc">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -253,8 +253,8 @@
                                     <segue destination="NzZ-1b-hSC" kind="show" id="0W4-Dk-V5Q"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Unknown Festival" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBx-yI-i2F">
-                                <rect key="frame" x="16" y="67" width="280" height="45"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="                                      " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBx-yI-i2F">
+                                <rect key="frame" x="16" y="67" width="303" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="37"/>
                                 <nil key="textColor"/>
@@ -265,6 +265,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Info" image="info.circle" catalog="system" id="stc-Ug-qS7"/>
+                    <connections>
+                        <outlet property="titleLabel" destination="lBx-yI-i2F" id="jBo-PY-sPC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3e8-6C-EF9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

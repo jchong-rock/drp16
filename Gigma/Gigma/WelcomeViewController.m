@@ -6,12 +6,17 @@
 //
 
 #import "WelcomeViewController.h"
+#import "FestivalSelectionCell.h"
 
 @interface WelcomeViewController ()
 
 @end
 
 @implementation WelcomeViewController
+
+@synthesize buttonStack;
+@synthesize festivalButtonList;
+@synthesize data;
 
 - (void) viewDidAppear:(BOOL) animated {
     [super viewDidAppear: animated];
@@ -20,17 +25,41 @@
     if (festivalIsSet != nil) {
         [self performSegueWithIdentifier: @"goToMain" sender: self];
     }
+    // change to use real data
+    data = [[FakeData alloc] init];
+    festivalButtonList = [data getFestivals];
+    [buttonStack reloadData];
+}
+
+- (UITableViewCell *) tableView:(UITableView *) tableView cellForRowAtIndexPath:(nonnull NSIndexPath *) indexPath {
+    
+    FestivalSelectionCell * cell = [tableView dequeueReusableCellWithIdentifier: @"WelcomeCellIdentifier"];
+    if (cell == nil) {
+        cell = [[FestivalSelectionCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"WelcomeCellIdentifier"];
+    }
+
+    [cell.button setTitle: [festivalButtonList objectAtIndex: indexPath.row] forState: UIControlStateNormal];
+    return cell;
+}
+
+- (NSInteger) numberOfSectionsInTableView:(UITableView *) tableView {
+    return 1;
+}
+
+- (NSInteger) tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger) section {
+    return [festivalButtonList count];
 }
 
 - (IBAction) continueButtonPressed:(id) sender {
+    UIButton * cell = (UIButton *) sender;
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    [prefs setObject: @"FEST_NAME" forKey: @"FestivalIsSet"];
+    [prefs setObject: cell.titleLabel.text forKey: @"FestivalIsSet"];
     [self performSegueWithIdentifier: @"goToMain" sender: self];
 }
 
 - (IBAction) notListedButtonPressed:(id) sender {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    [prefs setObject: @"NULL_FESTIVAL" forKey: @"FestivalIsSet"];
+    [prefs setObject: @"Unknown Festival" forKey: @"FestivalIsSet"];
     [self performSegueWithIdentifier: @"goToMain" sender: self];
 }
 
