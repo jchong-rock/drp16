@@ -16,24 +16,22 @@
 - (void) viewDidAppear:(BOOL) animated {
     [super viewDidAppear: animated];
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    NSInteger festivalIsSet = [prefs integerForKey: @"FestivalIsSet"];
-    if (festivalIsSet == 1) {
+    NSString * festivalIsSet = [prefs stringForKey: @"FestivalIsSet"];
+    if (festivalIsSet != nil) {
         [self performSegueWithIdentifier: @"goToMain" sender: self];
     }
 }
 
 - (IBAction) continueButtonPressed:(id) sender {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    [prefs setInteger: 1 forKey: @"FestivalIsSet"];
+    [prefs setObject: @"FEST_NAME" forKey: @"FestivalIsSet"];
     [self performSegueWithIdentifier: @"goToMain" sender: self];
 }
 
-/*
-- (void) prepareForSegue:(UIStoryboardSegue *) segue sender:(id) sender {
-    if (segue.identifier == @"goToMain") {
-        
-    }
+- (IBAction) notListedButtonPressed:(id) sender {
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    [prefs setObject: @"NULL_FESTIVAL" forKey: @"FestivalIsSet"];
+    [self performSegueWithIdentifier: @"goToMain" sender: self];
 }
- */
 
 @end

@@ -15,6 +15,7 @@
 		E0472C902A2782FF00782EA0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0472C8F2A2782FF00782EA0 /* MainViewController.m */; };
 		E0472D5F2A279C8800782EA0 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0472D5E2A279C8800782EA0 /* WelcomeViewController.m */; };
 		E0472D612A27A78F00782EA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0472D602A27A78F00782EA0 /* Main.storyboard */; };
+		E0549B122A27D8A60002A8D4 /* FestivalSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0549B112A27D8A60002A8D4 /* FestivalSettingsViewController.m */; };
 		E05733272A24F61C00B7A32D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E05733262A24F61C00B7A32D /* AppDelegate.m */; };
 		E057332A2A24F61C00B7A32D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E05733292A24F61C00B7A32D /* SceneDelegate.m */; };
 		E057332D2A24F61C00B7A32D /* AddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E057332C2A24F61C00B7A32D /* AddFriendViewController.m */; };
@@ -66,6 +67,8 @@
 		E0472D5D2A279C8400782EA0 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		E0472D5E2A279C8800782EA0 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		E0472D602A27A78F00782EA0 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		E0549B112A27D8A60002A8D4 /* FestivalSettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FestivalSettingsViewController.m; sourceTree = "<group>"; };
+		E0549B132A27D9280002A8D4 /* FestivalSettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FestivalSettingsViewController.h; sourceTree = "<group>"; };
 		E05733222A24F61C00B7A32D /* Gigma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gigma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E05733252A24F61C00B7A32D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E05733262A24F61C00B7A32D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -163,6 +166,8 @@
 				E05733602A2601A100B7A32D /* FriendViewController.m */,
 				E0472C8E2A2782DE00782EA0 /* MainViewController.h */,
 				E0472C8F2A2782FF00782EA0 /* MainViewController.m */,
+				E0549B132A27D9280002A8D4 /* FestivalSettingsViewController.h */,
+				E0549B112A27D8A60002A8D4 /* FestivalSettingsViewController.m */,
 				E0472C802A27687B00782EA0 /* MapViewController.swift */,
 				E05733312A24F61F00B7A32D /* Assets.xcassets */,
 				E05733652A2608B900B7A32D /* AfterMain.storyboard */,
@@ -452,6 +457,7 @@
 			files = (
 				E057332D2A24F61C00B7A32D /* AddFriendViewController.m in Sources */,
 				E05733272A24F61C00B7A32D /* AppDelegate.m in Sources */,
+				E0549B122A27D8A60002A8D4 /* FestivalSettingsViewController.m in Sources */,
 				E0472D5F2A279C8800782EA0 /* WelcomeViewController.m in Sources */,
 				E05733382A24F61F00B7A32D /* main.m in Sources */,
 				E0472C902A2782FF00782EA0 /* MainViewController.m in Sources */,
