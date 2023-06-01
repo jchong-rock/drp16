@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B6E4327951A6DF390BB2E3239D6AF706"
-               BuildableName = "Pods_GigmaTests.framework"
-               BlueprintName = "Pods-GigmaTests"
+               BlueprintIdentifier = "89EF1085245EA10FA431ECBE3E002988"
+               BuildableName = "NSDate_Utils.framework"
+               BlueprintName = "NSDate_Utils"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

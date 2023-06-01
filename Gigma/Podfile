@@ -7,6 +7,7 @@ target 'Gigma' do
 
   # Pods for Gigma
   pod 'MapCache'
+  pod 'NSDate_Utils'
 
   target 'GigmaTests' do
     inherit! :search_paths

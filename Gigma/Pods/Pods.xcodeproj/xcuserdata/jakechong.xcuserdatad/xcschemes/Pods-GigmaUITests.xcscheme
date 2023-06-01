@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1300"
+   LastUpgradeVersion = "1400"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8FB94F38E7119E57E2D6CD0DFEB545AE"
-               BuildableName = "Pods_Gigma_GigmaUITests.framework"
-               BlueprintName = "Pods-Gigma-GigmaUITests"
+               BlueprintIdentifier = "9ED43C24EC68AF2CBD5BA63EC1719F49"
+               BuildableName = "Pods_GigmaUITests.framework"
+               BlueprintName = "Pods-GigmaUITests"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

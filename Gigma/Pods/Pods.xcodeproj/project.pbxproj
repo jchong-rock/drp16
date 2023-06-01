@@ -7,142 +7,171 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04045ADDDE33C8FBEF7F639EDC67BD4B /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17E64B07662C13DE8B0DEBB48188CDE /* Log.swift */; };
-		0518381C5AB5734100ED0A87AA7CC523 /* MKMapView+MapCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEF4CDF890EAE9F8ADEA7BBE1DAA29F /* MKMapView+MapCache.swift */; };
-		10FF98DF1CDD88D2425A8685D0922E80 /* Pods-GigmaTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3EC1DD33DB0C973A2E87F7CF3D956E /* Pods-GigmaTests-dummy.m */; };
-		11BBF2CB22F3566D4592C8D5FEC2D268 /* ZoomableTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9595E6CCE9915B4E1784C4486D48305 /* ZoomableTile.swift */; };
-		25E207F3B9056918575BF5718DB2DD32 /* CachedTileOverlayRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223D4CFB9F335B2E8126399A729BD01B /* CachedTileOverlayRenderer.swift */; };
-		3DBA3EA4655853D7FB71B27413151BBD /* Pods-GigmaTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 54F7BEAA745F9749C8D3066E751B0DCD /* Pods-GigmaTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3E95FD372BA504F75004CDC7603C7E48 /* MapCache-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 565431DDE33325CCA61DA63DE073DC83 /* MapCache-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		40F5C7CE3B9576B54CE9969E373BD9BD /* String+DiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FA4F6E81EF8DC5ADB02D8EA4E14DFD /* String+DiskCache.swift */; };
-		41D286726AFB778287E25FE5701B5EEC /* MapCacheConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24278023A5EFBBF02FD3340DD07F4FA9 /* MapCacheConfig.swift */; };
-		44AF99E1D26C0FE56B1BABBE3705D7EA /* MapCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE1F35D302C6A0A6F7A831007048780 /* MapCache.swift */; };
-		4C92838061B85EC9052E93599F7FA8A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6655F3F11729A4FED833C54E9BE61B08 /* Foundation.framework */; };
-		4EF548F25C39C01DD8E64908F65CA599 /* TileRangeIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B29050DDCCA343B7C12E69E3CA60B7E /* TileRangeIterator.swift */; };
-		5DAE8544E2EDD5B307E8577E850619E3 /* RegionDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9AB5A21B63E37E134437348610D90 /* RegionDownloader.swift */; };
-		623740920CC40BBE7731D1AAFE739481 /* CachedTileOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C91E44EEEC7E84C9C30650125E3906 /* CachedTileOverlay.swift */; };
-		6751239A1CDA44A807F36741BE543C6D /* MapCacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355C5AD6008EB27E8B59A533E4990F2A /* MapCacheProtocol.swift */; };
-		6B5ED04DC3BD8D7CAFB4EE2C4875DFFB /* FileManager+DiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E624084BC30F8F324268C8CDF42993 /* FileManager+DiskCache.swift */; };
-		761F6D92C2CD69C9CC399ACBDDA1DEB5 /* MapCache-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F983AE1C862AD10C4790D21F5328D507 /* MapCache-dummy.m */; };
-		79DCC2BEE24FDC48768DC79ED362C0C3 /* TileCoordsRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1FA03823056D8C9586BEE627604B4F /* TileCoordsRegion.swift */; };
-		7CE46D6AAAA503B88BB94B28558D57D1 /* MKZoomScale+MapCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92043646FA41BBE2EA8E52A0D764258A /* MKZoomScale+MapCache.swift */; };
-		801982942ED100324A890710AA8F5E4B /* Pods-Gigma-GigmaUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B1FD2FAB5185B58B568903D5F073AEF2 /* Pods-Gigma-GigmaUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		85E654AD0BF8AF002B5A9B6F60197248 /* ZoomRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73015691EA80404A464C37F64226EBA6 /* ZoomRange.swift */; };
-		937BAA5E77476A6BCAB90AE709727B04 /* LoadTileMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF68E4D2A63F12634756F5809C6A34A /* LoadTileMode.swift */; };
+		000B4BB95DCECDE1D98C3C82E6BAC5B6 /* NSDate+NSDate_Util.m in Sources */ = {isa = PBXBuildFile; fileRef = FB23B905A6DA15DDE3A6497F75DDFB23 /* NSDate+NSDate_Util.m */; };
+		04045ADDDE33C8FBEF7F639EDC67BD4B /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7D9C81A5CA3F81FC1F31BE4D92CFE /* Log.swift */; };
+		0518381C5AB5734100ED0A87AA7CC523 /* MKMapView+MapCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DB3FEAD2CEF233FA9B5B5B097F131 /* MKMapView+MapCache.swift */; };
+		10FF98DF1CDD88D2425A8685D0922E80 /* Pods-GigmaTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A7010468068DE363523C919175B7C3EA /* Pods-GigmaTests-dummy.m */; };
+		11BBF2CB22F3566D4592C8D5FEC2D268 /* ZoomableTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B6B277F77919488CD6247DFBBDAAF /* ZoomableTile.swift */; };
+		1F07F4855665DED7035FF5DCD11E882C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6655F3F11729A4FED833C54E9BE61B08 /* Foundation.framework */; };
+		25E207F3B9056918575BF5718DB2DD32 /* CachedTileOverlayRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792B65B255F345C03E00F08E78D90BFD /* CachedTileOverlayRenderer.swift */; };
+		2D77529869B370AC2EA02502E1C46D37 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6655F3F11729A4FED833C54E9BE61B08 /* Foundation.framework */; };
+		33E677336DEC90B613F9DE548AB92ABB /* NSDate+NSDate_Util.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0DC04B5F77E1464AC5C5A292A7E4CB /* NSDate+NSDate_Util.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3835342FB086AA1B9441C6C4C5FA796E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6655F3F11729A4FED833C54E9BE61B08 /* Foundation.framework */; };
+		3DBA3EA4655853D7FB71B27413151BBD /* Pods-GigmaTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 45AAE020CFAA14A04D8818EC244A2B35 /* Pods-GigmaTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3E95FD372BA504F75004CDC7603C7E48 /* MapCache-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DFE59B1C039BDD7117D12EE384D750F /* MapCache-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		407A76AF5BCA880EEAFD500D00E189D5 /* Pods-Gigma-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B273DAD534FF5C41626ECBFD10C24EE7 /* Pods-Gigma-dummy.m */; };
+		40F5C7CE3B9576B54CE9969E373BD9BD /* String+DiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875B94A0CA7CD3AD785E33ACBA61E7F4 /* String+DiskCache.swift */; };
+		41D286726AFB778287E25FE5701B5EEC /* MapCacheConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FAB84AF67CFE323B3E9CADAF3194B7 /* MapCacheConfig.swift */; };
+		44AF99E1D26C0FE56B1BABBE3705D7EA /* MapCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587860D30D0BD70B806A904880F6099A /* MapCache.swift */; };
+		4EF548F25C39C01DD8E64908F65CA599 /* TileRangeIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB78C5B7231D0F88E927A7FDED8C7258 /* TileRangeIterator.swift */; };
+		57F41FFDFF462D1521709BA2C30ADF0E /* Pods-GigmaUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5F28628D56353036B4EC3992E26691 /* Pods-GigmaUITests-dummy.m */; };
+		5DAE8544E2EDD5B307E8577E850619E3 /* RegionDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275C613252BE6F0D8E7C9970A1C5823F /* RegionDownloader.swift */; };
+		623740920CC40BBE7731D1AAFE739481 /* CachedTileOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B004BAB68E3B4A7653ED6C616E5C363A /* CachedTileOverlay.swift */; };
+		6751239A1CDA44A807F36741BE543C6D /* MapCacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05C9AF971B1D4DB5D198E4AF43D7DD5 /* MapCacheProtocol.swift */; };
+		6B5ED04DC3BD8D7CAFB4EE2C4875DFFB /* FileManager+DiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5763319DE45205BFEF1412E54546B5 /* FileManager+DiskCache.swift */; };
+		761F6D92C2CD69C9CC399ACBDDA1DEB5 /* MapCache-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6A9EBF6E20E975737F2421A5CDF661 /* MapCache-dummy.m */; };
+		79DCC2BEE24FDC48768DC79ED362C0C3 /* TileCoordsRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF03F9967BF272B44BB67C919013C3 /* TileCoordsRegion.swift */; };
+		7CE46D6AAAA503B88BB94B28558D57D1 /* MKZoomScale+MapCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D48000AFE4BCB64F38217C1E9739FD0 /* MKZoomScale+MapCache.swift */; };
+		85E654AD0BF8AF002B5A9B6F60197248 /* ZoomRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508725DFD82ABE2548205557FC62134F /* ZoomRange.swift */; };
+		937BAA5E77476A6BCAB90AE709727B04 /* LoadTileMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574AC94EFEF82F2EA09BFE5A2EF63B5E /* LoadTileMode.swift */; };
 		A2D0C5B280E43460625BC6EAFC8AA0FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6655F3F11729A4FED833C54E9BE61B08 /* Foundation.framework */; };
-		AE12CE10146A319743EC6C4C7D43614C /* URL+DiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D10DBAC358DC907C9A47A1F9F161D7A /* URL+DiskCache.swift */; };
-		AE2D9B8691F919EBF211A0AE9667F4C9 /* Pods-Gigma-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8CA1E17D3F46427BD56679BFFEBB49 /* Pods-Gigma-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AE55BF3749F7F75DD06C4903230016ED /* Pods-Gigma-GigmaUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 145DAE4FB2265E71D5A68220CEA65A91 /* Pods-Gigma-GigmaUITests-dummy.m */; };
+		AE12CE10146A319743EC6C4C7D43614C /* URL+DiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C55A657325693CA5CCCD06B0768E42 /* URL+DiskCache.swift */; };
+		AE7F2217D116C5C3573CFAF7748DD1F0 /* Pods-Gigma-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 64D38B1A0065C84AB5F91E38D29C5A1C /* Pods-Gigma-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B3180F23F76D473C97C42FD07EBD816E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7D2494AAEEE8ADD9AB30FC4149FEE10 /* MapKit.framework */; };
-		B3FCC5AF4FE81AED32025629B73B5B14 /* MKTileOverlayPath+MapCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6FBCA8A2F1730E339E48434445332 /* MKTileOverlayPath+MapCache.swift */; };
-		BEF19A3519B4D1DAD9E1E0A4E614774E /* TileCoords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169A001124692F9DDE69FDAC45C3CE7A /* TileCoords.swift */; };
-		C005D3D5E03AE6F3631B1C5340B45337 /* RegionDownloaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB7BFAD92FA3835CAEDA472B712D3C3 /* RegionDownloaderDelegate.swift */; };
-		CD8506F7D16B508BE82E4ABC5616E6CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6655F3F11729A4FED833C54E9BE61B08 /* Foundation.framework */; };
-		D1E202BF2F87954B65A0850106E29B81 /* DiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EDE6A4B6FF87D0EAA795940E791264 /* DiskCache.swift */; };
-		D8B1DF7FE3A1595AF12FE08B4ACD43C9 /* TileRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D38CE7FE1CB37B7DC1DDFD774ADF03F /* TileRange.swift */; };
-		D9B59726589DC1BCD149EE487DDD20D1 /* ZoomRangeIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E87FD02DCEFFBD7D0E114FC81BF5313 /* ZoomRangeIterator.swift */; };
-		DE364B8FA8CE8B10FA7EEBE78AD25F13 /* Pods-Gigma-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD581E2EA362CA20271276D63C1825E /* Pods-Gigma-dummy.m */; };
-		E312CB4575AD09DAD05094573EF3A0AF /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924445EAFBF0D54585272CEAA94FEC67 /* MD5.swift */; };
+		B3FCC5AF4FE81AED32025629B73B5B14 /* MKTileOverlayPath+MapCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A202482BCC49A9C3D59E42FFA40F912F /* MKTileOverlayPath+MapCache.swift */; };
+		BB18BE552FECE76534B98BB9B042A4E4 /* NSDate_Utils-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 53EF3921194C77338F491D3A3F411EFF /* NSDate_Utils-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BEF19A3519B4D1DAD9E1E0A4E614774E /* TileCoords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E112A72DD6D0A6554FAAECA30BA0381 /* TileCoords.swift */; };
+		C005D3D5E03AE6F3631B1C5340B45337 /* RegionDownloaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9E3F9EB93AD7BD2F51E937FFDB8FE8 /* RegionDownloaderDelegate.swift */; };
+		CC39CD18EB1A0AF31D54AEBBB790A002 /* Pods-GigmaUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5163DC28C9C16022A779B7AD5E3CCD03 /* Pods-GigmaUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D1E202BF2F87954B65A0850106E29B81 /* DiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334316597504D842CA42DCC96BDEA3ED /* DiskCache.swift */; };
+		D8B1DF7FE3A1595AF12FE08B4ACD43C9 /* TileRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E90469E28D12860F70FC3478DF04B2 /* TileRange.swift */; };
+		D9B59726589DC1BCD149EE487DDD20D1 /* ZoomRangeIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC61DF84B35B90E308A0A802A411BFC /* ZoomRangeIterator.swift */; };
+		DCF516CAE41487A962A1D435C39B2FCC /* NSDate_Utils-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 62376EFF84B342BD6617A45D4E676161 /* NSDate_Utils-dummy.m */; };
+		E312CB4575AD09DAD05094573EF3A0AF /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC774FF489E165C61F6D751CF9C732F1 /* MD5.swift */; };
 		EDA7A13792A0EB5DF852FCD1FAEE33A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6655F3F11729A4FED833C54E9BE61B08 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		CF7F93AB264D5ACD6EDC52EAA900AB03 /* PBXContainerItemProxy */ = {
+		02B046CB48E96CF16E8612961DD4C5B0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D26394E74B3D99783EE42885C06E286A;
 			remoteInfo = MapCache;
 		};
-		D40401142FCE9C0FEE8772F12829E1B9 /* PBXContainerItemProxy */ = {
+		60692000AB10D4637FAC1AF2E3FEDE28 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B0B2023D6D414027ED0FC19610042C53;
 			remoteInfo = "Pods-Gigma";
 		};
-		FD2339511E6C8A8F709627A683550854 /* PBXContainerItemProxy */ = {
+		6673AC8BD0E6E65DD2BEF945A219F97D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D26394E74B3D99783EE42885C06E286A;
-			remoteInfo = MapCache;
+			remoteGlobalIDString = 89EF1085245EA10FA431ECBE3E002988;
+			remoteInfo = NSDate_Utils;
+		};
+		7DD9640AB2280EAC87F3F1A51A1057C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0B2023D6D414027ED0FC19610042C53;
+			remoteInfo = "Pods-Gigma";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0B0CA3656D18CF8DCAC110A952CB2D96 /* MapCache-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MapCache-prefix.pch"; sourceTree = "<group>"; };
-		115747451E3769DDB80BB07379405375 /* MapCache */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MapCache; path = MapCache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		145DAE4FB2265E71D5A68220CEA65A91 /* Pods-Gigma-GigmaUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Gigma-GigmaUITests-dummy.m"; sourceTree = "<group>"; };
-		168B3BC823EC0145D2826151457AED57 /* Pods-Gigma-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Gigma-frameworks.sh"; sourceTree = "<group>"; };
-		169A001124692F9DDE69FDAC45C3CE7A /* TileCoords.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TileCoords.swift; path = MapCache/Classes/TileCoords.swift; sourceTree = "<group>"; };
-		172661C5A80FBC7FE6BEBE2D8F4E6B9B /* Pods-Gigma-GigmaUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Gigma-GigmaUITests-frameworks.sh"; sourceTree = "<group>"; };
-		17E624084BC30F8F324268C8CDF42993 /* FileManager+DiskCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "FileManager+DiskCache.swift"; path = "MapCache/Classes/DiskCache/FileManager+DiskCache.swift"; sourceTree = "<group>"; };
-		193560B5E0925AFCFBEF0261A7AD9A31 /* Pods-Gigma-GigmaUITests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Gigma-GigmaUITests"; path = Pods_Gigma_GigmaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		19F871854426760F1604838A4429EB8C /* MapCache.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MapCache.debug.xcconfig; sourceTree = "<group>"; };
-		1AF68E4D2A63F12634756F5809C6A34A /* LoadTileMode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LoadTileMode.swift; path = MapCache/Classes/LoadTileMode.swift; sourceTree = "<group>"; };
-		1BEF4CDF890EAE9F8ADEA7BBE1DAA29F /* MKMapView+MapCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MKMapView+MapCache.swift"; path = "MapCache/Classes/MKMapView+MapCache.swift"; sourceTree = "<group>"; };
-		1E1B7DE48587010FD6A5587509130551 /* Pods-GigmaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GigmaTests.release.xcconfig"; sourceTree = "<group>"; };
-		202E30C9031C19FD0D11DD93A3709EC5 /* Pods-Gigma-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Gigma-Info.plist"; sourceTree = "<group>"; };
-		223D4CFB9F335B2E8126399A729BD01B /* CachedTileOverlayRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CachedTileOverlayRenderer.swift; path = MapCache/Classes/CachedTileOverlayRenderer.swift; sourceTree = "<group>"; };
-		24278023A5EFBBF02FD3340DD07F4FA9 /* MapCacheConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MapCacheConfig.swift; path = MapCache/Classes/MapCacheConfig.swift; sourceTree = "<group>"; };
-		24F85AE2FB2EC642EEB19F728CA2F972 /* Pods-GigmaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GigmaTests.debug.xcconfig"; sourceTree = "<group>"; };
-		28C310D2D2807CFEB0D41C3C651050AB /* Pods-Gigma-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Gigma-acknowledgements.plist"; sourceTree = "<group>"; };
-		2DD9AB5A21B63E37E134437348610D90 /* RegionDownloader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RegionDownloader.swift; path = MapCache/Classes/RegionDownloader.swift; sourceTree = "<group>"; };
-		2F50A712446DF4790BAD970EE9995A94 /* Pods-Gigma.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Gigma.release.xcconfig"; sourceTree = "<group>"; };
-		30D6FBCA8A2F1730E339E48434445332 /* MKTileOverlayPath+MapCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MKTileOverlayPath+MapCache.swift"; path = "MapCache/Classes/MKTileOverlayPath+MapCache.swift"; sourceTree = "<group>"; };
-		355C5AD6008EB27E8B59A533E4990F2A /* MapCacheProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MapCacheProtocol.swift; path = MapCache/Classes/MapCacheProtocol.swift; sourceTree = "<group>"; };
-		3E918F8ED1981DA1C333A853413CDE19 /* Pods-GigmaTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GigmaTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		3FB7BFAD92FA3835CAEDA472B712D3C3 /* RegionDownloaderDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RegionDownloaderDelegate.swift; path = MapCache/Classes/RegionDownloaderDelegate.swift; sourceTree = "<group>"; };
-		3FD581E2EA362CA20271276D63C1825E /* Pods-Gigma-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Gigma-dummy.m"; sourceTree = "<group>"; };
-		425FD1ADD9A00EDAE6E07549741716CF /* Pods-Gigma-GigmaUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Gigma-GigmaUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		501EC41E49591EA3E6DF0B3B07975B5F /* Pods-GigmaTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-GigmaTests.modulemap"; sourceTree = "<group>"; };
-		54F7BEAA745F9749C8D3066E751B0DCD /* Pods-GigmaTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GigmaTests-umbrella.h"; sourceTree = "<group>"; };
+		011FAC9C0BD8FF5D6FCFE66B9CD0DA2E /* Pods-Gigma-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Gigma-acknowledgements.plist"; sourceTree = "<group>"; };
+		0640C1F2C60FC29F45094427C701E3EA /* MapCache.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MapCache.modulemap; sourceTree = "<group>"; };
+		0D31AF8153313554D542CB60395CF310 /* Pods-Gigma.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Gigma.debug.xcconfig"; sourceTree = "<group>"; };
+		0DC7D40FD9D9DD0EA5C2CC614A0BB635 /* Pods-GigmaTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GigmaTests-Info.plist"; sourceTree = "<group>"; };
+		115747451E3769DDB80BB07379405375 /* MapCache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapCache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1939B0E1584375B8AC892A8CF5BC5386 /* NSDate_Utils-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDate_Utils-prefix.pch"; sourceTree = "<group>"; };
+		1D0DC04B5F77E1464AC5C5A292A7E4CB /* NSDate+NSDate_Util.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDate+NSDate_Util.h"; path = "Pod/Classes/NSDate+NSDate_Util.h"; sourceTree = "<group>"; };
+		1DFE59B1C039BDD7117D12EE384D750F /* MapCache-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MapCache-umbrella.h"; sourceTree = "<group>"; };
+		1E112A72DD6D0A6554FAAECA30BA0381 /* TileCoords.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TileCoords.swift; path = MapCache/Classes/TileCoords.swift; sourceTree = "<group>"; };
+		2677006A8F83319F2879ABD37550C88F /* Pods-Gigma-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Gigma-frameworks.sh"; sourceTree = "<group>"; };
+		275C613252BE6F0D8E7C9970A1C5823F /* RegionDownloader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RegionDownloader.swift; path = MapCache/Classes/RegionDownloader.swift; sourceTree = "<group>"; };
+		2D48000AFE4BCB64F38217C1E9739FD0 /* MKZoomScale+MapCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MKZoomScale+MapCache.swift"; path = "MapCache/Classes/MKZoomScale+MapCache.swift"; sourceTree = "<group>"; };
+		334316597504D842CA42DCC96BDEA3ED /* DiskCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DiskCache.swift; path = MapCache/Classes/DiskCache/DiskCache.swift; sourceTree = "<group>"; };
+		435FF20B141F67541E577E8099EB6E92 /* Pods-GigmaTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-GigmaTests.modulemap"; sourceTree = "<group>"; };
+		45AAE020CFAA14A04D8818EC244A2B35 /* Pods-GigmaTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GigmaTests-umbrella.h"; sourceTree = "<group>"; };
+		48FF03F9967BF272B44BB67C919013C3 /* TileCoordsRegion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TileCoordsRegion.swift; path = MapCache/Classes/TileCoordsRegion.swift; sourceTree = "<group>"; };
+		4B6A9EBF6E20E975737F2421A5CDF661 /* MapCache-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MapCache-dummy.m"; sourceTree = "<group>"; };
+		508725DFD82ABE2548205557FC62134F /* ZoomRange.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ZoomRange.swift; path = MapCache/Classes/ZoomRange.swift; sourceTree = "<group>"; };
+		510F7C11A8D9B48E6610EFD9FD0A960E /* Pods-GigmaTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GigmaTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		5163DC28C9C16022A779B7AD5E3CCD03 /* Pods-GigmaUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GigmaUITests-umbrella.h"; sourceTree = "<group>"; };
+		52C55A657325693CA5CCCD06B0768E42 /* URL+DiskCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "URL+DiskCache.swift"; path = "MapCache/Classes/DiskCache/URL+DiskCache.swift"; sourceTree = "<group>"; };
+		53EF3921194C77338F491D3A3F411EFF /* NSDate_Utils-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDate_Utils-umbrella.h"; sourceTree = "<group>"; };
+		54E90469E28D12860F70FC3478DF04B2 /* TileRange.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TileRange.swift; path = MapCache/Classes/TileRange.swift; sourceTree = "<group>"; };
 		55F0B9AF83FF1C24ECCF2FF5362155DB /* Pods-GigmaTests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-GigmaTests"; path = Pods_GigmaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		565431DDE33325CCA61DA63DE073DC83 /* MapCache-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MapCache-umbrella.h"; sourceTree = "<group>"; };
-		654413BB3B066DADED250404974577F8 /* MapCache.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MapCache.release.xcconfig; sourceTree = "<group>"; };
-		6613777AAFD79BB51E7850C0988D7635 /* Pods-GigmaTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GigmaTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		56B89670F60155837B6A69923FF0EBDD /* MapCache.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MapCache.debug.xcconfig; sourceTree = "<group>"; };
+		574AC94EFEF82F2EA09BFE5A2EF63B5E /* LoadTileMode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LoadTileMode.swift; path = MapCache/Classes/LoadTileMode.swift; sourceTree = "<group>"; };
+		587860D30D0BD70B806A904880F6099A /* MapCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MapCache.swift; path = MapCache/Classes/MapCache.swift; sourceTree = "<group>"; };
+		6060B261B701D9FCDB4E2F1F8245CFF1 /* NSDate_Utils.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NSDate_Utils.debug.xcconfig; sourceTree = "<group>"; };
+		62376EFF84B342BD6617A45D4E676161 /* NSDate_Utils-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSDate_Utils-dummy.m"; sourceTree = "<group>"; };
+		647B4A83AA5175DAF2B47B9FADEA974B /* Pods-GigmaUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GigmaUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		64D38B1A0065C84AB5F91E38D29C5A1C /* Pods-Gigma-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Gigma-umbrella.h"; sourceTree = "<group>"; };
 		6655F3F11729A4FED833C54E9BE61B08 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		6897BA1B5954997F35DEF77B01D6E604 /* Pods-Gigma-GigmaUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Gigma-GigmaUITests-Info.plist"; sourceTree = "<group>"; };
-		6B29050DDCCA343B7C12E69E3CA60B7E /* TileRangeIterator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TileRangeIterator.swift; path = MapCache/Classes/TileRangeIterator.swift; sourceTree = "<group>"; };
-		6C285C3DBF83DFC5739BAED139F0FA75 /* MapCache-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MapCache-Info.plist"; sourceTree = "<group>"; };
-		73015691EA80404A464C37F64226EBA6 /* ZoomRange.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ZoomRange.swift; path = MapCache/Classes/ZoomRange.swift; sourceTree = "<group>"; };
-		75FA4F6E81EF8DC5ADB02D8EA4E14DFD /* String+DiskCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+DiskCache.swift"; path = "MapCache/Classes/DiskCache/String+DiskCache.swift"; sourceTree = "<group>"; };
-		78C91E44EEEC7E84C9C30650125E3906 /* CachedTileOverlay.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CachedTileOverlay.swift; path = MapCache/Classes/CachedTileOverlay.swift; sourceTree = "<group>"; };
-		8307F644CF8F11E3E210DB2A432A4B6B /* Pods-Gigma-GigmaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Gigma-GigmaUITests.release.xcconfig"; sourceTree = "<group>"; };
-		8C3EC1DD33DB0C973A2E87F7CF3D956E /* Pods-GigmaTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GigmaTests-dummy.m"; sourceTree = "<group>"; };
-		8D10DBAC358DC907C9A47A1F9F161D7A /* URL+DiskCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "URL+DiskCache.swift"; path = "MapCache/Classes/DiskCache/URL+DiskCache.swift"; sourceTree = "<group>"; };
-		8EE1F35D302C6A0A6F7A831007048780 /* MapCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MapCache.swift; path = MapCache/Classes/MapCache.swift; sourceTree = "<group>"; };
-		92043646FA41BBE2EA8E52A0D764258A /* MKZoomScale+MapCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MKZoomScale+MapCache.swift"; path = "MapCache/Classes/MKZoomScale+MapCache.swift"; sourceTree = "<group>"; };
-		924445EAFBF0D54585272CEAA94FEC67 /* MD5.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MD5.swift; path = MapCache/Classes/DiskCache/MD5.swift; sourceTree = "<group>"; };
-		932D4DBF0AC9DD3FD85D871A8DAF0B9B /* Pods-Gigma.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Gigma.modulemap"; sourceTree = "<group>"; };
+		6D6B94A5879BB457E78B72133E0F60A3 /* NSDate_Utils.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = NSDate_Utils.modulemap; sourceTree = "<group>"; };
+		6FF5D8D5F58B40CE851E0C102D9A1CD2 /* Pods-GigmaUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GigmaUITests-Info.plist"; sourceTree = "<group>"; };
+		792B65B255F345C03E00F08E78D90BFD /* CachedTileOverlayRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CachedTileOverlayRenderer.swift; path = MapCache/Classes/CachedTileOverlayRenderer.swift; sourceTree = "<group>"; };
+		7D6E7AF28F62F7886408AB4A733BF506 /* MapCache.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MapCache.release.xcconfig; sourceTree = "<group>"; };
+		82DDE8B4BE2FA9392937A22E6D17904A /* Pods-GigmaUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GigmaUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		875B94A0CA7CD3AD785E33ACBA61E7F4 /* String+DiskCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+DiskCache.swift"; path = "MapCache/Classes/DiskCache/String+DiskCache.swift"; sourceTree = "<group>"; };
+		8B16AF89982DE3E26A5118324F8CFBF5 /* Pods-GigmaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GigmaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		966118131FEC27E1488A918357DC4973 /* Pods-Gigma */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Gigma"; path = Pods_Gigma.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9967D9EFE61124B63B4B4BFF2B95F848 /* Pods-Gigma-GigmaUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Gigma-GigmaUITests-acknowledgements.plist"; sourceTree = "<group>"; };
-		9D38CE7FE1CB37B7DC1DDFD774ADF03F /* TileRange.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TileRange.swift; path = MapCache/Classes/TileRange.swift; sourceTree = "<group>"; };
-		9D8CA1E17D3F46427BD56679BFFEBB49 /* Pods-Gigma-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Gigma-umbrella.h"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9E0A3E5CA080A56A3C7B5DBDF0A0C9EE /* Pods-GigmaTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GigmaTests-Info.plist"; sourceTree = "<group>"; };
-		9E87FD02DCEFFBD7D0E114FC81BF5313 /* ZoomRangeIterator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ZoomRangeIterator.swift; path = MapCache/Classes/ZoomRangeIterator.swift; sourceTree = "<group>"; };
+		9664E21C770BD2F77B1B734E7779DA5F /* Pods-Gigma-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Gigma-acknowledgements.markdown"; sourceTree = "<group>"; };
+		9682CF6661E7315C2D43B553C7049761 /* Pods-Gigma.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Gigma.modulemap"; sourceTree = "<group>"; };
+		997DBC6EAA0F978C9E080C0C18C02731 /* Pods-GigmaUITests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-GigmaUITests"; path = Pods_GigmaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A202482BCC49A9C3D59E42FFA40F912F /* MKTileOverlayPath+MapCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MKTileOverlayPath+MapCache.swift"; path = "MapCache/Classes/MKTileOverlayPath+MapCache.swift"; sourceTree = "<group>"; };
+		A7010468068DE363523C919175B7C3EA /* Pods-GigmaTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GigmaTests-dummy.m"; sourceTree = "<group>"; };
 		A7D2494AAEEE8ADD9AB30FC4149FEE10 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
-		AA1FA03823056D8C9586BEE627604B4F /* TileCoordsRegion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TileCoordsRegion.swift; path = MapCache/Classes/TileCoordsRegion.swift; sourceTree = "<group>"; };
-		B1FD2FAB5185B58B568903D5F073AEF2 /* Pods-Gigma-GigmaUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Gigma-GigmaUITests-umbrella.h"; sourceTree = "<group>"; };
-		B4EDE6A4B6FF87D0EAA795940E791264 /* DiskCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DiskCache.swift; path = MapCache/Classes/DiskCache/DiskCache.swift; sourceTree = "<group>"; };
-		B698237DCC1CF5E86107D3C3E5DFDA55 /* Pods-Gigma-GigmaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Gigma-GigmaUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		B94AA464A13E78E0CF9D28C93846F796 /* Pods-Gigma-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Gigma-acknowledgements.markdown"; sourceTree = "<group>"; };
-		BD8C5BDA1FD5372E6C424EA8656FAD0D /* Pods-Gigma.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Gigma.debug.xcconfig"; sourceTree = "<group>"; };
-		CFD9F30ECE212A6A98C7DACA3D90D4CD /* Pods-Gigma-GigmaUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Gigma-GigmaUITests.modulemap"; sourceTree = "<group>"; };
-		D17E64B07662C13DE8B0DEBB48188CDE /* Log.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Log.swift; path = MapCache/Classes/Log.swift; sourceTree = "<group>"; };
-		D9595E6CCE9915B4E1784C4486D48305 /* ZoomableTile.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ZoomableTile.swift; path = MapCache/Classes/ZoomableTile.swift; sourceTree = "<group>"; };
-		E3A57CA577740C4E317BD33E211A75E5 /* MapCache.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MapCache.modulemap; sourceTree = "<group>"; };
-		F983AE1C862AD10C4790D21F5328D507 /* MapCache-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MapCache-dummy.m"; sourceTree = "<group>"; };
+		ADC61DF84B35B90E308A0A802A411BFC /* ZoomRangeIterator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ZoomRangeIterator.swift; path = MapCache/Classes/ZoomRangeIterator.swift; sourceTree = "<group>"; };
+		AE5763319DE45205BFEF1412E54546B5 /* FileManager+DiskCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "FileManager+DiskCache.swift"; path = "MapCache/Classes/DiskCache/FileManager+DiskCache.swift"; sourceTree = "<group>"; };
+		AFA35C9B66253993A2CB28F1750723A8 /* NSDate_Utils.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NSDate_Utils.release.xcconfig; sourceTree = "<group>"; };
+		B004BAB68E3B4A7653ED6C616E5C363A /* CachedTileOverlay.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CachedTileOverlay.swift; path = MapCache/Classes/CachedTileOverlay.swift; sourceTree = "<group>"; };
+		B05C9AF971B1D4DB5D198E4AF43D7DD5 /* MapCacheProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MapCacheProtocol.swift; path = MapCache/Classes/MapCacheProtocol.swift; sourceTree = "<group>"; };
+		B18B6B277F77919488CD6247DFBBDAAF /* ZoomableTile.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ZoomableTile.swift; path = MapCache/Classes/ZoomableTile.swift; sourceTree = "<group>"; };
+		B273DAD534FF5C41626ECBFD10C24EE7 /* Pods-Gigma-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Gigma-dummy.m"; sourceTree = "<group>"; };
+		B3A7D9C81A5CA3F81FC1F31BE4D92CFE /* Log.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Log.swift; path = MapCache/Classes/Log.swift; sourceTree = "<group>"; };
+		B4BE9AE41CED75EE0AA6A7D8BB3F4879 /* MapCache-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MapCache-prefix.pch"; sourceTree = "<group>"; };
+		BA8466DD441F88E3A03F4BF591B2B385 /* Pods-GigmaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GigmaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BB78C5B7231D0F88E927A7FDED8C7258 /* TileRangeIterator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TileRangeIterator.swift; path = MapCache/Classes/TileRangeIterator.swift; sourceTree = "<group>"; };
+		BF9E3F9EB93AD7BD2F51E937FFDB8FE8 /* RegionDownloaderDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RegionDownloaderDelegate.swift; path = MapCache/Classes/RegionDownloaderDelegate.swift; sourceTree = "<group>"; };
+		C6E1825F66B7D161FDA9B02A794313C5 /* Pods-Gigma-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Gigma-Info.plist"; sourceTree = "<group>"; };
+		CD6C595A621350054E34618DC8D7E7AA /* Pods-Gigma.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Gigma.release.xcconfig"; sourceTree = "<group>"; };
+		CECFC2E13AE727E2E28DE104F58EE621 /* NSDate_Utils-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "NSDate_Utils-Info.plist"; sourceTree = "<group>"; };
+		D03C59B94865E34075025598504CAEE2 /* Pods-GigmaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GigmaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D2FAB84AF67CFE323B3E9CADAF3194B7 /* MapCacheConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MapCacheConfig.swift; path = MapCache/Classes/MapCacheConfig.swift; sourceTree = "<group>"; };
+		DC774FF489E165C61F6D751CF9C732F1 /* MD5.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MD5.swift; path = MapCache/Classes/DiskCache/MD5.swift; sourceTree = "<group>"; };
+		DD5F28628D56353036B4EC3992E26691 /* Pods-GigmaUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GigmaUITests-dummy.m"; sourceTree = "<group>"; };
+		DFD1F28BFC59AFA548B1799E5450909B /* Pods-GigmaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GigmaTests.release.xcconfig"; sourceTree = "<group>"; };
+		E60DB3FEAD2CEF233FA9B5B5B097F131 /* MKMapView+MapCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MKMapView+MapCache.swift"; path = "MapCache/Classes/MKMapView+MapCache.swift"; sourceTree = "<group>"; };
+		EB431C7FC629E3657E6A5AB4328BCC13 /* Pods-GigmaTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GigmaTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F16BAAF49CEBC19FEACD38152053DB72 /* NSDate_Utils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NSDate_Utils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F97D94C30A2E9DC2A784BC29210C4BE1 /* MapCache-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MapCache-Info.plist"; sourceTree = "<group>"; };
+		FB23B905A6DA15DDE3A6497F75DDFB23 /* NSDate+NSDate_Util.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDate+NSDate_Util.m"; path = "Pod/Classes/NSDate+NSDate_Util.m"; sourceTree = "<group>"; };
+		FCE6DF69B6049CC292F8C3DD6529414E /* Pods-GigmaUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-GigmaUITests.modulemap"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		31749F86C2191337A2E3C12581B2F5B8 /* Frameworks */ = {
+		3D8BF6E5017AC0D19EAF8126965E9E99 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C92838061B85EC9052E93599F7FA8A8 /* Foundation.framework in Frameworks */,
+				1F07F4855665DED7035FF5DCD11E882C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D979FE63E142EE41D0F46161E5C4914 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D77529869B370AC2EA02502E1C46D37 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,67 +192,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CE49EFAB1732BD89B26A75DABC255E7A /* Frameworks */ = {
+		C872FD93DF8BD93A0A4D91CE10633A91 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD8506F7D16B508BE82E4ABC5616E6CE /* Foundation.framework in Frameworks */,
+				3835342FB086AA1B9441C6C4C5FA796E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		05F98D12D1D43EFDD62D440EF26F0019 /* MapCache */ = {
-			isa = PBXGroup;
-			children = (
-				78C91E44EEEC7E84C9C30650125E3906 /* CachedTileOverlay.swift */,
-				223D4CFB9F335B2E8126399A729BD01B /* CachedTileOverlayRenderer.swift */,
-				B4EDE6A4B6FF87D0EAA795940E791264 /* DiskCache.swift */,
-				17E624084BC30F8F324268C8CDF42993 /* FileManager+DiskCache.swift */,
-				1AF68E4D2A63F12634756F5809C6A34A /* LoadTileMode.swift */,
-				D17E64B07662C13DE8B0DEBB48188CDE /* Log.swift */,
-				8EE1F35D302C6A0A6F7A831007048780 /* MapCache.swift */,
-				24278023A5EFBBF02FD3340DD07F4FA9 /* MapCacheConfig.swift */,
-				355C5AD6008EB27E8B59A533E4990F2A /* MapCacheProtocol.swift */,
-				924445EAFBF0D54585272CEAA94FEC67 /* MD5.swift */,
-				1BEF4CDF890EAE9F8ADEA7BBE1DAA29F /* MKMapView+MapCache.swift */,
-				30D6FBCA8A2F1730E339E48434445332 /* MKTileOverlayPath+MapCache.swift */,
-				92043646FA41BBE2EA8E52A0D764258A /* MKZoomScale+MapCache.swift */,
-				2DD9AB5A21B63E37E134437348610D90 /* RegionDownloader.swift */,
-				3FB7BFAD92FA3835CAEDA472B712D3C3 /* RegionDownloaderDelegate.swift */,
-				75FA4F6E81EF8DC5ADB02D8EA4E14DFD /* String+DiskCache.swift */,
-				169A001124692F9DDE69FDAC45C3CE7A /* TileCoords.swift */,
-				AA1FA03823056D8C9586BEE627604B4F /* TileCoordsRegion.swift */,
-				9D38CE7FE1CB37B7DC1DDFD774ADF03F /* TileRange.swift */,
-				6B29050DDCCA343B7C12E69E3CA60B7E /* TileRangeIterator.swift */,
-				8D10DBAC358DC907C9A47A1F9F161D7A /* URL+DiskCache.swift */,
-				D9595E6CCE9915B4E1784C4486D48305 /* ZoomableTile.swift */,
-				73015691EA80404A464C37F64226EBA6 /* ZoomRange.swift */,
-				9E87FD02DCEFFBD7D0E114FC81BF5313 /* ZoomRangeIterator.swift */,
-				5C0ED8C9424C67F9F50659D34566F408 /* Support Files */,
-			);
-			name = MapCache;
-			path = MapCache;
-			sourceTree = "<group>";
-		};
 		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				1E5B4E957D8119419D0B03D0E3CDBBDB /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		1E0EF4269DDC6BF08504DF79F866AD8A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				115747451E3769DDB80BB07379405375 /* MapCache */,
-				966118131FEC27E1488A918357DC4973 /* Pods-Gigma */,
-				193560B5E0925AFCFBEF0261A7AD9A31 /* Pods-Gigma-GigmaUITests */,
-				55F0B9AF83FF1C24ECCF2FF5362155DB /* Pods-GigmaTests */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		1E5B4E957D8119419D0B03D0E3CDBBDB /* iOS */ = {
@@ -235,71 +220,115 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		2C7893956BC7752F3DF99B1ACFC01E4B /* Targets Support Files */ = {
+		3615607CCC48B71712F32D73C0E059F9 /* NSDate_Utils */ = {
 			isa = PBXGroup;
 			children = (
-				6221B6C39C22348C7B38C103297530F3 /* Pods-Gigma */,
-				A29B6A8EE0C482AF9399DE4DA5380D33 /* Pods-Gigma-GigmaUITests */,
-				FA3278CE91F6277A2FF68C27EC38F4AF /* Pods-GigmaTests */,
+				1D0DC04B5F77E1464AC5C5A292A7E4CB /* NSDate+NSDate_Util.h */,
+				FB23B905A6DA15DDE3A6497F75DDFB23 /* NSDate+NSDate_Util.m */,
+				393E8DACBF0300A855AC563AF48F974E /* Support Files */,
 			);
-			name = "Targets Support Files";
+			path = NSDate_Utils;
 			sourceTree = "<group>";
 		};
-		4FB37E967FA941C573CF1CCC70F79969 /* Pods */ = {
+		393E8DACBF0300A855AC563AF48F974E /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				05F98D12D1D43EFDD62D440EF26F0019 /* MapCache */,
+				6D6B94A5879BB457E78B72133E0F60A3 /* NSDate_Utils.modulemap */,
+				62376EFF84B342BD6617A45D4E676161 /* NSDate_Utils-dummy.m */,
+				CECFC2E13AE727E2E28DE104F58EE621 /* NSDate_Utils-Info.plist */,
+				1939B0E1584375B8AC892A8CF5BC5386 /* NSDate_Utils-prefix.pch */,
+				53EF3921194C77338F491D3A3F411EFF /* NSDate_Utils-umbrella.h */,
+				6060B261B701D9FCDB4E2F1F8245CFF1 /* NSDate_Utils.debug.xcconfig */,
+				AFA35C9B66253993A2CB28F1750723A8 /* NSDate_Utils.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/NSDate_Utils";
+			sourceTree = "<group>";
+		};
+		4F92D34324BE59A9D0474FAEF9C57708 /* MapCache */ = {
+			isa = PBXGroup;
+			children = (
+				B004BAB68E3B4A7653ED6C616E5C363A /* CachedTileOverlay.swift */,
+				792B65B255F345C03E00F08E78D90BFD /* CachedTileOverlayRenderer.swift */,
+				334316597504D842CA42DCC96BDEA3ED /* DiskCache.swift */,
+				AE5763319DE45205BFEF1412E54546B5 /* FileManager+DiskCache.swift */,
+				574AC94EFEF82F2EA09BFE5A2EF63B5E /* LoadTileMode.swift */,
+				B3A7D9C81A5CA3F81FC1F31BE4D92CFE /* Log.swift */,
+				587860D30D0BD70B806A904880F6099A /* MapCache.swift */,
+				D2FAB84AF67CFE323B3E9CADAF3194B7 /* MapCacheConfig.swift */,
+				B05C9AF971B1D4DB5D198E4AF43D7DD5 /* MapCacheProtocol.swift */,
+				DC774FF489E165C61F6D751CF9C732F1 /* MD5.swift */,
+				E60DB3FEAD2CEF233FA9B5B5B097F131 /* MKMapView+MapCache.swift */,
+				A202482BCC49A9C3D59E42FFA40F912F /* MKTileOverlayPath+MapCache.swift */,
+				2D48000AFE4BCB64F38217C1E9739FD0 /* MKZoomScale+MapCache.swift */,
+				275C613252BE6F0D8E7C9970A1C5823F /* RegionDownloader.swift */,
+				BF9E3F9EB93AD7BD2F51E937FFDB8FE8 /* RegionDownloaderDelegate.swift */,
+				875B94A0CA7CD3AD785E33ACBA61E7F4 /* String+DiskCache.swift */,
+				1E112A72DD6D0A6554FAAECA30BA0381 /* TileCoords.swift */,
+				48FF03F9967BF272B44BB67C919013C3 /* TileCoordsRegion.swift */,
+				54E90469E28D12860F70FC3478DF04B2 /* TileRange.swift */,
+				BB78C5B7231D0F88E927A7FDED8C7258 /* TileRangeIterator.swift */,
+				52C55A657325693CA5CCCD06B0768E42 /* URL+DiskCache.swift */,
+				B18B6B277F77919488CD6247DFBBDAAF /* ZoomableTile.swift */,
+				508725DFD82ABE2548205557FC62134F /* ZoomRange.swift */,
+				ADC61DF84B35B90E308A0A802A411BFC /* ZoomRangeIterator.swift */,
+				E129F5C184279AA5AE87D83B5FBBE24F /* Support Files */,
+			);
+			path = MapCache;
+			sourceTree = "<group>";
+		};
+		6351F15B202C54BAE4123E73F419DCA1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4F92D34324BE59A9D0474FAEF9C57708 /* MapCache */,
+				3615607CCC48B71712F32D73C0E059F9 /* NSDate_Utils */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		5C0ED8C9424C67F9F50659D34566F408 /* Support Files */ = {
+		A17F0D229B5ABBAD8E70D64449939776 /* Pods-Gigma */ = {
 			isa = PBXGroup;
 			children = (
-				E3A57CA577740C4E317BD33E211A75E5 /* MapCache.modulemap */,
-				F983AE1C862AD10C4790D21F5328D507 /* MapCache-dummy.m */,
-				6C285C3DBF83DFC5739BAED139F0FA75 /* MapCache-Info.plist */,
-				0B0CA3656D18CF8DCAC110A952CB2D96 /* MapCache-prefix.pch */,
-				565431DDE33325CCA61DA63DE073DC83 /* MapCache-umbrella.h */,
-				19F871854426760F1604838A4429EB8C /* MapCache.debug.xcconfig */,
-				654413BB3B066DADED250404974577F8 /* MapCache.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/MapCache";
-			sourceTree = "<group>";
-		};
-		6221B6C39C22348C7B38C103297530F3 /* Pods-Gigma */ = {
-			isa = PBXGroup;
-			children = (
-				932D4DBF0AC9DD3FD85D871A8DAF0B9B /* Pods-Gigma.modulemap */,
-				B94AA464A13E78E0CF9D28C93846F796 /* Pods-Gigma-acknowledgements.markdown */,
-				28C310D2D2807CFEB0D41C3C651050AB /* Pods-Gigma-acknowledgements.plist */,
-				3FD581E2EA362CA20271276D63C1825E /* Pods-Gigma-dummy.m */,
-				168B3BC823EC0145D2826151457AED57 /* Pods-Gigma-frameworks.sh */,
-				202E30C9031C19FD0D11DD93A3709EC5 /* Pods-Gigma-Info.plist */,
-				9D8CA1E17D3F46427BD56679BFFEBB49 /* Pods-Gigma-umbrella.h */,
-				BD8C5BDA1FD5372E6C424EA8656FAD0D /* Pods-Gigma.debug.xcconfig */,
-				2F50A712446DF4790BAD970EE9995A94 /* Pods-Gigma.release.xcconfig */,
+				9682CF6661E7315C2D43B553C7049761 /* Pods-Gigma.modulemap */,
+				9664E21C770BD2F77B1B734E7779DA5F /* Pods-Gigma-acknowledgements.markdown */,
+				011FAC9C0BD8FF5D6FCFE66B9CD0DA2E /* Pods-Gigma-acknowledgements.plist */,
+				B273DAD534FF5C41626ECBFD10C24EE7 /* Pods-Gigma-dummy.m */,
+				2677006A8F83319F2879ABD37550C88F /* Pods-Gigma-frameworks.sh */,
+				C6E1825F66B7D161FDA9B02A794313C5 /* Pods-Gigma-Info.plist */,
+				64D38B1A0065C84AB5F91E38D29C5A1C /* Pods-Gigma-umbrella.h */,
+				0D31AF8153313554D542CB60395CF310 /* Pods-Gigma.debug.xcconfig */,
+				CD6C595A621350054E34618DC8D7E7AA /* Pods-Gigma.release.xcconfig */,
 			);
 			name = "Pods-Gigma";
 			path = "Target Support Files/Pods-Gigma";
 			sourceTree = "<group>";
 		};
-		A29B6A8EE0C482AF9399DE4DA5380D33 /* Pods-Gigma-GigmaUITests */ = {
+		A2498BD22B185AC35B27F2A5525394A4 /* Pods-GigmaTests */ = {
 			isa = PBXGroup;
 			children = (
-				CFD9F30ECE212A6A98C7DACA3D90D4CD /* Pods-Gigma-GigmaUITests.modulemap */,
-				425FD1ADD9A00EDAE6E07549741716CF /* Pods-Gigma-GigmaUITests-acknowledgements.markdown */,
-				9967D9EFE61124B63B4B4BFF2B95F848 /* Pods-Gigma-GigmaUITests-acknowledgements.plist */,
-				145DAE4FB2265E71D5A68220CEA65A91 /* Pods-Gigma-GigmaUITests-dummy.m */,
-				172661C5A80FBC7FE6BEBE2D8F4E6B9B /* Pods-Gigma-GigmaUITests-frameworks.sh */,
-				6897BA1B5954997F35DEF77B01D6E604 /* Pods-Gigma-GigmaUITests-Info.plist */,
-				B1FD2FAB5185B58B568903D5F073AEF2 /* Pods-Gigma-GigmaUITests-umbrella.h */,
-				B698237DCC1CF5E86107D3C3E5DFDA55 /* Pods-Gigma-GigmaUITests.debug.xcconfig */,
-				8307F644CF8F11E3E210DB2A432A4B6B /* Pods-Gigma-GigmaUITests.release.xcconfig */,
+				435FF20B141F67541E577E8099EB6E92 /* Pods-GigmaTests.modulemap */,
+				EB431C7FC629E3657E6A5AB4328BCC13 /* Pods-GigmaTests-acknowledgements.markdown */,
+				510F7C11A8D9B48E6610EFD9FD0A960E /* Pods-GigmaTests-acknowledgements.plist */,
+				A7010468068DE363523C919175B7C3EA /* Pods-GigmaTests-dummy.m */,
+				0DC7D40FD9D9DD0EA5C2CC614A0BB635 /* Pods-GigmaTests-Info.plist */,
+				45AAE020CFAA14A04D8818EC244A2B35 /* Pods-GigmaTests-umbrella.h */,
+				BA8466DD441F88E3A03F4BF591B2B385 /* Pods-GigmaTests.debug.xcconfig */,
+				DFD1F28BFC59AFA548B1799E5450909B /* Pods-GigmaTests.release.xcconfig */,
 			);
-			name = "Pods-Gigma-GigmaUITests";
-			path = "Target Support Files/Pods-Gigma-GigmaUITests";
+			name = "Pods-GigmaTests";
+			path = "Target Support Files/Pods-GigmaTests";
+			sourceTree = "<group>";
+		};
+		B0DA1F7BE71EB70DAE8DF76B781CDEC7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				115747451E3769DDB80BB07379405375 /* MapCache.framework */,
+				F16BAAF49CEBC19FEACD38152053DB72 /* NSDate_Utils.framework */,
+				966118131FEC27E1488A918357DC4973 /* Pods-Gigma */,
+				55F0B9AF83FF1C24ECCF2FF5362155DB /* Pods-GigmaTests */,
+				997DBC6EAA0F978C9E080C0C18C02731 /* Pods-GigmaUITests */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -307,36 +336,61 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
-				4FB37E967FA941C573CF1CCC70F79969 /* Pods */,
-				1E0EF4269DDC6BF08504DF79F866AD8A /* Products */,
-				2C7893956BC7752F3DF99B1ACFC01E4B /* Targets Support Files */,
+				6351F15B202C54BAE4123E73F419DCA1 /* Pods */,
+				B0DA1F7BE71EB70DAE8DF76B781CDEC7 /* Products */,
+				D546FD1D9F507E8459FD3AC18A78C8CE /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		FA3278CE91F6277A2FF68C27EC38F4AF /* Pods-GigmaTests */ = {
+		D546FD1D9F507E8459FD3AC18A78C8CE /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				501EC41E49591EA3E6DF0B3B07975B5F /* Pods-GigmaTests.modulemap */,
-				3E918F8ED1981DA1C333A853413CDE19 /* Pods-GigmaTests-acknowledgements.markdown */,
-				6613777AAFD79BB51E7850C0988D7635 /* Pods-GigmaTests-acknowledgements.plist */,
-				8C3EC1DD33DB0C973A2E87F7CF3D956E /* Pods-GigmaTests-dummy.m */,
-				9E0A3E5CA080A56A3C7B5DBDF0A0C9EE /* Pods-GigmaTests-Info.plist */,
-				54F7BEAA745F9749C8D3066E751B0DCD /* Pods-GigmaTests-umbrella.h */,
-				24F85AE2FB2EC642EEB19F728CA2F972 /* Pods-GigmaTests.debug.xcconfig */,
-				1E1B7DE48587010FD6A5587509130551 /* Pods-GigmaTests.release.xcconfig */,
+				A17F0D229B5ABBAD8E70D64449939776 /* Pods-Gigma */,
+				A2498BD22B185AC35B27F2A5525394A4 /* Pods-GigmaTests */,
+				F7A6CA9E4B92B8574497B9C45EEB1905 /* Pods-GigmaUITests */,
 			);
-			name = "Pods-GigmaTests";
-			path = "Target Support Files/Pods-GigmaTests";
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		E129F5C184279AA5AE87D83B5FBBE24F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0640C1F2C60FC29F45094427C701E3EA /* MapCache.modulemap */,
+				4B6A9EBF6E20E975737F2421A5CDF661 /* MapCache-dummy.m */,
+				F97D94C30A2E9DC2A784BC29210C4BE1 /* MapCache-Info.plist */,
+				B4BE9AE41CED75EE0AA6A7D8BB3F4879 /* MapCache-prefix.pch */,
+				1DFE59B1C039BDD7117D12EE384D750F /* MapCache-umbrella.h */,
+				56B89670F60155837B6A69923FF0EBDD /* MapCache.debug.xcconfig */,
+				7D6E7AF28F62F7886408AB4A733BF506 /* MapCache.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/MapCache";
+			sourceTree = "<group>";
+		};
+		F7A6CA9E4B92B8574497B9C45EEB1905 /* Pods-GigmaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FCE6DF69B6049CC292F8C3DD6529414E /* Pods-GigmaUITests.modulemap */,
+				82DDE8B4BE2FA9392937A22E6D17904A /* Pods-GigmaUITests-acknowledgements.markdown */,
+				647B4A83AA5175DAF2B47B9FADEA974B /* Pods-GigmaUITests-acknowledgements.plist */,
+				DD5F28628D56353036B4EC3992E26691 /* Pods-GigmaUITests-dummy.m */,
+				6FF5D8D5F58B40CE851E0C102D9A1CD2 /* Pods-GigmaUITests-Info.plist */,
+				5163DC28C9C16022A779B7AD5E3CCD03 /* Pods-GigmaUITests-umbrella.h */,
+				D03C59B94865E34075025598504CAEE2 /* Pods-GigmaUITests.debug.xcconfig */,
+				8B16AF89982DE3E26A5118324F8CFBF5 /* Pods-GigmaUITests.release.xcconfig */,
+			);
+			name = "Pods-GigmaUITests";
+			path = "Target Support Files/Pods-GigmaUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		63322225BEE33192E6B97B30568EC749 /* Headers */ = {
+		1509E86ECFA57F37C8873DF1C69EE7C1 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE2D9B8691F919EBF211A0AE9667F4C9 /* Pods-Gigma-umbrella.h in Headers */,
+				CC39CD18EB1A0AF31D54AEBBB790A002 /* Pods-GigmaUITests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,11 +402,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		962C6637A47B6BA489F4747A887898F9 /* Headers */ = {
+		86E13F5450413D1F73451BB918AC6087 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				801982942ED100324A890710AA8F5E4B /* Pods-Gigma-GigmaUITests-umbrella.h in Headers */,
+				33E677336DEC90B613F9DE548AB92ABB /* NSDate+NSDate_Util.h in Headers */,
+				BB18BE552FECE76534B98BB9B042A4E4 /* NSDate_Utils-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,41 +419,68 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F13623D277104DC5C2BD1B693033B5AA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE7F2217D116C5C3573CFAF7748DD1F0 /* Pods-Gigma-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		8FB94F38E7119E57E2D6CD0DFEB545AE /* Pods-Gigma-GigmaUITests */ = {
+		89EF1085245EA10FA431ECBE3E002988 /* NSDate_Utils */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 81AC8EF2EB744A0BE2F9646082752A5D /* Build configuration list for PBXNativeTarget "Pods-Gigma-GigmaUITests" */;
+			buildConfigurationList = 806CD0DD82C194100B8898024C8254BC /* Build configuration list for PBXNativeTarget "NSDate_Utils" */;
 			buildPhases = (
-				962C6637A47B6BA489F4747A887898F9 /* Headers */,
-				854891365CC6E77EDCC8C140DBC6D692 /* Sources */,
-				CE49EFAB1732BD89B26A75DABC255E7A /* Frameworks */,
-				8BDAA83C4E4EFD2A3B9835929755E4CE /* Resources */,
+				86E13F5450413D1F73451BB918AC6087 /* Headers */,
+				E2FC15FB013E550DE4E8CFB6819C4912 /* Sources */,
+				3D8BF6E5017AC0D19EAF8126965E9E99 /* Frameworks */,
+				EA1BE015A371B792C6136E8D2F091F57 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FDDD4D33825BFBF72BFA470B62650CEA /* PBXTargetDependency */,
 			);
-			name = "Pods-Gigma-GigmaUITests";
-			productName = Pods_Gigma_GigmaUITests;
-			productReference = 193560B5E0925AFCFBEF0261A7AD9A31 /* Pods-Gigma-GigmaUITests */;
+			name = NSDate_Utils;
+			productName = NSDate_Utils;
+			productReference = F16BAAF49CEBC19FEACD38152053DB72 /* NSDate_Utils.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9ED43C24EC68AF2CBD5BA63EC1719F49 /* Pods-GigmaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FFE6A69DBA229BCF5B6CB8168791670 /* Build configuration list for PBXNativeTarget "Pods-GigmaUITests" */;
+			buildPhases = (
+				1509E86ECFA57F37C8873DF1C69EE7C1 /* Headers */,
+				B97468E93B61B877E3DCB6DC8A3A3098 /* Sources */,
+				3D979FE63E142EE41D0F46161E5C4914 /* Frameworks */,
+				5D92BF099A5A3B2F3B8097D6153ACB0D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9790DD31CB43DB67A37D547E86477513 /* PBXTargetDependency */,
+			);
+			name = "Pods-GigmaUITests";
+			productName = Pods_GigmaUITests;
+			productReference = 997DBC6EAA0F978C9E080C0C18C02731 /* Pods-GigmaUITests */;
 			productType = "com.apple.product-type.framework";
 		};
 		B0B2023D6D414027ED0FC19610042C53 /* Pods-Gigma */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4549F94DA283A600D896620E8B8AB8FB /* Build configuration list for PBXNativeTarget "Pods-Gigma" */;
+			buildConfigurationList = 0F1EA469F7007EBC18E64A1CFF1983DF /* Build configuration list for PBXNativeTarget "Pods-Gigma" */;
 			buildPhases = (
-				63322225BEE33192E6B97B30568EC749 /* Headers */,
-				6D045D6FC9A6160E2EAD56885333DFE2 /* Sources */,
-				31749F86C2191337A2E3C12581B2F5B8 /* Frameworks */,
-				185EFD82933E9E6B0FA5FC6707453B44 /* Resources */,
+				F13623D277104DC5C2BD1B693033B5AA /* Headers */,
+				E24ADAA4F05E1F0AB813241CDF0CE6B0 /* Sources */,
+				C872FD93DF8BD93A0A4D91CE10633A91 /* Frameworks */,
+				141D45FFFDAF1F3F0DBF96AEC65AEE4A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				962173CDE5A91603E18FD07D43F43BE6 /* PBXTargetDependency */,
+				2A7EFDA5E42AC9DC1FA9873D84B677C7 /* PBXTargetDependency */,
+				550D74E303B5A3A51FCCFAEF31931826 /* PBXTargetDependency */,
 			);
 			name = "Pods-Gigma";
 			productName = Pods_Gigma;
@@ -417,7 +499,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				4FA4EF10985634804086A257AC47D6A6 /* PBXTargetDependency */,
+				829DCD0268FBAC647D39BAAF4F457B58 /* PBXTargetDependency */,
 			);
 			name = "Pods-GigmaTests";
 			productName = Pods_GigmaTests;
@@ -439,7 +521,7 @@
 			);
 			name = MapCache;
 			productName = MapCache;
-			productReference = 115747451E3769DDB80BB07379405375 /* MapCache */;
+			productReference = 115747451E3769DDB80BB07379405375 /* MapCache.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -449,7 +531,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1300;
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1400;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -460,20 +542,21 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 1E0EF4269DDC6BF08504DF79F866AD8A /* Products */;
+			productRefGroup = B0DA1F7BE71EB70DAE8DF76B781CDEC7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				D26394E74B3D99783EE42885C06E286A /* MapCache */,
+				89EF1085245EA10FA431ECBE3E002988 /* NSDate_Utils */,
 				B0B2023D6D414027ED0FC19610042C53 /* Pods-Gigma */,
-				8FB94F38E7119E57E2D6CD0DFEB545AE /* Pods-Gigma-GigmaUITests */,
 				B6E4327951A6DF390BB2E3239D6AF706 /* Pods-GigmaTests */,
+				9ED43C24EC68AF2CBD5BA63EC1719F49 /* Pods-GigmaUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		185EFD82933E9E6B0FA5FC6707453B44 /* Resources */ = {
+		141D45FFFDAF1F3F0DBF96AEC65AEE4A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -487,7 +570,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8BDAA83C4E4EFD2A3B9835929755E4CE /* Resources */ = {
+		5D92BF099A5A3B2F3B8097D6153ACB0D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -495,6 +578,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D31A037AC7CD0DF872D41556C83E8733 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA1BE015A371B792C6136E8D2F091F57 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -512,19 +602,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6D045D6FC9A6160E2EAD56885333DFE2 /* Sources */ = {
+		B97468E93B61B877E3DCB6DC8A3A3098 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE364B8FA8CE8B10FA7EEBE78AD25F13 /* Pods-Gigma-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		854891365CC6E77EDCC8C140DBC6D692 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AE55BF3749F7F75DD06C4903230016ED /* Pods-Gigma-GigmaUITests-dummy.m in Sources */,
+				57F41FFDFF462D1521709BA2C30ADF0E /* Pods-GigmaUITests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,70 +642,56 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E24ADAA4F05E1F0AB813241CDF0CE6B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				407A76AF5BCA880EEAFD500D00E189D5 /* Pods-Gigma-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2FC15FB013E550DE4E8CFB6819C4912 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				000B4BB95DCECDE1D98C3C82E6BAC5B6 /* NSDate+NSDate_Util.m in Sources */,
+				DCF516CAE41487A962A1D435C39B2FCC /* NSDate_Utils-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4FA4EF10985634804086A257AC47D6A6 /* PBXTargetDependency */ = {
+		2A7EFDA5E42AC9DC1FA9873D84B677C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MapCache;
+			target = D26394E74B3D99783EE42885C06E286A /* MapCache */;
+			targetProxy = 02B046CB48E96CF16E8612961DD4C5B0 /* PBXContainerItemProxy */;
+		};
+		550D74E303B5A3A51FCCFAEF31931826 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NSDate_Utils;
+			target = 89EF1085245EA10FA431ECBE3E002988 /* NSDate_Utils */;
+			targetProxy = 6673AC8BD0E6E65DD2BEF945A219F97D /* PBXContainerItemProxy */;
+		};
+		829DCD0268FBAC647D39BAAF4F457B58 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Gigma";
 			target = B0B2023D6D414027ED0FC19610042C53 /* Pods-Gigma */;
-			targetProxy = D40401142FCE9C0FEE8772F12829E1B9 /* PBXContainerItemProxy */;
+			targetProxy = 7DD9640AB2280EAC87F3F1A51A1057C1 /* PBXContainerItemProxy */;
 		};
-		962173CDE5A91603E18FD07D43F43BE6 /* PBXTargetDependency */ = {
+		9790DD31CB43DB67A37D547E86477513 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = MapCache;
-			target = D26394E74B3D99783EE42885C06E286A /* MapCache */;
-			targetProxy = CF7F93AB264D5ACD6EDC52EAA900AB03 /* PBXContainerItemProxy */;
-		};
-		FDDD4D33825BFBF72BFA470B62650CEA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MapCache;
-			target = D26394E74B3D99783EE42885C06E286A /* MapCache */;
-			targetProxy = FD2339511E6C8A8F709627A683550854 /* PBXContainerItemProxy */;
+			name = "Pods-Gigma";
+			target = B0B2023D6D414027ED0FC19610042C53 /* Pods-Gigma */;
+			targetProxy = 60692000AB10D4637FAC1AF2E3FEDE28 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0BA6C39F38304ED10AF6D2837D0B0349 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B698237DCC1CF5E86107D3C3E5DFDA55 /* Pods-Gigma-GigmaUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Gigma-GigmaUITests/Pods-Gigma-GigmaUITests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Gigma-GigmaUITests/Pods-Gigma-GigmaUITests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		0DD93809FF351DA2FD2094E3DA2AF1BF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 24F85AE2FB2EC642EEB19F728CA2F972 /* Pods-GigmaTests.debug.xcconfig */;
+			baseConfigurationReference = BA8466DD441F88E3A03F4BF591B2B385 /* Pods-GigmaTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -658,11 +726,10 @@
 			};
 			name = Debug;
 		};
-		11C8ADF7E7CD8B808E16B2E0E79C7630 /* Release */ = {
+		16F8745536D45A77071D51AF8CB1C37C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8307F644CF8F11E3E210DB2A432A4B6B /* Pods-Gigma-GigmaUITests.release.xcconfig */;
+			baseConfigurationReference = AFA35C9B66253993A2CB28F1750723A8 /* NSDate_Utils.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -672,23 +739,22 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Gigma-GigmaUITests/Pods-Gigma-GigmaUITests-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/NSDate_Utils/NSDate_Utils-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/NSDate_Utils/NSDate_Utils-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Gigma-GigmaUITests/Pods-Gigma-GigmaUITests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				MODULEMAP_FILE = "Target Support Files/NSDate_Utils/NSDate_Utils.modulemap";
+				PRODUCT_MODULE_NAME = NSDate_Utils;
+				PRODUCT_NAME = NSDate_Utils;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -731,6 +797,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -758,44 +825,9 @@
 			};
 			name = Release;
 		};
-		5D9649D5E5AC7BBCA954F672E62BB628 /* Debug */ = {
+		385B3291F2B814E87ADD82D8C4569B0C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 19F871854426760F1604838A4429EB8C /* MapCache.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/MapCache/MapCache-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MapCache/MapCache-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/MapCache/MapCache.modulemap";
-				PRODUCT_MODULE_NAME = MapCache;
-				PRODUCT_NAME = MapCache;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		6335E491BDC8B0F5AA6F85B2128C1B9A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F50A712446DF4790BAD970EE9995A94 /* Pods-Gigma.release.xcconfig */;
+			baseConfigurationReference = 0D31AF8153313554D542CB60395CF310 /* Pods-Gigma.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -817,6 +849,78 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Gigma/Pods-Gigma.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5D9649D5E5AC7BBCA954F672E62BB628 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56B89670F60155837B6A69923FF0EBDD /* MapCache.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MapCache/MapCache-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MapCache/MapCache-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/MapCache/MapCache.modulemap";
+				PRODUCT_MODULE_NAME = MapCache;
+				PRODUCT_NAME = MapCache;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		655C43BB90AFDF411694666390F78B85 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B16AF89982DE3E26A5118324F8CFBF5 /* Pods-GigmaUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-GigmaUITests/Pods-GigmaUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-GigmaUITests/Pods-GigmaUITests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -833,7 +937,7 @@
 		};
 		6A113450C2993C0FA55986D5DE68AB0C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 654413BB3B066DADED250404974577F8 /* MapCache.release.xcconfig */;
+			baseConfigurationReference = 7D6E7AF28F62F7886408AB4A733BF506 /* MapCache.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -847,7 +951,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/MapCache/MapCache-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/MapCache/MapCache-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -867,9 +971,9 @@
 			};
 			name = Release;
 		};
-		B8EFB5B2542A88E47A2CB09F67263072 /* Debug */ = {
+		BB416CB0D4B38440D1144C73992E47F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD8C5BDA1FD5372E6C424EA8656FAD0D /* Pods-Gigma.debug.xcconfig */;
+			baseConfigurationReference = D03C59B94865E34075025598504CAEE2 /* Pods-GigmaUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -881,7 +985,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Gigma/Pods-Gigma-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-GigmaUITests/Pods-GigmaUITests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -890,7 +994,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Gigma/Pods-Gigma.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-GigmaUITests/Pods-GigmaUITests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -906,7 +1010,7 @@
 		};
 		C2C265E6EBCA0B8B9506A6D368EFC718 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E1B7DE48587010FD6A5587509130551 /* Pods-GigmaTests.release.xcconfig */;
+			baseConfigurationReference = DFD1F28BFC59AFA548B1799E5450909B /* Pods-GigmaTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -928,6 +1032,79 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-GigmaTests/Pods-GigmaTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CC81383BDA3FAB49AB7B4ACD0B507DA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6060B261B701D9FCDB4E2F1F8245CFF1 /* NSDate_Utils.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/NSDate_Utils/NSDate_Utils-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/NSDate_Utils/NSDate_Utils-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/NSDate_Utils/NSDate_Utils.modulemap";
+				PRODUCT_MODULE_NAME = NSDate_Utils;
+				PRODUCT_NAME = NSDate_Utils;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D892C0E2A12BBDBEE8F134DB4AFB0CCF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD6C595A621350054E34618DC8D7E7AA /* Pods-Gigma.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Gigma/Pods-Gigma-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Gigma/Pods-Gigma.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -977,6 +1154,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1011,6 +1189,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0F1EA469F7007EBC18E64A1CFF1983DF /* Build configuration list for PBXNativeTarget "Pods-Gigma" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				385B3291F2B814E87ADD82D8C4569B0C /* Debug */,
+				D892C0E2A12BBDBEE8F134DB4AFB0CCF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1AF31003528E619DC14E022EEF50E151 /* Build configuration list for PBXNativeTarget "MapCache" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1020,11 +1207,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4549F94DA283A600D896620E8B8AB8FB /* Build configuration list for PBXNativeTarget "Pods-Gigma" */ = {
+		1FFE6A69DBA229BCF5B6CB8168791670 /* Build configuration list for PBXNativeTarget "Pods-GigmaUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B8EFB5B2542A88E47A2CB09F67263072 /* Debug */,
-				6335E491BDC8B0F5AA6F85B2128C1B9A /* Release */,
+				BB416CB0D4B38440D1144C73992E47F8 /* Debug */,
+				655C43BB90AFDF411694666390F78B85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1047,11 +1234,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		81AC8EF2EB744A0BE2F9646082752A5D /* Build configuration list for PBXNativeTarget "Pods-Gigma-GigmaUITests" */ = {
+		806CD0DD82C194100B8898024C8254BC /* Build configuration list for PBXNativeTarget "NSDate_Utils" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0BA6C39F38304ED10AF6D2837D0B0349 /* Debug */,
-				11C8ADF7E7CD8B808E16B2E0E79C7630 /* Release */,
+				CC81383BDA3FAB49AB7B4ACD0B507DA6 /* Debug */,
+				16F8745536D45A77071D51AF8CB1C37C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

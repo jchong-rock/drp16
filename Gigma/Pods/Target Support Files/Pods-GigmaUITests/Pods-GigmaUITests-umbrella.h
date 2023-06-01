@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_Gigma_GigmaUITestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_Gigma_GigmaUITestsVersionString[];
+FOUNDATION_EXPORT double Pods_GigmaUITestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_GigmaUITestsVersionString[];
 

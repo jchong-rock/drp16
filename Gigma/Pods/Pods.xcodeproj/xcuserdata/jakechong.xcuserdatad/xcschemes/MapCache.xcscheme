@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B6E4327951A6DF390BB2E3239D6AF706"
-               BuildableName = "Pods_GigmaTests.framework"
-               BlueprintName = "Pods-GigmaTests"
+               BlueprintIdentifier = "D26394E74B3D99783EE42885C06E286A"
+               BuildableName = "MapCache.framework"
+               BlueprintName = "MapCache"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
