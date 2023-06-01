@@ -38,4 +38,5 @@ deploy-job:      # This job runs in the deploy stage.
   environment: production
   script:
     - echo "Deploying application..."
+    - curl -X POST -H "Authorization: token $BITRISE_API_TOKEN" https://api.bitrise.io/v0.1/apps/5766d750-a3f3-4576-b878-08e3a23b3361/builds
     - echo "Application successfully deployed."
