@@ -1,5 +1,5 @@
 //
-//  FakeData.swift
+//  DataBaseDriver.swift
 //  Gigma
 //
 //  Created by Jake Chong on 31/05/2023.
@@ -16,11 +16,11 @@ import CoreLocation
 
 @objc class FakeData : NSObject, DataBaseDriver {
     func getFestivals() -> [NSString] {
-        return ["Jaketown", "Leeds", "Wireless", "Kagan"]
+        return ["Jaketown", "Bjorna", "Wireless", "Kagan"]
     }
     
     func getLocationCentre(festival: NSString) -> CLLocationCoordinate2D {
-        if (festival == "Leeds") {
+        if (festival == "Bjorna") {
             return CLLocationCoordinate2DMake(53.807220, -1.530743)
         }
         if (festival == "Kagan") {
