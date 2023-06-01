@@ -16,7 +16,7 @@ import CoreLocation
 
 @objc class FakeData : NSObject, DataBaseDriver {
     func getFestivals() -> [NSString] {
-        return ["Jaketown", "Bjorna", "Nada", "Kagan"]
+        return ["Jaketown", "Bjorna", "Nada", "Kagan2"]
     }
     
     func getLocationCentre(festival: NSString) -> CLLocationCoordinate2D {
