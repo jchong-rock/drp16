@@ -2,7 +2,7 @@
 //  Friend+CoreDataProperties.h
 //  
 //
-//  Created by Jake Chong on 31/05/2023.
+//  Created by Jake Chong on 01/06/2023.
 //
 //
 
@@ -15,8 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<Friend *> *)fetchRequest NS_SWIFT_NAME(fetchRequest());
 
+@property (nullable, nonatomic, copy) NSUUID *deviceID;
 @property (nullable, nonatomic, copy) NSString *friendName;
-@property (nullable, nonatomic, copy) NSString *deviceID;
 
 @end
 

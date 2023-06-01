@@ -9,7 +9,7 @@
 
 @protocol FriendViewControllerDelegate <NSObject>
 
-- (BOOL) addFriend:(NSString *) name withID:(NSString *) uid;
+- (BOOL) addFriend:(NSString *) name withID:(NSUUID *) uid;
 
 @end
 

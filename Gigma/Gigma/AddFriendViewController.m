@@ -7,6 +7,7 @@
 
 #import "AddFriendViewController.h"
 #import "FriendViewController.h"
+#import "NSDictionary+NSDictionaryExtension.h"
 
 @interface AddFriendViewController ()
 
@@ -20,11 +21,17 @@
 @synthesize nearbyDevicePicker;
 @synthesize nicknameField;
 @synthesize chosenNickname;
+@synthesize bluetoothDriver;
 
 - (void) viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    nearbyDevicesList = [[NSMutableArray alloc] initWithObjects:@"device1", @"device2", nil];
+    bluetoothDriver = [[Bluetoother alloc] init];
+}
+
+- (void) viewDidAppear:(BOOL) animated {
+    [super viewDidAppear: animated];
+    nearbyDevicesMap = [bluetoothDriver nearbyBluetoothDevices];
 }
 
 - (NSInteger) numberOfComponentsInPickerView:(UIPickerView *) pickerView {
@@ -32,15 +39,15 @@
 }
 
 - (NSInteger) pickerView:(UIPickerView *) pickerView numberOfRowsInComponent:(NSInteger) component {
-    return [nearbyDevicesList count];
+    return [nearbyDevicesMap count];
 }
 
 - (NSString *) pickerView:(UIPickerView *) pickerView titleForRow:(NSInteger) row forComponent:(NSInteger) component {
-    return [nearbyDevicesList objectAtIndex: row];
+    return [nearbyDevicesMap objectForKey: [nearbyDevicesMap keyAtIndex: row]];
 }
 
 - (IBAction) addButtonPressed:(id) sender {
-    NSString * chosenDevice = [nearbyDevicesList objectAtIndex:
+    NSUUID * chosenDevice = [nearbyDevicesMap keyAtIndex:
                                [nearbyDevicePicker selectedRowInComponent: 0]];
     BOOL didAddSuccessfully = [delegate addFriend: chosenNickname withID: chosenDevice];
     if (didAddSuccessfully) {
