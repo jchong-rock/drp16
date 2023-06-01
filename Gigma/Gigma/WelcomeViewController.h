@@ -14,7 +14,7 @@
 
 @property (retain, nonatomic) UITableView * buttonStack;
 @property NSArray * festivalButtonList;
-@property NSObject <DataBaseDownloader> * data;
+@property NSObject <DataBaseDriver> * data;
 
 - (IBAction) continueButtonPressed:(id) sender;
 
