@@ -14,6 +14,18 @@
       location = "group:Gigma/Friend+CoreDataProperties.m">
    </FileRef>
    <FileRef
+      location = "group:Gigma/Message+CoreDataProperties.h">
+   </FileRef>
+   <FileRef
+      location = "group:Gigma/Message+CoreDataClass.h">
+   </FileRef>
+   <FileRef
+      location = "group:Gigma/Message+CoreDataClass.m">
+   </FileRef>
+   <FileRef
+      location = "group:Gigma/Message+CoreDataProperties.m">
+   </FileRef>
+   <FileRef
       location = "group:Gigma.xcodeproj">
    </FileRef>
    <FileRef

@@ -3,5 +3,13 @@
     <entity name="Friend" representedClassName="Friend" elementID="Friend" syncable="YES" codeGenerationType="class">
         <attribute name="deviceID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="friendName" optional="YES" attributeType="String"/>
+        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Message" inverseName="recipient" inverseEntity="Message"/>
+    </entity>
+    <entity name="Message" representedClassName="Message" elementID="Message" syncable="YES" codeGenerationType="class">
+        <attribute name="contents" optional="YES" attributeType="String"/>
+        <attribute name="dateTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="wasRead" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="weSentIt" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="recipient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Friend" inverseName="messages" inverseEntity="Friend"/>
     </entity>
 </model>

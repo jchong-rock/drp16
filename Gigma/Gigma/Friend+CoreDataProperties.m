@@ -16,5 +16,6 @@
 
 @dynamic friendName;
 @dynamic deviceID;
+@dynamic messages;
 
 @end

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F77894408556CDCB772AFA8 /* Pods_Gigma_GigmaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7DD6541CBAFF5CA2B7C2B6 /* Pods_Gigma_GigmaUITests.framework */; };
 		A523707B6191CFEB6328E345 /* Pods_GigmaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3E0DA8260CB815B3922D04 /* Pods_GigmaTests.framework */; };
 		A5DD1D030C1CE129E1B5200A /* Pods_Gigma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D143A8E7E729429E511BFD7 /* Pods_Gigma.framework */; };
 		E0472C812A27687B00782EA0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0472C802A27687B00782EA0 /* MapViewController.swift */; };
@@ -20,6 +19,9 @@
 		E0549B1F2A27FA270002A8D4 /* FestivalSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0549B1E2A27FA270002A8D4 /* FestivalSelectionCell.m */; };
 		E0549B222A28D0E80002A8D4 /* BluetoothDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0549B212A28D0E80002A8D4 /* BluetoothDriver.swift */; };
 		E0549B2A2A28E0790002A8D4 /* GigmaModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E0549B282A28E0790002A8D4 /* GigmaModel.xcdatamodeld */; };
+		E0549B2C2A2900B50002A8D4 /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0549B2B2A2900B50002A8D4 /* MessagesViewController.m */; };
+		E0549B2F2A2907B00002A8D4 /* MessageDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = E0549B2E2A2907B00002A8D4 /* MessageDriver.m */; };
+		E0549B332A2908DE0002A8D4 /* MessageSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0549B322A2908DD0002A8D4 /* MessageSelectionCell.m */; };
 		E05733272A24F61C00B7A32D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E05733262A24F61C00B7A32D /* AppDelegate.m */; };
 		E057332A2A24F61C00B7A32D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E05733292A24F61C00B7A32D /* SceneDelegate.m */; };
 		E057332D2A24F61C00B7A32D /* AddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E057332C2A24F61C00B7A32D /* AddFriendViewController.m */; };
@@ -34,6 +36,10 @@
 		E05733712A275B9D00B7A32D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E05733702A275B9D00B7A32D /* GoogleService-Info.plist */; };
 		E05733722A275B9D00B7A32D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E05733702A275B9D00B7A32D /* GoogleService-Info.plist */; };
 		E05733732A275B9D00B7A32D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E05733702A275B9D00B7A32D /* GoogleService-Info.plist */; };
+		E0D8264D2A29374C00E3A373 /* ComposeMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D8264C2A29374C00E3A373 /* ComposeMessageViewController.m */; };
+		E0D826512A294C9200E3A373 /* IndentedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D826502A294C9200E3A373 /* IndentedLabel.m */; };
+		E0D826532A294E0B00E3A373 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D826522A294E0B00E3A373 /* MessageCell.m */; };
+		F40440FE50AAB628ED7996CE /* Pods_GigmaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E889D55EF1E0CE350993E5A5 /* Pods_GigmaUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,11 +63,12 @@
 		0D000F209F5331DE684CA98E /* Pods-Gigma.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gigma.debug.xcconfig"; path = "Target Support Files/Pods-Gigma/Pods-Gigma.debug.xcconfig"; sourceTree = "<group>"; };
 		17FBF2956263366011E163C1 /* Pods-Gigma-GigmaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gigma-GigmaUITests.release.xcconfig"; path = "Target Support Files/Pods-Gigma-GigmaUITests/Pods-Gigma-GigmaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4D143A8E7E729429E511BFD7 /* Pods_Gigma.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gigma.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59B2967CE5FE642430F2A246 /* Pods-GigmaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GigmaUITests.release.xcconfig"; path = "Target Support Files/Pods-GigmaUITests/Pods-GigmaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		62027280863E4BB93C712F67 /* Pods-Gigma.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gigma.release.xcconfig"; path = "Target Support Files/Pods-Gigma/Pods-Gigma.release.xcconfig"; sourceTree = "<group>"; };
+		64C1B07B7D767489A76B26C5 /* Pods-GigmaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GigmaUITests.debug.xcconfig"; path = "Target Support Files/Pods-GigmaUITests/Pods-GigmaUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		788497B0376D458D1596B13F /* Pods-GigmaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GigmaTests.debug.xcconfig"; path = "Target Support Files/Pods-GigmaTests/Pods-GigmaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		91E198BC41D9201DC749D010 /* Pods-GigmaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GigmaTests.release.xcconfig"; path = "Target Support Files/Pods-GigmaTests/Pods-GigmaTests.release.xcconfig"; sourceTree = "<group>"; };
 		AD2ACB7E32AEA43783DD79E3 /* Pods-Gigma-GigmaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gigma-GigmaUITests.debug.xcconfig"; path = "Target Support Files/Pods-Gigma-GigmaUITests/Pods-Gigma-GigmaUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		AD7DD6541CBAFF5CA2B7C2B6 /* Pods_Gigma_GigmaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gigma_GigmaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE3E0DA8260CB815B3922D04 /* Pods_GigmaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GigmaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0472C7F2A27687A00782EA0 /* Gigma-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gigma-Bridging-Header.h"; sourceTree = "<group>"; };
 		E0472C802A27687B00782EA0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +86,11 @@
 		E0549B202A27FA3F0002A8D4 /* FestivalSelectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FestivalSelectionCell.h; sourceTree = "<group>"; };
 		E0549B212A28D0E80002A8D4 /* BluetoothDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothDriver.swift; sourceTree = "<group>"; };
 		E0549B292A28E0790002A8D4 /* GigmaModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GigmaModel.xcdatamodel; sourceTree = "<group>"; };
+		E0549B2B2A2900B50002A8D4 /* MessagesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessagesViewController.m; sourceTree = "<group>"; };
+		E0549B2D2A2900D50002A8D4 /* MessagesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessagesViewController.h; sourceTree = "<group>"; };
+		E0549B2E2A2907B00002A8D4 /* MessageDriver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageDriver.m; sourceTree = "<group>"; };
+		E0549B322A2908DD0002A8D4 /* MessageSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageSelectionCell.m; sourceTree = "<group>"; };
+		E0549B342A2908E40002A8D4 /* MessageSelectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageSelectionCell.h; sourceTree = "<group>"; };
 		E05733222A24F61C00B7A32D /* Gigma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gigma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E05733252A24F61C00B7A32D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E05733262A24F61C00B7A32D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -99,6 +111,13 @@
 		E05733622A2601CB00B7A32D /* FriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendViewController.h; sourceTree = "<group>"; };
 		E05733662A2608B900B7A32D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AfterMain.storyboard; sourceTree = "<group>"; };
 		E05733702A275B9D00B7A32D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E0D8264C2A29374C00E3A373 /* ComposeMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeMessageViewController.m; sourceTree = "<group>"; };
+		E0D8264E2A294B6A00E3A373 /* ComposeMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeMessageViewController.h; sourceTree = "<group>"; };
+		E0D8264F2A294C6D00E3A373 /* IndentedLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndentedLabel.h; sourceTree = "<group>"; };
+		E0D826502A294C9200E3A373 /* IndentedLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndentedLabel.m; sourceTree = "<group>"; };
+		E0D826522A294E0B00E3A373 /* MessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
+		E0D826542A294E1E00E3A373 /* MessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
+		E889D55EF1E0CE350993E5A5 /* Pods_GigmaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GigmaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F77894408556CDCB772AFA8 /* Pods_Gigma_GigmaUITests.framework in Frameworks */,
+				F40440FE50AAB628ED7996CE /* Pods_GigmaUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,8 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				4D143A8E7E729429E511BFD7 /* Pods_Gigma.framework */,
-				AD7DD6541CBAFF5CA2B7C2B6 /* Pods_Gigma_GigmaUITests.framework */,
 				DE3E0DA8260CB815B3922D04 /* Pods_GigmaTests.framework */,
+				E889D55EF1E0CE350993E5A5 /* Pods_GigmaUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -173,6 +192,17 @@
 				E0472D5E2A279C8800782EA0 /* WelcomeViewController.m */,
 				E057332B2A24F61C00B7A32D /* AddFriendViewController.h */,
 				E057332C2A24F61C00B7A32D /* AddFriendViewController.m */,
+				E0D8264E2A294B6A00E3A373 /* ComposeMessageViewController.h */,
+				E0D8264C2A29374C00E3A373 /* ComposeMessageViewController.m */,
+				E0D8264F2A294C6D00E3A373 /* IndentedLabel.h */,
+				E0D826502A294C9200E3A373 /* IndentedLabel.m */,
+				E0549B2D2A2900D50002A8D4 /* MessagesViewController.h */,
+				E0549B2B2A2900B50002A8D4 /* MessagesViewController.m */,
+				E0549B342A2908E40002A8D4 /* MessageSelectionCell.h */,
+				E0549B322A2908DD0002A8D4 /* MessageSelectionCell.m */,
+				E0D826542A294E1E00E3A373 /* MessageCell.h */,
+				E0D826522A294E0B00E3A373 /* MessageCell.m */,
+				E0549B2E2A2907B00002A8D4 /* MessageDriver.m */,
 				E05733622A2601CB00B7A32D /* FriendViewController.h */,
 				E05733602A2601A100B7A32D /* FriendViewController.m */,
 				E0549B202A27FA3F0002A8D4 /* FestivalSelectionCell.h */,
@@ -224,6 +254,8 @@
 				17FBF2956263366011E163C1 /* Pods-Gigma-GigmaUITests.release.xcconfig */,
 				788497B0376D458D1596B13F /* Pods-GigmaTests.debug.xcconfig */,
 				91E198BC41D9201DC749D010 /* Pods-GigmaTests.release.xcconfig */,
+				64C1B07B7D767489A76B26C5 /* Pods-GigmaUITests.debug.xcconfig */,
+				59B2967CE5FE642430F2A246 /* Pods-GigmaUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -277,7 +309,6 @@
 				E05733432A24F61F00B7A32D /* Sources */,
 				E05733442A24F61F00B7A32D /* Frameworks */,
 				E05733452A24F61F00B7A32D /* Resources */,
-				3C3409A8371FEB6AB18F5AFF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -364,23 +395,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3C3409A8371FEB6AB18F5AFF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Gigma-GigmaUITests/Pods-Gigma-GigmaUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Gigma-GigmaUITests/Pods-Gigma-GigmaUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gigma-GigmaUITests/Pods-Gigma-GigmaUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		451E090B11FB488D19236D90 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -418,7 +432,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Gigma-GigmaUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-GigmaUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -473,8 +487,10 @@
 			files = (
 				E057332D2A24F61C00B7A32D /* AddFriendViewController.m in Sources */,
 				E05733272A24F61C00B7A32D /* AppDelegate.m in Sources */,
+				E0D826512A294C9200E3A373 /* IndentedLabel.m in Sources */,
 				E0549B122A27D8A60002A8D4 /* FestivalSettingsViewController.m in Sources */,
 				E0549B2A2A28E0790002A8D4 /* GigmaModel.xcdatamodeld in Sources */,
+				E0D826532A294E0B00E3A373 /* MessageCell.m in Sources */,
 				E0549B1F2A27FA270002A8D4 /* FestivalSelectionCell.m in Sources */,
 				E0549B222A28D0E80002A8D4 /* BluetoothDriver.swift in Sources */,
 				E0472D5F2A279C8800782EA0 /* WelcomeViewController.m in Sources */,
@@ -482,9 +498,13 @@
 				E05733382A24F61F00B7A32D /* main.m in Sources */,
 				E0549B182A27DF140002A8D4 /* DataBaseDriver.swift in Sources */,
 				E0472C902A2782FF00782EA0 /* MainViewController.m in Sources */,
+				E0549B2F2A2907B00002A8D4 /* MessageDriver.m in Sources */,
+				E0549B2C2A2900B50002A8D4 /* MessagesViewController.m in Sources */,
 				E05733612A2601A100B7A32D /* FriendViewController.m in Sources */,
 				E057332A2A24F61C00B7A32D /* SceneDelegate.m in Sources */,
 				E0472C812A27687B00782EA0 /* MapViewController.swift in Sources */,
+				E0549B332A2908DE0002A8D4 /* MessageSelectionCell.m in Sources */,
+				E0D8264D2A29374C00E3A373 /* ComposeMessageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -755,7 +775,7 @@
 		};
 		E05733582A24F61F00B7A32D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AD2ACB7E32AEA43783DD79E3 /* Pods-Gigma-GigmaUITests.debug.xcconfig */;
+			baseConfigurationReference = 64C1B07B7D767489A76B26C5 /* Pods-GigmaUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -772,7 +792,7 @@
 		};
 		E05733592A24F61F00B7A32D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 17FBF2956263366011E163C1 /* Pods-Gigma-GigmaUITests.release.xcconfig */;
+			baseConfigurationReference = 59B2967CE5FE642430F2A246 /* Pods-GigmaUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

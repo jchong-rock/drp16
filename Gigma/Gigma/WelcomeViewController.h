@@ -17,5 +17,6 @@
 @property NSObject <DataBaseDriver> * data;
 
 - (IBAction) continueButtonPressed:(id) sender;
+- (IBAction) notListedButtonPressed:(id) sender;
 
 @end
