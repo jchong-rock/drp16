@@ -164,10 +164,10 @@
 			children = (
 				E05733252A24F61C00B7A32D /* AppDelegate.h */,
 				E05733262A24F61C00B7A32D /* AppDelegate.m */,
-				E0472D5D2A279C8400782EA0 /* WelcomeViewController.h */,
-				E0472D5E2A279C8800782EA0 /* WelcomeViewController.m */,
 				E05733282A24F61C00B7A32D /* SceneDelegate.h */,
 				E05733292A24F61C00B7A32D /* SceneDelegate.m */,
+				E0472D5D2A279C8400782EA0 /* WelcomeViewController.h */,
+				E0472D5E2A279C8800782EA0 /* WelcomeViewController.m */,
 				E057332B2A24F61C00B7A32D /* AddFriendViewController.h */,
 				E057332C2A24F61C00B7A32D /* AddFriendViewController.m */,
 				E05733622A2601CB00B7A32D /* FriendViewController.h */,

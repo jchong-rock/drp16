@@ -17,7 +17,7 @@
                BlueprintIdentifier = "D26394E74B3D99783EE42885C06E286A"
                BuildableName = "MapCache.framework"
                BlueprintName = "MapCache"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               ReferencedContainer = "container:Pods/Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
