@@ -3,23 +3,20 @@
 <plist version="1.0">
 <dict>
 	<key>SchemeUserState</key>
-	<dict/>
-	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>E05733212A24F61C00B7A32D</key>
+		<key>Gigma.xcscheme_^#shared#^_</key>
 		<dict>
-			<key>primary</key>
+			<key>isShown</key>
 			<true/>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
-		<key>E057333C2A24F61F00B7A32D</key>
+		<key>MapCache.xcscheme_^#shared#^_</key>
 		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E05733462A24F61F00B7A32D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>0</integer>
 		</dict>
 	</dict>
 </dict>
