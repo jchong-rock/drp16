@@ -16,7 +16,6 @@
 @interface FriendViewController : UIViewController <FriendViewControllerDelegate> {
     IBOutlet UITableView * buttonStack;
     NSMutableArray * friendButtonList;
-    NSMutableDictionary * friends;
 }
 
 @property (retain, nonatomic) UITableView * buttonStack;

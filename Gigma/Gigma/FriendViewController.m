@@ -9,7 +9,6 @@
 #import "AddFriendViewController.h"
 #import "Friend+CoreDataProperties.h"
 #import "AppDelegate.h"
-#import "Friend+CoreDataProperties.h"
 
 @interface FriendViewController () {
     NSManagedObjectContext * managedObjectContext;
@@ -61,7 +60,7 @@
 - (void) tableView:(UITableView *) tableView commitEditingStyle:(UITableViewCellEditingStyle) editingStyle forRowAtIndexPath:(NSIndexPath *) indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
-        NSLog(@"%@, %ld", ((Friend *)[friendButtonList objectAtIndex: indexPath.row]).friendName, (long) indexPath.row);
+        NSLog(@"%@, %ld", ((Friend *) [friendButtonList objectAtIndex: indexPath.row]).friendName, (long) indexPath.row);
         
         [managedObjectContext deleteObject: [friendButtonList objectAtIndex: indexPath.row]];
         [friendButtonList removeObjectAtIndex: indexPath.row];

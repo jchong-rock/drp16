@@ -12,6 +12,7 @@
 @interface AddFriendViewController : UIViewController
     <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate> {
         NSDictionary * nearbyDevicesMap;
+        NSArray * nearbyDevicesList;
         IBOutlet UIPickerView * nearbyDevicePicker;
         IBOutlet UITextField * nicknameField;
         IBOutlet UILabel * nicknameTextLabel;

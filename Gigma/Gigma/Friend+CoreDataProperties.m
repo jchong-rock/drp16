@@ -14,7 +14,7 @@
 	return [NSFetchRequest fetchRequestWithEntityName:@"Friend"];
 }
 
-@dynamic deviceID;
 @dynamic friendName;
+@dynamic deviceID;
 
 @end

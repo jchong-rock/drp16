@@ -11,7 +11,6 @@
 		A523707B6191CFEB6328E345 /* Pods_GigmaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3E0DA8260CB815B3922D04 /* Pods_GigmaTests.framework */; };
 		A5DD1D030C1CE129E1B5200A /* Pods_Gigma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D143A8E7E729429E511BFD7 /* Pods_Gigma.framework */; };
 		E0472C812A27687B00782EA0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0472C802A27687B00782EA0 /* MapViewController.swift */; };
-		E0472C8A2A27787400782EA0 /* GigmaModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E0472C882A27787400782EA0 /* GigmaModel.xcdatamodeld */; };
 		E0472C902A2782FF00782EA0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0472C8F2A2782FF00782EA0 /* MainViewController.m */; };
 		E0472D5F2A279C8800782EA0 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0472D5E2A279C8800782EA0 /* WelcomeViewController.m */; };
 		E0472D612A27A78F00782EA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0472D602A27A78F00782EA0 /* Main.storyboard */; };
@@ -20,6 +19,7 @@
 		E0549B182A27DF140002A8D4 /* FakeDataDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0549B172A27DF140002A8D4 /* FakeDataDriver.swift */; };
 		E0549B1F2A27FA270002A8D4 /* FestivalSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0549B1E2A27FA270002A8D4 /* FestivalSelectionCell.m */; };
 		E0549B222A28D0E80002A8D4 /* BluetoothDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0549B212A28D0E80002A8D4 /* BluetoothDriver.swift */; };
+		E0549B2A2A28E0790002A8D4 /* GigmaModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E0549B282A28E0790002A8D4 /* GigmaModel.xcdatamodeld */; };
 		E05733272A24F61C00B7A32D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E05733262A24F61C00B7A32D /* AppDelegate.m */; };
 		E057332A2A24F61C00B7A32D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E05733292A24F61C00B7A32D /* SceneDelegate.m */; };
 		E057332D2A24F61C00B7A32D /* AddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E057332C2A24F61C00B7A32D /* AddFriendViewController.m */; };
@@ -65,7 +65,6 @@
 		DE3E0DA8260CB815B3922D04 /* Pods_GigmaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GigmaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0472C7F2A27687A00782EA0 /* Gigma-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gigma-Bridging-Header.h"; sourceTree = "<group>"; };
 		E0472C802A27687B00782EA0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		E0472C892A27787400782EA0 /* GigmaModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GigmaModel.xcdatamodel; sourceTree = "<group>"; };
 		E0472C8E2A2782DE00782EA0 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		E0472C8F2A2782FF00782EA0 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		E0472D5D2A279C8400782EA0 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
@@ -79,7 +78,7 @@
 		E0549B1E2A27FA270002A8D4 /* FestivalSelectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FestivalSelectionCell.m; sourceTree = "<group>"; };
 		E0549B202A27FA3F0002A8D4 /* FestivalSelectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FestivalSelectionCell.h; sourceTree = "<group>"; };
 		E0549B212A28D0E80002A8D4 /* BluetoothDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothDriver.swift; sourceTree = "<group>"; };
-		E0549B242A28D9590002A8D4 /* NSDictionary+NSDictionaryExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+NSDictionaryExtension.h"; sourceTree = "<group>"; };
+		E0549B292A28E0790002A8D4 /* GigmaModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GigmaModel.xcdatamodel; sourceTree = "<group>"; };
 		E05733222A24F61C00B7A32D /* Gigma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gigma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E05733252A24F61C00B7A32D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E05733262A24F61C00B7A32D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -165,7 +164,7 @@
 		E05733242A24F61C00B7A32D /* Gigma */ = {
 			isa = PBXGroup;
 			children = (
-				E0549B242A28D9590002A8D4 /* NSDictionary+NSDictionaryExtension.h */,
+				E0549B282A28E0790002A8D4 /* GigmaModel.xcdatamodeld */,
 				E05733252A24F61C00B7A32D /* AppDelegate.h */,
 				E05733262A24F61C00B7A32D /* AppDelegate.m */,
 				E05733282A24F61C00B7A32D /* SceneDelegate.h */,
@@ -195,7 +194,6 @@
 				E05733702A275B9D00B7A32D /* GoogleService-Info.plist */,
 				E05733372A24F61F00B7A32D /* main.m */,
 				E0472C7F2A27687A00782EA0 /* Gigma-Bridging-Header.h */,
-				E0472C882A27787400782EA0 /* GigmaModel.xcdatamodeld */,
 			);
 			path = Gigma;
 			sourceTree = "<group>";
@@ -476,6 +474,7 @@
 				E057332D2A24F61C00B7A32D /* AddFriendViewController.m in Sources */,
 				E05733272A24F61C00B7A32D /* AppDelegate.m in Sources */,
 				E0549B122A27D8A60002A8D4 /* FestivalSettingsViewController.m in Sources */,
+				E0549B2A2A28E0790002A8D4 /* GigmaModel.xcdatamodeld in Sources */,
 				E0549B1F2A27FA270002A8D4 /* FestivalSelectionCell.m in Sources */,
 				E0549B222A28D0E80002A8D4 /* BluetoothDriver.swift in Sources */,
 				E0472D5F2A279C8800782EA0 /* WelcomeViewController.m in Sources */,
@@ -483,7 +482,6 @@
 				E05733382A24F61F00B7A32D /* main.m in Sources */,
 				E0549B182A27DF140002A8D4 /* FakeDataDriver.swift in Sources */,
 				E0472C902A2782FF00782EA0 /* MainViewController.m in Sources */,
-				E0472C8A2A27787400782EA0 /* GigmaModel.xcdatamodeld in Sources */,
 				E05733612A2601A100B7A32D /* FriendViewController.m in Sources */,
 				E057332A2A24F61C00B7A32D /* SceneDelegate.m in Sources */,
 				E0472C812A27687B00782EA0 /* MapViewController.swift in Sources */,
@@ -831,14 +829,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E0472C882A27787400782EA0 /* GigmaModel.xcdatamodeld */ = {
+		E0549B282A28E0790002A8D4 /* GigmaModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				E0472C892A27787400782EA0 /* GigmaModel.xcdatamodel */,
+				E0549B292A28E0790002A8D4 /* GigmaModel.xcdatamodel */,
 			);
-			currentVersion = E0472C892A27787400782EA0 /* GigmaModel.xcdatamodel */;
+			currentVersion = E0549B292A28E0790002A8D4 /* GigmaModel.xcdatamodel */;
 			path = GigmaModel.xcdatamodeld;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */

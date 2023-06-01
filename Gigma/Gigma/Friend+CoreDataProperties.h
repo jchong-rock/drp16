@@ -15,8 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<Friend *> *)fetchRequest NS_SWIFT_NAME(fetchRequest());
 
-@property (nullable, nonatomic, copy) NSUUID *deviceID;
 @property (nullable, nonatomic, copy) NSString *friendName;
+@property (nullable, nonatomic, copy) NSUUID *deviceID;
 
 @end
 

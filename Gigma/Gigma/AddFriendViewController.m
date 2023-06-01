@@ -7,7 +7,6 @@
 
 #import "AddFriendViewController.h"
 #import "FriendViewController.h"
-#import "NSDictionary+NSDictionaryExtension.h"
 
 @interface AddFriendViewController ()
 
@@ -27,11 +26,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     bluetoothDriver = [[Bluetoother alloc] init];
-}
-
-- (void) viewDidAppear:(BOOL) animated {
-    [super viewDidAppear: animated];
     nearbyDevicesMap = [bluetoothDriver nearbyBluetoothDevices];
+    nearbyDevicesList = [nearbyDevicesMap allKeys];
 }
 
 - (NSInteger) numberOfComponentsInPickerView:(UIPickerView *) pickerView {
@@ -43,11 +39,11 @@
 }
 
 - (NSString *) pickerView:(UIPickerView *) pickerView titleForRow:(NSInteger) row forComponent:(NSInteger) component {
-    return [nearbyDevicesMap objectForKey: [nearbyDevicesMap keyAtIndex: row]];
+    return [nearbyDevicesMap objectForKey: [nearbyDevicesList objectAtIndex: row]];
 }
 
 - (IBAction) addButtonPressed:(id) sender {
-    NSUUID * chosenDevice = [nearbyDevicesMap keyAtIndex:
+    NSUUID * chosenDevice = [nearbyDevicesList objectAtIndex:
                                [nearbyDevicePicker selectedRowInComponent: 0]];
     BOOL didAddSuccessfully = [delegate addFriend: chosenNickname withID: chosenDevice];
     if (didAddSuccessfully) {
