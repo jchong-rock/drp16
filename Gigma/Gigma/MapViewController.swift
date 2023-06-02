@@ -20,15 +20,23 @@ class MapViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
+        let festivalName = UserDefaults.standard.string(forKey: "FestivalIsSet")
         let config = MapCacheConfig(withUrlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
         mapCache = MapCache(withConfig: config)
-        let festivalName = UserDefaults.standard.string(forKey: "FestivalIsSet")
-        let festival = data.getFestival(name: festivalName! as String)
-        let centre = festival.centre!.toCLCoordinate()
-        let width = festival.width
-        let height = festival.height
-        let coords = MKCoordinateRegion(center: centre, latitudinalMeters: width, longitudinalMeters: height)
-        mapView.setRegion(coords, animated: true)
+        mapView.showsUserLocation = true;
+        if (festivalName != "Unknown Festival") {
+            let festival = data.getFestival(name: festivalName! as String)
+            let centre = festival.centre!.toCLCoordinate()
+            let width = festival.width
+            let height = festival.height
+            let coords = MKCoordinateRegion(center: centre, latitudinalMeters: width, longitudinalMeters: height)
+            mapView.setRegion(coords, animated: true)
+        } else {
+            let errorLocation = CLLocationCoordinate2DMake(51.5124801, -0.2182141)
+            let errorRegion = MKCoordinateRegion(center: mapView.userLocation.location?.coordinate ?? errorLocation, latitudinalMeters: 200, longitudinalMeters: 200)
+            mapView.setRegion(errorRegion, animated: true)
+            
+        }
         mapView.useCache(mapCache!)
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(clearCache), name: NSNotification.Name.clearCache, object: nil)
