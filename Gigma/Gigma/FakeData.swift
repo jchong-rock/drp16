@@ -7,22 +7,13 @@
 
 import Foundation
 import CoreLocation
+import Firebase
 
-@objc protocol DataBaseDownloader {
-    func getFestivals() -> [NSString]
-    func getLocationCentre(festival: NSString) -> CLLocationCoordinate2D
-    func getPointsOfInterest(festival: NSString) -> [CLLocationCoordinate2D]
+protocol DataBaseDownloader {
+    func getFestivalList() -> [String]
+    func getFestival(name: String) -> Festival
 }
 
-@objc class FakeData : NSObject, DataBaseDownloader {
-    func getFestivals() -> [NSString] {
-        return ["Jaketown", "Leeds", "Wireless"]
-    }
-    
-    func getLocationCentre(festival: NSString) -> CLLocationCoordinate2D {
-        return CLLocationCoordinate2DMake(51.499043, -0.179375)
-    }
-    func getPointsOfInterest(festival: NSString) -> [CLLocationCoordinate2D] {
-        return [CLLocationCoordinate2DMake(51.499043, -0.179375)]
-    }
-}
+// // extract coordinates from centre GeoPoint
+// CLLocationCoordinate2D(latitude: Festival.centre.latitude,
+//                      longitude: Festival.centre.longitude)

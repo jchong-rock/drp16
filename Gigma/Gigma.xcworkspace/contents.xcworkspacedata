@@ -2,19 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Gigma/Friend+CoreDataProperties.h">
-   </FileRef>
-   <FileRef
-      location = "group:Gigma/Friend+CoreDataClass.h">
-   </FileRef>
-   <FileRef
-      location = "group:Gigma/Friend+CoreDataClass.m">
-   </FileRef>
-   <FileRef
-      location = "group:Gigma/Friend+CoreDataProperties.m">
-   </FileRef>
-   <FileRef
-      location = "group:Gigma.xcodeproj">
+      location = "group:Gigma">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
