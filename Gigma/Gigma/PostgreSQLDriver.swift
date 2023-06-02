@@ -20,10 +20,16 @@ class PostgreSQLDriver : NSObject, DataBaseDriver {
          }
         
         configuration = PostgresClientKit.ConnectionConfiguration()
+        configuration.ssl = prefsSQL!["ssl"] as! Bool
         configuration.host = prefsSQL!["host"] as! String
         configuration.database = prefsSQL!["dbName"] as! String
         configuration.user = prefsSQL!["user"] as! String
-        configuration.credential = .scramSHA256(password: prefsSQL!["password"] as! String)
+        let password = prefsSQL!["password"] as! String
+        switch (prefsSQL!["authMethod"] as! String) {
+            case "clearText": configuration.credential = Credential.cleartextPassword(password: password)
+            case "trust": configuration.credential = Credential.trust
+            default: configuration.credential = Credential.scramSHA256(password: password)
+        }
     }
     
     func close() {
