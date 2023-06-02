@@ -17,7 +17,11 @@ import CoreLocation
     @Published var festival = Festival(festivalID: "", centre: CodableCoordinate(latitude: 51.5124801, longitude: -0.2182141), height: 0, width: 0, stages: [:], toilets: [], water: [])
     //completion: @escaping ([Festival]) -> Void
     
-    func initFestivals() {
+    func close() {
+        
+    }
+    
+    func connect() -> Bool {
         // Get reference to database
         let db = Firestore.firestore()
         
@@ -43,6 +47,7 @@ import CoreLocation
                 }
             }
         }
+        return true
     }
     
     func getFestivalList() -> [String] {

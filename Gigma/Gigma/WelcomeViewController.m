@@ -31,8 +31,21 @@
     if (festivalIsSet != nil) {
         [self performSegueWithIdentifier: @"goToMain" sender: self];
     }
-    // change to use real data
-    festivalButtonList = [data getFestivalList];
+    // handle connection failure
+    BOOL connectionSuccess = [data connect];
+    if (!connectionSuccess) {
+        UIAlertController * popup = [UIAlertController alertControllerWithTitle: @"Error" message: @"Connection to database failed." preferredStyle: UIAlertControllerStyleAlert];
+
+        UIAlertAction * ok = [UIAlertAction actionWithTitle: @"OK" style: UIAlertActionStyleDefault handler: ^(UIAlertAction * action) {}];
+
+        [popup addAction: ok];
+        [self presentViewController: popup animated: YES completion: nil];
+        festivalButtonList = [[NSMutableArray alloc] init];
+        
+    } else {
+        festivalButtonList = [data getFestivalList];
+    }
+    [data close];
     [buttonStack reloadData];
 }
 

@@ -17,9 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [FIRApp configure];
-    data = [[FestivalData alloc] init];
-    [data initFestivals];
+    data = [[PostgreSQLDriver alloc] init];
     return YES;
 }
 

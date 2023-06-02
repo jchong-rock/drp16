@@ -12,11 +12,8 @@ import CoreLocation
 import Firebase
 
 @objc protocol DataBaseDriver {
-    func initFestivals()
+    func close()
+    func connect() -> Bool
     func getFestivalList() -> [String]
     func getFestival(name: String) -> Festival
 }
-
-// // extract coordinates from centre GeoPoint
-// CLLocationCoordinate2D(latitude: Festival.centre.latitude,
-//                      longitude: Festival.centre.longitude)
