@@ -10,6 +10,24 @@
       }
     },
     {
+      "identity" : "bluesocket",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Kitura/BlueSocket.git",
+      "state" : {
+        "revision" : "7b23a867008e0027bfd6f4d398d44720707bc8ca",
+        "version" : "2.0.4"
+      }
+    },
+    {
+      "identity" : "bluesslservice",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Kitura/BlueSSLService",
+      "state" : {
+        "revision" : "b27a94d063962dfa1bba9f79814c4ef202cf33a4",
+        "version" : "2.0.2"
+      }
+    },
+    {
       "identity" : "firebase-ios-sdk",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/firebase-ios-sdk",
@@ -79,6 +97,15 @@
       "state" : {
         "revision" : "819d0a2173aff699fb8c364b6fb906f7cdb1a692",
         "version" : "2.30909.0"
+      }
+    },
+    {
+      "identity" : "postgresclientkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/codewinsdotcom/PostgresClientKit",
+      "state" : {
+        "branch" : "master",
+        "revision" : "c2768c8ebe708b1c5937431972c7882b33f4ea49"
       }
     },
     {
