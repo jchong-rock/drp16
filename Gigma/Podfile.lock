@@ -1,0 +1,20 @@
+PODS:
+  - MapCache (0.10.0)
+  - NSDate_Utils (1.2.0)
+
+DEPENDENCIES:
+  - MapCache
+  - NSDate_Utils
+
+SPEC REPOS:
+  trunk:
+    - MapCache
+    - NSDate_Utils
+
+SPEC CHECKSUMS:
+  MapCache: d5954fb8dd61e3bcd579d65c2b7b12916feaf975
+  NSDate_Utils: 6eb35593eef7faed4ca360e00f889c541eb11f4a
+
+PODFILE CHECKSUM: a345761218847d5fda2ad3353df1e407b9be2e4a
+
+COCOAPODS: 1.12.1
