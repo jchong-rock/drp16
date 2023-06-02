@@ -10,6 +10,12 @@
 		98045AE3BEA6BD9CF6C8E8FE /* Pods_GigmaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92D5AFFEFD8F2A8A0AA8DF49 /* Pods_GigmaUITests.framework */; };
 		9AAA7F51C4E228D3A0C23A97 /* Pods_GigmaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8424401AA17DB0D79C212DFD /* Pods_GigmaTests.framework */; };
 		E0155F562A29EBA300069BEE /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155F552A29EBA300069BEE /* Festival.swift */; };
+		E0155F5A2A2A086300069BEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0155F592A2A086300069BEE /* GoogleService-Info.plist */; };
+		E0155F5B2A2A086300069BEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0155F592A2A086300069BEE /* GoogleService-Info.plist */; };
+		E0155F5C2A2A086300069BEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0155F592A2A086300069BEE /* GoogleService-Info.plist */; };
+		E0155F5E2A2A0E3E00069BEE /* Tests.py in Resources */ = {isa = PBXBuildFile; fileRef = E0155F5D2A2A0E3E00069BEE /* Tests.py */; };
+		E0155F5F2A2A0E3E00069BEE /* Tests.py in Resources */ = {isa = PBXBuildFile; fileRef = E0155F5D2A2A0E3E00069BEE /* Tests.py */; };
+		E0155F602A2A0E3E00069BEE /* Tests.py in Resources */ = {isa = PBXBuildFile; fileRef = E0155F5D2A2A0E3E00069BEE /* Tests.py */; };
 		E0472C812A27687B00782EA0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0472C802A27687B00782EA0 /* MapViewController.swift */; };
 		E0472C902A2782FF00782EA0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0472C8F2A2782FF00782EA0 /* MainViewController.m */; };
 		E0472D5F2A279C8800782EA0 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0472D5E2A279C8800782EA0 /* WelcomeViewController.m */; };
@@ -34,9 +40,6 @@
 		E057334E2A24F61F00B7A32D /* GigmaUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E057334D2A24F61F00B7A32D /* GigmaUITestsLaunchTests.m */; };
 		E05733612A2601A100B7A32D /* FriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E05733602A2601A100B7A32D /* FriendViewController.m */; };
 		E05733672A2608B900B7A32D /* AfterMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E05733652A2608B900B7A32D /* AfterMain.storyboard */; };
-		E05733712A275B9D00B7A32D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E05733702A275B9D00B7A32D /* GoogleService-Info.plist */; };
-		E05733722A275B9D00B7A32D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E05733702A275B9D00B7A32D /* GoogleService-Info.plist */; };
-		E05733732A275B9D00B7A32D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E05733702A275B9D00B7A32D /* GoogleService-Info.plist */; };
 		E0D8264D2A29374C00E3A373 /* ComposeMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D8264C2A29374C00E3A373 /* ComposeMessageViewController.m */; };
 		E0D826512A294C9200E3A373 /* IndentedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D826502A294C9200E3A373 /* IndentedLabel.m */; };
 		E0D826532A294E0B00E3A373 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D826522A294E0B00E3A373 /* MessageCell.m */; };
@@ -75,6 +78,8 @@
 		8424401AA17DB0D79C212DFD /* Pods_GigmaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GigmaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92D5AFFEFD8F2A8A0AA8DF49 /* Pods_GigmaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GigmaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0155F552A29EBA300069BEE /* Festival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
+		E0155F592A2A086300069BEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E0155F5D2A2A0E3E00069BEE /* Tests.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = Tests.py; sourceTree = "<group>"; };
 		E0472C7F2A27687A00782EA0 /* Gigma-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gigma-Bridging-Header.h"; sourceTree = "<group>"; };
 		E0472C802A27687B00782EA0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		E0472C8E2A2782DE00782EA0 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -115,7 +120,6 @@
 		E05733602A2601A100B7A32D /* FriendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendViewController.m; sourceTree = "<group>"; };
 		E05733622A2601CB00B7A32D /* FriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendViewController.h; sourceTree = "<group>"; };
 		E05733662A2608B900B7A32D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AfterMain.storyboard; sourceTree = "<group>"; };
-		E05733702A275B9D00B7A32D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E0D8264C2A29374C00E3A373 /* ComposeMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeMessageViewController.m; sourceTree = "<group>"; };
 		E0D8264E2A294B6A00E3A373 /* ComposeMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeMessageViewController.h; sourceTree = "<group>"; };
 		E0D8264F2A294C6D00E3A373 /* IndentedLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndentedLabel.h; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 		E05733192A24F61C00B7A32D = {
 			isa = PBXGroup;
 			children = (
+				E0155F592A2A086300069BEE /* GoogleService-Info.plist */,
 				E05733242A24F61C00B7A32D /* Gigma */,
 				E05733402A24F61F00B7A32D /* GigmaTests */,
 				E057334A2A24F61F00B7A32D /* GigmaUITests */,
@@ -231,7 +236,6 @@
 				E0472D602A27A78F00782EA0 /* Main.storyboard */,
 				E05733332A24F61F00B7A32D /* LaunchScreen.storyboard */,
 				E05733362A24F61F00B7A32D /* Info.plist */,
-				E05733702A275B9D00B7A32D /* GoogleService-Info.plist */,
 				E05733372A24F61F00B7A32D /* main.m */,
 				E0472C7F2A27687A00782EA0 /* Gigma-Bridging-Header.h */,
 			);
@@ -242,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				E05733412A24F61F00B7A32D /* GigmaTests.m */,
+				E0155F5D2A2A0E3E00069BEE /* Tests.py */,
 			);
 			path = GigmaTests;
 			sourceTree = "<group>";
@@ -384,9 +389,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0155F5E2A2A0E3E00069BEE /* Tests.py in Resources */,
 				E0472D612A27A78F00782EA0 /* Main.storyboard in Resources */,
 				E05733672A2608B900B7A32D /* AfterMain.storyboard in Resources */,
-				E05733712A275B9D00B7A32D /* GoogleService-Info.plist in Resources */,
+				E0155F5A2A2A086300069BEE /* GoogleService-Info.plist in Resources */,
 				E05733352A24F61F00B7A32D /* LaunchScreen.storyboard in Resources */,
 				E05733322A24F61F00B7A32D /* Assets.xcassets in Resources */,
 			);
@@ -396,7 +402,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E05733722A275B9D00B7A32D /* GoogleService-Info.plist in Resources */,
+				E0155F5F2A2A0E3E00069BEE /* Tests.py in Resources */,
+				E0155F5B2A2A086300069BEE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,7 +411,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E05733732A275B9D00B7A32D /* GoogleService-Info.plist in Resources */,
+				E0155F602A2A0E3E00069BEE /* Tests.py in Resources */,
+				E0155F5C2A2A086300069BEE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

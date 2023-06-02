@@ -12,6 +12,7 @@ import CoreLocation
 import Firebase
 
 @objc protocol DataBaseDriver {
+    func initFestivals()
     func getFestivalList() -> [String]
     func getFestival(name: String) -> Festival
 }

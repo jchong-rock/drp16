@@ -13,10 +13,13 @@
 
 @implementation AppDelegate
 
+@synthesize data;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [FIRApp configure];
+    data = [[FestivalData alloc] init];
+    [data initFestivals];
     return YES;
 }
 

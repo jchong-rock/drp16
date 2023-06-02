@@ -7,6 +7,7 @@
 
 #import "WelcomeViewController.h"
 #import "FestivalSelectionCell.h"
+#import "AppDelegate.h"
 
 @interface WelcomeViewController ()
 
@@ -18,6 +19,11 @@
 @synthesize festivalButtonList;
 @synthesize data;
 
+- (void) viewDidLoad {
+    AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    data = appDelegate.data;
+}
+
 - (void) viewDidAppear:(BOOL) animated {
     [super viewDidAppear: animated];
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
@@ -26,7 +32,6 @@
         [self performSegueWithIdentifier: @"goToMain" sender: self];
     }
     // change to use real data
-    data = [[FestivalData alloc] init];
     festivalButtonList = [data getFestivalList];
     [buttonStack reloadData];
 }

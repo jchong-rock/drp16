@@ -26,7 +26,7 @@ class MapViewController : UIViewController {
         mapView.showsUserLocation = true;
         if (festivalName != "Unknown Festival") {
             let festival = data.getFestival(name: festivalName! as String)
-            let centre = festival.centre!.toCLCoordinate()
+            let centre = festival.centre.toCLCoordinate()
             let width = festival.width
             let height = festival.height
             let coords = MKCoordinateRegion(center: centre, latitudinalMeters: width, longitudinalMeters: height)

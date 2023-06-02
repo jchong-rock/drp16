@@ -7,13 +7,14 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-@import Firebase;
+#import <Gigma-Swift.h>
+@import FirebaseCore;
 @import FirebaseFirestore;
-
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (readonly, strong) NSPersistentContainer *persistentContainer;
+@property (retain, strong, nonatomic) NSObject <DataBaseDriver> * data;
 
 - (void)saveContext;
 
