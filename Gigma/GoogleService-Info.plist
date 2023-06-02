@@ -25,7 +25,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:590767930512:ios:209ac38e0a8f95b23cac15</string>
+	<string>1:590767930512:ios:e79ad7b2b51bcfa53cac15</string>
 	<key>DATABASE_URL</key>
 	<string>https://organised-festivals-default-rtdb.europe-west1.firebasedatabase.app</string>
 </dict>
