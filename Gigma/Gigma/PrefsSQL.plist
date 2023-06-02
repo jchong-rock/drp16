@@ -2,10 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>authMethod</key>
+	<string>trust</string>
 	<key>user</key>
 	<string>alice</string>
 	<key>dbName</key>
-	<string>example</string>
+	<string>postgres</string>
+	<key>ssl</key>
+	<false/>
 	<key>password</key>
 	<string>1234</string>
 	<key>host</key>
