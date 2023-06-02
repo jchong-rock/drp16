@@ -10,12 +10,33 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 import CoreLocation
 
-struct Festival: Identifiable, Codable {
-    @DocumentID var id: String?
-    var centre: GeoPoint?
+@objc class Festival : NSObject, Identifiable, Codable {
+    @DocumentID var festivalID: String?
+    var centre: CodableCoordinate?
     var height: Double
     var width: Double
-    var stages: [String: GeoPoint]?
-    var toilets: [GeoPoint]?
-    var water: [GeoPoint]?
+    var stages: [String : CodableCoordinate]?
+    var toilets: [CodableCoordinate]?
+    var water: [CodableCoordinate]?
+    
+    init(festivalID: String? = nil, centre: CodableCoordinate? = nil, height: Double, width: Double, stages: [String : CodableCoordinate]? = nil, toilets: [CodableCoordinate]? = nil, water: [CodableCoordinate]? = nil) {
+        self.festivalID = festivalID
+        self.centre = centre
+        self.height = height
+        self.width = width
+        self.stages = stages
+        self.toilets = toilets
+        self.water = water
+    }
+}
+
+@objc class CodableCoordinate : NSObject, Codable {
+    
+    var latitude: Double
+    var longitude: Double
+
+    func toCLCoordinate() -> CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+
 }

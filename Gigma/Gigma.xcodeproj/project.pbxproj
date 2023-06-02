@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A523707B6191CFEB6328E345 /* Pods_GigmaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3E0DA8260CB815B3922D04 /* Pods_GigmaTests.framework */; };
-		A5DD1D030C1CE129E1B5200A /* Pods_Gigma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D143A8E7E729429E511BFD7 /* Pods_Gigma.framework */; };
+		98045AE3BEA6BD9CF6C8E8FE /* Pods_GigmaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92D5AFFEFD8F2A8A0AA8DF49 /* Pods_GigmaUITests.framework */; };
+		9AAA7F51C4E228D3A0C23A97 /* Pods_GigmaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8424401AA17DB0D79C212DFD /* Pods_GigmaTests.framework */; };
+		E0155F562A29EBA300069BEE /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155F552A29EBA300069BEE /* Festival.swift */; };
 		E0472C812A27687B00782EA0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0472C802A27687B00782EA0 /* MapViewController.swift */; };
 		E0472C902A2782FF00782EA0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0472C8F2A2782FF00782EA0 /* MainViewController.m */; };
 		E0472D5F2A279C8800782EA0 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0472D5E2A279C8800782EA0 /* WelcomeViewController.m */; };
@@ -39,11 +40,10 @@
 		E0D8264D2A29374C00E3A373 /* ComposeMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D8264C2A29374C00E3A373 /* ComposeMessageViewController.m */; };
 		E0D826512A294C9200E3A373 /* IndentedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D826502A294C9200E3A373 /* IndentedLabel.m */; };
 		E0D826532A294E0B00E3A373 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D826522A294E0B00E3A373 /* MessageCell.m */; };
-		F40440FE50AAB628ED7996CE /* Pods_GigmaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E889D55EF1E0CE350993E5A5 /* Pods_GigmaUITests.framework */; };
+		E5BA9A80F42A382FAED57B0D /* Pods_Gigma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3288B7B2E7E2B48AC12FDB22 /* Pods_Gigma.framework */; };
 		F7956E6B2A288F070026B06E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F7956E6A2A288F070026B06E /* FirebaseFirestore */; };
 		F7956E6D2A288F070026B06E /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = F7956E6C2A288F070026B06E /* FirebaseFirestoreCombine-Community */; };
 		F7956E6F2A288F070026B06E /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F7956E6E2A288F070026B06E /* FirebaseFirestoreSwift */; };
-		F7956E712A28A2EC0026B06E /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7956E702A28A2EC0026B06E /* Festival.swift */; };
 		F7956E732A28B25E0026B06E /* FestivalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7956E722A28B25E0026B06E /* FestivalData.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,16 +65,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0D000F209F5331DE684CA98E /* Pods-Gigma.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gigma.debug.xcconfig"; path = "Target Support Files/Pods-Gigma/Pods-Gigma.debug.xcconfig"; sourceTree = "<group>"; };
-		17FBF2956263366011E163C1 /* Pods-Gigma-GigmaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gigma-GigmaUITests.release.xcconfig"; path = "Target Support Files/Pods-Gigma-GigmaUITests/Pods-Gigma-GigmaUITests.release.xcconfig"; sourceTree = "<group>"; };
-		4D143A8E7E729429E511BFD7 /* Pods_Gigma.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gigma.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		59B2967CE5FE642430F2A246 /* Pods-GigmaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GigmaUITests.release.xcconfig"; path = "Target Support Files/Pods-GigmaUITests/Pods-GigmaUITests.release.xcconfig"; sourceTree = "<group>"; };
-		62027280863E4BB93C712F67 /* Pods-Gigma.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gigma.release.xcconfig"; path = "Target Support Files/Pods-Gigma/Pods-Gigma.release.xcconfig"; sourceTree = "<group>"; };
-		64C1B07B7D767489A76B26C5 /* Pods-GigmaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GigmaUITests.debug.xcconfig"; path = "Target Support Files/Pods-GigmaUITests/Pods-GigmaUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		788497B0376D458D1596B13F /* Pods-GigmaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GigmaTests.debug.xcconfig"; path = "Target Support Files/Pods-GigmaTests/Pods-GigmaTests.debug.xcconfig"; sourceTree = "<group>"; };
-		91E198BC41D9201DC749D010 /* Pods-GigmaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GigmaTests.release.xcconfig"; path = "Target Support Files/Pods-GigmaTests/Pods-GigmaTests.release.xcconfig"; sourceTree = "<group>"; };
-		AD2ACB7E32AEA43783DD79E3 /* Pods-Gigma-GigmaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gigma-GigmaUITests.debug.xcconfig"; path = "Target Support Files/Pods-Gigma-GigmaUITests/Pods-Gigma-GigmaUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		DE3E0DA8260CB815B3922D04 /* Pods_GigmaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GigmaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		136E1FB23B63B6D6932575CB /* Pods-GigmaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GigmaTests.debug.xcconfig"; path = "Target Support Files/Pods-GigmaTests/Pods-GigmaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1729EED8EE825915FB11772D /* Pods-Gigma.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gigma.debug.xcconfig"; path = "Target Support Files/Pods-Gigma/Pods-Gigma.debug.xcconfig"; sourceTree = "<group>"; };
+		2DFE7B671E23B854A2513E5C /* Pods-GigmaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GigmaTests.release.xcconfig"; path = "Target Support Files/Pods-GigmaTests/Pods-GigmaTests.release.xcconfig"; sourceTree = "<group>"; };
+		3288B7B2E7E2B48AC12FDB22 /* Pods_Gigma.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gigma.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		519A46CA8638749528180F1E /* Pods-Gigma.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gigma.release.xcconfig"; path = "Target Support Files/Pods-Gigma/Pods-Gigma.release.xcconfig"; sourceTree = "<group>"; };
+		55B6CADAD0D215114523DB42 /* Pods-GigmaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GigmaUITests.debug.xcconfig"; path = "Target Support Files/Pods-GigmaUITests/Pods-GigmaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		71FB64193C66B2E2484546EC /* Pods-GigmaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GigmaUITests.release.xcconfig"; path = "Target Support Files/Pods-GigmaUITests/Pods-GigmaUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8424401AA17DB0D79C212DFD /* Pods_GigmaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GigmaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92D5AFFEFD8F2A8A0AA8DF49 /* Pods_GigmaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GigmaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0155F552A29EBA300069BEE /* Festival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
 		E0472C7F2A27687A00782EA0 /* Gigma-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gigma-Bridging-Header.h"; sourceTree = "<group>"; };
 		E0472C802A27687B00782EA0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		E0472C8E2A2782DE00782EA0 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -122,8 +122,6 @@
 		E0D826502A294C9200E3A373 /* IndentedLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndentedLabel.m; sourceTree = "<group>"; };
 		E0D826522A294E0B00E3A373 /* MessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
 		E0D826542A294E1E00E3A373 /* MessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
-		E889D55EF1E0CE350993E5A5 /* Pods_GigmaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GigmaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F7956E702A28A2EC0026B06E /* Festival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
 		F7956E722A28B25E0026B06E /* FestivalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,9 +131,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7956E6D2A288F070026B06E /* FirebaseFirestoreCombine-Community in Frameworks */,
-				A5DD1D030C1CE129E1B5200A /* Pods_Gigma.framework in Frameworks */,
 				F7956E6B2A288F070026B06E /* FirebaseFirestore in Frameworks */,
 				F7956E6F2A288F070026B06E /* FirebaseFirestoreSwift in Frameworks */,
+				E5BA9A80F42A382FAED57B0D /* Pods_Gigma.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,7 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A523707B6191CFEB6328E345 /* Pods_GigmaTests.framework in Frameworks */,
+				9AAA7F51C4E228D3A0C23A97 /* Pods_GigmaTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,19 +149,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F40440FE50AAB628ED7996CE /* Pods_GigmaUITests.framework in Frameworks */,
+				98045AE3BEA6BD9CF6C8E8FE /* Pods_GigmaUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		64BC40214AF9B3C90567DB0F /* Frameworks */ = {
+		24011F7C10617037CAD17B9C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4D143A8E7E729429E511BFD7 /* Pods_Gigma.framework */,
-				DE3E0DA8260CB815B3922D04 /* Pods_GigmaTests.framework */,
-				E889D55EF1E0CE350993E5A5 /* Pods_GigmaUITests.framework */,
+				3288B7B2E7E2B48AC12FDB22 /* Pods_Gigma.framework */,
+				8424401AA17DB0D79C212DFD /* Pods_GigmaTests.framework */,
+				92D5AFFEFD8F2A8A0AA8DF49 /* Pods_GigmaUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -176,7 +174,7 @@
 				E057334A2A24F61F00B7A32D /* GigmaUITests */,
 				E05733232A24F61C00B7A32D /* Products */,
 				E60069BF977F7F4494EA9370 /* Pods */,
-				64BC40214AF9B3C90567DB0F /* Frameworks */,
+				24011F7C10617037CAD17B9C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -223,11 +221,10 @@
 				E0549B112A27D8A60002A8D4 /* FestivalSettingsViewController.m */,
 				E0549B142A27DC690002A8D4 /* FestivalViewController.h */,
 				E0549B152A27DC8F0002A8D4 /* FestivalViewController.m */,
+				E0155F552A29EBA300069BEE /* Festival.swift */,
 				E0472C802A27687B00782EA0 /* MapViewController.swift */,
 				E0549B212A28D0E80002A8D4 /* BluetoothDriver.swift */,
 				E0549B172A27DF140002A8D4 /* DataBaseDriver.swift */,
-				E0549B172A27DF140002A8D4 /* FakeData.swift */,
-				F7956E702A28A2EC0026B06E /* Festival.swift */,
 				F7956E722A28B25E0026B06E /* FestivalData.swift */,
 				E05733312A24F61F00B7A32D /* Assets.xcassets */,
 				E05733652A2608B900B7A32D /* AfterMain.storyboard */,
@@ -261,14 +258,12 @@
 		E60069BF977F7F4494EA9370 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0D000F209F5331DE684CA98E /* Pods-Gigma.debug.xcconfig */,
-				62027280863E4BB93C712F67 /* Pods-Gigma.release.xcconfig */,
-				AD2ACB7E32AEA43783DD79E3 /* Pods-Gigma-GigmaUITests.debug.xcconfig */,
-				17FBF2956263366011E163C1 /* Pods-Gigma-GigmaUITests.release.xcconfig */,
-				788497B0376D458D1596B13F /* Pods-GigmaTests.debug.xcconfig */,
-				91E198BC41D9201DC749D010 /* Pods-GigmaTests.release.xcconfig */,
-				64C1B07B7D767489A76B26C5 /* Pods-GigmaUITests.debug.xcconfig */,
-				59B2967CE5FE642430F2A246 /* Pods-GigmaUITests.release.xcconfig */,
+				1729EED8EE825915FB11772D /* Pods-Gigma.debug.xcconfig */,
+				519A46CA8638749528180F1E /* Pods-Gigma.release.xcconfig */,
+				136E1FB23B63B6D6932575CB /* Pods-GigmaTests.debug.xcconfig */,
+				2DFE7B671E23B854A2513E5C /* Pods-GigmaTests.release.xcconfig */,
+				55B6CADAD0D215114523DB42 /* Pods-GigmaUITests.debug.xcconfig */,
+				71FB64193C66B2E2484546EC /* Pods-GigmaUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -280,11 +275,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E05733512A24F61F00B7A32D /* Build configuration list for PBXNativeTarget "Gigma" */;
 			buildPhases = (
-				451E090B11FB488D19236D90 /* [CP] Check Pods Manifest.lock */,
+				7153AD2712209EC55CB42B55 /* [CP] Check Pods Manifest.lock */,
 				E057331E2A24F61C00B7A32D /* Sources */,
 				E057331F2A24F61C00B7A32D /* Frameworks */,
 				E05733202A24F61C00B7A32D /* Resources */,
-				7DFCCC26E9CBDED3D6CE1E28 /* [CP] Embed Pods Frameworks */,
+				7185863A0EDE23BCA7319680 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -304,7 +299,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E05733542A24F61F00B7A32D /* Build configuration list for PBXNativeTarget "GigmaTests" */;
 			buildPhases = (
-				B8A6B0F16128EEB6161A6FCF /* [CP] Check Pods Manifest.lock */,
+				30BC23E5ACEE8EBD8225AFF3 /* [CP] Check Pods Manifest.lock */,
 				E05733392A24F61F00B7A32D /* Sources */,
 				E057333A2A24F61F00B7A32D /* Frameworks */,
 				E057333B2A24F61F00B7A32D /* Resources */,
@@ -323,7 +318,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E05733572A24F61F00B7A32D /* Build configuration list for PBXNativeTarget "GigmaUITests" */;
 			buildPhases = (
-				4A56C261950DB4AEC9E23A24 /* [CP] Check Pods Manifest.lock */,
+				71964A0FE43D56377AD12F9B /* [CP] Check Pods Manifest.lock */,
 				E05733432A24F61F00B7A32D /* Sources */,
 				E05733442A24F61F00B7A32D /* Frameworks */,
 				E05733452A24F61F00B7A32D /* Resources */,
@@ -416,7 +411,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		451E090B11FB488D19236D90 /* [CP] Check Pods Manifest.lock */ = {
+		30BC23E5ACEE8EBD8225AFF3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GigmaTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7153AD2712209EC55CB42B55 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -438,29 +455,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4A56C261950DB4AEC9E23A24 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GigmaUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7DFCCC26E9CBDED3D6CE1E28 /* [CP] Embed Pods Frameworks */ = {
+		7185863A0EDE23BCA7319680 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -477,7 +472,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gigma/Pods-Gigma-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B8A6B0F16128EEB6161A6FCF /* [CP] Check Pods Manifest.lock */ = {
+		71964A0FE43D56377AD12F9B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -492,7 +487,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GigmaTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-GigmaUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -517,13 +512,12 @@
 				E0549B222A28D0E80002A8D4 /* BluetoothDriver.swift in Sources */,
 				E0472D5F2A279C8800782EA0 /* WelcomeViewController.m in Sources */,
 				E0549B162A27DC8F0002A8D4 /* FestivalViewController.m in Sources */,
+				E0155F562A29EBA300069BEE /* Festival.swift in Sources */,
 				E05733382A24F61F00B7A32D /* main.m in Sources */,
 				E0549B182A27DF140002A8D4 /* DataBaseDriver.swift in Sources */,
 				E0472C902A2782FF00782EA0 /* MainViewController.m in Sources */,
 				E0549B2F2A2907B00002A8D4 /* MessageDriver.m in Sources */,
 				E0549B2C2A2900B50002A8D4 /* MessagesViewController.m in Sources */,
-				F7956E712A28A2EC0026B06E /* Festival.swift in Sources */,
-				E0472C8A2A27787400782EA0 /* GigmaModel.xcdatamodeld in Sources */,
 				E05733612A2601A100B7A32D /* FriendViewController.m in Sources */,
 				E057332A2A24F61C00B7A32D /* SceneDelegate.m in Sources */,
 				E0472C812A27687B00782EA0 /* MapViewController.swift in Sources */,
@@ -700,7 +694,7 @@
 		};
 		E05733522A24F61F00B7A32D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0D000F209F5331DE684CA98E /* Pods-Gigma.debug.xcconfig */;
+			baseConfigurationReference = 1729EED8EE825915FB11772D /* Pods-Gigma.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -731,7 +725,7 @@
 		};
 		E05733532A24F61F00B7A32D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 62027280863E4BB93C712F67 /* Pods-Gigma.release.xcconfig */;
+			baseConfigurationReference = 519A46CA8638749528180F1E /* Pods-Gigma.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -761,7 +755,7 @@
 		};
 		E05733552A24F61F00B7A32D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 788497B0376D458D1596B13F /* Pods-GigmaTests.debug.xcconfig */;
+			baseConfigurationReference = 136E1FB23B63B6D6932575CB /* Pods-GigmaTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -780,7 +774,7 @@
 		};
 		E05733562A24F61F00B7A32D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 91E198BC41D9201DC749D010 /* Pods-GigmaTests.release.xcconfig */;
+			baseConfigurationReference = 2DFE7B671E23B854A2513E5C /* Pods-GigmaTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -799,7 +793,7 @@
 		};
 		E05733582A24F61F00B7A32D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64C1B07B7D767489A76B26C5 /* Pods-GigmaUITests.debug.xcconfig */;
+			baseConfigurationReference = 55B6CADAD0D215114523DB42 /* Pods-GigmaUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -816,7 +810,7 @@
 		};
 		E05733592A24F61F00B7A32D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 59B2967CE5FE642430F2A246 /* Pods-GigmaUITests.release.xcconfig */;
+			baseConfigurationReference = 71FB64193C66B2E2484546EC /* Pods-GigmaUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

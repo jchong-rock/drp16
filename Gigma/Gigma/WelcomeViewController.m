@@ -26,8 +26,8 @@
         [self performSegueWithIdentifier: @"goToMain" sender: self];
     }
     // change to use real data
-    data = [[FakeData alloc] init];
-    festivalButtonList = [data getFestivals];
+    data = [[FestivalData alloc] init];
+    festivalButtonList = [data getFestivalList];
     [buttonStack reloadData];
 }
 
