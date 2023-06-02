@@ -40,6 +40,11 @@
 		E0D826512A294C9200E3A373 /* IndentedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D826502A294C9200E3A373 /* IndentedLabel.m */; };
 		E0D826532A294E0B00E3A373 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D826522A294E0B00E3A373 /* MessageCell.m */; };
 		F40440FE50AAB628ED7996CE /* Pods_GigmaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E889D55EF1E0CE350993E5A5 /* Pods_GigmaUITests.framework */; };
+		F7956E6B2A288F070026B06E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F7956E6A2A288F070026B06E /* FirebaseFirestore */; };
+		F7956E6D2A288F070026B06E /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = F7956E6C2A288F070026B06E /* FirebaseFirestoreCombine-Community */; };
+		F7956E6F2A288F070026B06E /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F7956E6E2A288F070026B06E /* FirebaseFirestoreSwift */; };
+		F7956E712A28A2EC0026B06E /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7956E702A28A2EC0026B06E /* Festival.swift */; };
+		F7956E732A28B25E0026B06E /* FestivalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7956E722A28B25E0026B06E /* FestivalData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +123,8 @@
 		E0D826522A294E0B00E3A373 /* MessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
 		E0D826542A294E1E00E3A373 /* MessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
 		E889D55EF1E0CE350993E5A5 /* Pods_GigmaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GigmaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7956E702A28A2EC0026B06E /* Festival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
+		F7956E722A28B25E0026B06E /* FestivalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +132,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7956E6D2A288F070026B06E /* FirebaseFirestoreCombine-Community in Frameworks */,
 				A5DD1D030C1CE129E1B5200A /* Pods_Gigma.framework in Frameworks */,
+				F7956E6B2A288F070026B06E /* FirebaseFirestore in Frameworks */,
+				F7956E6F2A288F070026B06E /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +226,9 @@
 				E0472C802A27687B00782EA0 /* MapViewController.swift */,
 				E0549B212A28D0E80002A8D4 /* BluetoothDriver.swift */,
 				E0549B172A27DF140002A8D4 /* DataBaseDriver.swift */,
+				E0549B172A27DF140002A8D4 /* FakeData.swift */,
+				F7956E702A28A2EC0026B06E /* Festival.swift */,
+				F7956E722A28B25E0026B06E /* FestivalData.swift */,
 				E05733312A24F61F00B7A32D /* Assets.xcassets */,
 				E05733652A2608B900B7A32D /* AfterMain.storyboard */,
 				E0472D602A27A78F00782EA0 /* Main.storyboard */,
@@ -278,6 +291,11 @@
 			dependencies = (
 			);
 			name = Gigma;
+			packageProductDependencies = (
+				F7956E6A2A288F070026B06E /* FirebaseFirestore */,
+				F7956E6C2A288F070026B06E /* FirebaseFirestoreCombine-Community */,
+				F7956E6E2A288F070026B06E /* FirebaseFirestoreSwift */,
+			);
 			productName = Gigma;
 			productReference = E05733222A24F61C00B7A32D /* Gigma.app */;
 			productType = "com.apple.product-type.application";
@@ -352,6 +370,9 @@
 				Base,
 			);
 			mainGroup = E05733192A24F61C00B7A32D;
+			packageReferences = (
+				F7956E692A288F070026B06E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = E05733232A24F61C00B7A32D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -485,6 +506,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7956E732A28B25E0026B06E /* FestivalData.swift in Sources */,
 				E057332D2A24F61C00B7A32D /* AddFriendViewController.m in Sources */,
 				E05733272A24F61C00B7A32D /* AppDelegate.m in Sources */,
 				E0D826512A294C9200E3A373 /* IndentedLabel.m in Sources */,
@@ -500,6 +522,8 @@
 				E0472C902A2782FF00782EA0 /* MainViewController.m in Sources */,
 				E0549B2F2A2907B00002A8D4 /* MessageDriver.m in Sources */,
 				E0549B2C2A2900B50002A8D4 /* MessagesViewController.m in Sources */,
+				F7956E712A28A2EC0026B06E /* Festival.swift in Sources */,
+				E0472C8A2A27787400782EA0 /* GigmaModel.xcdatamodeld in Sources */,
 				E05733612A2601A100B7A32D /* FriendViewController.m in Sources */,
 				E057332A2A24F61C00B7A32D /* SceneDelegate.m in Sources */,
 				E0472C812A27687B00782EA0 /* MapViewController.swift in Sources */,
@@ -847,6 +871,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F7956E692A288F070026B06E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F7956E6A2A288F070026B06E /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7956E692A288F070026B06E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		F7956E6C2A288F070026B06E /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7956E692A288F070026B06E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		F7956E6E2A288F070026B06E /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7956E692A288F070026B06E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E0549B282A28E0790002A8D4 /* GigmaModel.xcdatamodeld */ = {

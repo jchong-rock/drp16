@@ -5,8 +5,11 @@
 //  Created by Jake Chong on 31/05/2023.
 //
 
+// CONFLICTS
+
 import Foundation
 import CoreLocation
+import Firebase
 
 @objc protocol DataBaseDriver {
     func getFestivals() -> [NSString]
@@ -32,3 +35,12 @@ import CoreLocation
         return [CLLocationCoordinate2DMake(51.499043, -0.179375)]
     }
 }
+
+@objc protocol DataBaseDownloader {
+    func getFestivalList() -> [String]
+    func getFestival(name: String) -> Festival
+}
+
+// // extract coordinates from centre GeoPoint
+// CLLocationCoordinate2D(latitude: Festival.centre.latitude,
+//                      longitude: Festival.centre.longitude)
