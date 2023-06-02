@@ -18,7 +18,7 @@ class Tests:
                 print(f"Test passed")
 
     def checkAppDelegateHeaderExists(self): 
-        PATH = "../Gigma/AppDelegate.h"
+        PATH = "Gigma/Gigma/AppDelegate.h"
         return os.path.exists(PATH)
         
 
