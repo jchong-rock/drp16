@@ -10,15 +10,26 @@ import UIKit
 import MapCache
 import MapKit
 import NotificationCenter
+import CoreData
 
 class MapViewController : UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
     var data: DataBaseDriver = PostgreSQLDriver()
     var mapCache: MapCache?
+    let locationManager = CLLocationManager()
+    var festival: Festival?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.locationManager.requestAlwaysAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
         
         mapView.delegate = self
         let festivalName = UserDefaults.standard.string(forKey: "FestivalIsSet")
@@ -33,21 +44,89 @@ class MapViewController : UIViewController {
         if (festivalName != "Unknown Festival") {
             let connectionSuccess = data.connect()
             if connectionSuccess {
-                let festival = data.getFestival(name: festivalName! as String)
-                let centre = festival.centre.toCLCoordinate()
-                let width = festival.width
-                let height = festival.height
+                festival = data.getFestival(name: festivalName! as String)
+                let centre = festival!.centre.toCLCoordinate()
+                let width = festival!.width
+                let height = festival!.height
                 let coords = MKCoordinateRegion(center: centre, latitudinalMeters: width, longitudinalMeters: height)
                 mapView.setRegion(coords, animated: true)
             } else {
-                let alert = UIAlertController(title: "Error", message: "Connection to database failed.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in }))
-                self.present(alert, animated: true, completion: nil)
+                MainViewController.showErrorPopup(self, withMessage: "Connection to database failed.")
             }
         }
         mapView.useCache(mapCache!)
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(clearCache), name: NSNotification.Name.clearCache, object: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let appDelegate = UIApplication.shared.delegate
+        let prefs = MainViewController.prefsList(self)
+        prefs!.forEach {p in
+            let pref = p as! MapSetting
+            switch pref.prefName {
+                case "Show stages":
+                    pref.enabled ? showStages() : hideStages()
+                case "Show toilets":
+                    pref.enabled ? showToilets() : hideToilets()
+                case "Show water sources":
+                    pref.enabled ? showWater() : hideWater()
+                default:
+                    MainViewController.showErrorPopup(self, withMessage: "Setting does not exist.")
+            }
+        }
+        
+        
+    }
+    
+    @objc func showStages() {
+        festival?.stages?.forEach {name, loc in
+            let marker = MKPointAnnotation()
+            marker.title = name
+            marker.subtitle = "Stage"
+            marker.coordinate = loc.toCLCoordinate()
+            mapView.addAnnotation(marker)
+        }
+    }
+    
+    @objc func hideStages() {
+        let annotationsToRemove = mapView.annotations.filter { marker in
+            marker.subtitle == "Stage"
+        }
+        mapView.removeAnnotations( annotationsToRemove )
+    }
+    
+    @objc func showToilets() {
+        festival?.toilets?.forEach {loc in
+            let marker = MKPointAnnotation()
+            marker.title = "Toilet"
+            marker.coordinate = loc.toCLCoordinate()
+            mapView.addAnnotation(marker)
+        }
+    }
+    
+    @objc func hideToilets() {
+        let annotationsToRemove = mapView.annotations.filter { marker in
+            marker.title == "Toilet"
+        }
+        mapView.removeAnnotations( annotationsToRemove )
+    }
+    
+    @objc func showWater() {
+        festival?.water?.forEach {loc in
+            let marker = MKPointAnnotation()
+            marker.title = "Water Source"
+            marker.coordinate = loc.toCLCoordinate()
+            mapView.addAnnotation(marker)
+        }
+    }
+    
+    @objc func hideWater() {
+        let annotationsToRemove = mapView.annotations.filter { marker in
+            marker.title == "Water Source"
+        }
+        mapView.removeAnnotations( annotationsToRemove )
     }
     
     @objc func clearCache() {
@@ -62,6 +141,14 @@ extension MapViewController : MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
             return mapView.mapCacheRenderer(forOverlay: overlay)
         }
+}
+
+// not yet working -- get user's location
+extension MapViewController : CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+    }
 }
 
 extension NSNotification.Name {

@@ -3,3 +3,6 @@
 //
 
 #import "FestivalSettingsViewController.h"
+#import "MapSetting+CoreDataProperties.h"
+#import "MainViewController.h"
+#import "MapSettingsViewController.h"
