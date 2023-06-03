@@ -20,6 +20,7 @@
 
 @synthesize settingStack;
 @synthesize prefButtonList;
+@synthesize delegate;
 
 - (void) viewDidLoad {
     [super viewDidLoad];
@@ -27,6 +28,12 @@
     
     AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     managedObjectContext = appDelegate.persistentContainer.viewContext;
+}
+
+
+- (IBAction) saveButtonPressed:(id) sender {
+    [delegate popoverDidDisappear];
+    [self dismissViewControllerAnimated: YES completion: nil];
 }
 
 - (void) viewWillAppear:(BOOL) animated {
