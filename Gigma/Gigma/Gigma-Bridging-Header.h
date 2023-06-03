@@ -6,3 +6,4 @@
 #import "MapSetting+CoreDataProperties.h"
 #import "MainViewController.h"
 #import "MapSettingsViewController.h"
+#import "Pair.h"

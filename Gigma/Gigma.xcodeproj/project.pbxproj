@@ -14,6 +14,7 @@
 		E00F0CD92A2A5BAE00E80FC3 /* PrefsSQL.plist in Resources */ = {isa = PBXBuildFile; fileRef = E00F0CD82A2A5BAE00E80FC3 /* PrefsSQL.plist */; };
 		E00F0CDE2A2AB48E00E80FC3 /* MapSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E00F0CDD2A2AB48E00E80FC3 /* MapSettingsViewController.m */; };
 		E00F0CE12A2AB5D000E80FC3 /* MapSettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E00F0CE02A2AB5D000E80FC3 /* MapSettingsCell.m */; };
+		E00F0CE32A2B4BB900E80FC3 /* Pair.m in Sources */ = {isa = PBXBuildFile; fileRef = E00F0CE22A2B4BB900E80FC3 /* Pair.m */; };
 		E0155F562A29EBA300069BEE /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155F552A29EBA300069BEE /* Festival.swift */; };
 		E0155F5A2A2A086300069BEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0155F592A2A086300069BEE /* GoogleService-Info.plist */; };
 		E0155F5B2A2A086300069BEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0155F592A2A086300069BEE /* GoogleService-Info.plist */; };
@@ -84,6 +85,8 @@
 		E00F0CDD2A2AB48E00E80FC3 /* MapSettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapSettingsViewController.m; sourceTree = "<group>"; };
 		E00F0CDF2A2AB5CA00E80FC3 /* MapSettingsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapSettingsCell.h; sourceTree = "<group>"; };
 		E00F0CE02A2AB5D000E80FC3 /* MapSettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapSettingsCell.m; sourceTree = "<group>"; };
+		E00F0CE22A2B4BB900E80FC3 /* Pair.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pair.m; sourceTree = "<group>"; };
+		E00F0CE42A2B4C0600E80FC3 /* Pair.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pair.h; sourceTree = "<group>"; };
 		E0155F552A29EBA300069BEE /* Festival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
 		E0155F592A2A086300069BEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E0155F5D2A2A0E3E00069BEE /* Tests.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = Tests.py; sourceTree = "<group>"; };
@@ -228,6 +231,8 @@
 				E0472C8F2A2782FF00782EA0 /* MainViewController.m */,
 				E0549B132A27D9280002A8D4 /* FestivalSettingsViewController.h */,
 				E0549B112A27D8A60002A8D4 /* FestivalSettingsViewController.m */,
+				E00F0CE42A2B4C0600E80FC3 /* Pair.h */,
+				E00F0CE22A2B4BB900E80FC3 /* Pair.m */,
 				E0549B142A27DC690002A8D4 /* FestivalViewController.h */,
 				E0549B152A27DC8F0002A8D4 /* FestivalViewController.m */,
 				E00F0CDC2A2AB47F00E80FC3 /* MapSettingsViewController.h */,
@@ -527,6 +532,7 @@
 				E00F0CDE2A2AB48E00E80FC3 /* MapSettingsViewController.m in Sources */,
 				E0D826532A294E0B00E3A373 /* MessageCell.m in Sources */,
 				E0549B1F2A27FA270002A8D4 /* FestivalSelectionCell.m in Sources */,
+				E00F0CE32A2B4BB900E80FC3 /* Pair.m in Sources */,
 				E0549B222A28D0E80002A8D4 /* BluetoothDriver.swift in Sources */,
 				E0472D5F2A279C8800782EA0 /* WelcomeViewController.m in Sources */,
 				E0549B162A27DC8F0002A8D4 /* FestivalViewController.m in Sources */,
