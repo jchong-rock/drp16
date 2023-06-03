@@ -37,7 +37,9 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="gearshape" catalog="system"/>
                                 <connections>
-                                    <segue destination="Jzb-oo-lUV" kind="show" id="jr6-Ki-dkg"/>
+                                    <segue destination="Jzb-oo-lUV" kind="popoverPresentation" identifier="MapSettingsSegue" popoverAnchorView="N3z-10-h3h" id="QNx-9h-cN4">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                         </subviews>
@@ -46,7 +48,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" id="Lh9-pX-bT0"/>
                     <connections>
-                        <outlet property="mapView" destination="Qy8-ah-uK3" id="VL0-Bb-DEk"/>
+                        <outlet property="mapView" destination="Qy8-ah-uK3" id="cXp-gJ-dEt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c0v-sj-P69" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -66,7 +68,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MapSettingCellIdentifier" id="ECQ-xO-d0h" customClass="MapSettingsCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MapSettingCellIdentifier" id="ECQ-xO-d0h" customClass="MapSettingsCell">
                                         <rect key="frame" x="0.0" y="50" width="358" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ECQ-xO-d0h" id="7qk-jr-YXF">
@@ -92,6 +94,15 @@
                                     <outlet property="delegate" destination="Jzb-oo-lUV" id="KAd-c3-SD0"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Yg-fS-hi6">
+                                <rect key="frame" x="16" y="628" width="358" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="Jzb-oo-lUV" eventType="touchUpInside" id="dDl-vR-PUX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0mY-3l-kBa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -215,7 +226,7 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ebl-tU-Mps">
-                                <rect key="frame" x="-4" y="279" width="389" height="344"/>
+                                <rect key="frame" x="-4" y="279" width="388" height="344"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="6SL-4g-POU" id="uPy-11-dFp"/>

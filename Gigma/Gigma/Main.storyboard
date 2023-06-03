@@ -31,7 +31,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aAk-Vy-uDY">
-                                <rect key="frame" x="-2" y="174" width="390" height="44"/>
+                                <rect key="frame" x="-2" y="174" width="389" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -67,7 +67,7 @@
                                             <bool key="isElement" value="NO"/>
                                         </accessibility>
                                         <connections>
-                                            <outlet property="button" destination="mKG-b5-lLH" id="kIb-sg-8rf"/>
+                                            <outlet property="button" destination="mKG-b5-lLH" id="5kp-br-Mw2"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
