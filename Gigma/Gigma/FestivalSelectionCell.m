@@ -14,5 +14,6 @@
 @implementation FestivalSelectionCell
 
 @synthesize button;
+@synthesize festivalID;
 
 @end

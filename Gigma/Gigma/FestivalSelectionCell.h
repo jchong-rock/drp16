@@ -9,6 +9,7 @@
 
 @interface FestivalSelectionCell : UITableViewCell
 
-@property (nonatomic, weak) IBOutlet UIButton *button;
+@property (nonatomic, weak) IBOutlet UIButton * button;
+@property (nonatomic) NSInteger festivalID;
 
 @end
