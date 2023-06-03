@@ -25,7 +25,8 @@ SET default_table_access_method = heap;
 --
 
 CREATE TABLE public.festivals (
-    festival character varying(255) NOT NULL,
+    displayname character varying(255) NOT NULL,
+    festival integer NOT NULL,
     centre_lat real,
     centre_long real,
     height real,
@@ -41,7 +42,7 @@ ALTER TABLE public.festivals OWNER TO alice;
 
 CREATE TABLE public.stages (
     id integer NOT NULL,
-    festival character varying(255),
+    festival integer,
     stage character varying(255),
     lat real,
     long real
@@ -56,7 +57,7 @@ ALTER TABLE public.stages OWNER TO alice;
 
 CREATE TABLE public.toilets (
     id integer NOT NULL,
-    festival character varying(255),
+    festival integer,
     lat real,
     long real
 );
@@ -70,7 +71,7 @@ ALTER TABLE public.toilets OWNER TO alice;
 
 CREATE TABLE public.waters (
     id integer NOT NULL,
-    festival character varying(255),
+    festival integer,
     lat real,
     long real
 );
@@ -82,9 +83,7 @@ ALTER TABLE public.waters OWNER TO alice;
 -- Data for Name: festivals; Type: TABLE DATA; Schema: public; Owner: alice
 --
 
-COPY public.festivals (festival, centre_lat, centre_long, height, width) FROM stdin;
-huxley	51.498898	-0.179134	200	200
-willy's den	51.552734	-0.226955	200	200
+COPY public.festivals (displayname, festival, centre_lat, centre_long, height, width) FROM stdin;
 \.
 
 
