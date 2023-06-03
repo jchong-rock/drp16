@@ -9,7 +9,8 @@ import Foundation
 import CoreLocation
 
 @objc class Festival : NSObject, Identifiable, Codable {
-    var festivalID: String?
+    var festivalID: Int?
+    var displayName: String?
     var centre: CodableCoordinate
     var height: Double
     var width: Double
@@ -17,8 +18,9 @@ import CoreLocation
     var toilets: [CodableCoordinate]?
     var water: [CodableCoordinate]?
     
-    init(festivalID: String? = nil, centre: CodableCoordinate = CodableCoordinate(latitude: 51.5124801, longitude: -0.2182141), height: Double, width: Double, stages: [String : CodableCoordinate]? = nil, toilets: [CodableCoordinate]? = nil, water: [CodableCoordinate]? = nil) {
+    init(festivalID: Int? = nil, displayName: String? = nil, centre: CodableCoordinate = CodableCoordinate(latitude: 51.5124801, longitude: -0.2182141), height: Double, width: Double, stages: [String : CodableCoordinate]? = nil, toilets: [CodableCoordinate]? = nil, water: [CodableCoordinate]? = nil) {
         self.festivalID = festivalID
+        self.displayName = displayName
         self.centre = centre
         self.height = height
         self.width = width
