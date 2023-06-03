@@ -8,8 +8,6 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import <Gigma-Swift.h>
-@import FirebaseCore;
-@import FirebaseFirestore;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

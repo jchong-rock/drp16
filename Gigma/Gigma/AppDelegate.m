@@ -6,6 +6,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MapSetting+CoreDataProperties.h"
 
 @interface AppDelegate ()
 
@@ -15,9 +16,42 @@
 
 @synthesize data;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (void) checkAndInitialisePrefs:(NSArray *) prefs {
+    NSManagedObjectContext * managedObjectContext = self.persistentContainer.viewContext;
+    NSEntityDescription * entity = [NSEntityDescription entityForName: @"MapSetting" inManagedObjectContext: managedObjectContext];
+    NSFetchRequest * request = [[NSFetchRequest alloc] init];
+    [request setEntity: entity];
+    NSSortDescriptor * sortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"prefName" ascending: YES];
+    NSArray * sortDescriptors = [[NSArray alloc] initWithObjects: sortDescriptor, nil];
+    [request setSortDescriptors: sortDescriptors];
+    
+    NSError * error;
+    NSMutableArray * mutableFetchResults = [[managedObjectContext executeFetchRequest: request error: &error] mutableCopy];
+    if (mutableFetchResults == nil) {
+        NSLog(@"oops");
+    }
+    
+    NSMutableArray * innerPrefs = [[NSMutableArray alloc] init];
+    for (MapSetting * insidePref in mutableFetchResults) {
+        [innerPrefs addObject: insidePref.prefName];
+    }
+    
+    for (NSString * pref in prefs) {
+        if (![innerPrefs containsObject: pref]) {
+            MapSetting * newPref = [NSEntityDescription insertNewObjectForEntityForName: @"MapSetting" inManagedObjectContext: managedObjectContext];
+            newPref.prefName = pref;
+            newPref.enabled = NO;
+            NSError * error;
+            [managedObjectContext save: &error];
+        }
+    }
+}
+
+- (BOOL) application:(UIApplication *) application didFinishLaunchingWithOptions:(NSDictionary *) launchOptions {
     // Override point for customization after application launch.
     data = [[PostgreSQLDriver alloc] init];
+    NSArray * prefs = [[NSArray alloc] initWithObjects: @"Show stages", @"Show toilets", @"Show water sources", nil];
+    [self checkAndInitialisePrefs: prefs];
     return YES;
 }
 
@@ -25,14 +59,14 @@
 #pragma mark - UISceneSession lifecycle
 
 
-- (UISceneConfiguration *)application:(UIApplication *)application configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession options:(UISceneConnectionOptions *)options {
+- (UISceneConfiguration *) application:(UIApplication *) application configurationForConnectingSceneSession:(UISceneSession *) connectingSceneSession options:(UISceneConnectionOptions *) options {
     // Called when a new scene session is being created.
     // Use this method to select a configuration to create the new scene with.
-    return [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];
+    return [[UISceneConfiguration alloc] initWithName: @"Default Configuration" sessionRole: connectingSceneSession.role];
 }
 
 
-- (void)application:(UIApplication *)application didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions {
+- (void) application:(UIApplication *) application didDiscardSceneSessions:(NSSet <UISceneSession *> *) sceneSessions {
     // Called when the user discards a scene session.
     // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
     // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
@@ -43,12 +77,12 @@
 
 @synthesize persistentContainer = _persistentContainer;
 
-- (NSPersistentContainer *)persistentContainer {
+- (NSPersistentContainer *) persistentContainer {
     // The persistent container for the application. This implementation creates and returns a container, having loaded the store for the application to it.
     @synchronized (self) {
         if (_persistentContainer == nil) {
             _persistentContainer = [[NSPersistentContainer alloc] initWithName:@"GigmaModel"];
-            [_persistentContainer loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription *storeDescription, NSError *error) {
+            [_persistentContainer loadPersistentStoresWithCompletionHandler: ^(NSPersistentStoreDescription *storeDescription, NSError *error) {
                 if (error != nil) {
                     // Replace this implementation with code to handle the error appropriately.
                     // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -73,10 +107,10 @@
 
 #pragma mark - Core Data Saving support
 
-- (void)saveContext {
+- (void) saveContext {
     NSManagedObjectContext *context = self.persistentContainer.viewContext;
     NSError *error = nil;
-    if ([context hasChanges] && ![context save:&error]) {
+    if ([context hasChanges] && ![context save: &error]) {
         // Replace this implementation with code to handle the error appropriately.
         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
         NSLog(@"Unresolved error %@, %@", error, error.userInfo);
