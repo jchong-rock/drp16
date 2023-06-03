@@ -8,6 +8,7 @@
 @objc protocol DataBaseDriver {
     func close()
     func connect() -> Bool
-    func getFestivalList() -> [String]
-    func getFestival(name: String) -> Festival
+    func getFestivalList() -> [Int]
+    func getDisplayNames() -> [Int : String]
+    func getFestival(festivalID: Int) -> Festival
 }

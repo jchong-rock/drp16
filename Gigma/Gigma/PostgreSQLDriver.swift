@@ -12,6 +12,7 @@ class PostgreSQLDriver : NSObject, DataBaseDriver {
 
     private var configuration: ConnectionConfiguration
     private var connection: Connection?
+    private var displayNamesCache: [Int : String]? = nil
     
     override init() {
         var prefsSQL: NSDictionary?
@@ -33,6 +34,7 @@ class PostgreSQLDriver : NSObject, DataBaseDriver {
     }
     
     func close() {
+        displayNamesCache = nil
         connection?.close()
     }
     
@@ -46,31 +48,41 @@ class PostgreSQLDriver : NSObject, DataBaseDriver {
         }
     }
     
-    func getFestivalList() -> [String] {
-        var festivals: [String] = []
-        do {
-            let text = "SELECT festival FROM festivals;"
-            let statement = try connection!.prepareStatement(text: text)
-            defer { statement.close() }
-            
-            let cursor = try statement.execute()
-            defer { cursor.close() }
-            
-            for row in cursor {
-                let columns = try row.get().columns
-                let festival = try columns[0].string()
-                festivals.append(festival)
-            }
-        } catch {
-            print(error)
-        }
-        return festivals
+    func getFestivalList() -> [Int] {
+        return Array(getDisplayNames().keys)
     }
     
-    func getFestival(name: String) -> Festival {
-        
+    func getDisplayNames() -> [Int : String] {
+        if (displayNamesCache == nil) {
+            var festivals: [Int : String] = [:]
+            do {
+                let text = "SELECT festival, displayname FROM festivals;"
+                let statement = try connection!.prepareStatement(text: text)
+                defer { statement.close() }
+                
+                let cursor = try statement.execute()
+                defer { cursor.close() }
+                
+                for row in cursor {
+                    let columns = try row.get().columns
+                    let festival = try columns[0].int()
+                    let displayname = try columns[1].string()
+                    festivals[festival] = displayname
+                }
+                displayNamesCache = festivals
+            } catch {
+                print(error)
+            }
+            return festivals
+        }
+        return displayNamesCache!
+    }
+    
+    func getFestival(festivalID: Int) -> Festival {
+        let name = String(festivalID)
         do {
-            let text0 = "SELECT festival, centre_lat, centre_long, height, width FROM festivals WHERE festival = $1;"
+            
+            let text0 = "SELECT festival, displayname, centre_lat, centre_long, height, width FROM festivals WHERE festival = $1;"
             let statement0 = try connection!.prepareStatement(text: text0)
             defer { statement0.close() }
 
@@ -80,14 +92,20 @@ class PostgreSQLDriver : NSObject, DataBaseDriver {
             var centre: CodableCoordinate? = nil
             var height: Double = 0
             var width: Double = 0
+            var displayname: String? = nil
             
             for row in cursor0 {
                 let columns = try row.get().columns
-                let centre_lat = try columns[1].double()
-                let centre_long = try columns[2].double()
+                displayname = try columns[1].string()
+                let centre_lat = try columns[2].double()
+                let centre_long = try columns[3].double()
                 centre = CodableCoordinate(latitude: centre_lat, longitude: centre_long)
-                height = try columns[3].double()
-                width = try columns[4].double()
+                height = try columns[4].double()
+                width = try columns[5].double()
+            }
+            
+            if displayNamesCache?[festivalID] != displayname {
+                displayNamesCache = nil
             }
             
             let text1 = "SELECT festival, stage, lat, long FROM stages WHERE festival = $1;"
@@ -111,7 +129,7 @@ class PostgreSQLDriver : NSObject, DataBaseDriver {
             let statement2 = try connection!.prepareStatement(text: text2)
             defer { statement2.close() }
 
-            let cursor2 = try statement1.execute(parameterValues: [ name ])
+            let cursor2 = try statement2.execute(parameterValues: [ name ])
             defer { cursor2.close() }
             
             var toilets: [CodableCoordinate] = []
@@ -127,7 +145,7 @@ class PostgreSQLDriver : NSObject, DataBaseDriver {
             let statement3 = try connection!.prepareStatement(text: text3)
             defer { statement3.close() }
 
-            let cursor3 = try statement1.execute(parameterValues: [ name ])
+            let cursor3 = try statement3.execute(parameterValues: [ name ])
             defer { cursor3.close() }
             
             var waters: [CodableCoordinate] = []
@@ -139,12 +157,13 @@ class PostgreSQLDriver : NSObject, DataBaseDriver {
                 waters.append(CodableCoordinate(latitude: lat, longitude: long))
             }
             
-            let festival = Festival(festivalID: name, centre: centre!, height: height, width: width, stages: stages, toilets: toilets, water: waters)
+            let festival = Festival(festivalID: festivalID, displayName: displayname, centre: centre!, height: height, width: width, stages: stages, toilets: toilets, water: waters)
             return festival
             
         } catch {
             print(error) // better error handling goes here
         }
+        
         return Festival(festivalID: nil, height: 0, width: 0, stages: nil, toilets: nil, water: nil)
     }
     
