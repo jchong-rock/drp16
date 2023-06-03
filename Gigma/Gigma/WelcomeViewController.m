@@ -10,7 +10,9 @@
 #import "AppDelegate.h"
 #import "MainViewController.h"
 
-@interface WelcomeViewController ()
+@interface WelcomeViewController () {
+    NSDictionary * displayNames;
+}
 
 @end
 
@@ -37,9 +39,10 @@
     if (!connectionSuccess) {
         [MainViewController showErrorPopup: self withMessage: @"Connection to database failed."];
         festivalButtonList = [[NSMutableArray alloc] init];
-        
+        displayNames = [[NSDictionary alloc] init];
     } else {
         festivalButtonList = [data getFestivalList];
+        displayNames = [data getDisplayNames];
     }
     [data close];
     [buttonStack reloadData];
@@ -51,8 +54,9 @@
     if (cell == nil) {
         cell = [[FestivalSelectionCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"WelcomeCellIdentifier"];
     }
-
-    [cell.button setTitle: [festivalButtonList objectAtIndex: indexPath.row] forState: UIControlStateNormal];
+    NSNumber * num = [festivalButtonList objectAtIndex: indexPath.row];
+    cell.festivalID = [num integerValue];
+    [cell.button setTitle: [displayNames objectForKey: num] forState: UIControlStateNormal];
     return cell;
 }
 
@@ -65,15 +69,17 @@
 }
 
 - (IBAction) continueButtonPressed:(id) sender {
-    UIButton * cell = (UIButton *) sender;
+    FestivalSelectionCell * cell = (FestivalSelectionCell *) ((UIButton *) sender).superview.superview;
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    [prefs setObject: cell.titleLabel.text forKey: @"FestivalIsSet"];
+    [prefs setObject: cell.button.titleLabel.text forKey: @"FestivalIsSet"];
+    [prefs setInteger: cell.festivalID forKey: @"FestivalIDSet"];
     [self performSegueWithIdentifier: @"goToMain" sender: self];
 }
 
 - (IBAction) notListedButtonPressed:(id) sender {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     [prefs setObject: @"Unknown Festival" forKey: @"FestivalIsSet"];
+    [prefs setInteger: 0 forKey: @"FestivalIDSet"];
     [self performSegueWithIdentifier: @"goToMain" sender: self];
 }
 
