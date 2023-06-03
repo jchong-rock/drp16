@@ -9,4 +9,7 @@
 
 @interface MainViewController : UITabBarController
 
++ (void) showErrorPopup:(UIViewController *) vc withMessage:(NSString *) msg;
++ (NSArray *) prefsList:(UIViewController *) vc;
+
 @end

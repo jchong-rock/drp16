@@ -8,6 +8,7 @@
 #import "WelcomeViewController.h"
 #import "FestivalSelectionCell.h"
 #import "AppDelegate.h"
+#import "MainViewController.h"
 
 @interface WelcomeViewController ()
 
@@ -34,12 +35,7 @@
     // handle connection failure
     BOOL connectionSuccess = [data connect];
     if (!connectionSuccess) {
-        UIAlertController * popup = [UIAlertController alertControllerWithTitle: @"Error" message: @"Connection to database failed." preferredStyle: UIAlertControllerStyleAlert];
-
-        UIAlertAction * ok = [UIAlertAction actionWithTitle: @"OK" style: UIAlertActionStyleDefault handler: ^(UIAlertAction * action) {}];
-
-        [popup addAction: ok];
-        [self presentViewController: popup animated: YES completion: nil];
+        [MainViewController showErrorPopup: self withMessage: @"Connection to database failed."];
         festivalButtonList = [[NSMutableArray alloc] init];
         
     } else {

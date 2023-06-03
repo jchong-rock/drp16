@@ -9,6 +9,7 @@
 #import "AddFriendViewController.h"
 #import "Friend+CoreDataProperties.h"
 #import "AppDelegate.h"
+#import "MainViewController.h"
 
 @interface FriendViewController () {
     NSManagedObjectContext * managedObjectContext;
@@ -34,14 +35,14 @@
     NSEntityDescription * entity = [NSEntityDescription entityForName: @"Friend" inManagedObjectContext: managedObjectContext];
     NSFetchRequest * request = [[NSFetchRequest alloc] init];
     [request setEntity: entity];
-    NSSortDescriptor * sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"friendName" ascending: YES];
+    NSSortDescriptor * sortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"friendName" ascending: YES];
     NSArray * sortDescriptors = [[NSArray alloc] initWithObjects: sortDescriptor, nil];
     [request setSortDescriptors: sortDescriptors];
     
     NSError * error;
     NSMutableArray * mutableFetchResults = [[managedObjectContext executeFetchRequest: request error: &error] mutableCopy];
     if (mutableFetchResults == nil) {
-        NSLog(@"Failed to load Friends list");
+        [MainViewController showErrorPopup: self withMessage: @"Failed to load friends list"];
     }
     friendButtonList = mutableFetchResults;
 }
@@ -59,8 +60,6 @@
 
 - (void) tableView:(UITableView *) tableView commitEditingStyle:(UITableViewCellEditingStyle) editingStyle forRowAtIndexPath:(NSIndexPath *) indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
-        NSLog(@"%@, %ld", ((Friend *) [friendButtonList objectAtIndex: indexPath.row]).friendName, (long) indexPath.row);
         
         [managedObjectContext deleteObject: [friendButtonList objectAtIndex: indexPath.row]];
         [friendButtonList removeObjectAtIndex: indexPath.row];
@@ -97,7 +96,7 @@
     }
     
     if (name != nil) {
-        Friend * friend = [NSEntityDescription insertNewObjectForEntityForName: @"Friend" inManagedObjectContext:managedObjectContext];
+        Friend * friend = [NSEntityDescription insertNewObjectForEntityForName: @"Friend" inManagedObjectContext: managedObjectContext];
         friend.friendName = name;
         friend.deviceID = uid;
         [friendButtonList addObject: friend];

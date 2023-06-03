@@ -11,6 +11,7 @@
 #import "MessageSelectionCell.h"
 #import <NSDate_Utils/NSDate+NSDate_Util.h>
 #import "ComposeMessageViewController.h"
+#import "MainViewController.h"
 
 @interface MessagesViewController ()  {
     NSManagedObjectContext * managedObjectContext;
@@ -45,7 +46,7 @@
     NSError * error;
     NSMutableArray * mutableFetchResults = [[managedObjectContext executeFetchRequest: request error: &error] mutableCopy];
     if (mutableFetchResults == nil) {
-        NSLog(@"Failed to load Friends list");
+        [MainViewController showErrorPopup: self withMessage: @"Failed to load friend list"];
     }
     friendButtonList = mutableFetchResults;
 }
