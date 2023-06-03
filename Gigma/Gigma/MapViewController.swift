@@ -25,14 +25,16 @@ class MapViewController : UIViewController {
         
         self.locationManager.requestAlwaysAuthorization()
         
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
+        DispatchQueue.global().async {
+            if CLLocationManager.locationServicesEnabled() {
+                self.locationManager.delegate = self
+                self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+                self.locationManager.startUpdatingLocation()
+            }
         }
         
         mapView.delegate = self
-        let festivalName = UserDefaults.standard.string(forKey: "FestivalIsSet")
+        let festivalID = UserDefaults.standard.integer(forKey: "FestivalIDSet")
         let config = MapCacheConfig(withUrlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
         mapCache = MapCache(withConfig: config)
         mapView.showsUserLocation = true;
@@ -41,11 +43,12 @@ class MapViewController : UIViewController {
         let errorRegion = MKCoordinateRegion(center: mapView.userLocation.location?.coordinate ?? errorLocation, latitudinalMeters: 200, longitudinalMeters: 200)
         mapView.setRegion(errorRegion, animated: true)
         
-        if (festivalName != "Unknown Festival") {
+        if (festivalID != 0) {
             let connectionSuccess = data.connect()
             if connectionSuccess {
-                festival = data.getFestival(name: festivalName! as String)
+                festival = data.getFestival(festivalID: festivalID as Int)
                 let centre = festival!.centre.toCLCoordinate()
+                print(centre.latitude, centre.longitude)
                 let width = festival!.width
                 let height = festival!.height
                 let coords = MKCoordinateRegion(center: centre, latitudinalMeters: width, longitudinalMeters: height)
@@ -53,6 +56,7 @@ class MapViewController : UIViewController {
             } else {
                 MainViewController.showErrorPopup(self, withMessage: "Connection to database failed.")
             }
+            data.close()
         }
         mapView.useCache(mapCache!)
         let nc = NotificationCenter.default
@@ -61,7 +65,10 @@ class MapViewController : UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let appDelegate = UIApplication.shared.delegate
+        checkPrefs()
+    }
+    
+    func checkPrefs() {
         let prefs = MainViewController.prefsList(self)
         prefs!.forEach {p in
             let pref = p as! MapSetting
@@ -76,8 +83,6 @@ class MapViewController : UIViewController {
                     MainViewController.showErrorPopup(self, withMessage: "Setting does not exist.")
             }
         }
-        
-        
     }
     
     @objc func showStages() {
@@ -134,7 +139,14 @@ class MapViewController : UIViewController {
             //print("cache cleared")
         }
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "MapSettingsSegue" {
+            if let destinationViewController = segue.destination as? MapSettingsViewController {
+                destinationViewController.delegate = self
+            }
+        }
+    }
 }
 
 extension MapViewController : MKMapViewDelegate {
@@ -148,6 +160,12 @@ extension MapViewController : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         print("locations = \(locValue.latitude) \(locValue.longitude)")
+    }
+}
+
+extension MapViewController : PopoverDelegate {
+    func popoverDidDisappear() {
+        self.checkPrefs()
     }
 }
 
