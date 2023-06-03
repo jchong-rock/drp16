@@ -12,6 +12,8 @@
 		E00F0CD42A2A45E700E80FC3 /* PostgreSQLDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00F0CD32A2A45E700E80FC3 /* PostgreSQLDriver.swift */; };
 		E00F0CD72A2A467A00E80FC3 /* PostgresClientKit in Frameworks */ = {isa = PBXBuildFile; productRef = E00F0CD62A2A467A00E80FC3 /* PostgresClientKit */; };
 		E00F0CD92A2A5BAE00E80FC3 /* PrefsSQL.plist in Resources */ = {isa = PBXBuildFile; fileRef = E00F0CD82A2A5BAE00E80FC3 /* PrefsSQL.plist */; };
+		E00F0CDE2A2AB48E00E80FC3 /* MapSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E00F0CDD2A2AB48E00E80FC3 /* MapSettingsViewController.m */; };
+		E00F0CE12A2AB5D000E80FC3 /* MapSettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E00F0CE02A2AB5D000E80FC3 /* MapSettingsCell.m */; };
 		E0155F562A29EBA300069BEE /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155F552A29EBA300069BEE /* Festival.swift */; };
 		E0155F5A2A2A086300069BEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0155F592A2A086300069BEE /* GoogleService-Info.plist */; };
 		E0155F5B2A2A086300069BEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0155F592A2A086300069BEE /* GoogleService-Info.plist */; };
@@ -47,10 +49,6 @@
 		E0D826512A294C9200E3A373 /* IndentedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D826502A294C9200E3A373 /* IndentedLabel.m */; };
 		E0D826532A294E0B00E3A373 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D826522A294E0B00E3A373 /* MessageCell.m */; };
 		E5BA9A80F42A382FAED57B0D /* Pods_Gigma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3288B7B2E7E2B48AC12FDB22 /* Pods_Gigma.framework */; };
-		F7956E6B2A288F070026B06E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F7956E6A2A288F070026B06E /* FirebaseFirestore */; };
-		F7956E6D2A288F070026B06E /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = F7956E6C2A288F070026B06E /* FirebaseFirestoreCombine-Community */; };
-		F7956E6F2A288F070026B06E /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F7956E6E2A288F070026B06E /* FirebaseFirestoreSwift */; };
-		F7956E732A28B25E0026B06E /* FestivalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7956E722A28B25E0026B06E /* FestivalData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +80,10 @@
 		92D5AFFEFD8F2A8A0AA8DF49 /* Pods_GigmaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GigmaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E00F0CD32A2A45E700E80FC3 /* PostgreSQLDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostgreSQLDriver.swift; sourceTree = "<group>"; };
 		E00F0CD82A2A5BAE00E80FC3 /* PrefsSQL.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PrefsSQL.plist; sourceTree = "<group>"; };
+		E00F0CDC2A2AB47F00E80FC3 /* MapSettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapSettingsViewController.h; sourceTree = "<group>"; };
+		E00F0CDD2A2AB48E00E80FC3 /* MapSettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapSettingsViewController.m; sourceTree = "<group>"; };
+		E00F0CDF2A2AB5CA00E80FC3 /* MapSettingsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapSettingsCell.h; sourceTree = "<group>"; };
+		E00F0CE02A2AB5D000E80FC3 /* MapSettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapSettingsCell.m; sourceTree = "<group>"; };
 		E0155F552A29EBA300069BEE /* Festival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
 		E0155F592A2A086300069BEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E0155F5D2A2A0E3E00069BEE /* Tests.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = Tests.py; sourceTree = "<group>"; };
@@ -131,7 +133,6 @@
 		E0D826502A294C9200E3A373 /* IndentedLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndentedLabel.m; sourceTree = "<group>"; };
 		E0D826522A294E0B00E3A373 /* MessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
 		E0D826542A294E1E00E3A373 /* MessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
-		F7956E722A28B25E0026B06E /* FestivalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,9 +140,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7956E6D2A288F070026B06E /* FirebaseFirestoreCombine-Community in Frameworks */,
-				F7956E6B2A288F070026B06E /* FirebaseFirestore in Frameworks */,
-				F7956E6F2A288F070026B06E /* FirebaseFirestoreSwift in Frameworks */,
 				E00F0CD72A2A467A00E80FC3 /* PostgresClientKit in Frameworks */,
 				E5BA9A80F42A382FAED57B0D /* Pods_Gigma.framework in Frameworks */,
 			);
@@ -232,11 +230,14 @@
 				E0549B112A27D8A60002A8D4 /* FestivalSettingsViewController.m */,
 				E0549B142A27DC690002A8D4 /* FestivalViewController.h */,
 				E0549B152A27DC8F0002A8D4 /* FestivalViewController.m */,
+				E00F0CDC2A2AB47F00E80FC3 /* MapSettingsViewController.h */,
+				E00F0CDD2A2AB48E00E80FC3 /* MapSettingsViewController.m */,
+				E00F0CDF2A2AB5CA00E80FC3 /* MapSettingsCell.h */,
+				E00F0CE02A2AB5D000E80FC3 /* MapSettingsCell.m */,
 				E0472C802A27687B00782EA0 /* MapViewController.swift */,
 				E0155F552A29EBA300069BEE /* Festival.swift */,
 				E0549B212A28D0E80002A8D4 /* BluetoothDriver.swift */,
 				E0549B172A27DF140002A8D4 /* DataBaseDriver.swift */,
-				F7956E722A28B25E0026B06E /* FestivalData.swift */,
 				E00F0CD32A2A45E700E80FC3 /* PostgreSQLDriver.swift */,
 				E00F0CD82A2A5BAE00E80FC3 /* PrefsSQL.plist */,
 				E05733312A24F61F00B7A32D /* Assets.xcassets */,
@@ -300,9 +301,6 @@
 			);
 			name = Gigma;
 			packageProductDependencies = (
-				F7956E6A2A288F070026B06E /* FirebaseFirestore */,
-				F7956E6C2A288F070026B06E /* FirebaseFirestoreCombine-Community */,
-				F7956E6E2A288F070026B06E /* FirebaseFirestoreSwift */,
 				E00F0CD62A2A467A00E80FC3 /* PostgresClientKit */,
 			);
 			productName = Gigma;
@@ -380,7 +378,6 @@
 			);
 			mainGroup = E05733192A24F61C00B7A32D;
 			packageReferences = (
-				F7956E692A288F070026B06E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				E00F0CD52A2A467A00E80FC3 /* XCRemoteSwiftPackageReference "PostgresClientKit" */,
 			);
 			productRefGroup = E05733232A24F61C00B7A32D /* Products */;
@@ -520,13 +517,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7956E732A28B25E0026B06E /* FestivalData.swift in Sources */,
 				E057332D2A24F61C00B7A32D /* AddFriendViewController.m in Sources */,
+				E00F0CE12A2AB5D000E80FC3 /* MapSettingsCell.m in Sources */,
 				E05733272A24F61C00B7A32D /* AppDelegate.m in Sources */,
 				E0D826512A294C9200E3A373 /* IndentedLabel.m in Sources */,
 				E0549B122A27D8A60002A8D4 /* FestivalSettingsViewController.m in Sources */,
 				E00F0CD42A2A45E700E80FC3 /* PostgreSQLDriver.swift in Sources */,
 				E0549B2A2A28E0790002A8D4 /* GigmaModel.xcdatamodeld in Sources */,
+				E00F0CDE2A2AB48E00E80FC3 /* MapSettingsViewController.m in Sources */,
 				E0D826532A294E0B00E3A373 /* MessageCell.m in Sources */,
 				E0549B1F2A27FA270002A8D4 /* FestivalSelectionCell.m in Sources */,
 				E0549B222A28D0E80002A8D4 /* BluetoothDriver.swift in Sources */,
@@ -895,14 +893,6 @@
 				kind = branch;
 			};
 		};
-		F7956E692A288F070026B06E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -910,21 +900,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E00F0CD52A2A467A00E80FC3 /* XCRemoteSwiftPackageReference "PostgresClientKit" */;
 			productName = PostgresClientKit;
-		};
-		F7956E6A2A288F070026B06E /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F7956E692A288F070026B06E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-		F7956E6C2A288F070026B06E /* FirebaseFirestoreCombine-Community */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F7956E692A288F070026B06E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = "FirebaseFirestoreCombine-Community";
-		};
-		F7956E6E2A288F070026B06E /* FirebaseFirestoreSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F7956E692A288F070026B06E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 

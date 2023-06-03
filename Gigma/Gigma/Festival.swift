@@ -6,12 +6,10 @@
 //
 
 import Foundation
-import FirebaseFirestore
-import FirebaseFirestoreSwift
 import CoreLocation
 
 @objc class Festival : NSObject, Identifiable, Codable {
-    @DocumentID var festivalID: String?
+    var festivalID: String?
     var centre: CodableCoordinate
     var height: Double
     var width: Double
@@ -42,10 +40,6 @@ import CoreLocation
     init(latitude: Double, longitude: Double) {
         self.latitude = latitude
         self.longitude = longitude
-    }
-    
-    static func CCfromGeo(geo: GeoPoint) -> CodableCoordinate {
-        return CodableCoordinate(latitude: geo.latitude, longitude: geo.longitude)
     }
 
 }

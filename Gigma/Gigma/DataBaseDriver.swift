@@ -5,12 +5,6 @@
 //  Created by Jake Chong on 31/05/2023.
 //
 
-// CONFLICTS
-
-import Foundation
-import CoreLocation
-import Firebase
-
 @objc protocol DataBaseDriver {
     func close()
     func connect() -> Bool
