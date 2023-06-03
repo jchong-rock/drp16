@@ -8,24 +8,35 @@
 #import "ComposeMessageViewController.h"
 #import "MessageCell.h"
 #import "Message+CoreDataProperties.h"
+#import "MessageDriver.h"
+#import "AppDelegate.h"
 
-@interface ComposeMessageViewController ()
+@interface ComposeMessageViewController () {
+    NSObject <MessageDriver> * messageDriver;
+}
 
 @end
 
 @implementation ComposeMessageViewController
 
 @synthesize nameLabel;
+@synthesize textField;
 @synthesize messageStack;
 @synthesize recipient;
 @synthesize messageList;
 
+- (void) viewDidLoad {
+    [super viewDidLoad];
+    AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    messageDriver = [[FakeMessageSender alloc] initWithContext: appDelegate.persistentContainer.viewContext];
+}
+
 - (void) viewDidAppear:(BOOL) animated {
     [super viewDidAppear: animated];
     messageList = [NSMutableArray arrayWithArray: recipient.messages.array];
-    NSLog(@"%lu", (unsigned long)[messageList count]);
     nameLabel.text = recipient.friendName;
     [messageStack reloadData];
+    [messageStack setContentOffset: CGPointMake(0, messageStack.contentSize.height) animated: NO];
 }
 
 - (UITableViewCell *) tableView:(UITableView *) tableView cellForRowAtIndexPath:(nonnull NSIndexPath *) indexPath {
@@ -56,6 +67,19 @@
 
 - (NSInteger) tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger) section {
     return [messageList count];
+}
+
+- (IBAction) goBack:(id) sender {
+    [self dismissViewControllerAnimated: YES completion: nil];
+}
+
+- (IBAction) sendMessage:(id) sender {
+    NSString * text = textField.text;
+    textField.text = @"";
+    Message * message = [messageDriver sendMessage: text toFriend: recipient];
+    [messageList addObject: message];
+    [messageStack setContentOffset: CGPointMake(0, messageStack.contentSize.height) animated: YES];
+    [messageStack reloadData];
 }
 
 

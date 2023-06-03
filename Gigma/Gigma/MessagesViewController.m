@@ -79,9 +79,15 @@
     cell.friendName.text = friend.friendName;
     //cell.messagePreview.adjustsFontSizeToFitWidth = NO;
     //cell.messagePreview.lineBreakMode = NSLineBreakByTruncatingTail;
-    Message * message = [friend.messages objectAtIndex: [friend.messages count] - 1];
-    cell.messagePreview.text = message.contents;
-    cell.dateTime.text = [NSDate stringForDisplayFromDate: message.dateTime];
+    NSInteger messagesCount = [friend.messages count];
+    if (messagesCount > 0) {
+        Message * message = [friend.messages objectAtIndex: messagesCount - 1];
+        cell.messagePreview.text = message.contents;
+        cell.dateTime.text = [NSDate stringForDisplayFromDate: message.dateTime];
+    } else {
+        cell.messagePreview.text = @" ";
+        cell.dateTime.text = @" ";
+    }
     return cell;
 
 }

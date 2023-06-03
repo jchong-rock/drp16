@@ -10,6 +10,8 @@
 #import "Friend+CoreDataProperties.h"
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "ComposeMessageViewController.h"
+#import "FriendListCell.h"
 
 @interface FriendViewController () {
     NSManagedObjectContext * managedObjectContext;
@@ -52,6 +54,11 @@
     if ([destination isKindOfClass: [AddFriendViewController class]]) {
         ((AddFriendViewController *) destination).delegate = self;
     }
+    if ([segue.identifier isEqualToString: @"goToMessagesFL"]) {
+        FriendListCell * selectedCell = (FriendListCell *) ((UIButton *) sender).superview.superview;
+        ComposeMessageViewController * destinationVC = segue.destinationViewController;
+        destinationVC.recipient = selectedCell.friend;
+    }
 }
 
 - (BOOL) tableView:(UITableView *) tableView canEditRowAtIndexPath:(NSIndexPath *) indexPath {
@@ -70,12 +77,13 @@
 }
 
 - (UITableViewCell *) tableView:(UITableView *) tableView cellForRowAtIndexPath:(nonnull NSIndexPath *) indexPath {
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier: @"FriendCellIdentifier"];
+    FriendListCell * cell = [tableView dequeueReusableCellWithIdentifier: @"FriendCellIdentifier"];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"FriendCellIdentifier"];
+        cell = [[FriendListCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"FriendCellIdentifier"];
     }
     
     Friend * friend = [friendButtonList objectAtIndex: indexPath.row];
+    cell.friend = friend;
     cell.textLabel.text = friend.friendName;
     return cell;
 }

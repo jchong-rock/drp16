@@ -15,6 +15,7 @@
 		E00F0CDE2A2AB48E00E80FC3 /* MapSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E00F0CDD2A2AB48E00E80FC3 /* MapSettingsViewController.m */; };
 		E00F0CE12A2AB5D000E80FC3 /* MapSettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E00F0CE02A2AB5D000E80FC3 /* MapSettingsCell.m */; };
 		E00F0CE32A2B4BB900E80FC3 /* Pair.m in Sources */ = {isa = PBXBuildFile; fileRef = E00F0CE22A2B4BB900E80FC3 /* Pair.m */; };
+		E00F0CE62A2B8C7D00E80FC3 /* FriendListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E00F0CE52A2B8C7D00E80FC3 /* FriendListCell.m */; };
 		E0155F562A29EBA300069BEE /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155F552A29EBA300069BEE /* Festival.swift */; };
 		E0155F5A2A2A086300069BEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0155F592A2A086300069BEE /* GoogleService-Info.plist */; };
 		E0155F5B2A2A086300069BEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0155F592A2A086300069BEE /* GoogleService-Info.plist */; };
@@ -87,6 +88,9 @@
 		E00F0CE02A2AB5D000E80FC3 /* MapSettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapSettingsCell.m; sourceTree = "<group>"; };
 		E00F0CE22A2B4BB900E80FC3 /* Pair.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pair.m; sourceTree = "<group>"; };
 		E00F0CE42A2B4C0600E80FC3 /* Pair.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pair.h; sourceTree = "<group>"; };
+		E00F0CE52A2B8C7D00E80FC3 /* FriendListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendListCell.m; sourceTree = "<group>"; };
+		E00F0CE72A2B8C9500E80FC3 /* FriendListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendListCell.h; sourceTree = "<group>"; };
+		E00F0CE82A2B938500E80FC3 /* MessageDriver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageDriver.h; sourceTree = "<group>"; };
 		E0155F552A29EBA300069BEE /* Festival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
 		E0155F592A2A086300069BEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E0155F5D2A2A0E3E00069BEE /* Tests.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = Tests.py; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 				E0549B322A2908DD0002A8D4 /* MessageSelectionCell.m */,
 				E0D826542A294E1E00E3A373 /* MessageCell.h */,
 				E0D826522A294E0B00E3A373 /* MessageCell.m */,
+				E00F0CE82A2B938500E80FC3 /* MessageDriver.h */,
 				E0549B2E2A2907B00002A8D4 /* MessageDriver.m */,
 				E05733622A2601CB00B7A32D /* FriendViewController.h */,
 				E05733602A2601A100B7A32D /* FriendViewController.m */,
@@ -239,6 +244,8 @@
 				E00F0CDD2A2AB48E00E80FC3 /* MapSettingsViewController.m */,
 				E00F0CDF2A2AB5CA00E80FC3 /* MapSettingsCell.h */,
 				E00F0CE02A2AB5D000E80FC3 /* MapSettingsCell.m */,
+				E00F0CE72A2B8C9500E80FC3 /* FriendListCell.h */,
+				E00F0CE52A2B8C7D00E80FC3 /* FriendListCell.m */,
 				E0472C802A27687B00782EA0 /* MapViewController.swift */,
 				E0155F552A29EBA300069BEE /* Festival.swift */,
 				E0549B212A28D0E80002A8D4 /* BluetoothDriver.swift */,
@@ -533,6 +540,7 @@
 				E0D826532A294E0B00E3A373 /* MessageCell.m in Sources */,
 				E0549B1F2A27FA270002A8D4 /* FestivalSelectionCell.m in Sources */,
 				E00F0CE32A2B4BB900E80FC3 /* Pair.m in Sources */,
+				E00F0CE62A2B8C7D00E80FC3 /* FriendListCell.m in Sources */,
 				E0549B222A28D0E80002A8D4 /* BluetoothDriver.swift in Sources */,
 				E0472D5F2A279C8800782EA0 /* WelcomeViewController.m in Sources */,
 				E0549B162A27DC8F0002A8D4 /* FestivalViewController.m in Sources */,
