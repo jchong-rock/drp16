@@ -45,13 +45,18 @@
 - (IBAction) addButtonPressed:(id) sender {
     NSUUID * chosenDevice = [nearbyDevicesList objectAtIndex:
                                [nearbyDevicePicker selectedRowInComponent: 0]];
+    
     BOOL didAddSuccessfully = [delegate addFriend: chosenNickname withID: chosenDevice];
     if (didAddSuccessfully) {
         [self dismissViewControllerAnimated: YES completion: nil];
-    }
-    else {
-        nicknameTextLabel.textColor = UIColor.redColor;
-        nicknameTextLabel.text = @"Nickname already in use";
+    } else {
+        if ([chosenNickname length] == 0) {
+            nicknameTextLabel.textColor = UIColor.redColor;
+            nicknameTextLabel.text = @"Nickname cannot be empty";
+        } else {
+            nicknameTextLabel.textColor = UIColor.redColor;
+            nicknameTextLabel.text = @"Nickname already in use";
+        }
     }
 }
 
