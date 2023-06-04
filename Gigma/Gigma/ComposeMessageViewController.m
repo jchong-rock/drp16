@@ -51,10 +51,9 @@
     }
     
     cell.content.text = message.contents;
-    
-    // set indentation
-    CGFloat horizontalIndent = 10.0; // Set the desired horizontal indent
-    CGFloat verticalIndent = 0.0; // Set the desired vertical indent
+
+    CGFloat horizontalIndent = 10.0;
+    CGFloat verticalIndent = 0.0;
     
     UIEdgeInsets textInsets = UIEdgeInsetsMake(verticalIndent, horizontalIndent, verticalIndent, horizontalIndent);
     cell.content.textInsets = textInsets;

@@ -29,7 +29,7 @@
 
 - (void) viewDidAppear:(BOOL) animated {
     [super viewDidAppear: animated];
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
     NSString * festivalIsSet = [prefs stringForKey: @"FestivalIsSet"];
     if (festivalIsSet != nil) {
         [self performSegueWithIdentifier: @"goToMain" sender: self];
@@ -70,14 +70,14 @@
 
 - (IBAction) continueButtonPressed:(id) sender {
     FestivalSelectionCell * cell = (FestivalSelectionCell *) ((UIButton *) sender).superview.superview;
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
     [prefs setObject: cell.button.titleLabel.text forKey: @"FestivalIsSet"];
     [prefs setInteger: cell.festivalID forKey: @"FestivalIDSet"];
     [self performSegueWithIdentifier: @"goToMain" sender: self];
 }
 
 - (IBAction) notListedButtonPressed:(id) sender {
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
     [prefs setObject: @"Unknown Festival" forKey: @"FestivalIsSet"];
     [prefs setInteger: 0 forKey: @"FestivalIDSet"];
     [self performSegueWithIdentifier: @"goToMain" sender: self];

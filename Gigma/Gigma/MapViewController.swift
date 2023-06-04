@@ -48,7 +48,6 @@ class MapViewController : UIViewController {
             if connectionSuccess {
                 festival = data.getFestival(festivalID: festivalID as Int)
                 let centre = festival!.centre.toCLCoordinate()
-                print(centre.latitude, centre.longitude)
                 let width = festival!.width
                 let height = festival!.height
                 let coords = MKCoordinateRegion(center: centre, latitudinalMeters: width, longitudinalMeters: height)
@@ -135,9 +134,7 @@ class MapViewController : UIViewController {
     }
     
     @objc func clearCache() {
-        mapCache?.clear() {
-            //print("cache cleared")
-        }
+        mapCache?.clear() {}
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

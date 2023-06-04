@@ -17,9 +17,6 @@
 		E00F0CE32A2B4BB900E80FC3 /* Pair.m in Sources */ = {isa = PBXBuildFile; fileRef = E00F0CE22A2B4BB900E80FC3 /* Pair.m */; };
 		E00F0CE62A2B8C7D00E80FC3 /* FriendListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E00F0CE52A2B8C7D00E80FC3 /* FriendListCell.m */; };
 		E0155F562A29EBA300069BEE /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155F552A29EBA300069BEE /* Festival.swift */; };
-		E0155F5A2A2A086300069BEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0155F592A2A086300069BEE /* GoogleService-Info.plist */; };
-		E0155F5B2A2A086300069BEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0155F592A2A086300069BEE /* GoogleService-Info.plist */; };
-		E0155F5C2A2A086300069BEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0155F592A2A086300069BEE /* GoogleService-Info.plist */; };
 		E0155F5E2A2A0E3E00069BEE /* Tests.py in Resources */ = {isa = PBXBuildFile; fileRef = E0155F5D2A2A0E3E00069BEE /* Tests.py */; };
 		E0155F5F2A2A0E3E00069BEE /* Tests.py in Resources */ = {isa = PBXBuildFile; fileRef = E0155F5D2A2A0E3E00069BEE /* Tests.py */; };
 		E0155F602A2A0E3E00069BEE /* Tests.py in Resources */ = {isa = PBXBuildFile; fileRef = E0155F5D2A2A0E3E00069BEE /* Tests.py */; };
@@ -92,7 +89,6 @@
 		E00F0CE72A2B8C9500E80FC3 /* FriendListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendListCell.h; sourceTree = "<group>"; };
 		E00F0CE82A2B938500E80FC3 /* MessageDriver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageDriver.h; sourceTree = "<group>"; };
 		E0155F552A29EBA300069BEE /* Festival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
-		E0155F592A2A086300069BEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E0155F5D2A2A0E3E00069BEE /* Tests.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = Tests.py; sourceTree = "<group>"; };
 		E0472C7F2A27687A00782EA0 /* Gigma-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gigma-Bridging-Header.h"; sourceTree = "<group>"; };
 		E0472C802A27687B00782EA0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -184,7 +180,6 @@
 		E05733192A24F61C00B7A32D = {
 			isa = PBXGroup;
 			children = (
-				E0155F592A2A086300069BEE /* GoogleService-Info.plist */,
 				E05733242A24F61C00B7A32D /* Gigma */,
 				E05733402A24F61F00B7A32D /* GigmaTests */,
 				E057334A2A24F61F00B7A32D /* GigmaUITests */,
@@ -412,7 +407,6 @@
 				E0155F5E2A2A0E3E00069BEE /* Tests.py in Resources */,
 				E0472D612A27A78F00782EA0 /* Main.storyboard in Resources */,
 				E05733672A2608B900B7A32D /* AfterMain.storyboard in Resources */,
-				E0155F5A2A2A086300069BEE /* GoogleService-Info.plist in Resources */,
 				E05733352A24F61F00B7A32D /* LaunchScreen.storyboard in Resources */,
 				E05733322A24F61F00B7A32D /* Assets.xcassets in Resources */,
 			);
@@ -423,7 +417,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0155F5F2A2A0E3E00069BEE /* Tests.py in Resources */,
-				E0155F5B2A2A086300069BEE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,7 +425,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0155F602A2A0E3E00069BEE /* Tests.py in Resources */,
-				E0155F5C2A2A086300069BEE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

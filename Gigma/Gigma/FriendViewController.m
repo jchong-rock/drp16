@@ -26,8 +26,6 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    // change this to init instead of initWithObjects
-    
     AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     managedObjectContext = appDelegate.persistentContainer.viewContext;
 }

@@ -16,9 +16,9 @@ class PostgreSQLDriver : NSObject, DataBaseDriver {
     
     override init() {
         var prefsSQL: NSDictionary?
-         if let path = Bundle.main.path(forResource: "PrefsSQL", ofType: "plist") {
+        if let path = Bundle.main.path(forResource: "PrefsSQL", ofType: "plist") {
             prefsSQL = NSDictionary(contentsOfFile: path)
-         }
+        }
         
         configuration = PostgresClientKit.ConnectionConfiguration()
         configuration.ssl = prefsSQL!["ssl"] as! Bool
@@ -163,10 +163,7 @@ class PostgreSQLDriver : NSObject, DataBaseDriver {
         } catch {
             print(error) // better error handling goes here
         }
-        
         return Festival(festivalID: nil, height: 0, width: 0, stages: nil, toilets: nil, water: nil)
     }
-    
-    
-    
+ 
 }

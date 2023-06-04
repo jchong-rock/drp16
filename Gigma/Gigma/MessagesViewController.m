@@ -77,8 +77,6 @@
     Friend * friend = [friendButtonList objectAtIndex: indexPath.row];
     cell.recipient = friend;
     cell.friendName.text = friend.friendName;
-    //cell.messagePreview.adjustsFontSizeToFitWidth = NO;
-    //cell.messagePreview.lineBreakMode = NSLineBreakByTruncatingTail;
     NSInteger messagesCount = [friend.messages count];
     if (messagesCount > 0) {
         Message * message = [friend.messages objectAtIndex: messagesCount - 1];
