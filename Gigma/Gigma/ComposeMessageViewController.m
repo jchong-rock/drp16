@@ -24,6 +24,7 @@
 @synthesize messageStack;
 @synthesize recipient;
 @synthesize messageList;
+@synthesize delegate;
 
 - (void) viewDidLoad {
     [super viewDidLoad];
@@ -70,6 +71,7 @@
 }
 
 - (IBAction) goBack:(id) sender {
+    [delegate refresh];
     [self dismissViewControllerAnimated: YES completion: nil];
 }
 

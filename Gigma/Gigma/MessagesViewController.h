@@ -7,8 +7,9 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "ComposeMessageViewController.h"
 
-@interface MessagesViewController : UIViewController {
+@interface MessagesViewController : UIViewController <ComposeMesssageViewControllerDelegate>  {
     IBOutlet UITableView * messageStack;
     NSMutableArray * friendButtonList;
 }

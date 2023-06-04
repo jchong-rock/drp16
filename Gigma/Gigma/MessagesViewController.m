@@ -119,11 +119,16 @@
     }
 }
 
+- (void) refresh {
+    [messageStack reloadData];
+}
+
 - (void) prepareForSegue:(UIStoryboardSegue *) segue sender:(id) sender {
     if ([segue.identifier isEqualToString: @"goToMessageCompose"]) {
         MessageSelectionCell *selectedCell = (MessageSelectionCell *) sender;
         ComposeMessageViewController *destinationVC = segue.destinationViewController;
         destinationVC.recipient = selectedCell.recipient;
+        destinationVC.delegate = self;
     }
 }
 

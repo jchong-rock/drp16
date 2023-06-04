@@ -9,6 +9,10 @@
 #import "IndentedLabel.h"
 #import "Friend+CoreDataProperties.h"
 
+@protocol ComposeMesssageViewControllerDelegate
+    - (void) refresh;
+@end
+
 @interface ComposeMessageViewController : UIViewController {
     IBOutlet UITableView * messageStack;
     IBOutlet UITextField * textField;
@@ -19,6 +23,7 @@
 @property (retain, nonatomic) UITableView * messageStack;
 @property (retain, nonatomic) Friend * recipient;
 @property (retain, nonatomic) NSMutableArray * messageList;
+@property (retain, nonatomic) UIViewController <ComposeMesssageViewControllerDelegate> * delegate;
 
 - (IBAction) goBack:(id) sender;
 
