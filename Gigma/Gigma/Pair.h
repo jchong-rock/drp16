@@ -7,11 +7,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Pair <T> : NSObject
+@interface Pair <T, S> : NSObject
 
 @property T first;
-@property T second;
+@property S second;
 
-- (instancetype) initWithFirst:(T) a andSecond:(T) b;
+- (instancetype) initWithFirst:(T) a andSecond:(S) b;
 
 @end
