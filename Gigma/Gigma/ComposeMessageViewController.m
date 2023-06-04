@@ -13,12 +13,14 @@
 
 @interface ComposeMessageViewController () {
     NSObject <MessageDriver> * messageDriver;
+    CGRect textBarFrame;
 }
 
 @end
 
 @implementation ComposeMessageViewController
 
+@synthesize textBar;
 @synthesize nameLabel;
 @synthesize textField;
 @synthesize messageStack;
@@ -30,6 +32,31 @@
     [super viewDidLoad];
     AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     messageDriver = [[FakeMessageSender alloc] initWithContext: appDelegate.persistentContainer.viewContext];
+    [NSNotificationCenter.defaultCenter addObserver: self selector: @selector(keyboardWillShow:) name: UIKeyboardWillShowNotification object: nil];
+    [NSNotificationCenter.defaultCenter addObserver: self selector: @selector(keyboardWillHide:) name: UIKeyboardWillHideNotification object: nil];
+}
+
+- (void) keyboardWillShow:(NSNotification *) notification {
+    CGSize keyboardSize = [[[notification userInfo] objectForKey: UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    NSLog(@"%f",keyboardSize.height);
+    textBarFrame = self.textBar.frame;
+    [UIView animateWithDuration: 0.25 animations: ^{
+        CGRect frame = self.textBar.frame;
+        frame.origin.y -= keyboardSize.height - 42;
+        self.textBar.frame = frame;
+        UIEdgeInsets contentInset = self.messageStack.contentInset;
+        contentInset.bottom += keyboardSize.height - 42;
+        self.messageStack.contentInset = contentInset;
+        [self.messageStack reloadData];
+    }];
+}
+
+- (void) keyboardWillHide:(NSNotification *) notification {
+    [UIView animateWithDuration: 0.25 animations: ^{
+        self.textBar.frame = self->textBarFrame;
+        self.messageStack.contentInset = UIEdgeInsetsZero;
+        [self.messageStack reloadData];
+    }];
 }
 
 - (void) viewDidAppear:(BOOL) animated {
