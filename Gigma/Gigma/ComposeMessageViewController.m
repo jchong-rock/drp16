@@ -34,6 +34,13 @@
     messageDriver = [[FakeMessageSender alloc] initWithContext: appDelegate.persistentContainer.viewContext];
     [NSNotificationCenter.defaultCenter addObserver: self selector: @selector(keyboardWillShow:) name: UIKeyboardWillShowNotification object: nil];
     [NSNotificationCenter.defaultCenter addObserver: self selector: @selector(keyboardWillHide:) name: UIKeyboardWillHideNotification object: nil];
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(dismissKeyboard)];
+
+    [self.view addGestureRecognizer: tap];
+}
+
+-(void) dismissKeyboard {
+    [textField resignFirstResponder];
 }
 
 - (void) keyboardWillShow:(NSNotification *) notification {
@@ -103,11 +110,13 @@
 
 - (IBAction) sendMessage:(id) sender {
     NSString * text = textField.text;
-    textField.text = @"";
-    Message * message = [messageDriver sendMessage: text toFriend: recipient];
-    [messageList addObject: message];
-    [messageStack setContentOffset: CGPointMake(0, messageStack.contentSize.height) animated: YES];
-    [messageStack reloadData];
+    if (![textField.text isEqual: @""]) {
+        textField.text = @"";
+        Message * message = [messageDriver sendMessage: text toFriend: recipient];
+        [messageList addObject: message];
+        [messageStack setContentOffset: CGPointMake(0, messageStack.contentSize.height) animated: YES];
+        [messageStack reloadData];
+    }
 }
 
 
