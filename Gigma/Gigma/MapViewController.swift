@@ -173,8 +173,43 @@ class MapViewController : UIViewController {
 
 extension MapViewController : MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-            return mapView.mapCacheRenderer(forOverlay: overlay)
+        return mapView.mapCacheRenderer(forOverlay: overlay)
+    }
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard !(annotation is MKUserLocation) else {
+            return nil
         }
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "customPin")
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "customPin")
+            annotationView?.canShowCallout = true
+        } else {
+            annotationView!.annotation = annotation
+        }
+        
+        if annotation.title == "Water Source" && annotation.subtitle == nil {
+            annotationView!.image = makeImage(shape: "drop.fill", colour: .brown)
+        }
+        if annotation.title == "Toilet" && annotation.subtitle == nil {
+            annotationView!.image = makeImage(shape: "toilet.fill", colour: .blue)
+        }
+        if annotation.subtitle == "Stage" {
+            annotationView!.image = makeImage(shape: "music.mic.fill", colour: .green)
+        }
+        if annotation.subtitle == "Friend" {
+            annotationView!.image = makeImage(shape: "person.fill", colour: .red)
+        }
+        return annotationView
+    }
+    
+    func makeImage(shape: String, colour: UIColor) -> UIImage {
+        let shape = UIImage(systemName: shape)!.withTintColor(colour)
+        let size = CGSize(width: 40, height: 40)
+        return UIGraphicsImageRenderer(size: size).image {
+            _ in shape.draw(in: CGRect(origin: .zero, size: size))
+        }
+    }
 }
 
 extension MapViewController : CLLocationManagerDelegate {
