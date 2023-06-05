@@ -21,6 +21,7 @@ class MapViewController : UIViewController {
     let locationManager = CLLocationManager()
     var festival: Festival?
     var managedObjectContext: NSManagedObjectContext?
+    var userLocation: CLLocationCoordinate2D?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +46,7 @@ class MapViewController : UIViewController {
         mapView.showsUserLocation = true;
 
         let errorLocation = CLLocationCoordinate2DMake(51.5124801, -0.2182141)
-        let errorRegion = MKCoordinateRegion(center: mapView.userLocation.location?.coordinate ?? errorLocation, latitudinalMeters: 200, longitudinalMeters: 200)
+        let errorRegion = MKCoordinateRegion(center: userLocation ?? errorLocation, latitudinalMeters: 200, longitudinalMeters: 200)
         mapView.setRegion(errorRegion, animated: true)
         
         if (festivalID != 0) {
@@ -174,11 +175,10 @@ extension MapViewController : MKMapViewDelegate {
         }
 }
 
-// not yet working -- get user's location
 extension MapViewController : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        guard let location = manager.location?.coordinate else { return }
+        self.userLocation = location
     }
 }
 
