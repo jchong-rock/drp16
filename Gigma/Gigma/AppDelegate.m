@@ -7,8 +7,11 @@
 
 #import "AppDelegate.h"
 #import "MapSetting+CoreDataProperties.h"
+#import <Gigma-Swift.h>
 
 @interface AppDelegate ()
+
+@property (retain, strong, nonatomic) NSObject <DataBaseDriver> * data;
 
 @end
 

@@ -42,4 +42,17 @@
     return mutableFetchResults;
 }
 
++ (NSMutableArray *) getFriendsFromContext:(NSManagedObjectContext *) managedObjectContext {
+    NSEntityDescription * entity = [NSEntityDescription entityForName: @"Friend" inManagedObjectContext: managedObjectContext];
+    NSFetchRequest * request = [[NSFetchRequest alloc] init];
+    [request setEntity: entity];
+    NSSortDescriptor * sortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"friendName" ascending: YES];
+    NSArray * sortDescriptors = [[NSArray alloc] initWithObjects: sortDescriptor, nil];
+    [request setSortDescriptors: sortDescriptors];
+    
+    NSError * error;
+    NSMutableArray * mutableFetchResults = [[managedObjectContext executeFetchRequest: request error: &error] mutableCopy];
+    return mutableFetchResults;
+}
+
 @end

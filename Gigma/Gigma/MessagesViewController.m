@@ -36,19 +36,10 @@
 
 - (void) viewWillAppear:(BOOL) animated {
     [super viewWillAppear: animated];
-    NSEntityDescription * entity = [NSEntityDescription entityForName: @"Friend" inManagedObjectContext: managedObjectContext];
-    NSFetchRequest * request = [[NSFetchRequest alloc] init];
-    [request setEntity: entity];
-    NSSortDescriptor * sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"friendName" ascending: YES];
-    NSArray * sortDescriptors = [[NSArray alloc] initWithObjects: sortDescriptor, nil];
-    [request setSortDescriptors: sortDescriptors];
-    
-    NSError * error;
-    NSMutableArray * mutableFetchResults = [[managedObjectContext executeFetchRequest: request error: &error] mutableCopy];
-    if (mutableFetchResults == nil) {
+    friendButtonList = [MainViewController getFriendsFromContext: managedObjectContext];
+    if (friendButtonList == nil) {
         [MainViewController showErrorPopup: self withMessage: @"Failed to load friend list"];
     }
-    friendButtonList = mutableFetchResults;
 }
 
 - (UITableViewCell *) tableView:(UITableView *) tableView cellForRowAtIndexPath:(nonnull NSIndexPath *) indexPath {

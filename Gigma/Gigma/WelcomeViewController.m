@@ -23,8 +23,7 @@
 @synthesize data;
 
 - (void) viewDidLoad {
-    AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    data = appDelegate.data;
+    data = [[PostgreSQLDriver alloc] init];
 }
 
 - (void) viewDidAppear:(BOOL) animated {

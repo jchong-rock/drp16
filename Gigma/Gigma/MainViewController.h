@@ -11,5 +11,6 @@
 
 + (void) showErrorPopup:(UIViewController *) vc withMessage:(NSString *) msg;
 + (NSArray *) prefsList:(UIViewController *) vc;
++ (NSMutableArray *) getFriendsFromContext:(NSManagedObjectContext *) managedObjectContext;
 
 @end
