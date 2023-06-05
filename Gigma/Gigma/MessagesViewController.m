@@ -51,23 +51,6 @@
     friendButtonList = mutableFetchResults;
 }
 
-- (BOOL) tableView:(UITableView *) tableView canEditRowAtIndexPath:(NSIndexPath *) indexPath {
-    return YES;
-}
-
-- (void) tableView:(UITableView *) tableView commitEditingStyle:(UITableViewCellEditingStyle) editingStyle forRowAtIndexPath:(NSIndexPath *) indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        Friend * friend = [friendButtonList objectAtIndex: indexPath.row];
-        for (Message * message in friend.messages) {
-            [managedObjectContext deleteObject: message];
-        }
-        [friendButtonList removeObjectAtIndex: indexPath.row];
-        [messageStack reloadData];
-        NSError * error;
-        [managedObjectContext save: &error];
-    }
-}
-
 - (UITableViewCell *) tableView:(UITableView *) tableView cellForRowAtIndexPath:(nonnull NSIndexPath *) indexPath {
     MessageSelectionCell * cell = [tableView dequeueReusableCellWithIdentifier: @"MessageSelectionCellIdentifier"];
     if (cell == nil) {
@@ -100,6 +83,12 @@
 
 - (NSInteger) tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger) section {
     return [friendButtonList count];
+}
+
+- (void) deleteMessage:(Message *) message {
+    [managedObjectContext deleteObject: message];
+    NSError * error;
+    [managedObjectContext save: &error];
 }
 
 // change to use real method

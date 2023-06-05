@@ -11,6 +11,7 @@
 
 @protocol ComposeMesssageViewControllerDelegate
     - (void) refresh;
+- (void) deleteMessage:(Message *) message;
 @end
 
 @interface ComposeMessageViewController : UIViewController {

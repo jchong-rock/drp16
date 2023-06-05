@@ -58,6 +58,19 @@
     }];
 }
 
+- (BOOL) tableView:(UITableView *) tableView canEditRowAtIndexPath:(NSIndexPath *) indexPath {
+    return YES;
+}
+
+- (void) tableView:(UITableView *) tableView commitEditingStyle:(UITableViewCellEditingStyle) editingStyle forRowAtIndexPath:(NSIndexPath *) indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        Message * message = [messageList objectAtIndex: indexPath.row];
+        [messageList removeObject: message];
+        [delegate deleteMessage: message];
+        [messageStack reloadData];
+    }
+}
+
 - (void) keyboardWillHide:(NSNotification *) notification {
     [UIView animateWithDuration: 0.25 animations: ^{
         self.textBar.frame = self->textBarFrame;
