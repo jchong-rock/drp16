@@ -44,6 +44,8 @@ class MapViewController : UIViewController {
         let config = MapCacheConfig(withUrlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
         mapCache = MapCache(withConfig: config)
         mapView.showsUserLocation = true;
+        guard let location = self.locationManager.location?.coordinate else { return }
+        self.userLocation = location
 
         let errorLocation = CLLocationCoordinate2DMake(51.5124801, -0.2182141)
         let errorRegion = MKCoordinateRegion(center: userLocation ?? errorLocation, latitudinalMeters: 200, longitudinalMeters: 200)
