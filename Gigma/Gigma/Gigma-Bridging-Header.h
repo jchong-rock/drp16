@@ -7,3 +7,5 @@
 #import "MainViewController.h"
 #import "MapSettingsViewController.h"
 #import "Pair.h"
+#import "AppDelegate.h"
+#import "Friend+CoreDataProperties.h"

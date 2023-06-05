@@ -16,12 +16,17 @@ class MapViewController : UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
     var data: DataBaseDriver = PostgreSQLDriver()
+    var bluetooth: BluetoothDriver = Bluetoother()
     var mapCache: MapCache?
     let locationManager = CLLocationManager()
     var festival: Festival?
+    var managedObjectContext: NSManagedObjectContext?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        self.managedObjectContext = appDelegate.persistentContainer.viewContext
         
         self.locationManager.requestAlwaysAuthorization()
         
@@ -64,6 +69,7 @@ class MapViewController : UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        showFriends()
         checkPrefs()
     }
     
@@ -81,6 +87,22 @@ class MapViewController : UIViewController {
                 default:
                     MainViewController.showErrorPopup(self, withMessage: "Setting does not exist.")
             }
+        }
+    }
+    
+    @objc func showFriends() {
+        let annotationsToRemove = mapView.annotations.filter { marker in
+            marker.subtitle == "Friend"
+        }
+        
+        let friends = MainViewController.getFriendsFrom(managedObjectContext)
+        mapView.removeAnnotations( annotationsToRemove )
+        friends!.forEach {friend in
+            let marker = MKPointAnnotation()
+            marker.title = (friend as! Friend).friendName
+            marker.subtitle = "Friend"
+            marker.coordinate = bluetooth.getLocation(uuid: (friend as! Friend).deviceID! as NSUUID).toCLCoordinate()
+            mapView.addAnnotation(marker)
         }
     }
     
