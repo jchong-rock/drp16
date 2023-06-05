@@ -25,6 +25,7 @@ class PostgreSQLDriver : NSObject, DataBaseDriver {
         configuration.host = prefsSQL!["host"] as! String
         configuration.database = prefsSQL!["dbName"] as! String
         configuration.user = prefsSQL!["user"] as! String
+        configuration.port = prefsSQL!["port"] as! Int
         let password = prefsSQL!["password"] as! String
         switch (prefsSQL!["authMethod"] as! String) {
             case "clearText": configuration.credential = Credential.cleartextPassword(password: password)

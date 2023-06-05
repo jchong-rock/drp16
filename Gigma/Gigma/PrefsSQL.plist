@@ -3,16 +3,18 @@
 <plist version="1.0">
 <dict>
 	<key>authMethod</key>
-	<string>trust</string>
+	<string>scram256</string>
 	<key>user</key>
 	<string>alice</string>
 	<key>dbName</key>
-	<string>postgres</string>
+	<string>gigmapostgres</string>
 	<key>ssl</key>
 	<false/>
 	<key>password</key>
 	<string>1234</string>
 	<key>host</key>
-	<string>127.0.0.1</string>
+	<string>cloud-vm-43-179.doc.ic.ac.uk</string>
+	<key>port</key>
+	<integer>18384</integer>
 </dict>
 </plist>
