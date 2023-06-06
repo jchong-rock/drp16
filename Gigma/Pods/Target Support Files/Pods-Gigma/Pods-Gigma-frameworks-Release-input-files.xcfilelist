@@ -1,3 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-Gigma/Pods-Gigma-frameworks.sh
+${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework
 ${BUILT_PRODUCTS_DIR}/MapCache/MapCache.framework
 ${BUILT_PRODUCTS_DIR}/NSDate_Utils/NSDate_Utils.framework

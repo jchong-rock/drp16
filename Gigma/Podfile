@@ -8,6 +8,7 @@ target 'Gigma' do
   # Pods for Gigma
   pod 'MapCache'
   pod 'NSDate_Utils'
+  pod 'nRFMeshProvision'
 
   target 'GigmaTests' do
     inherit! :search_paths
