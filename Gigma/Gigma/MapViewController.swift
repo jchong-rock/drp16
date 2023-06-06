@@ -187,14 +187,19 @@ extension MapViewController : MKMapViewDelegate {
         } else {
             annotationView!.annotation = annotation
         }
+        print(annotation.title)
+        print(annotation.subtitle)
         
-        if annotation.title == "Water Source" && annotation.subtitle == nil {
+        if annotation.title == "Water Source" {
             annotationView!.image = makeImage(shape: "drop.fill", colour: .brown)
         }
-        if annotation.title == "Toilet" && annotation.subtitle == nil {
+        if annotation.title == "Toilet" {
+            
+            print("Toilet")
             annotationView!.image = makeImage(shape: "toilet.fill", colour: .blue)
         }
         if annotation.subtitle == "Stage" {
+            print("here")
             annotationView!.image = makeImage(shape: "music.mic", colour: .systemPink)
         }
         if annotation.subtitle == "Friend" {
@@ -255,4 +260,5 @@ extension MapViewController : PopoverDelegate {
 
 extension NSNotification.Name {
     static let clearCache = Notification.Name("clear-cache")
+
 }
