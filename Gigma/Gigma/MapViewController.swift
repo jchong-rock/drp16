@@ -195,7 +195,7 @@ extension MapViewController : MKMapViewDelegate {
             annotationView!.image = makeImage(shape: "toilet.fill", colour: .blue)
         }
         if annotation.subtitle == "Stage" {
-            annotationView!.image = makeImage(shape: "music.mic.fill", colour: .green)
+            annotationView!.image = makeImage(shape: "music.mic", colour: .black)
         }
         if annotation.subtitle == "Friend" {
             annotationView!.image = makeImage(shape: "person.fill", colour: .red)
