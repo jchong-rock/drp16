@@ -213,19 +213,24 @@ extension MapViewController : MKMapViewDelegate {
         
         // Centre the icon to the marer below
         let iconOffset = (MARKER_SIDE - SIDE) / 2
-        let iconCentre = CGPointApplyAffineTransform(.zero, CGAffineTransform(translationX: CGFloat(iconOffset), y: CGFloat(iconOffset)))
+        let iconCentre = CGPointApplyAffineTransform(
+            .zero,
+            CGAffineTransform(translationX: CGFloat(iconOffset), y: CGFloat(iconOffset))
+        )
         
         // markerCentre is just (0,0) assuming this is centre of the point
-        let markerCentre = CGPointApplyAffineTransform(.zero, CGAffineTransform(translationX: 0, y: 0))
+        let markerCentre = CGPointApplyAffineTransform(
+            .zero,
+            CGAffineTransform(translationX: 0, y: 0)
+        )
         
         // rectangles to draw
         let iconRect = CGRect(origin: iconCentre, size: iconSize)
         let markerRect = CGRect(origin: markerCentre, size: markerSize)
         let marker = UIBezierPath(ovalIn: markerRect)
         marker.lineWidth = 1
-//        return UIGraphicsImageRenderer(size: size).image {
-//            _ in shape.draw(in: CGRect(origin: .zero, size: size))
-        
+
+
         return UIGraphicsImageRenderer(size: markerSize).image {
             _ in
                 colour.setFill()
