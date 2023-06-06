@@ -16,6 +16,7 @@
 		E00F0CE12A2AB5D000E80FC3 /* MapSettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E00F0CE02A2AB5D000E80FC3 /* MapSettingsCell.m */; };
 		E00F0CE32A2B4BB900E80FC3 /* Pair.m in Sources */ = {isa = PBXBuildFile; fileRef = E00F0CE22A2B4BB900E80FC3 /* Pair.m */; };
 		E00F0CE62A2B8C7D00E80FC3 /* FriendListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E00F0CE52A2B8C7D00E80FC3 /* FriendListCell.m */; };
+		E00F0CEC2A2F5D1800E80FC3 /* BTMeshDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00F0CEB2A2F5D1800E80FC3 /* BTMeshDriver.swift */; };
 		E0155F562A29EBA300069BEE /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155F552A29EBA300069BEE /* Festival.swift */; };
 		E0155F5E2A2A0E3E00069BEE /* Tests.py in Resources */ = {isa = PBXBuildFile; fileRef = E0155F5D2A2A0E3E00069BEE /* Tests.py */; };
 		E0155F5F2A2A0E3E00069BEE /* Tests.py in Resources */ = {isa = PBXBuildFile; fileRef = E0155F5D2A2A0E3E00069BEE /* Tests.py */; };
@@ -88,6 +89,7 @@
 		E00F0CE52A2B8C7D00E80FC3 /* FriendListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendListCell.m; sourceTree = "<group>"; };
 		E00F0CE72A2B8C9500E80FC3 /* FriendListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendListCell.h; sourceTree = "<group>"; };
 		E00F0CE82A2B938500E80FC3 /* MessageDriver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageDriver.h; sourceTree = "<group>"; };
+		E00F0CEB2A2F5D1800E80FC3 /* BTMeshDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTMeshDriver.swift; sourceTree = "<group>"; };
 		E0155F552A29EBA300069BEE /* Festival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
 		E0155F5D2A2A0E3E00069BEE /* Tests.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = Tests.py; sourceTree = "<group>"; };
 		E0472C7F2A27687A00782EA0 /* Gigma-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gigma-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				E00F0CE72A2B8C9500E80FC3 /* FriendListCell.h */,
 				E00F0CE52A2B8C7D00E80FC3 /* FriendListCell.m */,
 				E0472C802A27687B00782EA0 /* MapViewController.swift */,
+				E00F0CEB2A2F5D1800E80FC3 /* BTMeshDriver.swift */,
 				E0155F552A29EBA300069BEE /* Festival.swift */,
 				E0549B212A28D0E80002A8D4 /* BluetoothDriver.swift */,
 				E0549B172A27DF140002A8D4 /* DataBaseDriver.swift */,
@@ -522,6 +525,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E057332D2A24F61C00B7A32D /* AddFriendViewController.m in Sources */,
+				E00F0CEC2A2F5D1800E80FC3 /* BTMeshDriver.swift in Sources */,
 				E00F0CE12A2AB5D000E80FC3 /* MapSettingsCell.m in Sources */,
 				E05733272A24F61C00B7A32D /* AppDelegate.m in Sources */,
 				E0D826512A294C9200E3A373 /* IndentedLabel.m in Sources */,
