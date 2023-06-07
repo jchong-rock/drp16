@@ -49,7 +49,6 @@
 		E0D8264D2A29374C00E3A373 /* ComposeMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D8264C2A29374C00E3A373 /* ComposeMessageViewController.m */; };
 		E0D826512A294C9200E3A373 /* IndentedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D826502A294C9200E3A373 /* IndentedLabel.m */; };
 		E0D826532A294E0B00E3A373 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D826522A294E0B00E3A373 /* MessageCell.m */; };
-		E0DF8FD62A30A65600ECFD6A /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0DF8FD52A30A65600ECFD6A /* SVProgressHUD.framework */; };
 		E5BA9A80F42A382FAED57B0D /* Pods_Gigma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3288B7B2E7E2B48AC12FDB22 /* Pods_Gigma.framework */; };
 /* End PBXBuildFile section */
 
@@ -142,7 +141,6 @@
 		E0D826502A294C9200E3A373 /* IndentedLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndentedLabel.m; sourceTree = "<group>"; };
 		E0D826522A294E0B00E3A373 /* MessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
 		E0D826542A294E1E00E3A373 /* MessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
-		E0DF8FD52A30A65600ECFD6A /* SVProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SVProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +148,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0DF8FD62A30A65600ECFD6A /* SVProgressHUD.framework in Frameworks */,
 				E00F0CD72A2A467A00E80FC3 /* PostgresClientKit in Frameworks */,
 				E5BA9A80F42A382FAED57B0D /* Pods_Gigma.framework in Frameworks */,
 			);
@@ -178,7 +175,6 @@
 		24011F7C10617037CAD17B9C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E0DF8FD52A30A65600ECFD6A /* SVProgressHUD.framework */,
 				3288B7B2E7E2B48AC12FDB22 /* Pods_Gigma.framework */,
 				8424401AA17DB0D79C212DFD /* Pods_GigmaTests.framework */,
 				92D5AFFEFD8F2A8A0AA8DF49 /* Pods_GigmaUITests.framework */,
