@@ -8,7 +8,8 @@
 #import "AppDelegate.h"
 #import "MapSetting+CoreDataProperties.h"
 #import <sys/utsname.h>
-#import "BTMeshDriver.h"
+#import "Gigma-Swift.h"
+#import "LittleBluetooth.h"
 
 NSString * deviceName(void) {
     struct utsname systemInfo;
@@ -63,7 +64,7 @@ NSString * deviceName(void) {
     data = [[PostgreSQLDriver alloc] init];
     NSArray * prefs = [[NSArray alloc] initWithObjects: @"Show stages", @"Show toilets", @"Show water sources", nil];
     [self checkAndInitialisePrefs: prefs];
-    bluetoothDriver = [[BTMeshDriver alloc] init];
+    bluetoothDriver = [[LittleBluetooth alloc] init];
     UIStoryboard * storyboard = [self grabStoryboard];
     self.window.rootViewController = [storyboard instantiateInitialViewController];
     [self.window makeKeyAndVisible];
