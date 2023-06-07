@@ -8,11 +8,19 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
+@protocol BluetoothDriver;
+@protocol DataBaseDriver;
+
+NSString * deviceName(void);
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (readonly, strong) NSPersistentContainer * persistentContainer;
 - (void) saveContext;
 
+@property (strong, nonatomic) UIWindow * window;
+@property (strong, nonatomic) NSObject <BluetoothDriver> * bluetoothDriver;
+@property (retain, strong, nonatomic) NSObject <DataBaseDriver> * data;
 
 @end
 
