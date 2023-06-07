@@ -15,13 +15,27 @@ import CoreData
 class MapViewController : UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
-    var data: DataBaseDriver = PostgreSQLDriver()
-    var bluetooth: BluetoothDriver = Bluetoother()
+    var data: DataBaseDriver
+    var bluetooth: BluetoothDriver
     var mapCache: MapCache?
     let locationManager = CLLocationManager()
     var festival: Festival?
     var managedObjectContext: NSManagedObjectContext?
     var userLocation: CLLocationCoordinate2D?
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        data = appDelegate.data
+        bluetooth = appDelegate.bluetoothDriver
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder: NSCoder) {
+        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        data = appDelegate.data
+        bluetooth = appDelegate.bluetoothDriver
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -175,7 +189,7 @@ extension MapViewController : MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         return mapView.mapCacheRenderer(forOverlay: overlay)
     }
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    /*func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard !(annotation is MKUserLocation) else {
             return nil
         }
@@ -209,7 +223,7 @@ extension MapViewController : MKMapViewDelegate {
         return UIGraphicsImageRenderer(size: size).image {
             _ in shape.draw(in: CGRect(origin: .zero, size: size))
         }
-    }
+    }*/
 }
 
 extension MapViewController : CLLocationManagerDelegate {

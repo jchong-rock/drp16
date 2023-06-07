@@ -47,12 +47,14 @@
     CGSize keyboardSize = [[[notification userInfo] objectForKey: UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
     NSLog(@"%f",keyboardSize.height);
     textBarFrame = self.textBar.frame;
+    NSInteger screenHeight = [UIScreen mainScreen].bounds.size.height;
+    NSInteger movement = (screenHeight == 667) ? 0 : 42;
     [UIView animateWithDuration: 0.25 animations: ^{
         CGRect frame = self.textBar.frame;
-        frame.origin.y -= keyboardSize.height - 42;
+        frame.origin.y -= keyboardSize.height - movement;
         self.textBar.frame = frame;
         UIEdgeInsets contentInset = self.messageStack.contentInset;
-        contentInset.bottom += keyboardSize.height - 42;
+        contentInset.bottom += keyboardSize.height - movement;
         self.messageStack.contentInset = contentInset;
         [self.messageStack reloadData];
     }];

@@ -7,6 +7,7 @@
 
 #import "AddFriendViewController.h"
 #import "FriendViewController.h"
+#import "BTMeshDriver.h"
 
 @interface AddFriendViewController ()
 
@@ -25,7 +26,8 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    bluetoothDriver = [[Bluetoother alloc] init];
+    AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    bluetoothDriver = appDelegate.bluetoothDriver;
     nearbyDevicesMap = [bluetoothDriver nearbyBluetoothDevices];
     nearbyDevicesList = [nearbyDevicesMap allKeys];
 }
@@ -43,6 +45,12 @@
 }
 
 - (IBAction) addButtonPressed:(id) sender {
+    // handle this better but this will do for now
+    if ([nearbyDevicesMap count] == 0) {
+        [self dismissViewControllerAnimated: YES completion: nil];
+        return;
+    }
+    
     NSUUID * chosenDevice = [nearbyDevicesList objectAtIndex:
                                [nearbyDevicePicker selectedRowInComponent: 0]];
     
