@@ -9,7 +9,6 @@ target 'Gigma' do
   pod 'MapCache'
   pod 'NSDate_Utils'
 #  pod 'SCPCoreBluetoothManager'
-  pod 'SVProgressHUD'
 
   target 'GigmaTests' do
     inherit! :search_paths
