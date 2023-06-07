@@ -7,7 +7,6 @@
 
 #import "AddFriendViewController.h"
 #import "FriendViewController.h"
-#import "BTMeshDriver.h"
 
 @interface AddFriendViewController ()
 
