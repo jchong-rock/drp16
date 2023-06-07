@@ -9,3 +9,4 @@
 #import "Pair.h"
 #import "AppDelegate.h"
 #import "Friend+CoreDataProperties.h"
+#import "BluetoothManager.h"

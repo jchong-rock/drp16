@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		98045AE3BEA6BD9CF6C8E8FE /* Pods_GigmaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92D5AFFEFD8F2A8A0AA8DF49 /* Pods_GigmaUITests.framework */; };
 		9AAA7F51C4E228D3A0C23A97 /* Pods_GigmaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8424401AA17DB0D79C212DFD /* Pods_GigmaTests.framework */; };
+		E00E09542A312295002E82DB /* PeripheralManagerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E09532A312295002E82DB /* PeripheralManagerAdapter.swift */; };
+		E00E09562A31249E002E82DB /* TransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E09552A31249E002E82DB /* TransferService.swift */; };
+		E00E09592A3128B5002E82DB /* CentralManagerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E09582A3128B5002E82DB /* CentralManagerAdapter.swift */; };
+		E00E095C2A312E3B002E82DB /* LittleBluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = E00E095B2A312E3B002E82DB /* LittleBluetooth.m */; };
 		E00F0CD42A2A45E700E80FC3 /* PostgreSQLDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00F0CD32A2A45E700E80FC3 /* PostgreSQLDriver.swift */; };
 		E00F0CD72A2A467A00E80FC3 /* PostgresClientKit in Frameworks */ = {isa = PBXBuildFile; productRef = E00F0CD62A2A467A00E80FC3 /* PostgresClientKit */; };
 		E00F0CD92A2A5BAE00E80FC3 /* PrefsSQL.plist in Resources */ = {isa = PBXBuildFile; fileRef = E00F0CD82A2A5BAE00E80FC3 /* PrefsSQL.plist */; };
@@ -16,7 +20,6 @@
 		E00F0CE12A2AB5D000E80FC3 /* MapSettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E00F0CE02A2AB5D000E80FC3 /* MapSettingsCell.m */; };
 		E00F0CE32A2B4BB900E80FC3 /* Pair.m in Sources */ = {isa = PBXBuildFile; fileRef = E00F0CE22A2B4BB900E80FC3 /* Pair.m */; };
 		E00F0CE62A2B8C7D00E80FC3 /* FriendListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E00F0CE52A2B8C7D00E80FC3 /* FriendListCell.m */; };
-		E00F0D152A2FC29A00E80FC3 /* BTMeshDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = E00F0D142A2FC29A00E80FC3 /* BTMeshDriver.m */; };
 		E00F0D1B2A2FE79A00E80FC3 /* Main750.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E00F0D192A2FE79A00E80FC3 /* Main750.storyboard */; };
 		E00F0D1E2A3091C200E80FC3 /* BluetoothDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00F0D1D2A3091C200E80FC3 /* BluetoothDriver.swift */; };
 		E0155F562A29EBA300069BEE /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155F552A29EBA300069BEE /* Festival.swift */; };
@@ -79,6 +82,12 @@
 		71FB64193C66B2E2484546EC /* Pods-GigmaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GigmaUITests.release.xcconfig"; path = "Target Support Files/Pods-GigmaUITests/Pods-GigmaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8424401AA17DB0D79C212DFD /* Pods_GigmaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GigmaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92D5AFFEFD8F2A8A0AA8DF49 /* Pods_GigmaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GigmaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E00E09532A312295002E82DB /* PeripheralManagerAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralManagerAdapter.swift; sourceTree = "<group>"; };
+		E00E09552A31249E002E82DB /* TransferService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferService.swift; sourceTree = "<group>"; };
+		E00E09572A31266E002E82DB /* BluetoothManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BluetoothManager.h; sourceTree = "<group>"; };
+		E00E09582A3128B5002E82DB /* CentralManagerAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralManagerAdapter.swift; sourceTree = "<group>"; };
+		E00E095A2A312E24002E82DB /* LittleBluetooth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LittleBluetooth.h; sourceTree = "<group>"; };
+		E00E095B2A312E3B002E82DB /* LittleBluetooth.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LittleBluetooth.m; sourceTree = "<group>"; };
 		E00F0CD32A2A45E700E80FC3 /* PostgreSQLDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostgreSQLDriver.swift; sourceTree = "<group>"; };
 		E00F0CD82A2A5BAE00E80FC3 /* PrefsSQL.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PrefsSQL.plist; sourceTree = "<group>"; };
 		E00F0CDC2A2AB47F00E80FC3 /* MapSettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapSettingsViewController.h; sourceTree = "<group>"; };
@@ -90,8 +99,6 @@
 		E00F0CE52A2B8C7D00E80FC3 /* FriendListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendListCell.m; sourceTree = "<group>"; };
 		E00F0CE72A2B8C9500E80FC3 /* FriendListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendListCell.h; sourceTree = "<group>"; };
 		E00F0CE82A2B938500E80FC3 /* MessageDriver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageDriver.h; sourceTree = "<group>"; };
-		E00F0D142A2FC29A00E80FC3 /* BTMeshDriver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTMeshDriver.m; sourceTree = "<group>"; };
-		E00F0D162A2FC2B000E80FC3 /* BTMeshDriver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTMeshDriver.h; sourceTree = "<group>"; };
 		E00F0D1A2A2FE79A00E80FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main750.storyboard; sourceTree = "<group>"; };
 		E00F0D1D2A3091C200E80FC3 /* BluetoothDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothDriver.swift; sourceTree = "<group>"; };
 		E0155F552A29EBA300069BEE /* Festival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
@@ -246,8 +253,12 @@
 				E00F0CE02A2AB5D000E80FC3 /* MapSettingsCell.m */,
 				E00F0CE72A2B8C9500E80FC3 /* FriendListCell.h */,
 				E00F0CE52A2B8C7D00E80FC3 /* FriendListCell.m */,
-				E00F0D162A2FC2B000E80FC3 /* BTMeshDriver.h */,
-				E00F0D142A2FC29A00E80FC3 /* BTMeshDriver.m */,
+				E00E095A2A312E24002E82DB /* LittleBluetooth.h */,
+				E00E095B2A312E3B002E82DB /* LittleBluetooth.m */,
+				E00E09582A3128B5002E82DB /* CentralManagerAdapter.swift */,
+				E00E09572A31266E002E82DB /* BluetoothManager.h */,
+				E00E09532A312295002E82DB /* PeripheralManagerAdapter.swift */,
+				E00E09552A31249E002E82DB /* TransferService.swift */,
 				E00F0D1D2A3091C200E80FC3 /* BluetoothDriver.swift */,
 				E0472C802A27687B00782EA0 /* MapViewController.swift */,
 				E0155F552A29EBA300069BEE /* Festival.swift */,
@@ -531,11 +542,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E057332D2A24F61C00B7A32D /* AddFriendViewController.m in Sources */,
+				E00E09542A312295002E82DB /* PeripheralManagerAdapter.swift in Sources */,
+				E00E095C2A312E3B002E82DB /* LittleBluetooth.m in Sources */,
 				E00F0CE12A2AB5D000E80FC3 /* MapSettingsCell.m in Sources */,
 				E05733272A24F61C00B7A32D /* AppDelegate.m in Sources */,
 				E0D826512A294C9200E3A373 /* IndentedLabel.m in Sources */,
 				E0549B122A27D8A60002A8D4 /* FestivalSettingsViewController.m in Sources */,
-				E00F0D152A2FC29A00E80FC3 /* BTMeshDriver.m in Sources */,
+				E00E09562A31249E002E82DB /* TransferService.swift in Sources */,
 				E00F0CD42A2A45E700E80FC3 /* PostgreSQLDriver.swift in Sources */,
 				E0549B2A2A28E0790002A8D4 /* GigmaModel.xcdatamodeld in Sources */,
 				E00F0CDE2A2AB48E00E80FC3 /* MapSettingsViewController.m in Sources */,
@@ -547,6 +560,7 @@
 				E0472D5F2A279C8800782EA0 /* WelcomeViewController.m in Sources */,
 				E0549B162A27DC8F0002A8D4 /* FestivalViewController.m in Sources */,
 				E0155F562A29EBA300069BEE /* Festival.swift in Sources */,
+				E00E09592A3128B5002E82DB /* CentralManagerAdapter.swift in Sources */,
 				E05733382A24F61F00B7A32D /* main.m in Sources */,
 				E0549B182A27DF140002A8D4 /* DataBaseDriver.swift in Sources */,
 				E0472C902A2782FF00782EA0 /* MainViewController.m in Sources */,

@@ -10,9 +10,19 @@ import Foundation
 @objc protocol BluetoothDriver {
     func nearbyBluetoothDevices() -> [NSUUID: NSString]
     func getLocation(uuid: NSUUID) -> CodableCoordinate
+    func useCentral()
+    func usePeripheral()
 }
 
 @objc class Bluetoother : NSObject, BluetoothDriver {
+    func useCentral() {
+        
+    }
+    
+    func usePeripheral() {
+        
+    }
+    
     func getLocation(uuid: NSUUID) -> CodableCoordinate {
         if uuid == NSUUID(uuidString: "68753A44-4D6F-1226-9C60-0050E4C00067") {
             return CodableCoordinate(latitude: 51.500111466166636, longitude: -0.1779596309522493)
