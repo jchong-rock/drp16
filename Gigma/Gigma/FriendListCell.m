@@ -6,6 +6,7 @@
 //
 
 #import "FriendListCell.h"
+#import "ColourConverter.h"
 
 @implementation FriendListCell
 
@@ -15,6 +16,7 @@
 
 - (void) colorPickerViewControllerDidFinish:(UIColorPickerViewController *) viewController {
     [delegate setColour: viewController.selectedColor];
+    friend.colour = [ColourConverter toHex: viewController.selectedColor];
     colourButton.tintColor = viewController.selectedColor;
 }
 

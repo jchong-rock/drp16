@@ -14,9 +14,9 @@
 	return [NSFetchRequest fetchRequestWithEntityName:@"Friend"];
 }
 
+@dynamic colour;
 @dynamic deviceID;
 @dynamic friendName;
-@dynamic colour;
 @dynamic messages;
 
 @end

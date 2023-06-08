@@ -26,6 +26,7 @@
 		E0155F5E2A2A0E3E00069BEE /* Tests.py in Resources */ = {isa = PBXBuildFile; fileRef = E0155F5D2A2A0E3E00069BEE /* Tests.py */; };
 		E0155F5F2A2A0E3E00069BEE /* Tests.py in Resources */ = {isa = PBXBuildFile; fileRef = E0155F5D2A2A0E3E00069BEE /* Tests.py */; };
 		E0155F602A2A0E3E00069BEE /* Tests.py in Resources */ = {isa = PBXBuildFile; fileRef = E0155F5D2A2A0E3E00069BEE /* Tests.py */; };
+		E030EDDF2A327CA000F7B537 /* ColourConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = E030EDDE2A327C9F00F7B537 /* ColourConverter.m */; };
 		E0472C812A27687B00782EA0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0472C802A27687B00782EA0 /* MapViewController.swift */; };
 		E0472C902A2782FF00782EA0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0472C8F2A2782FF00782EA0 /* MainViewController.m */; };
 		E0472D5F2A279C8800782EA0 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0472D5E2A279C8800782EA0 /* WelcomeViewController.m */; };
@@ -104,6 +105,8 @@
 		E00F0D1A2A2FE79A00E80FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main750.storyboard; sourceTree = "<group>"; };
 		E0155F552A29EBA300069BEE /* Festival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
 		E0155F5D2A2A0E3E00069BEE /* Tests.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = Tests.py; sourceTree = "<group>"; };
+		E030EDDE2A327C9F00F7B537 /* ColourConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColourConverter.m; sourceTree = "<group>"; };
+		E030EDE02A327CB900F7B537 /* ColourConverter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColourConverter.h; sourceTree = "<group>"; };
 		E0472C7F2A27687A00782EA0 /* Gigma-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gigma-Bridging-Header.h"; sourceTree = "<group>"; };
 		E0472C802A27687B00782EA0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		E0472C8E2A2782DE00782EA0 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -256,6 +259,8 @@
 				E00F0CE52A2B8C7D00E80FC3 /* FriendListCell.m */,
 				E00E095A2A312E24002E82DB /* BluetoothDriver.h */,
 				E00E095B2A312E3B002E82DB /* BluetoothDriver.m */,
+				E030EDE02A327CB900F7B537 /* ColourConverter.h */,
+				E030EDDE2A327C9F00F7B537 /* ColourConverter.m */,
 				E00E095D2A322D1A002E82DB /* BTOpcode.h */,
 				E00E095E2A3236B5002E82DB /* BTOpcode.c */,
 				E00E09582A3128B5002E82DB /* CentralManagerAdapter.swift */,
@@ -559,6 +564,7 @@
 				E00F0CE32A2B4BB900E80FC3 /* Pair.m in Sources */,
 				E00F0CE62A2B8C7D00E80FC3 /* FriendListCell.m in Sources */,
 				E0472D5F2A279C8800782EA0 /* WelcomeViewController.m in Sources */,
+				E030EDDF2A327CA000F7B537 /* ColourConverter.m in Sources */,
 				E0549B162A27DC8F0002A8D4 /* FestivalViewController.m in Sources */,
 				E0155F562A29EBA300069BEE /* Festival.swift in Sources */,
 				E00E09592A3128B5002E82DB /* CentralManagerAdapter.swift in Sources */,

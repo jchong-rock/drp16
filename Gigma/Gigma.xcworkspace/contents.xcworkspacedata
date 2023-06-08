@@ -2,18 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Gigma/MapSetting+CoreDataProperties.h">
-   </FileRef>
-   <FileRef
-      location = "group:Gigma/MapSetting+CoreDataClass.h">
-   </FileRef>
-   <FileRef
-      location = "group:Gigma/MapSetting+CoreDataClass.m">
-   </FileRef>
-   <FileRef
-      location = "group:Gigma/MapSetting+CoreDataProperties.m">
-   </FileRef>
-   <FileRef
       location = "group:Gigma/Message+CoreDataProperties.h">
    </FileRef>
    <FileRef
@@ -24,6 +12,18 @@
    </FileRef>
    <FileRef
       location = "group:Gigma/Message+CoreDataProperties.m">
+   </FileRef>
+   <FileRef
+      location = "group:Gigma/MapSetting+CoreDataProperties.h">
+   </FileRef>
+   <FileRef
+      location = "group:Gigma/MapSetting+CoreDataClass.h">
+   </FileRef>
+   <FileRef
+      location = "group:Gigma/MapSetting+CoreDataClass.m">
+   </FileRef>
+   <FileRef
+      location = "group:Gigma/MapSetting+CoreDataProperties.m">
    </FileRef>
    <FileRef
       location = "group:Gigma/Friend+CoreDataProperties.h">
