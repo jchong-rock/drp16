@@ -34,10 +34,13 @@ import CoreBluetooth
     override init() {
         super.init()
         peripheralManager = CBPeripheralManager(delegate: self, queue: nil, options: [CBPeripheralManagerOptionShowPowerAlertKey: true])
+    }
+    
+    @objc func open() {
         peripheralManager.startAdvertising([CBAdvertisementDataServiceUUIDsKey: [TransferService.serviceUUID]])
     }
     
-    deinit {
+    @objc func close() {
         // Don't keep advertising going while we're not showing.
         peripheralManager.stopAdvertising()
     }

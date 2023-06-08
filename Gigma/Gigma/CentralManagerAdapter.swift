@@ -10,7 +10,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 import CoreBluetooth
 
-@objc class CentralViewController : NSObject, BluetoothManager {
+@objc class CentralManagerAdapter : NSObject, BluetoothManager {
     func sendData(_ data: String) {
         self.data = data.data(using: .utf8)!
     }
@@ -24,7 +24,7 @@ import CoreBluetooth
     var dataReceived: String?
 
     var centralManager: CBCentralManager!
-
+    var returnDataDelegate: BluetoothDataDelegate!
     var discoveredPeripheral: CBPeripheral?
     var transferCharacteristic: CBCharacteristic?
     var writeIterationsComplete = 0
@@ -36,9 +36,18 @@ import CoreBluetooth
 
     // MARK: - view lifecycle
     
-    override init() {
+    @objc public init(dataDelegate: BluetoothDataDelegate) {
         super.init()
+        self.returnDataDelegate = dataDelegate
         centralManager = CBCentralManager(delegate: self, queue: nil, options: [CBCentralManagerOptionShowPowerAlertKey: true])
+    }
+    
+    func open() {
+        retrievePeripheral()
+    }
+    
+    func close() {
+        centralManager.stopScan()
     }
     
     deinit {
@@ -131,7 +140,7 @@ import CoreBluetooth
     
 }
 
-extension CentralViewController : CBCentralManagerDelegate {
+extension CentralManagerAdapter : CBCentralManagerDelegate {
     // implementations of the CBCentralManagerDelegate methods
 
     /*
@@ -264,7 +273,7 @@ extension CentralViewController : CBCentralManagerDelegate {
 
 }
 
-extension CentralViewController: CBPeripheralDelegate {
+extension CentralManagerAdapter: CBPeripheralDelegate {
     // implementations of the CBPeripheralDelegate methods
 
     /*
@@ -342,6 +351,7 @@ extension CentralViewController: CBPeripheralDelegate {
             // Dispatch the text view update to the main queue for updating the UI, because
             // we don't know which thread this method will be called back on.
             DispatchQueue.main.async() {
+                self.returnDataDelegate.retrieveData(self.data)
                 self.dataReceived = String(data: self.data, encoding: .utf8)
             }
             
