@@ -12,18 +12,8 @@ import CoreBluetooth
 
 @objc class PeripheralManagerAdapter : NSObject, BluetoothManager {
     
-    func send(_ data: Data) {
-        textData = data
-    }
-    
-    func receiveData() -> String? {
-        return returnedData
-    }
-    
-    
     var peripheralManager: CBPeripheralManager!
     var textData: Data?
-    var returnedData: String?
     var transferCharacteristic: CBMutableCharacteristic?
     var connectedCentral: CBCentral?
     var dataToSend = Data()
@@ -43,6 +33,13 @@ import CoreBluetooth
     @objc func close() {
         // Don't keep advertising going while we're not showing.
         peripheralManager.stopAdvertising()
+    }
+    
+    func send(_ data: Data, with opcode: BTOpcode) {
+        var value = opcodeValue(opcode)
+        var dataBuffer = Data(bytes: &value, count: 1)
+        dataBuffer.append(data)
+        textData = dataBuffer
     }
 
     // MARK: - Helper Methods
@@ -255,7 +252,6 @@ extension PeripheralManagerAdapter : CBPeripheralManagerDelegate {
             }
             
             NSLog("Received write request of %d bytes: %s", requestValue.count, stringFromData)
-            self.returnedData = stringFromData
         }
     }
 }

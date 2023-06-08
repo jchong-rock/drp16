@@ -11,17 +11,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 import CoreBluetooth
 
 @objc class CentralManagerAdapter : NSObject, BluetoothManager {
-    func send(_ data: Data) {
-        self.data = data
-    }
-    
-    func receiveData() -> String? {
-        return dataReceived
+    func send(_ data: Data, with opcode: BTOpcode) {
+        
     }
     
     // UIViewController overrides, properties specific to this class, private helper methods, etc.
-    
-    var dataReceived: String?
 
     var centralManager: CBCentralManager!
     var returnDataDelegate: BluetoothDataDelegate!
@@ -352,7 +346,6 @@ extension CentralManagerAdapter: CBPeripheralDelegate {
             // we don't know which thread this method will be called back on.
             DispatchQueue.main.async() {
                 self.returnDataDelegate.retrieveData(self.data)
-                self.dataReceived = String(data: self.data, encoding: .utf8)
             }
             
             // Write test data

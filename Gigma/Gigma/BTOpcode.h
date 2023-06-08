@@ -27,4 +27,6 @@ enum BTOpcode {
     MSG_READ
 };
 
+int opcodeValue(enum BTOpcode);
+
 #endif /* BTOpcode_h */

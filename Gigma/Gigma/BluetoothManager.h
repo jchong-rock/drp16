@@ -6,12 +6,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BTOpcode.h"
 
 @protocol BluetoothManager <NSObject>
 
 - (void) open;
-- (void) sendData:(NSData * _Nonnull) data;
-- (NSString * _Nullable) receiveData;
+- (void) sendData:(NSData * _Nonnull) data withOpcode: (enum BTOpcode) opcode;
 - (void) close;
 
 @end
