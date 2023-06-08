@@ -11,11 +11,12 @@
 
 @interface LittleBluetooth () {
     Bluetoother * bt; // filler code -- DELETE
+    BOOL inPeripheralMode;
 }
 
 @property (nonatomic, retain) CentralManagerAdapter * centralManager;
 @property (nonatomic, retain) PeripheralManagerAdapter * peripheralManager;
-@property (weak, nonatomic) NSObject <BluetoothManager> * currentManager;
+@property (weak, atomic) NSObject <BluetoothManager> * currentManager;
 
 @end
 
@@ -32,6 +33,7 @@
     [centralManager sendData: UIDevice.currentDevice.name];
     peripheralManager = [[PeripheralManagerAdapter alloc] init];
     currentManager = centralManager;
+    inPeripheralMode = NO;
     [currentManager open];
     return self;
 }
@@ -39,12 +41,14 @@
 - (void) useCentral {
     [currentManager close];
     currentManager = centralManager;
+    inPeripheralMode = NO;
     [currentManager open];
 }
 
 - (void) usePeripheral {
     [currentManager close];
     currentManager = peripheralManager;
+    inPeripheralMode = YES;
     [currentManager open];
 }
 
@@ -55,6 +59,12 @@
 
 - (NSDictionary <NSUUID *, NSString *> * _Nonnull) nearbyBluetoothDevices {
     return [bt nearbyBluetoothDevices]; // filler code -- DELETE
+}
+
+- (void) broadcastName {
+    if (inPeripheralMode) {
+        [currentManager sendData: UIDevice.currentDevice.name];
+    }
 }
 
 - (void) retrieveData:(NSData * _Nonnull) data {

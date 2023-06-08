@@ -10,11 +10,17 @@ import Foundation
 @objc protocol BluetoothDriver {
     func nearbyBluetoothDevices() -> [NSUUID: NSString]
     func getLocation(uuid: NSUUID) -> CodableCoordinate
+    func broadcastName()
+    
     func useCentral()
     func usePeripheral()
 }
 
 @objc class Bluetoother : NSObject, BluetoothDriver {
+    func broadcastName() {
+        
+    }
+    
     func useCentral() {
         
     }
