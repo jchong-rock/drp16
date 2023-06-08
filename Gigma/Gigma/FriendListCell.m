@@ -10,5 +10,12 @@
 @implementation FriendListCell
 
 @synthesize friend;
+@synthesize colourButton;
+@synthesize delegate;
+
+- (void) colorPickerViewControllerDidFinish:(UIColorPickerViewController *) viewController {
+    [delegate setColour: viewController.selectedColor];
+    colourButton.tintColor = viewController.selectedColor;
+}
 
 @end

@@ -19,12 +19,16 @@
     BluetoothDriver * btDriver;
 }
 
+@property (weak, nonatomic) UIColor * friendColour;
+
 @end
 
 @implementation FriendViewController
 
 @synthesize buttonStack;
 @synthesize discoverableButton;
+
+@synthesize friendColour;
 
 - (void) viewDidLoad {
     [super viewDidLoad];
@@ -127,6 +131,19 @@
     return NO;
 }
 
+- (void)setColour:(UIColor *)colour {
+    friendColour = colour;
+}
+
+
+- (IBAction) colourSelector:(id) sender {
+    UIButton * button = (UIButton *) sender;
+    //button.tintColor = //pull from core data
+    UIColorPickerViewController * picker = [[UIColorPickerViewController alloc] init];
+    picker.delegate = (FriendListCell *) button.superview.superview;
+    [self presentViewController: picker animated: YES completion: nil];
+    
+}
 
 @end
 

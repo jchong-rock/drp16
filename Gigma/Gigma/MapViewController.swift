@@ -201,27 +201,67 @@ extension MapViewController : MKMapViewDelegate {
         } else {
             annotationView!.annotation = annotation
         }
+        print(annotation.title)
+        print(annotation.subtitle)
         
-        if annotation.title == "Water Source" && annotation.subtitle == nil {
+        if annotation.title == "Water Source" {
             annotationView!.image = makeImage(shape: "drop.fill", colour: .brown)
         }
-        if annotation.title == "Toilet" && annotation.subtitle == nil {
+        if annotation.title == "Toilet" {
+            
+            print("Toilet")
             annotationView!.image = makeImage(shape: "toilet.fill", colour: .blue)
         }
         if annotation.subtitle == "Stage" {
-            annotationView!.image = makeImage(shape: "music.mic", colour: .black)
+            print("here")
+            annotationView!.image = makeImage(shape: "music.mic", colour: .systemPink)
         }
         if annotation.subtitle == "Friend" {
-            annotationView!.image = makeImage(shape: "person.fill", colour: .red)
+            let friendColour = getFriendColour(name: annotation.title!!)
+            annotationView!.image = makeImage(shape: "person.fill", colour: friendColour)
         }
         return annotationView
     }
     
+    //TODO: get the colour from CORE DATA
+    func getFriendColour(name: String) -> UIColor {
+        
+        
+        return .red
+    }
     func makeImage(shape: String, colour: UIColor) -> UIImage {
-        let shape = UIImage(systemName: shape)!.withTintColor(colour)
-        let size = CGSize(width: 40, height: 40)
-        return UIGraphicsImageRenderer(size: size).image {
-            _ in shape.draw(in: CGRect(origin: .zero, size: size))
+        let icon = UIImage(systemName: shape)!.withTintColor(.white) // draw the icon in white
+        let SIDE: Double = 17.5             // CHANGE SIZE HERE <------------
+        let MARKER_SIDE = Double(SIDE) * 1.3
+        
+        let iconSize = CGSize(width: SIDE, height: SIDE)
+        let markerSize = CGSize(width: MARKER_SIDE, height: MARKER_SIDE)
+        
+        // Centre the icon to the marer below
+        let iconOffset = (MARKER_SIDE - SIDE) / 2
+        let iconCentre = CGPointApplyAffineTransform(
+            .zero,
+            CGAffineTransform(translationX: CGFloat(iconOffset), y: CGFloat(iconOffset))
+        )
+        
+        // markerCentre is just (0,0) assuming this is centre of the point
+        let markerCentre = CGPointApplyAffineTransform(
+            .zero,
+            CGAffineTransform(translationX: 0, y: 0)
+        )
+        
+        // rectangles to draw
+        let iconRect = CGRect(origin: iconCentre, size: iconSize)
+        let markerRect = CGRect(origin: markerCentre, size: markerSize)
+        let marker = UIBezierPath(ovalIn: markerRect)
+        marker.lineWidth = 1
+
+
+        return UIGraphicsImageRenderer(size: markerSize).image {
+            _ in
+                colour.setFill()
+                marker.fill()
+                icon.draw(in: iconRect)
         }
     }*/
 }
@@ -241,4 +281,5 @@ extension MapViewController : PopoverDelegate {
 
 extension NSNotification.Name {
     static let clearCache = Notification.Name("clear-cache")
+
 }
