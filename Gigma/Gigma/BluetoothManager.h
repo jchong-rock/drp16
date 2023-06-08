@@ -10,7 +10,7 @@
 @protocol BluetoothManager <NSObject>
 
 - (void) open;
-- (void) sendData:(NSString * _Nonnull) data;
+- (void) sendData:(NSData * _Nonnull) data;
 - (NSString * _Nullable) receiveData;
 - (void) close;
 

@@ -12,7 +12,7 @@ import CoreBluetooth
 
 @objc class PeripheralManagerAdapter : NSObject, BluetoothManager {
     
-    func sendData(_ data: String) {
+    func send(_ data: Data) {
         textData = data
     }
     
@@ -22,7 +22,7 @@ import CoreBluetooth
     
     
     var peripheralManager: CBPeripheralManager!
-    var textData: String?
+    var textData: Data?
     var returnedData: String?
     var transferCharacteristic: CBMutableCharacteristic?
     var connectedCentral: CBCentral?
@@ -215,7 +215,7 @@ extension PeripheralManagerAdapter : CBPeripheralManagerDelegate {
         NSLog("Central subscribed to characteristic")
         
         // Get the data
-        dataToSend = textData!.data(using: .utf8)!
+        dataToSend = textData!
         
         // Reset the index
         sendDataIndex = 0

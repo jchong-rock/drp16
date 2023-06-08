@@ -63,7 +63,7 @@
 
 - (void) broadcastName {
     if (inPeripheralMode) {
-        [currentManager sendData: UIDevice.currentDevice.name];
+        [currentManager sendData: [UIDevice.currentDevice.name dataUsingEncoding: NSUTF8StringEncoding]];
     }
 }
 

@@ -11,8 +11,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 import CoreBluetooth
 
 @objc class CentralManagerAdapter : NSObject, BluetoothManager {
-    func sendData(_ data: String) {
-        self.data = data.data(using: .utf8)!
+    func send(_ data: Data) {
+        self.data = data
     }
     
     func receiveData() -> String? {
