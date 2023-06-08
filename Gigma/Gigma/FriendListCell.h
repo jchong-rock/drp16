@@ -7,9 +7,13 @@
 
 #import <UIKit/UIKit.h>
 #import "Friend+CoreDataProperties.h"
+#import "FriendViewController.h"
 
-@interface FriendListCell : UITableViewCell
+
+@interface FriendListCell : UITableViewCell <UIColorPickerViewControllerDelegate>
 
 @property (nonatomic, weak) Friend * friend;
+@property (nonatomic, weak) IBOutlet UIButton * colourButton;
+@property (nonatomic, weak) NSObject <FriendViewControllerDelegate> * delegate;
 
 @end

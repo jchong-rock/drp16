@@ -203,6 +203,7 @@ extension MapViewController : MKMapViewDelegate {
             annotationView!.image = makeImage(shape: "music.mic", colour: .systemPink)
         }
         if annotation.subtitle == "Friend" {
+            
             annotationView!.image = makeImage(shape: "person.fill", colour: .red)
         }
         return annotationView

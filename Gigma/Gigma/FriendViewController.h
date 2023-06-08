@@ -10,6 +10,7 @@
 @protocol FriendViewControllerDelegate <NSObject>
 
 - (BOOL) addFriend:(NSString *) name withID:(NSUUID *) uid;
+- (void) setColour:(UIColor *) colour;
 
 @end
 
@@ -19,6 +20,7 @@
 }
 
 @property (retain, nonatomic) UITableView * buttonStack;
+@property (retain, nonatomic) UIButton * colourButton;
 
 @end
 
