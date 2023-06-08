@@ -9,7 +9,7 @@
 #import "MapSetting+CoreDataProperties.h"
 #import <sys/utsname.h>
 #import "Gigma-Swift.h"
-#import "LittleBluetooth.h"
+#import "BluetoothDriver.h"
 
 NSString * deviceName(void) {
     struct utsname systemInfo;
@@ -64,7 +64,7 @@ NSString * deviceName(void) {
     data = [[PostgreSQLDriver alloc] init];
     NSArray * prefs = [[NSArray alloc] initWithObjects: @"Show stages", @"Show toilets", @"Show water sources", nil];
     [self checkAndInitialisePrefs: prefs];
-    bluetoothDriver = [[LittleBluetooth alloc] init];
+    bluetoothDriver = [[BluetoothDriver alloc] init];
     UIStoryboard * storyboard = [self grabStoryboard];
     self.window.rootViewController = [storyboard instantiateInitialViewController];
     [self.window makeKeyAndVisible];

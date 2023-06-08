@@ -6,10 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Friend+CoreDataProperties.h"
 
 @protocol FriendViewControllerDelegate <NSObject>
 
-- (BOOL) addFriend:(NSString *) name withID:(NSUUID *) uid;
+- (BOOL) addFriend:(Friend *) friend;
 - (IBAction) discoverablePressed:(id) sender;
 
 @end

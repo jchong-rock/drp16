@@ -118,7 +118,7 @@ class MapViewController : UIViewController {
             let marker = MKPointAnnotation()
             marker.title = (friend as! Friend).friendName
             marker.subtitle = "Friend"
-            marker.coordinate = bluetooth.getLocation(uuid: (friend as! Friend).deviceID! as NSUUID).toCLCoordinate()
+            // FIX -- marker.coordinate = bluetooth.getLocation(uuid: (friend as! Friend).deviceID! as NSUUID).toCLCoordinate()
             mapView.addAnnotation(marker)
         }
     }

@@ -12,10 +12,11 @@
 #import "MainViewController.h"
 #import "ComposeMessageViewController.h"
 #import "FriendListCell.h"
+#import "BluetoothDriver.h"
 
 @interface FriendViewController () {
     NSManagedObjectContext * managedObjectContext;
-    NSObject <BluetoothDriver> * btDriver;
+    BluetoothDriver * btDriver;
 }
 
 @end
@@ -94,7 +95,7 @@
     discoverableButton.tintColor = [UIColor systemBlueColor];
     [btDriver usePeripheral];
     [btDriver broadcastName];
-    [NSTimer scheduledTimerWithTimeInterval: 2.0f
+    [NSTimer scheduledTimerWithTimeInterval: 6.0f
                                      target: self
                                    selector: @selector(discoverEnd)
                                    userInfo: nil
@@ -106,18 +107,18 @@
     discoverableButton.tintColor = [UIColor systemRedColor];
 }
 
-- (BOOL) addFriend:(NSString *) name withID:(NSUUID *) uid {
+- (BOOL) addFriend:(Friend *) friend {
     for (Friend * f in friendButtonList) {
-        if (f.friendName == name) {
+        if (f.friendName == friend.friendName) {
             return NO;
         }
     }
     
-    if (name != nil) {
-        Friend * friend = [NSEntityDescription insertNewObjectForEntityForName: @"Friend" inManagedObjectContext: managedObjectContext];
-        friend.friendName = name;
-        friend.deviceID = uid;
-        [friendButtonList addObject: friend];
+    if (friend.friendName != nil) {
+        Friend * friend2 = [NSEntityDescription insertNewObjectForEntityForName: @"Friend" inManagedObjectContext: managedObjectContext];
+        friend2.friendName = friend.friendName;
+        friend2.deviceID = friend.deviceID;
+        [friendButtonList addObject: friend2];
         [buttonStack reloadData];
         NSError * error;
         [managedObjectContext save: &error];
