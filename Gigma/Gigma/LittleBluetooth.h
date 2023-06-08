@@ -9,6 +9,6 @@
 #import "Gigma-Swift.h"
 
 
-@interface LittleBluetooth : NSObject <BluetoothDriver>
+@interface LittleBluetooth : NSObject <BluetoothDriver, BluetoothDataDelegate>
 
 @end
