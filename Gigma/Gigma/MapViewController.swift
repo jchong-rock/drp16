@@ -203,12 +203,18 @@ extension MapViewController : MKMapViewDelegate {
             annotationView!.image = makeImage(shape: "music.mic", colour: .systemPink)
         }
         if annotation.subtitle == "Friend" {
-            
-            annotationView!.image = makeImage(shape: "person.fill", colour: .red)
+            let friendColour = getFriendColour(name: annotation.title!!)
+            annotationView!.image = makeImage(shape: "person.fill", colour: friendColour)
         }
         return annotationView
     }
     
+    //TODO: get the colour from CORE DATA
+    func getFriendColour(name: String) -> UIColor {
+        
+        
+        return .red
+    }
     func makeImage(shape: String, colour: UIColor) -> UIImage {
         let icon = UIImage(systemName: shape)!.withTintColor(.white) // draw the icon in white
         let SIDE: Double = 17.5             // CHANGE SIZE HERE <------------
