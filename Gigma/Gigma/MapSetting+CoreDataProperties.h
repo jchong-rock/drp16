@@ -2,7 +2,7 @@
 //  MapSetting+CoreDataProperties.h
 //  
 //
-//  Created by Jake Chong on 03/06/2023.
+//  Created by Jake Chong on 08/06/2023.
 //
 //
 
@@ -15,8 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<MapSetting *> *)fetchRequest NS_SWIFT_NAME(fetchRequest());
 
-@property (nullable, nonatomic, copy) NSString *prefName;
 @property (nonatomic) BOOL enabled;
+@property (nullable, nonatomic, copy) NSString *prefName;
 
 @end
 

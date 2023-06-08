@@ -12,7 +12,8 @@
 		E00E09542A312295002E82DB /* PeripheralManagerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E09532A312295002E82DB /* PeripheralManagerAdapter.swift */; };
 		E00E09562A31249E002E82DB /* TransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E09552A31249E002E82DB /* TransferService.swift */; };
 		E00E09592A3128B5002E82DB /* CentralManagerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E09582A3128B5002E82DB /* CentralManagerAdapter.swift */; };
-		E00E095C2A312E3B002E82DB /* LittleBluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = E00E095B2A312E3B002E82DB /* LittleBluetooth.m */; };
+		E00E095C2A312E3B002E82DB /* BluetoothDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = E00E095B2A312E3B002E82DB /* BluetoothDriver.m */; };
+		E00E095F2A3236B5002E82DB /* BTOpcode.c in Sources */ = {isa = PBXBuildFile; fileRef = E00E095E2A3236B5002E82DB /* BTOpcode.c */; };
 		E00F0CD42A2A45E700E80FC3 /* PostgreSQLDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00F0CD32A2A45E700E80FC3 /* PostgreSQLDriver.swift */; };
 		E00F0CD72A2A467A00E80FC3 /* PostgresClientKit in Frameworks */ = {isa = PBXBuildFile; productRef = E00F0CD62A2A467A00E80FC3 /* PostgresClientKit */; };
 		E00F0CD92A2A5BAE00E80FC3 /* PrefsSQL.plist in Resources */ = {isa = PBXBuildFile; fileRef = E00F0CD82A2A5BAE00E80FC3 /* PrefsSQL.plist */; };
@@ -21,7 +22,6 @@
 		E00F0CE32A2B4BB900E80FC3 /* Pair.m in Sources */ = {isa = PBXBuildFile; fileRef = E00F0CE22A2B4BB900E80FC3 /* Pair.m */; };
 		E00F0CE62A2B8C7D00E80FC3 /* FriendListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E00F0CE52A2B8C7D00E80FC3 /* FriendListCell.m */; };
 		E00F0D1B2A2FE79A00E80FC3 /* Main750.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E00F0D192A2FE79A00E80FC3 /* Main750.storyboard */; };
-		E00F0D1E2A3091C200E80FC3 /* BluetoothDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00F0D1D2A3091C200E80FC3 /* BluetoothDriver.swift */; };
 		E0155F562A29EBA300069BEE /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155F552A29EBA300069BEE /* Festival.swift */; };
 		E0155F5E2A2A0E3E00069BEE /* Tests.py in Resources */ = {isa = PBXBuildFile; fileRef = E0155F5D2A2A0E3E00069BEE /* Tests.py */; };
 		E0155F5F2A2A0E3E00069BEE /* Tests.py in Resources */ = {isa = PBXBuildFile; fileRef = E0155F5D2A2A0E3E00069BEE /* Tests.py */; };
@@ -86,8 +86,10 @@
 		E00E09552A31249E002E82DB /* TransferService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferService.swift; sourceTree = "<group>"; };
 		E00E09572A31266E002E82DB /* BluetoothManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BluetoothManager.h; sourceTree = "<group>"; };
 		E00E09582A3128B5002E82DB /* CentralManagerAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralManagerAdapter.swift; sourceTree = "<group>"; };
-		E00E095A2A312E24002E82DB /* LittleBluetooth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LittleBluetooth.h; sourceTree = "<group>"; };
-		E00E095B2A312E3B002E82DB /* LittleBluetooth.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LittleBluetooth.m; sourceTree = "<group>"; };
+		E00E095A2A312E24002E82DB /* BluetoothDriver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BluetoothDriver.h; sourceTree = "<group>"; };
+		E00E095B2A312E3B002E82DB /* BluetoothDriver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BluetoothDriver.m; sourceTree = "<group>"; };
+		E00E095D2A322D1A002E82DB /* BTOpcode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTOpcode.h; sourceTree = "<group>"; };
+		E00E095E2A3236B5002E82DB /* BTOpcode.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = BTOpcode.c; sourceTree = "<group>"; };
 		E00F0CD32A2A45E700E80FC3 /* PostgreSQLDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostgreSQLDriver.swift; sourceTree = "<group>"; };
 		E00F0CD82A2A5BAE00E80FC3 /* PrefsSQL.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PrefsSQL.plist; sourceTree = "<group>"; };
 		E00F0CDC2A2AB47F00E80FC3 /* MapSettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapSettingsViewController.h; sourceTree = "<group>"; };
@@ -100,7 +102,6 @@
 		E00F0CE72A2B8C9500E80FC3 /* FriendListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendListCell.h; sourceTree = "<group>"; };
 		E00F0CE82A2B938500E80FC3 /* MessageDriver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageDriver.h; sourceTree = "<group>"; };
 		E00F0D1A2A2FE79A00E80FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main750.storyboard; sourceTree = "<group>"; };
-		E00F0D1D2A3091C200E80FC3 /* BluetoothDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothDriver.swift; sourceTree = "<group>"; };
 		E0155F552A29EBA300069BEE /* Festival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
 		E0155F5D2A2A0E3E00069BEE /* Tests.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = Tests.py; sourceTree = "<group>"; };
 		E0472C7F2A27687A00782EA0 /* Gigma-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gigma-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -253,13 +254,14 @@
 				E00F0CE02A2AB5D000E80FC3 /* MapSettingsCell.m */,
 				E00F0CE72A2B8C9500E80FC3 /* FriendListCell.h */,
 				E00F0CE52A2B8C7D00E80FC3 /* FriendListCell.m */,
-				E00E095A2A312E24002E82DB /* LittleBluetooth.h */,
-				E00E095B2A312E3B002E82DB /* LittleBluetooth.m */,
+				E00E095A2A312E24002E82DB /* BluetoothDriver.h */,
+				E00E095B2A312E3B002E82DB /* BluetoothDriver.m */,
+				E00E095D2A322D1A002E82DB /* BTOpcode.h */,
+				E00E095E2A3236B5002E82DB /* BTOpcode.c */,
 				E00E09582A3128B5002E82DB /* CentralManagerAdapter.swift */,
 				E00E09572A31266E002E82DB /* BluetoothManager.h */,
 				E00E09532A312295002E82DB /* PeripheralManagerAdapter.swift */,
 				E00E09552A31249E002E82DB /* TransferService.swift */,
-				E00F0D1D2A3091C200E80FC3 /* BluetoothDriver.swift */,
 				E0472C802A27687B00782EA0 /* MapViewController.swift */,
 				E0155F552A29EBA300069BEE /* Festival.swift */,
 				E0549B172A27DF140002A8D4 /* DataBaseDriver.swift */,
@@ -543,7 +545,7 @@
 			files = (
 				E057332D2A24F61C00B7A32D /* AddFriendViewController.m in Sources */,
 				E00E09542A312295002E82DB /* PeripheralManagerAdapter.swift in Sources */,
-				E00E095C2A312E3B002E82DB /* LittleBluetooth.m in Sources */,
+				E00E095C2A312E3B002E82DB /* BluetoothDriver.m in Sources */,
 				E00F0CE12A2AB5D000E80FC3 /* MapSettingsCell.m in Sources */,
 				E05733272A24F61C00B7A32D /* AppDelegate.m in Sources */,
 				E0D826512A294C9200E3A373 /* IndentedLabel.m in Sources */,
@@ -554,7 +556,6 @@
 				E00F0CDE2A2AB48E00E80FC3 /* MapSettingsViewController.m in Sources */,
 				E0D826532A294E0B00E3A373 /* MessageCell.m in Sources */,
 				E0549B1F2A27FA270002A8D4 /* FestivalSelectionCell.m in Sources */,
-				E00F0D1E2A3091C200E80FC3 /* BluetoothDriver.swift in Sources */,
 				E00F0CE32A2B4BB900E80FC3 /* Pair.m in Sources */,
 				E00F0CE62A2B8C7D00E80FC3 /* FriendListCell.m in Sources */,
 				E0472D5F2A279C8800782EA0 /* WelcomeViewController.m in Sources */,
@@ -567,6 +568,7 @@
 				E0549B2F2A2907B00002A8D4 /* MessageDriver.m in Sources */,
 				E0549B2C2A2900B50002A8D4 /* MessagesViewController.m in Sources */,
 				E05733612A2601A100B7A32D /* FriendViewController.m in Sources */,
+				E00E095F2A3236B5002E82DB /* BTOpcode.c in Sources */,
 				E057332A2A24F61C00B7A32D /* SceneDelegate.m in Sources */,
 				E0472C812A27687B00782EA0 /* MapViewController.swift in Sources */,
 				E0549B332A2908DE0002A8D4 /* MessageSelectionCell.m in Sources */,
