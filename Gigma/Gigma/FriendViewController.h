@@ -6,11 +6,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Friend+CoreDataProperties.h"
 
 @protocol FriendViewControllerDelegate <NSObject>
 
-- (BOOL) addFriend:(NSString *) name withID:(NSUUID *) uid;
 - (void) setColour:(UIColor *) colour;
+- (BOOL) addFriend:(Friend *) friend;
+- (IBAction) discoverablePressed:(id) sender;
 
 @end
 
@@ -21,6 +23,7 @@
 
 @property (retain, nonatomic) UITableView * buttonStack;
 @property (retain, nonatomic) UIButton * colourButton;
+@property (retain, nonatomic) IBOutlet UIButton * discoverableButton;
 
 @end
 

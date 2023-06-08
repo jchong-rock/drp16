@@ -7,6 +7,8 @@
 
 #import "AddFriendViewController.h"
 #import "FriendViewController.h"
+#import "BluetoothDriver.h"
+#import "AppDelegate.h"
 
 @interface AddFriendViewController ()
 
@@ -25,9 +27,20 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    bluetoothDriver = [[Bluetoother alloc] init];
-    nearbyDevicesMap = [bluetoothDriver nearbyBluetoothDevices];
-    nearbyDevicesList = [nearbyDevicesMap allKeys];
+    AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    bluetoothDriver = appDelegate.bluetoothDriver;
+    bluetoothDriver.nearbyDevicePickerDelegate = self;
+    nearbyDevicesList = [[NSMutableArray alloc] init];
+}
+
+- (void) viewDidAppear:(BOOL) animated {
+    [super viewDidAppear: animated];
+    bluetoothDriver.nearbyDevicePickerDelegate = self;
+}
+
+- (void) viewWillDisappear:(BOOL) animated {
+    [super viewWillDisappear: animated];
+    bluetoothDriver.nearbyDevicePickerDelegate = nil;
 }
 
 - (NSInteger) numberOfComponentsInPickerView:(UIPickerView *) pickerView {
@@ -35,18 +48,25 @@
 }
 
 - (NSInteger) pickerView:(UIPickerView *) pickerView numberOfRowsInComponent:(NSInteger) component {
-    return [nearbyDevicesMap count];
+    return [nearbyDevicesList count];
 }
 
 - (NSString *) pickerView:(UIPickerView *) pickerView titleForRow:(NSInteger) row forComponent:(NSInteger) component {
-    return [nearbyDevicesMap objectForKey: [nearbyDevicesList objectAtIndex: row]];
+    Friend * friend = (Friend *) [nearbyDevicesList objectAtIndex: row];
+    return friend.friendName;
 }
 
 - (IBAction) addButtonPressed:(id) sender {
-    NSUUID * chosenDevice = [nearbyDevicesList objectAtIndex:
+    // handle this better but this will do for now
+    if ([nearbyDevicesList count] == 0) {
+        [self dismissViewControllerAnimated: YES completion: nil];
+        return;
+    }
+    
+    Friend * chosenDevice = [nearbyDevicesList objectAtIndex:
                                [nearbyDevicePicker selectedRowInComponent: 0]];
     
-    BOOL didAddSuccessfully = [delegate addFriend: chosenNickname withID: chosenDevice];
+    BOOL didAddSuccessfully = [delegate addFriend: chosenDevice];
     if (didAddSuccessfully) {
         [self dismissViewControllerAnimated: YES completion: nil];
     } else {
@@ -67,6 +87,10 @@
 - (BOOL) textFieldShouldReturn:(UITextField *) textField {
     [self.view endEditing: YES];
     return NO;
+}
+
+- (void) addNearbyDevice:(Friend *) friend {
+    
 }
 
 @end
