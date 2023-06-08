@@ -15,6 +15,7 @@
 
 @interface FriendViewController () {
     NSManagedObjectContext * managedObjectContext;
+    NSObject <BluetoothDriver> * btDriver;
 }
 
 @end
@@ -22,11 +23,15 @@
 @implementation FriendViewController
 
 @synthesize buttonStack;
+@synthesize discoverableButton;
 
 - (void) viewDidLoad {
     [super viewDidLoad];
+    discoverableButton.tintColor = [UIColor systemBlueColor];
+    discoverableButton.tintColor = [UIColor systemRedColor];
     // Do any additional setup after loading the view.
     AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    btDriver = appDelegate.bluetoothDriver;
     managedObjectContext = appDelegate.persistentContainer.viewContext;
 }
 
@@ -83,6 +88,22 @@
 
 - (NSInteger) tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger) section {
     return [friendButtonList count];
+}
+
+- (IBAction) discoverablePressed:(id) sender {
+    discoverableButton.tintColor = [UIColor systemBlueColor];
+    [btDriver usePeripheral];
+    [btDriver broadcastName];
+    [NSTimer scheduledTimerWithTimeInterval: 2.0f
+                                     target: self
+                                   selector: @selector(discoverEnd)
+                                   userInfo: nil
+                                    repeats: NO];
+}
+
+- (void) discoverEnd {
+    [btDriver useCentral];
+    discoverableButton.tintColor = [UIColor systemRedColor];
 }
 
 - (BOOL) addFriend:(NSString *) name withID:(NSUUID *) uid {
