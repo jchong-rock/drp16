@@ -2,7 +2,7 @@
 //  Message+CoreDataProperties.m
 //  
 //
-//  Created by Jake Chong on 01/06/2023.
+//  Created by Jake Chong on 08/06/2023.
 //
 //
 
@@ -16,8 +16,8 @@
 
 @dynamic contents;
 @dynamic dateTime;
-@dynamic weSentIt;
 @dynamic wasRead;
+@dynamic weSentIt;
 @dynamic recipient;
 
 @end

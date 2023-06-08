@@ -2,7 +2,7 @@
 //  Friend+CoreDataProperties.m
 //  
 //
-//  Created by Jake Chong on 01/06/2023.
+//  Created by Jake Chong on 08/06/2023.
 //
 //
 
@@ -14,8 +14,9 @@
 	return [NSFetchRequest fetchRequestWithEntityName:@"Friend"];
 }
 
-@dynamic friendName;
 @dynamic deviceID;
+@dynamic friendName;
+@dynamic colour;
 @dynamic messages;
 
 @end

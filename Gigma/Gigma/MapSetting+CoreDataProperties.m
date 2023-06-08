@@ -2,7 +2,7 @@
 //  MapSetting+CoreDataProperties.m
 //  
 //
-//  Created by Jake Chong on 03/06/2023.
+//  Created by Jake Chong on 08/06/2023.
 //
 //
 
@@ -14,8 +14,7 @@
 	return [NSFetchRequest fetchRequestWithEntityName:@"MapSetting"];
 }
 
-@dynamic prefName;
 @dynamic enabled;
-
+@dynamic prefName;
 
 @end

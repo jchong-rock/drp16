@@ -12,9 +12,11 @@
 #import "MainViewController.h"
 #import "ComposeMessageViewController.h"
 #import "FriendListCell.h"
+#import "BluetoothDriver.h"
 
 @interface FriendViewController () {
     NSManagedObjectContext * managedObjectContext;
+    BluetoothDriver * btDriver;
 }
 
 @end
@@ -22,11 +24,15 @@
 @implementation FriendViewController
 
 @synthesize buttonStack;
+@synthesize discoverableButton;
 
 - (void) viewDidLoad {
     [super viewDidLoad];
+    discoverableButton.tintColor = [UIColor systemBlueColor];
+    discoverableButton.tintColor = [UIColor systemRedColor];
     // Do any additional setup after loading the view.
     AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    btDriver = appDelegate.bluetoothDriver;
     managedObjectContext = appDelegate.persistentContainer.viewContext;
 }
 
@@ -85,18 +91,34 @@
     return [friendButtonList count];
 }
 
-- (BOOL) addFriend:(NSString *) name withID:(NSUUID *) uid {
+- (IBAction) discoverablePressed:(id) sender {
+    discoverableButton.tintColor = [UIColor systemBlueColor];
+    [btDriver usePeripheral];
+    [btDriver broadcastName];
+    [NSTimer scheduledTimerWithTimeInterval: 6.0f
+                                     target: self
+                                   selector: @selector(discoverEnd)
+                                   userInfo: nil
+                                    repeats: NO];
+}
+
+- (void) discoverEnd {
+    [btDriver useCentral];
+    discoverableButton.tintColor = [UIColor systemRedColor];
+}
+
+- (BOOL) addFriend:(Friend *) friend {
     for (Friend * f in friendButtonList) {
-        if (f.friendName == name) {
+        if (f.friendName == friend.friendName) {
             return NO;
         }
     }
     
-    if (name != nil) {
-        Friend * friend = [NSEntityDescription insertNewObjectForEntityForName: @"Friend" inManagedObjectContext: managedObjectContext];
-        friend.friendName = name;
-        friend.deviceID = uid;
-        [friendButtonList addObject: friend];
+    if (friend.friendName != nil) {
+        Friend * friend2 = [NSEntityDescription insertNewObjectForEntityForName: @"Friend" inManagedObjectContext: managedObjectContext];
+        friend2.friendName = friend.friendName;
+        friend2.deviceID = friend.deviceID;
+        [friendButtonList addObject: friend2];
         [buttonStack reloadData];
         NSError * error;
         [managedObjectContext save: &error];

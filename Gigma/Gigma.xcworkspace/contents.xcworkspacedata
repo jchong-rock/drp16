@@ -14,18 +14,6 @@
       location = "group:Gigma/MapSetting+CoreDataProperties.m">
    </FileRef>
    <FileRef
-      location = "group:Gigma/Friend+CoreDataProperties.h">
-   </FileRef>
-   <FileRef
-      location = "group:Gigma/Friend+CoreDataClass.h">
-   </FileRef>
-   <FileRef
-      location = "group:Gigma/Friend+CoreDataClass.m">
-   </FileRef>
-   <FileRef
-      location = "group:Gigma/Friend+CoreDataProperties.m">
-   </FileRef>
-   <FileRef
       location = "group:Gigma/Message+CoreDataProperties.h">
    </FileRef>
    <FileRef
@@ -36,6 +24,18 @@
    </FileRef>
    <FileRef
       location = "group:Gigma/Message+CoreDataProperties.m">
+   </FileRef>
+   <FileRef
+      location = "group:Gigma/Friend+CoreDataProperties.h">
+   </FileRef>
+   <FileRef
+      location = "group:Gigma/Friend+CoreDataClass.h">
+   </FileRef>
+   <FileRef
+      location = "group:Gigma/Friend+CoreDataClass.m">
+   </FileRef>
+   <FileRef
+      location = "group:Gigma/Friend+CoreDataProperties.m">
    </FileRef>
    <FileRef
       location = "group:Gigma.xcodeproj">

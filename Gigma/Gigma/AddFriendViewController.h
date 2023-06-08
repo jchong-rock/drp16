@@ -7,12 +7,11 @@
 
 #import <UIKit/UIKit.h>
 #import "FriendViewController.h"
-#import "Gigma-Swift.h"
+#import "BluetoothDriver.h"
 
 @interface AddFriendViewController : UIViewController
-    <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate> {
-        NSDictionary * nearbyDevicesMap;
-        NSArray * nearbyDevicesList;
+    <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, NearbyDevicePickerDelegate> {
+        NSMutableArray <Friend *> * nearbyDevicesList;
         IBOutlet UIPickerView * nearbyDevicePicker;
         IBOutlet UITextField * nicknameField;
         IBOutlet UILabel * nicknameTextLabel;
@@ -24,7 +23,7 @@
 @property (retain, nonatomic) UIPickerView * nearbyDevicePicker;
 @property (retain, nonatomic) NSString * deviceIDHash;
 @property (retain, nonatomic) NSString * chosenNickname;
-@property (retain, nonatomic) NSObject <BluetoothDriver> * bluetoothDriver;
+@property (retain, nonatomic) BluetoothDriver * bluetoothDriver;
 
 
 - (IBAction) addButtonPressed:(id) sender;

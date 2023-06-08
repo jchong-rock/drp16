@@ -2,7 +2,7 @@
 //  Message+CoreDataProperties.h
 //  
 //
-//  Created by Jake Chong on 01/06/2023.
+//  Created by Jake Chong on 08/06/2023.
 //
 //
 
@@ -17,8 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nullable, nonatomic, copy) NSString *contents;
 @property (nullable, nonatomic, copy) NSDate *dateTime;
-@property (nonatomic) BOOL weSentIt;
 @property (nonatomic) BOOL wasRead;
+@property (nonatomic) BOOL weSentIt;
 @property (nullable, nonatomic, retain) Friend *recipient;
 
 @end

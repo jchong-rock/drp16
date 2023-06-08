@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#define PUB_KEY_SIZE 2048
 
 @interface MainViewController : UITabBarController
 
