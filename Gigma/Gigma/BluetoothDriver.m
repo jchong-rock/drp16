@@ -19,6 +19,7 @@
 @property (nonatomic, retain) PeripheralManagerAdapter * peripheralManager;
 @property (weak, atomic) NSObject <BluetoothManager> * currentManager;
 @property (weak, atomic) RSAManager * rsaManager;
+@property (nonatomic, strong) dispatch_semaphore_t acceptFriendSemaphore;
 
 @end
 
@@ -28,7 +29,9 @@
 @synthesize peripheralManager;
 @synthesize currentManager;
 @synthesize nearbyDevicePickerDelegate;
+@synthesize friendViewControllerDelegate;
 @synthesize rsaManager;
+@synthesize acceptFriendSemaphore;
 
 - (instancetype) init {
     self = [super init];
@@ -92,14 +95,63 @@
     const unsigned char firstByte = ((const unsigned char *) [data bytes]) [0];
     switch (firstByte) {
         case PUB_KEY: {
-            NSLog(@"this one: %@", [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding]);
+            
+            acceptFriendSemaphore = dispatch_semaphore_create(0);
+                
             NSUInteger dataLength = [data length];
             NSData * pubKeyData = [data subdataWithRange: NSMakeRange(1, PUB_KEY_SIZE/4)];
             NSData * friendNameData = [data subdataWithRange: NSMakeRange((PUB_KEY_SIZE/4) + 1, dataLength - (PUB_KEY_SIZE/4) - 1)];
             NSString * friendName = [[NSString alloc] initWithData: friendNameData encoding: NSUTF8StringEncoding];
             NSString * pubKey = [[NSString alloc] initWithData: pubKeyData encoding: NSUTF8StringEncoding];
-            [nearbyDevicePickerDelegate addNearbyDevice: friendName withPubKey: pubKey];
+            
+            // Set the timeout interval
+            double timeoutInSeconds = 15.0;
+            dispatch_time_t timeout = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeoutInSeconds * NSEC_PER_SEC));
+            
+            // Wait for the semaphore to be signaled or timeout
+            long result = dispatch_semaphore_wait(acceptFriendSemaphore, timeout);
+            
+            if (result == 0) {
+                NSLog(@"Completion handler has been called.");
+                if (friendViewControllerDelegate != nil) {
+                    [friendViewControllerDelegate addFriend: friendName withPubKey: pubKey];
+                }
+            } else {
+                NSLog(@"Timeout occurred.");
+            }
             break;
+        }
+        case FRIEND_REQ: {
+            NSUInteger dataLength = [data length];
+            NSData * pubKeyData = [data subdataWithRange: NSMakeRange(1, PUB_KEY_SIZE/4)];
+            NSData * friendNameData = [data subdataWithRange: NSMakeRange((PUB_KEY_SIZE/4) + 1, dataLength - (PUB_KEY_SIZE/4) - 1)];
+            NSString * friendName = [[NSString alloc] initWithData: friendNameData encoding: NSUTF8StringEncoding];
+            NSString * pubKey = [[NSString alloc] initWithData: pubKeyData encoding: NSUTF8StringEncoding];
+            __block BOOL accepted;
+            UIAlertController * popup = [UIAlertController alertControllerWithTitle: @"Friend Request" message: friendName preferredStyle: UIAlertControllerStyleAlert];
+            
+            UIAlertAction * ok = [UIAlertAction actionWithTitle: @"Accept" style: UIAlertActionStyleDefault handler: ^(UIAlertAction * action) {accepted = YES;}];
+            UIAlertAction * cancel = [UIAlertAction actionWithTitle: @"Decline" style: UIAlertActionStyleDefault handler: ^(UIAlertAction * action) {accepted = NO;}];
+            
+            [popup addAction: ok];
+            [popup addAction: cancel];
+            if (friendViewControllerDelegate != nil) {
+                [friendViewControllerDelegate showPopup: popup withCompletion: nil];
+                if (accepted) {
+                    [friendViewControllerDelegate addFriend: friendName withPubKey: pubKey];
+                    [self usePeripheral];
+                    [currentManager sendData: [@" " dataUsingEncoding: NSUTF8StringEncoding] withOpcode: ACCEPT_REQ];
+                    [self useCentral];
+                }
+                break;
+            }
+        }
+        case ACCEPT_REQ: {
+            if (self.acceptFriendSemaphore != nil) {
+                dispatch_semaphore_signal(self.acceptFriendSemaphore);
+                self.acceptFriendSemaphore = nil;
+            }
+            
         }
     }
 }

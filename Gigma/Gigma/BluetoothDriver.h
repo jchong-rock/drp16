@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "Friend+CoreDataProperties.h"
 #import "BluetoothManager.h"
+#import "FriendViewController.h"
 
 @class CodableCoordinate;
 
@@ -26,5 +27,6 @@
 - (CodableCoordinate * _Nonnull) getLocationWithPubKey:(NSData * _Nonnull) pubKey;
 
 @property (retain, strong, nonatomic) NSObject <NearbyDevicePickerDelegate> * _Nullable nearbyDevicePickerDelegate;
+@property (retain, strong, nonatomic) NSObject <FriendViewControllerDelegate> * _Nullable friendViewControllerDelegate;
 
 @end

@@ -13,6 +13,7 @@
 - (void) setColour:(UIColor *) colour;
 - (BOOL) addFriend:(NSString *) friendName withPubKey:(NSString *) pubKey;
 - (IBAction) discoverablePressed:(id) sender;
+- (void) showPopup:(UIViewController *) popup withCompletion:(id) completion;
 
 @end
 

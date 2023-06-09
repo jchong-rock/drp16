@@ -38,6 +38,7 @@
     // Do any additional setup after loading the view.
     AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     btDriver = appDelegate.bluetoothDriver;
+    btDriver.friendViewControllerDelegate = self;
     managedObjectContext = appDelegate.persistentContainer.viewContext;
 }
 
@@ -146,6 +147,10 @@
     picker.delegate = (FriendListCell *) button.superview.superview;
     [self presentViewController: picker animated: YES completion: nil];
     
+}
+
+- (void) showPopup:(UIViewController *) popup withCompletion:(id) completion {
+    [self presentViewController: popup animated: YES completion: completion];
 }
 
 @end
