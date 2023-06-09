@@ -26,7 +26,15 @@
 		E0155F5E2A2A0E3E00069BEE /* Tests.py in Resources */ = {isa = PBXBuildFile; fileRef = E0155F5D2A2A0E3E00069BEE /* Tests.py */; };
 		E0155F5F2A2A0E3E00069BEE /* Tests.py in Resources */ = {isa = PBXBuildFile; fileRef = E0155F5D2A2A0E3E00069BEE /* Tests.py */; };
 		E0155F602A2A0E3E00069BEE /* Tests.py in Resources */ = {isa = PBXBuildFile; fileRef = E0155F5D2A2A0E3E00069BEE /* Tests.py */; };
+		E01D67332A33B8770039F997 /* libchilkatIos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E030EF422A3346CC00F7B537 /* libchilkatIos.a */; };
 		E030EDDF2A327CA000F7B537 /* ColourConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = E030EDDE2A327C9F00F7B537 /* ColourConverter.m */; };
+		E030EF502A3346CD00F7B537 /* makeUniversalLib.sh in Resources */ = {isa = PBXBuildFile; fileRef = E030EDE52A3346CB00F7B537 /* makeUniversalLib.sh */; };
+		E030EF512A3346CD00F7B537 /* license.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E030EE522A3346CB00F7B537 /* license.pdf */; };
+		E030EF592A3346CD00F7B537 /* makeUniversalSimLib.sh in Resources */ = {isa = PBXBuildFile; fileRef = E030EF4F2A3346CC00F7B537 /* makeUniversalSimLib.sh */; };
+		E030EF5E2A334B8600F7B537 /* RSAManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E030EF5D2A334B8600F7B537 /* RSAManager.m */; };
+		E041CBE92A335306001F43DD /* libchilkatIos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E030EF4C2A3346CC00F7B537 /* libchilkatIos.a */; };
+		E041CBEA2A335309001F43DD /* libchilkatIos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E030EF482A3346CC00F7B537 /* libchilkatIos.a */; };
+		E041CBEB2A33530C001F43DD /* libchilkatIos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E030EF4E2A3346CC00F7B537 /* libchilkatIos.a */; };
 		E0472C812A27687B00782EA0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0472C802A27687B00782EA0 /* MapViewController.swift */; };
 		E0472C902A2782FF00782EA0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0472C8F2A2782FF00782EA0 /* MainViewController.m */; };
 		E0472D5F2A279C8800782EA0 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0472D5E2A279C8800782EA0 /* WelcomeViewController.m */; };
@@ -107,6 +115,361 @@
 		E0155F5D2A2A0E3E00069BEE /* Tests.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = Tests.py; sourceTree = "<group>"; };
 		E030EDDE2A327C9F00F7B537 /* ColourConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColourConverter.m; sourceTree = "<group>"; };
 		E030EDE02A327CB900F7B537 /* ColourConverter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColourConverter.h; sourceTree = "<group>"; };
+		E030EDE52A3346CB00F7B537 /* makeUniversalLib.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = makeUniversalLib.sh; sourceTree = "<group>"; };
+		E030EDE72A3346CB00F7B537 /* CkoAuthAzureStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoAuthAzureStorage.h; sourceTree = "<group>"; };
+		E030EDE82A3346CB00F7B537 /* CkoJsonArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoJsonArray.h; sourceTree = "<group>"; };
+		E030EDE92A3346CB00F7B537 /* CkoMailMan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoMailMan.h; sourceTree = "<group>"; };
+		E030EDEA2A3346CB00F7B537 /* CkoAuthAws.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoAuthAws.h; sourceTree = "<group>"; };
+		E030EDEB2A3346CB00F7B537 /* CkoImap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoImap.h; sourceTree = "<group>"; };
+		E030EDEC2A3346CB00F7B537 /* CkoJsonObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoJsonObject.h; sourceTree = "<group>"; };
+		E030EDED2A3346CB00F7B537 /* CkoXmp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoXmp.h; sourceTree = "<group>"; };
+		E030EDEE2A3346CB00F7B537 /* CkoZip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoZip.h; sourceTree = "<group>"; };
+		E030EDEF2A3346CB00F7B537 /* CkoSecureString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoSecureString.h; sourceTree = "<group>"; };
+		E030EDF02A3346CB00F7B537 /* CkoSFtpProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoSFtpProgress.h; sourceTree = "<group>"; };
+		E030EDF12A3346CB00F7B537 /* CkoLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoLog.h; sourceTree = "<group>"; };
+		E030EDF22A3346CB00F7B537 /* CkoUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoUrl.h; sourceTree = "<group>"; };
+		E030EDF32A3346CB00F7B537 /* CkoXml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoXml.h; sourceTree = "<group>"; };
+		E030EDF42A3346CB00F7B537 /* CkoPfx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoPfx.h; sourceTree = "<group>"; };
+		E030EDF52A3346CB00F7B537 /* CkoOAuth1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoOAuth1.h; sourceTree = "<group>"; };
+		E030EDF62A3346CB00F7B537 /* CkoDtObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoDtObj.h; sourceTree = "<group>"; };
+		E030EDF72A3346CB00F7B537 /* CkoUnixCompress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoUnixCompress.h; sourceTree = "<group>"; };
+		E030EDF82A3346CB00F7B537 /* CkoSsh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoSsh.h; sourceTree = "<group>"; };
+		E030EDF92A3346CB00F7B537 /* CkoMht.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoMht.h; sourceTree = "<group>"; };
+		E030EDFA2A3346CB00F7B537 /* CkoTaskChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoTaskChain.h; sourceTree = "<group>"; };
+		E030EDFB2A3346CB00F7B537 /* CkoSshKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoSshKey.h; sourceTree = "<group>"; };
+		E030EDFC2A3346CB00F7B537 /* CkoCompression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoCompression.h; sourceTree = "<group>"; };
+		E030EDFD2A3346CB00F7B537 /* CkoBaseProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoBaseProgress.h; sourceTree = "<group>"; };
+		E030EDFE2A3346CB00F7B537 /* CkoDh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoDh.h; sourceTree = "<group>"; };
+		E030EDFF2A3346CB00F7B537 /* CkoAuthUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoAuthUtil.h; sourceTree = "<group>"; };
+		E030EE002A3346CB00F7B537 /* CkoCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoCache.h; sourceTree = "<group>"; };
+		E030EE012A3346CB00F7B537 /* CkoGzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoGzip.h; sourceTree = "<group>"; };
+		E030EE022A3346CB00F7B537 /* CkoSFtpDir.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoSFtpDir.h; sourceTree = "<group>"; };
+		E030EE032A3346CB00F7B537 /* CkoZipEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoZipEntry.h; sourceTree = "<group>"; };
+		E030EE042A3346CB00F7B537 /* CkoRest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoRest.h; sourceTree = "<group>"; };
+		E030EE052A3346CB00F7B537 /* CkoSshTunnel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoSshTunnel.h; sourceTree = "<group>"; };
+		E030EE062A3346CB00F7B537 /* CkoRss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoRss.h; sourceTree = "<group>"; };
+		E030EE072A3346CB00F7B537 /* CkoDirTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoDirTree.h; sourceTree = "<group>"; };
+		E030EE082A3346CB00F7B537 /* CkoFtp2Progress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoFtp2Progress.h; sourceTree = "<group>"; };
+		E030EE092A3346CB00F7B537 /* CkoPrng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoPrng.h; sourceTree = "<group>"; };
+		E030EE0A2A3346CB00F7B537 /* CkoPdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoPdf.h; sourceTree = "<group>"; };
+		E030EE0B2A3346CB00F7B537 /* CkoCgi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoCgi.h; sourceTree = "<group>"; };
+		E030EE0C2A3346CB00F7B537 /* CkoHttpProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoHttpProgress.h; sourceTree = "<group>"; };
+		E030EE0D2A3346CB00F7B537 /* CkoMime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoMime.h; sourceTree = "<group>"; };
+		E030EE0E2A3346CB00F7B537 /* CkoTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoTask.h; sourceTree = "<group>"; };
+		E030EE0F2A3346CB00F7B537 /* CkoStringBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoStringBuilder.h; sourceTree = "<group>"; };
+		E030EE102A3346CB00F7B537 /* CkoHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoHttp.h; sourceTree = "<group>"; };
+		E030EE112A3346CB00F7B537 /* CkoSpider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoSpider.h; sourceTree = "<group>"; };
+		E030EE122A3346CB00F7B537 /* CkoOAuth2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoOAuth2.h; sourceTree = "<group>"; };
+		E030EE132A3346CB00F7B537 /* CkoDsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoDsa.h; sourceTree = "<group>"; };
+		E030EE142A3346CB00F7B537 /* CkoUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoUpload.h; sourceTree = "<group>"; };
+		E030EE152A3346CB00F7B537 /* CkoDkim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoDkim.h; sourceTree = "<group>"; };
+		E030EE162A3346CB00F7B537 /* CkoEdDSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoEdDSA.h; sourceTree = "<group>"; };
+		E030EE172A3346CB00F7B537 /* CkoHtmlToText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoHtmlToText.h; sourceTree = "<group>"; };
+		E030EE182A3346CB00F7B537 /* CkoCertStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoCertStore.h; sourceTree = "<group>"; };
+		E030EE192A3346CB00F7B537 /* CkoPrivateKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoPrivateKey.h; sourceTree = "<group>"; };
+		E030EE1A2A3346CB00F7B537 /* CkoSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoSocket.h; sourceTree = "<group>"; };
+		E030EE1B2A3346CB00F7B537 /* CkoEmail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoEmail.h; sourceTree = "<group>"; };
+		E030EE1C2A3346CB00F7B537 /* CkoRsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoRsa.h; sourceTree = "<group>"; };
+		E030EE1D2A3346CB00F7B537 /* CkoMessageSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoMessageSet.h; sourceTree = "<group>"; };
+		E030EE1E2A3346CB00F7B537 /* CkoSFtpFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoSFtpFile.h; sourceTree = "<group>"; };
+		E030EE1F2A3346CB00F7B537 /* CkoHttpResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoHttpResponse.h; sourceTree = "<group>"; };
+		E030EE202A3346CB00F7B537 /* CkoSCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoSCard.h; sourceTree = "<group>"; };
+		E030EE212A3346CB00F7B537 /* CkoEcc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoEcc.h; sourceTree = "<group>"; };
+		E030EE222A3346CB00F7B537 /* CkoSFtp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoSFtp.h; sourceTree = "<group>"; };
+		E030EE232A3346CB00F7B537 /* CkoJwe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoJwe.h; sourceTree = "<group>"; };
+		E030EE242A3346CB00F7B537 /* CkoHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoHttpRequest.h; sourceTree = "<group>"; };
+		E030EE252A3346CB00F7B537 /* CkoAsn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoAsn.h; sourceTree = "<group>"; };
+		E030EE262A3346CB00F7B537 /* CkoServerSentEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoServerSentEvent.h; sourceTree = "<group>"; };
+		E030EE272A3346CB00F7B537 /* CkoCrypt2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoCrypt2.h; sourceTree = "<group>"; };
+		E030EE282A3346CB00F7B537 /* CkoBz2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoBz2.h; sourceTree = "<group>"; };
+		E030EE292A3346CB00F7B537 /* CkoCertChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoCertChain.h; sourceTree = "<group>"; };
+		E030EE2A2A3346CB00F7B537 /* CkoScp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoScp.h; sourceTree = "<group>"; };
+		E030EE2B2A3346CB00F7B537 /* CkoHashtable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoHashtable.h; sourceTree = "<group>"; };
+		E030EE2C2A3346CB00F7B537 /* CkoWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoWebSocket.h; sourceTree = "<group>"; };
+		E030EE2D2A3346CB00F7B537 /* CkoTrustedRoots.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoTrustedRoots.h; sourceTree = "<group>"; };
+		E030EE2E2A3346CB00F7B537 /* CkoZipProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoZipProgress.h; sourceTree = "<group>"; };
+		E030EE2F2A3346CB00F7B537 /* CkoCsr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoCsr.h; sourceTree = "<group>"; };
+		E030EE302A3346CB00F7B537 /* CkoProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoProgress.h; sourceTree = "<group>"; };
+		E030EE312A3346CB00F7B537 /* CkoStringArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoStringArray.h; sourceTree = "<group>"; };
+		E030EE322A3346CB00F7B537 /* CkoMailboxes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoMailboxes.h; sourceTree = "<group>"; };
+		E030EE332A3346CB00F7B537 /* CkoPkcs11.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoPkcs11.h; sourceTree = "<group>"; };
+		E030EE342A3346CB00F7B537 /* CkoBinData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoBinData.h; sourceTree = "<group>"; };
+		E030EE352A3346CB00F7B537 /* CkoPublicKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoPublicKey.h; sourceTree = "<group>"; };
+		E030EE362A3346CB00F7B537 /* CkoCharset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoCharset.h; sourceTree = "<group>"; };
+		E030EE372A3346CB00F7B537 /* CkoAuthAzureAD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoAuthAzureAD.h; sourceTree = "<group>"; };
+		E030EE382A3346CB00F7B537 /* CkoZipCrc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoZipCrc.h; sourceTree = "<group>"; };
+		E030EE392A3346CB00F7B537 /* CkoJws.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoJws.h; sourceTree = "<group>"; };
+		E030EE3A2A3346CB00F7B537 /* CkoJavaKeyStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoJavaKeyStore.h; sourceTree = "<group>"; };
+		E030EE3B2A3346CB00F7B537 /* CkoStringTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoStringTable.h; sourceTree = "<group>"; };
+		E030EE3C2A3346CB00F7B537 /* CkoPem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoPem.h; sourceTree = "<group>"; };
+		E030EE3D2A3346CB00F7B537 /* CkoFtp2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoFtp2.h; sourceTree = "<group>"; };
+		E030EE3E2A3346CB00F7B537 /* CkoCsv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoCsv.h; sourceTree = "<group>"; };
+		E030EE3F2A3346CB00F7B537 /* CkoDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoDateTime.h; sourceTree = "<group>"; };
+		E030EE402A3346CB00F7B537 /* CkoAuthAzureSAS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoAuthAzureSAS.h; sourceTree = "<group>"; };
+		E030EE412A3346CB00F7B537 /* CkoGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoGlobal.h; sourceTree = "<group>"; };
+		E030EE422A3346CB00F7B537 /* CkoNtlm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoNtlm.h; sourceTree = "<group>"; };
+		E030EE432A3346CB00F7B537 /* CkoAtom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoAtom.h; sourceTree = "<group>"; };
+		E030EE442A3346CB00F7B537 /* CkoXmlDSigGen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoXmlDSigGen.h; sourceTree = "<group>"; };
+		E030EE452A3346CB00F7B537 /* CkoAuthGoogle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoAuthGoogle.h; sourceTree = "<group>"; };
+		E030EE462A3346CB00F7B537 /* CkoTarProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoTarProgress.h; sourceTree = "<group>"; };
+		E030EE472A3346CB00F7B537 /* CkoCert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoCert.h; sourceTree = "<group>"; };
+		E030EE482A3346CB00F7B537 /* CkoXmlCertVault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoXmlCertVault.h; sourceTree = "<group>"; };
+		E030EE492A3346CB00F7B537 /* CkoJwt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoJwt.h; sourceTree = "<group>"; };
+		E030EE4A2A3346CB00F7B537 /* CkoTar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoTar.h; sourceTree = "<group>"; };
+		E030EE4B2A3346CB00F7B537 /* CkoStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoStream.h; sourceTree = "<group>"; };
+		E030EE4C2A3346CB00F7B537 /* CkoXmlDSig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoXmlDSig.h; sourceTree = "<group>"; };
+		E030EE4D2A3346CB00F7B537 /* CkoFileAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoFileAccess.h; sourceTree = "<group>"; };
+		E030EE4E2A3346CB00F7B537 /* CkoHtmlToXml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoHtmlToXml.h; sourceTree = "<group>"; };
+		E030EE4F2A3346CB00F7B537 /* CkoEmailBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoEmailBundle.h; sourceTree = "<group>"; };
+		E030EE502A3346CB00F7B537 /* CkoBounce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoBounce.h; sourceTree = "<group>"; };
+		E030EE512A3346CB00F7B537 /* CkoMailManProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkoMailManProgress.h; sourceTree = "<group>"; };
+		E030EE522A3346CB00F7B537 /* license.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = license.pdf; sourceTree = "<group>"; };
+		E030EE542A3346CB00F7B537 /* CkAuthAzureADW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkAuthAzureADW.h; sourceTree = "<group>"; };
+		E030EE552A3346CB00F7B537 /* CkCsr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkCsr.h; sourceTree = "<group>"; };
+		E030EE562A3346CB00F7B537 /* CkNtlmW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkNtlmW.h; sourceTree = "<group>"; };
+		E030EE572A3346CB00F7B537 /* CkSshW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkSshW.h; sourceTree = "<group>"; };
+		E030EE582A3346CB00F7B537 /* CkZipCrcW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkZipCrcW.h; sourceTree = "<group>"; };
+		E030EE592A3346CB00F7B537 /* CkAuthAws.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkAuthAws.h; sourceTree = "<group>"; };
+		E030EE5A2A3346CB00F7B537 /* CkAuthAzureStorageW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkAuthAzureStorageW.h; sourceTree = "<group>"; };
+		E030EE5B2A3346CB00F7B537 /* CkDateTimeW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkDateTimeW.h; sourceTree = "<group>"; };
+		E030EE5C2A3346CB00F7B537 /* CkMailMan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkMailMan.h; sourceTree = "<group>"; };
+		E030EE5D2A3346CB00F7B537 /* CkSCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkSCard.h; sourceTree = "<group>"; };
+		E030EE5E2A3346CB00F7B537 /* CkCompressionW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkCompressionW.h; sourceTree = "<group>"; };
+		E030EE5F2A3346CB00F7B537 /* CkAuthAzureSAS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkAuthAzureSAS.h; sourceTree = "<group>"; };
+		E030EE602A3346CB00F7B537 /* CkEdDSAW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkEdDSAW.h; sourceTree = "<group>"; };
+		E030EE612A3346CB00F7B537 /* CkRestW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkRestW.h; sourceTree = "<group>"; };
+		E030EE622A3346CB00F7B537 /* CkMailManW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkMailManW.h; sourceTree = "<group>"; };
+		E030EE632A3346CB00F7B537 /* CkAuthUtilW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkAuthUtilW.h; sourceTree = "<group>"; };
+		E030EE642A3346CB00F7B537 /* CkTaskChainW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkTaskChainW.h; sourceTree = "<group>"; };
+		E030EE652A3346CB00F7B537 /* CkTaskChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkTaskChain.h; sourceTree = "<group>"; };
+		E030EE662A3346CB00F7B537 /* CkJws.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkJws.h; sourceTree = "<group>"; };
+		E030EE672A3346CB00F7B537 /* CkEdDSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkEdDSA.h; sourceTree = "<group>"; };
+		E030EE682A3346CB00F7B537 /* CkStringBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkStringBuilder.h; sourceTree = "<group>"; };
+		E030EE692A3346CB00F7B537 /* CkDhW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkDhW.h; sourceTree = "<group>"; };
+		E030EE6A2A3346CB00F7B537 /* CkEmail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkEmail.h; sourceTree = "<group>"; };
+		E030EE6B2A3346CB00F7B537 /* CkAtom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkAtom.h; sourceTree = "<group>"; };
+		E030EE6C2A3346CB00F7B537 /* CkNtlm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkNtlm.h; sourceTree = "<group>"; };
+		E030EE6D2A3346CB00F7B537 /* CkOAuth1W.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkOAuth1W.h; sourceTree = "<group>"; };
+		E030EE6E2A3346CB00F7B537 /* CkPem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkPem.h; sourceTree = "<group>"; };
+		E030EE6F2A3346CB00F7B537 /* CkCsv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkCsv.h; sourceTree = "<group>"; };
+		E030EE702A3346CB00F7B537 /* CkPkcs11W.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkPkcs11W.h; sourceTree = "<group>"; };
+		E030EE712A3346CB00F7B537 /* CkObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkObject.h; sourceTree = "<group>"; };
+		E030EE722A3346CB00F7B537 /* CkJwe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkJwe.h; sourceTree = "<group>"; };
+		E030EE732A3346CB00F7B537 /* CkUnixCompressW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkUnixCompressW.h; sourceTree = "<group>"; };
+		E030EE742A3346CB00F7B537 /* CkScpW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkScpW.h; sourceTree = "<group>"; };
+		E030EE752A3346CB00F7B537 /* CkJsonArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkJsonArray.h; sourceTree = "<group>"; };
+		E030EE762A3346CB00F7B537 /* CkDh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkDh.h; sourceTree = "<group>"; };
+		E030EE772A3346CB00F7B537 /* CkSshKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkSshKey.h; sourceTree = "<group>"; };
+		E030EE782A3346CB00F7B537 /* CkBounceW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkBounceW.h; sourceTree = "<group>"; };
+		E030EE792A3346CB00F7B537 /* CkScMinidriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkScMinidriver.h; sourceTree = "<group>"; };
+		E030EE7A2A3346CB00F7B537 /* CkAsn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkAsn.h; sourceTree = "<group>"; };
+		E030EE7B2A3346CB00F7B537 /* CkCreateCSW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkCreateCSW.h; sourceTree = "<group>"; };
+		E030EE7C2A3346CB00F7B537 /* CkXmlCertVault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkXmlCertVault.h; sourceTree = "<group>"; };
+		E030EE7D2A3346CB00F7B537 /* CkDtObjW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkDtObjW.h; sourceTree = "<group>"; };
+		E030EE7E2A3346CB00F7B537 /* CkCert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkCert.h; sourceTree = "<group>"; };
+		E030EE7F2A3346CB00F7B537 /* CkSecureStringW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkSecureStringW.h; sourceTree = "<group>"; };
+		E030EE802A3346CB00F7B537 /* CkTarProgressW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkTarProgressW.h; sourceTree = "<group>"; };
+		E030EE812A3346CB00F7B537 /* CkCertStoreW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkCertStoreW.h; sourceTree = "<group>"; };
+		E030EE822A3346CB00F7B537 /* CkBz2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkBz2.h; sourceTree = "<group>"; };
+		E030EE832A3346CB00F7B537 /* CkClassWithCallbacks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkClassWithCallbacks.h; sourceTree = "<group>"; };
+		E030EE842A3346CB00F7B537 /* CkOAuth1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkOAuth1.h; sourceTree = "<group>"; };
+		E030EE852A3346CB00F7B537 /* int64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = int64.h; sourceTree = "<group>"; };
+		E030EE862A3346CB00F7B537 /* CkAuthUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkAuthUtil.h; sourceTree = "<group>"; };
+		E030EE872A3346CB00F7B537 /* CkScp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkScp.h; sourceTree = "<group>"; };
+		E030EE882A3346CB00F7B537 /* CkJwtW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkJwtW.h; sourceTree = "<group>"; };
+		E030EE892A3346CB00F7B537 /* CkWideCharBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkWideCharBase.h; sourceTree = "<group>"; };
+		E030EE8A2A3346CB00F7B537 /* CkMailboxesW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkMailboxesW.h; sourceTree = "<group>"; };
+		E030EE8B2A3346CB00F7B537 /* CkSshKeyW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkSshKeyW.h; sourceTree = "<group>"; };
+		E030EE8C2A3346CB00F7B537 /* CkByteData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkByteData.h; sourceTree = "<group>"; };
+		E030EE8D2A3346CB00F7B537 /* CkSFtpDir.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkSFtpDir.h; sourceTree = "<group>"; };
+		E030EE8E2A3346CB00F7B537 /* CkJwt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkJwt.h; sourceTree = "<group>"; };
+		E030EE8F2A3346CB00F7B537 /* CkZipW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkZipW.h; sourceTree = "<group>"; };
+		E030EE902A3346CB00F7B537 /* CkFileAccessW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkFileAccessW.h; sourceTree = "<group>"; };
+		E030EE912A3346CB00F7B537 /* CkZipEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkZipEntry.h; sourceTree = "<group>"; };
+		E030EE922A3346CB00F7B537 /* CkServerSentEventW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkServerSentEventW.h; sourceTree = "<group>"; };
+		E030EE932A3346CB00F7B537 /* CkCertStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkCertStore.h; sourceTree = "<group>"; };
+		E030EE942A3346CB00F7B537 /* CkStringArrayW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkStringArrayW.h; sourceTree = "<group>"; };
+		E030EE952A3346CB00F7B537 /* CkDirTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkDirTree.h; sourceTree = "<group>"; };
+		E030EE962A3346CB00F7B537 /* CkHttpResponseW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkHttpResponseW.h; sourceTree = "<group>"; };
+		E030EE972A3346CB00F7B537 /* CkUrlW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkUrlW.h; sourceTree = "<group>"; };
+		E030EE982A3346CB00F7B537 /* CkTar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkTar.h; sourceTree = "<group>"; };
+		E030EE992A3346CB00F7B537 /* CkCompression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkCompression.h; sourceTree = "<group>"; };
+		E030EE9A2A3346CB00F7B537 /* CkAuthAzureSASW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkAuthAzureSASW.h; sourceTree = "<group>"; };
+		E030EE9B2A3346CB00F7B537 /* CkCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkCache.h; sourceTree = "<group>"; };
+		E030EE9C2A3346CB00F7B537 /* CkTrustedRoots.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkTrustedRoots.h; sourceTree = "<group>"; };
+		E030EE9D2A3346CB00F7B537 /* CkStringTableW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkStringTableW.h; sourceTree = "<group>"; };
+		E030EE9E2A3346CB00F7B537 /* CkTrustedRootsW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkTrustedRootsW.h; sourceTree = "<group>"; };
+		E030EE9F2A3346CB00F7B537 /* CkMimeW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkMimeW.h; sourceTree = "<group>"; };
+		E030EEA02A3346CB00F7B537 /* CkGzipW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkGzipW.h; sourceTree = "<group>"; };
+		E030EEA12A3346CB00F7B537 /* CkSFtp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkSFtp.h; sourceTree = "<group>"; };
+		E030EEA22A3346CB00F7B537 /* CkZipEntryW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkZipEntryW.h; sourceTree = "<group>"; };
+		E030EEA32A3346CB00F7B537 /* CkSpiderW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkSpiderW.h; sourceTree = "<group>"; };
+		E030EEA42A3346CB00F7B537 /* CkFtp2ProgressW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkFtp2ProgressW.h; sourceTree = "<group>"; };
+		E030EEA52A3346CB00F7B537 /* CkCharsetW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkCharsetW.h; sourceTree = "<group>"; };
+		E030EEA62A3346CB00F7B537 /* CkTaskW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkTaskW.h; sourceTree = "<group>"; };
+		E030EEA72A3346CB00F7B537 /* CkDtObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkDtObj.h; sourceTree = "<group>"; };
+		E030EEA82A3346CB00F7B537 /* CkCreateCS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkCreateCS.h; sourceTree = "<group>"; };
+		E030EEA92A3346CB00F7B537 /* CkSFtpDirW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkSFtpDirW.h; sourceTree = "<group>"; };
+		E030EEAA2A3346CB00F7B537 /* CkFileAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkFileAccess.h; sourceTree = "<group>"; };
+		E030EEAB2A3346CB00F7B537 /* CkDsaW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkDsaW.h; sourceTree = "<group>"; };
+		E030EEAC2A3346CB00F7B537 /* CkString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkString.h; sourceTree = "<group>"; };
+		E030EEAD2A3346CB00F7B537 /* CkScMinidriverW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkScMinidriverW.h; sourceTree = "<group>"; };
+		E030EEAE2A3346CB00F7B537 /* CkZipProgressW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkZipProgressW.h; sourceTree = "<group>"; };
+		E030EEAF2A3346CB00F7B537 /* CkCsvW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkCsvW.h; sourceTree = "<group>"; };
+		E030EEB02A3346CB00F7B537 /* CkSocketW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkSocketW.h; sourceTree = "<group>"; };
+		E030EEB12A3346CB00F7B537 /* CkXmlDSigGen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkXmlDSigGen.h; sourceTree = "<group>"; };
+		E030EEB22A3346CB00F7B537 /* CkSshTunnel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkSshTunnel.h; sourceTree = "<group>"; };
+		E030EEB32A3346CB00F7B537 /* CkPrngW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkPrngW.h; sourceTree = "<group>"; };
+		E030EEB42A3346CB00F7B537 /* CkCrypt2W.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkCrypt2W.h; sourceTree = "<group>"; };
+		E030EEB52A3346CB00F7B537 /* CkEmailW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkEmailW.h; sourceTree = "<group>"; };
+		E030EEB62A3346CB00F7B537 /* CkFtp2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkFtp2.h; sourceTree = "<group>"; };
+		E030EEB72A3346CB00F7B537 /* CkPfxW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkPfxW.h; sourceTree = "<group>"; };
+		E030EEB82A3346CB00F7B537 /* CkStringBuilderW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkStringBuilderW.h; sourceTree = "<group>"; };
+		E030EEB92A3346CB00F7B537 /* CkXmlDSigGenW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkXmlDSigGenW.h; sourceTree = "<group>"; };
+		E030EEBA2A3346CB00F7B537 /* CkSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkSocket.h; sourceTree = "<group>"; };
+		E030EEBB2A3346CB00F7B537 /* CkSFtpFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkSFtpFile.h; sourceTree = "<group>"; };
+		E030EEBC2A3346CB00F7B537 /* CkCsrW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkCsrW.h; sourceTree = "<group>"; };
+		E030EEBD2A3346CB00F7B537 /* CkHtmlToTextW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkHtmlToTextW.h; sourceTree = "<group>"; };
+		E030EEBE2A3346CB00F7B537 /* CkJavaKeyStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkJavaKeyStore.h; sourceTree = "<group>"; };
+		E030EEBF2A3346CB00F7B537 /* CkJsonObjectW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkJsonObjectW.h; sourceTree = "<group>"; };
+		E030EEC02A3346CB00F7B537 /* CkSshTunnelW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkSshTunnelW.h; sourceTree = "<group>"; };
+		E030EEC12A3346CB00F7B537 /* CkUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkUpload.h; sourceTree = "<group>"; };
+		E030EEC22A3346CB00F7B537 /* CkCertChainW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkCertChainW.h; sourceTree = "<group>"; };
+		E030EEC32A3346CB00F7B537 /* CkDirTreeW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkDirTreeW.h; sourceTree = "<group>"; };
+		E030EEC42A3346CB00F7B537 /* CkSpider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkSpider.h; sourceTree = "<group>"; };
+		E030EEC52A3346CB00F7B537 /* CkOAuth2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkOAuth2.h; sourceTree = "<group>"; };
+		E030EEC62A3346CB00F7B537 /* CkAuthGoogle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkAuthGoogle.h; sourceTree = "<group>"; };
+		E030EEC72A3346CC00F7B537 /* CkMessageSetW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkMessageSetW.h; sourceTree = "<group>"; };
+		E030EEC82A3346CC00F7B537 /* CkMime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkMime.h; sourceTree = "<group>"; };
+		E030EEC92A3346CC00F7B537 /* CkLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkLog.h; sourceTree = "<group>"; };
+		E030EECA2A3346CC00F7B537 /* ck_inttypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ck_inttypes.h; sourceTree = "<group>"; };
+		E030EECB2A3346CC00F7B537 /* CkUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkUrl.h; sourceTree = "<group>"; };
+		E030EECC2A3346CC00F7B537 /* CkHashtableW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkHashtableW.h; sourceTree = "<group>"; };
+		E030EECD2A3346CC00F7B537 /* CkPfx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkPfx.h; sourceTree = "<group>"; };
+		E030EECE2A3346CC00F7B537 /* CkGlobalW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkGlobalW.h; sourceTree = "<group>"; };
+		E030EECF2A3346CC00F7B537 /* CkXml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkXml.h; sourceTree = "<group>"; };
+		E030EED02A3346CC00F7B537 /* CkTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkTask.h; sourceTree = "<group>"; };
+		E030EED12A3346CC00F7B537 /* CkTarW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkTarW.h; sourceTree = "<group>"; };
+		E030EED22A3346CC00F7B537 /* CkFtp2Progress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkFtp2Progress.h; sourceTree = "<group>"; };
+		E030EED32A3346CC00F7B537 /* CkFtp2W.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkFtp2W.h; sourceTree = "<group>"; };
+		E030EED42A3346CC00F7B537 /* CkUploadW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkUploadW.h; sourceTree = "<group>"; };
+		E030EED52A3346CC00F7B537 /* CkClassWithCallbacksW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkClassWithCallbacksW.h; sourceTree = "<group>"; };
+		E030EED62A3346CC00F7B537 /* CkCgiW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkCgiW.h; sourceTree = "<group>"; };
+		E030EED72A3346CC00F7B537 /* CkEmailBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkEmailBundle.h; sourceTree = "<group>"; };
+		E030EED82A3346CC00F7B537 /* CkSFtpW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkSFtpW.h; sourceTree = "<group>"; };
+		E030EED92A3346CC00F7B537 /* CkCsp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkCsp.h; sourceTree = "<group>"; };
+		E030EEDA2A3346CC00F7B537 /* CkCrypt2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkCrypt2.h; sourceTree = "<group>"; };
+		E030EEDB2A3346CC00F7B537 /* CkSsh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkSsh.h; sourceTree = "<group>"; };
+		E030EEDC2A3346CC00F7B537 /* CkGzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkGzip.h; sourceTree = "<group>"; };
+		E030EEDD2A3346CC00F7B537 /* CkMailManProgressW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkMailManProgressW.h; sourceTree = "<group>"; };
+		E030EEDE2A3346CC00F7B537 /* CkJsonArrayW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkJsonArrayW.h; sourceTree = "<group>"; };
+		E030EEDF2A3346CC00F7B537 /* CkAuthGoogleW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkAuthGoogleW.h; sourceTree = "<group>"; };
+		E030EEE02A3346CC00F7B537 /* CkMht.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkMht.h; sourceTree = "<group>"; };
+		E030EEE12A3346CC00F7B537 /* CkJweW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkJweW.h; sourceTree = "<group>"; };
+		E030EEE22A3346CC00F7B537 /* CkRest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkRest.h; sourceTree = "<group>"; };
+		E030EEE32A3346CC00F7B537 /* CkMailboxes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkMailboxes.h; sourceTree = "<group>"; };
+		E030EEE42A3346CC00F7B537 /* CkKeyContainerW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkKeyContainerW.h; sourceTree = "<group>"; };
+		E030EEE52A3346CC00F7B537 /* CkSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkSettings.h; sourceTree = "<group>"; };
+		E030EEE62A3346CC00F7B537 /* CkPublicKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkPublicKey.h; sourceTree = "<group>"; };
+		E030EEE72A3346CC00F7B537 /* CkMhtW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkMhtW.h; sourceTree = "<group>"; };
+		E030EEE82A3346CC00F7B537 /* CkRsaW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkRsaW.h; sourceTree = "<group>"; };
+		E030EEE92A3346CC00F7B537 /* CkPrng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkPrng.h; sourceTree = "<group>"; };
+		E030EEEA2A3346CC00F7B537 /* CkWebSocketW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkWebSocketW.h; sourceTree = "<group>"; };
+		E030EEEB2A3346CC00F7B537 /* CkEmailBundleW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkEmailBundleW.h; sourceTree = "<group>"; };
+		E030EEEC2A3346CC00F7B537 /* CkBinDataW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkBinDataW.h; sourceTree = "<group>"; };
+		E030EEED2A3346CC00F7B537 /* CkHttpProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkHttpProgress.h; sourceTree = "<group>"; };
+		E030EEEE2A3346CC00F7B537 /* CkAuthAzureStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkAuthAzureStorage.h; sourceTree = "<group>"; };
+		E030EEEF2A3346CC00F7B537 /* CkPdfW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkPdfW.h; sourceTree = "<group>"; };
+		E030EEF02A3346CC00F7B537 /* CkEccW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkEccW.h; sourceTree = "<group>"; };
+		E030EEF12A3346CC00F7B537 /* CkAuthAwsW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkAuthAwsW.h; sourceTree = "<group>"; };
+		E030EEF22A3346CC00F7B537 /* CkAtomW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkAtomW.h; sourceTree = "<group>"; };
+		E030EEF32A3346CC00F7B537 /* CkDkimW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkDkimW.h; sourceTree = "<group>"; };
+		E030EEF42A3346CC00F7B537 /* CkPublicKeyW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkPublicKeyW.h; sourceTree = "<group>"; };
+		E030EEF52A3346CC00F7B537 /* CkAsnW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkAsnW.h; sourceTree = "<group>"; };
+		E030EEF62A3346CC00F7B537 /* CkJsonObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkJsonObject.h; sourceTree = "<group>"; };
+		E030EEF72A3346CC00F7B537 /* CkCspW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkCspW.h; sourceTree = "<group>"; };
+		E030EEF82A3346CC00F7B537 /* CkHttpRequestW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkHttpRequestW.h; sourceTree = "<group>"; };
+		E030EEF92A3346CC00F7B537 /* CkZipCrc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkZipCrc.h; sourceTree = "<group>"; };
+		E030EEFA2A3346CC00F7B537 /* CkMailManProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkMailManProgress.h; sourceTree = "<group>"; };
+		E030EEFB2A3346CC00F7B537 /* CkXmlW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkXmlW.h; sourceTree = "<group>"; };
+		E030EEFC2A3346CC00F7B537 /* CkCacheW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkCacheW.h; sourceTree = "<group>"; };
+		E030EEFD2A3346CC00F7B537 /* CkTarProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkTarProgress.h; sourceTree = "<group>"; };
+		E030EEFE2A3346CC00F7B537 /* CkPkcs11.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkPkcs11.h; sourceTree = "<group>"; };
+		E030EEFF2A3346CC00F7B537 /* CkHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkHttp.h; sourceTree = "<group>"; };
+		E030EF002A3346CC00F7B537 /* CkKeyContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkKeyContainer.h; sourceTree = "<group>"; };
+		E030EF012A3346CC00F7B537 /* CkBinData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkBinData.h; sourceTree = "<group>"; };
+		E030EF022A3346CC00F7B537 /* CkXmp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkXmp.h; sourceTree = "<group>"; };
+		E030EF032A3346CC00F7B537 /* CkCharset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkCharset.h; sourceTree = "<group>"; };
+		E030EF042A3346CC00F7B537 /* CkXmpW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkXmpW.h; sourceTree = "<group>"; };
+		E030EF052A3346CC00F7B537 /* CkDkim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkDkim.h; sourceTree = "<group>"; };
+		E030EF062A3346CC00F7B537 /* chilkatDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chilkatDefs.h; sourceTree = "<group>"; };
+		E030EF072A3346CC00F7B537 /* CkHttpResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkHttpResponse.h; sourceTree = "<group>"; };
+		E030EF082A3346CC00F7B537 /* CkCertChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkCertChain.h; sourceTree = "<group>"; };
+		E030EF092A3346CC00F7B537 /* CkHashtable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkHashtable.h; sourceTree = "<group>"; };
+		E030EF0A2A3346CC00F7B537 /* CkWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkWebSocket.h; sourceTree = "<group>"; };
+		E030EF0B2A3346CC00F7B537 /* CkZip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkZip.h; sourceTree = "<group>"; };
+		E030EF0C2A3346CC00F7B537 /* CkImapW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkImapW.h; sourceTree = "<group>"; };
+		E030EF0D2A3346CC00F7B537 /* CkHtmlToText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkHtmlToText.h; sourceTree = "<group>"; };
+		E030EF0E2A3346CC00F7B537 /* CkStreamW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkStreamW.h; sourceTree = "<group>"; };
+		E030EF0F2A3346CC00F7B537 /* CkServerSentEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkServerSentEvent.h; sourceTree = "<group>"; };
+		E030EF102A3346CC00F7B537 /* CkDsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkDsa.h; sourceTree = "<group>"; };
+		E030EF112A3346CC00F7B537 /* CkPrivateKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkPrivateKey.h; sourceTree = "<group>"; };
+		E030EF122A3346CC00F7B537 /* CkStringTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkStringTable.h; sourceTree = "<group>"; };
+		E030EF132A3346CC00F7B537 /* CkMessageSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkMessageSet.h; sourceTree = "<group>"; };
+		E030EF142A3346CC00F7B537 /* CkCertW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkCertW.h; sourceTree = "<group>"; };
+		E030EF152A3346CC00F7B537 /* CkDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkDateTime.h; sourceTree = "<group>"; };
+		E030EF162A3346CC00F7B537 /* CkJwsW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkJwsW.h; sourceTree = "<group>"; };
+		E030EF172A3346CC00F7B537 /* CkAuthAzureAD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkAuthAzureAD.h; sourceTree = "<group>"; };
+		E030EF182A3346CC00F7B537 /* CkRsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkRsa.h; sourceTree = "<group>"; };
+		E030EF192A3346CC00F7B537 /* CkBaseProgressW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkBaseProgressW.h; sourceTree = "<group>"; };
+		E030EF1A2A3346CC00F7B537 /* CkSCardW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkSCardW.h; sourceTree = "<group>"; };
+		E030EF1B2A3346CC00F7B537 /* CkSFtpProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkSFtpProgress.h; sourceTree = "<group>"; };
+		E030EF1C2A3346CC00F7B537 /* CkSecureString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkSecureString.h; sourceTree = "<group>"; };
+		E030EF1D2A3346CC00F7B537 /* CkStringArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkStringArray.h; sourceTree = "<group>"; };
+		E030EF1E2A3346CC00F7B537 /* CkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkService.h; sourceTree = "<group>"; };
+		E030EF1F2A3346CC00F7B537 /* CkHtmlToXml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkHtmlToXml.h; sourceTree = "<group>"; };
+		E030EF202A3346CC00F7B537 /* CkRssW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkRssW.h; sourceTree = "<group>"; };
+		E030EF212A3346CC00F7B537 /* CkRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkRegistry.h; sourceTree = "<group>"; };
+		E030EF222A3346CC00F7B537 /* CkPrivateKeyW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkPrivateKeyW.h; sourceTree = "<group>"; };
+		E030EF232A3346CC00F7B537 /* CkImap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkImap.h; sourceTree = "<group>"; };
+		E030EF242A3346CC00F7B537 /* CkGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkGlobal.h; sourceTree = "<group>"; };
+		E030EF252A3346CC00F7B537 /* CkEcc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkEcc.h; sourceTree = "<group>"; };
+		E030EF262A3346CC00F7B537 /* CkPemW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkPemW.h; sourceTree = "<group>"; };
+		E030EF272A3346CC00F7B537 /* CkHtmlToXmlW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkHtmlToXmlW.h; sourceTree = "<group>"; };
+		E030EF282A3346CC00F7B537 /* CkUnixCompress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkUnixCompress.h; sourceTree = "<group>"; };
+		E030EF292A3346CC00F7B537 /* CkZipProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkZipProgress.h; sourceTree = "<group>"; };
+		E030EF2A2A3346CC00F7B537 /* CkSFtpFileW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkSFtpFileW.h; sourceTree = "<group>"; };
+		E030EF2B2A3346CC00F7B537 /* CkRss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkRss.h; sourceTree = "<group>"; };
+		E030EF2C2A3346CC00F7B537 /* CkBounce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkBounce.h; sourceTree = "<group>"; };
+		E030EF2D2A3346CC00F7B537 /* CkXmlCertVaultW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkXmlCertVaultW.h; sourceTree = "<group>"; };
+		E030EF2E2A3346CC00F7B537 /* CkHttpProgressW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkHttpProgressW.h; sourceTree = "<group>"; };
+		E030EF2F2A3346CC00F7B537 /* CkBz2W.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkBz2W.h; sourceTree = "<group>"; };
+		E030EF302A3346CC00F7B537 /* CkHttpW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkHttpW.h; sourceTree = "<group>"; };
+		E030EF312A3346CC00F7B537 /* CkPdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkPdf.h; sourceTree = "<group>"; };
+		E030EF322A3346CC00F7B537 /* CkCgi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkCgi.h; sourceTree = "<group>"; };
+		E030EF332A3346CC00F7B537 /* CkSFtpProgressW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkSFtpProgressW.h; sourceTree = "<group>"; };
+		E030EF342A3346CC00F7B537 /* CkJavaKeyStoreW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkJavaKeyStoreW.h; sourceTree = "<group>"; };
+		E030EF352A3346CC00F7B537 /* allUnicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = allUnicode.h; sourceTree = "<group>"; };
+		E030EF362A3346CC00F7B537 /* CkXmlDSig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkXmlDSig.h; sourceTree = "<group>"; };
+		E030EF372A3346CC00F7B537 /* CkLogW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkLogW.h; sourceTree = "<group>"; };
+		E030EF382A3346CC00F7B537 /* CkStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkStream.h; sourceTree = "<group>"; };
+		E030EF392A3346CC00F7B537 /* CkBaseProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkBaseProgress.h; sourceTree = "<group>"; };
+		E030EF3A2A3346CC00F7B537 /* SystemTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemTime.h; sourceTree = "<group>"; };
+		E030EF3B2A3346CC00F7B537 /* CkHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkHttpRequest.h; sourceTree = "<group>"; };
+		E030EF3C2A3346CC00F7B537 /* CkXmlDSigW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkXmlDSigW.h; sourceTree = "<group>"; };
+		E030EF3D2A3346CC00F7B537 /* FileTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTime.h; sourceTree = "<group>"; };
+		E030EF3E2A3346CC00F7B537 /* CkOAuth2W.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkOAuth2W.h; sourceTree = "<group>"; };
+		E030EF3F2A3346CC00F7B537 /* CkMultiByteBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CkMultiByteBase.h; sourceTree = "<group>"; };
+		E030EF422A3346CC00F7B537 /* libchilkatIos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libchilkatIos.a; sourceTree = "<group>"; };
+		E030EF442A3346CC00F7B537 /* libchilkatIos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libchilkatIos.a; sourceTree = "<group>"; };
+		E030EF462A3346CC00F7B537 /* libchilkatIos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libchilkatIos.a; sourceTree = "<group>"; };
+		E030EF482A3346CC00F7B537 /* libchilkatIos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libchilkatIos.a; sourceTree = "<group>"; };
+		E030EF4A2A3346CC00F7B537 /* libchilkatIos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libchilkatIos.a; sourceTree = "<group>"; };
+		E030EF4C2A3346CC00F7B537 /* libchilkatIos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libchilkatIos.a; sourceTree = "<group>"; };
+		E030EF4E2A3346CC00F7B537 /* libchilkatIos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libchilkatIos.a; sourceTree = "<group>"; };
+		E030EF4F2A3346CC00F7B537 /* makeUniversalSimLib.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = makeUniversalSimLib.sh; sourceTree = "<group>"; };
+		E030EF5A2A3347BA00F7B537 /* RSAManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSAManager.h; sourceTree = "<group>"; };
+		E030EF5D2A334B8600F7B537 /* RSAManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSAManager.m; sourceTree = "<group>"; };
 		E0472C7F2A27687A00782EA0 /* Gigma-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gigma-Bridging-Header.h"; sourceTree = "<group>"; };
 		E0472C802A27687B00782EA0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		E0472C8E2A2782DE00782EA0 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -159,6 +522,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E01D67332A33B8770039F997 /* libchilkatIos.a in Frameworks */,
+				E041CBEA2A335309001F43DD /* libchilkatIos.a in Frameworks */,
+				E041CBE92A335306001F43DD /* libchilkatIos.a in Frameworks */,
+				E041CBEB2A33530C001F43DD /* libchilkatIos.a in Frameworks */,
 				E00F0CD72A2A467A00E80FC3 /* PostgresClientKit in Frameworks */,
 				E5BA9A80F42A382FAED57B0D /* Pods_Gigma.framework in Frameworks */,
 			);
@@ -193,6 +560,446 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E030EDE42A3346CB00F7B537 /* chilkatIOS */ = {
+			isa = PBXGroup;
+			children = (
+				E030EDE52A3346CB00F7B537 /* makeUniversalLib.sh */,
+				E030EDE62A3346CB00F7B537 /* include */,
+				E030EE522A3346CB00F7B537 /* license.pdf */,
+				E030EE532A3346CB00F7B537 /* cpp_include */,
+				E030EF402A3346CC00F7B537 /* lib */,
+				E030EF4F2A3346CC00F7B537 /* makeUniversalSimLib.sh */,
+			);
+			path = chilkatIOS;
+			sourceTree = "<group>";
+		};
+		E030EDE62A3346CB00F7B537 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				E030EDE72A3346CB00F7B537 /* CkoAuthAzureStorage.h */,
+				E030EDE82A3346CB00F7B537 /* CkoJsonArray.h */,
+				E030EDE92A3346CB00F7B537 /* CkoMailMan.h */,
+				E030EDEA2A3346CB00F7B537 /* CkoAuthAws.h */,
+				E030EDEB2A3346CB00F7B537 /* CkoImap.h */,
+				E030EDEC2A3346CB00F7B537 /* CkoJsonObject.h */,
+				E030EDED2A3346CB00F7B537 /* CkoXmp.h */,
+				E030EDEE2A3346CB00F7B537 /* CkoZip.h */,
+				E030EDEF2A3346CB00F7B537 /* CkoSecureString.h */,
+				E030EDF02A3346CB00F7B537 /* CkoSFtpProgress.h */,
+				E030EDF12A3346CB00F7B537 /* CkoLog.h */,
+				E030EDF22A3346CB00F7B537 /* CkoUrl.h */,
+				E030EDF32A3346CB00F7B537 /* CkoXml.h */,
+				E030EDF42A3346CB00F7B537 /* CkoPfx.h */,
+				E030EDF52A3346CB00F7B537 /* CkoOAuth1.h */,
+				E030EDF62A3346CB00F7B537 /* CkoDtObj.h */,
+				E030EDF72A3346CB00F7B537 /* CkoUnixCompress.h */,
+				E030EDF82A3346CB00F7B537 /* CkoSsh.h */,
+				E030EDF92A3346CB00F7B537 /* CkoMht.h */,
+				E030EDFA2A3346CB00F7B537 /* CkoTaskChain.h */,
+				E030EDFB2A3346CB00F7B537 /* CkoSshKey.h */,
+				E030EDFC2A3346CB00F7B537 /* CkoCompression.h */,
+				E030EDFD2A3346CB00F7B537 /* CkoBaseProgress.h */,
+				E030EDFE2A3346CB00F7B537 /* CkoDh.h */,
+				E030EDFF2A3346CB00F7B537 /* CkoAuthUtil.h */,
+				E030EE002A3346CB00F7B537 /* CkoCache.h */,
+				E030EE012A3346CB00F7B537 /* CkoGzip.h */,
+				E030EE022A3346CB00F7B537 /* CkoSFtpDir.h */,
+				E030EE032A3346CB00F7B537 /* CkoZipEntry.h */,
+				E030EE042A3346CB00F7B537 /* CkoRest.h */,
+				E030EE052A3346CB00F7B537 /* CkoSshTunnel.h */,
+				E030EE062A3346CB00F7B537 /* CkoRss.h */,
+				E030EE072A3346CB00F7B537 /* CkoDirTree.h */,
+				E030EE082A3346CB00F7B537 /* CkoFtp2Progress.h */,
+				E030EE092A3346CB00F7B537 /* CkoPrng.h */,
+				E030EE0A2A3346CB00F7B537 /* CkoPdf.h */,
+				E030EE0B2A3346CB00F7B537 /* CkoCgi.h */,
+				E030EE0C2A3346CB00F7B537 /* CkoHttpProgress.h */,
+				E030EE0D2A3346CB00F7B537 /* CkoMime.h */,
+				E030EE0E2A3346CB00F7B537 /* CkoTask.h */,
+				E030EE0F2A3346CB00F7B537 /* CkoStringBuilder.h */,
+				E030EE102A3346CB00F7B537 /* CkoHttp.h */,
+				E030EE112A3346CB00F7B537 /* CkoSpider.h */,
+				E030EE122A3346CB00F7B537 /* CkoOAuth2.h */,
+				E030EE132A3346CB00F7B537 /* CkoDsa.h */,
+				E030EE142A3346CB00F7B537 /* CkoUpload.h */,
+				E030EE152A3346CB00F7B537 /* CkoDkim.h */,
+				E030EE162A3346CB00F7B537 /* CkoEdDSA.h */,
+				E030EE172A3346CB00F7B537 /* CkoHtmlToText.h */,
+				E030EE182A3346CB00F7B537 /* CkoCertStore.h */,
+				E030EE192A3346CB00F7B537 /* CkoPrivateKey.h */,
+				E030EE1A2A3346CB00F7B537 /* CkoSocket.h */,
+				E030EE1B2A3346CB00F7B537 /* CkoEmail.h */,
+				E030EE1C2A3346CB00F7B537 /* CkoRsa.h */,
+				E030EE1D2A3346CB00F7B537 /* CkoMessageSet.h */,
+				E030EE1E2A3346CB00F7B537 /* CkoSFtpFile.h */,
+				E030EE1F2A3346CB00F7B537 /* CkoHttpResponse.h */,
+				E030EE202A3346CB00F7B537 /* CkoSCard.h */,
+				E030EE212A3346CB00F7B537 /* CkoEcc.h */,
+				E030EE222A3346CB00F7B537 /* CkoSFtp.h */,
+				E030EE232A3346CB00F7B537 /* CkoJwe.h */,
+				E030EE242A3346CB00F7B537 /* CkoHttpRequest.h */,
+				E030EE252A3346CB00F7B537 /* CkoAsn.h */,
+				E030EE262A3346CB00F7B537 /* CkoServerSentEvent.h */,
+				E030EE272A3346CB00F7B537 /* CkoCrypt2.h */,
+				E030EE282A3346CB00F7B537 /* CkoBz2.h */,
+				E030EE292A3346CB00F7B537 /* CkoCertChain.h */,
+				E030EE2A2A3346CB00F7B537 /* CkoScp.h */,
+				E030EE2B2A3346CB00F7B537 /* CkoHashtable.h */,
+				E030EE2C2A3346CB00F7B537 /* CkoWebSocket.h */,
+				E030EE2D2A3346CB00F7B537 /* CkoTrustedRoots.h */,
+				E030EE2E2A3346CB00F7B537 /* CkoZipProgress.h */,
+				E030EE2F2A3346CB00F7B537 /* CkoCsr.h */,
+				E030EE302A3346CB00F7B537 /* CkoProgress.h */,
+				E030EE312A3346CB00F7B537 /* CkoStringArray.h */,
+				E030EE322A3346CB00F7B537 /* CkoMailboxes.h */,
+				E030EE332A3346CB00F7B537 /* CkoPkcs11.h */,
+				E030EE342A3346CB00F7B537 /* CkoBinData.h */,
+				E030EE352A3346CB00F7B537 /* CkoPublicKey.h */,
+				E030EE362A3346CB00F7B537 /* CkoCharset.h */,
+				E030EE372A3346CB00F7B537 /* CkoAuthAzureAD.h */,
+				E030EE382A3346CB00F7B537 /* CkoZipCrc.h */,
+				E030EE392A3346CB00F7B537 /* CkoJws.h */,
+				E030EE3A2A3346CB00F7B537 /* CkoJavaKeyStore.h */,
+				E030EE3B2A3346CB00F7B537 /* CkoStringTable.h */,
+				E030EE3C2A3346CB00F7B537 /* CkoPem.h */,
+				E030EE3D2A3346CB00F7B537 /* CkoFtp2.h */,
+				E030EE3E2A3346CB00F7B537 /* CkoCsv.h */,
+				E030EE3F2A3346CB00F7B537 /* CkoDateTime.h */,
+				E030EE402A3346CB00F7B537 /* CkoAuthAzureSAS.h */,
+				E030EE412A3346CB00F7B537 /* CkoGlobal.h */,
+				E030EE422A3346CB00F7B537 /* CkoNtlm.h */,
+				E030EE432A3346CB00F7B537 /* CkoAtom.h */,
+				E030EE442A3346CB00F7B537 /* CkoXmlDSigGen.h */,
+				E030EE452A3346CB00F7B537 /* CkoAuthGoogle.h */,
+				E030EE462A3346CB00F7B537 /* CkoTarProgress.h */,
+				E030EE472A3346CB00F7B537 /* CkoCert.h */,
+				E030EE482A3346CB00F7B537 /* CkoXmlCertVault.h */,
+				E030EE492A3346CB00F7B537 /* CkoJwt.h */,
+				E030EE4A2A3346CB00F7B537 /* CkoTar.h */,
+				E030EE4B2A3346CB00F7B537 /* CkoStream.h */,
+				E030EE4C2A3346CB00F7B537 /* CkoXmlDSig.h */,
+				E030EE4D2A3346CB00F7B537 /* CkoFileAccess.h */,
+				E030EE4E2A3346CB00F7B537 /* CkoHtmlToXml.h */,
+				E030EE4F2A3346CB00F7B537 /* CkoEmailBundle.h */,
+				E030EE502A3346CB00F7B537 /* CkoBounce.h */,
+				E030EE512A3346CB00F7B537 /* CkoMailManProgress.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		E030EE532A3346CB00F7B537 /* cpp_include */ = {
+			isa = PBXGroup;
+			children = (
+				E030EE542A3346CB00F7B537 /* CkAuthAzureADW.h */,
+				E030EE552A3346CB00F7B537 /* CkCsr.h */,
+				E030EE562A3346CB00F7B537 /* CkNtlmW.h */,
+				E030EE572A3346CB00F7B537 /* CkSshW.h */,
+				E030EE582A3346CB00F7B537 /* CkZipCrcW.h */,
+				E030EE592A3346CB00F7B537 /* CkAuthAws.h */,
+				E030EE5A2A3346CB00F7B537 /* CkAuthAzureStorageW.h */,
+				E030EE5B2A3346CB00F7B537 /* CkDateTimeW.h */,
+				E030EE5C2A3346CB00F7B537 /* CkMailMan.h */,
+				E030EE5D2A3346CB00F7B537 /* CkSCard.h */,
+				E030EE5E2A3346CB00F7B537 /* CkCompressionW.h */,
+				E030EE5F2A3346CB00F7B537 /* CkAuthAzureSAS.h */,
+				E030EE602A3346CB00F7B537 /* CkEdDSAW.h */,
+				E030EE612A3346CB00F7B537 /* CkRestW.h */,
+				E030EE622A3346CB00F7B537 /* CkMailManW.h */,
+				E030EE632A3346CB00F7B537 /* CkAuthUtilW.h */,
+				E030EE642A3346CB00F7B537 /* CkTaskChainW.h */,
+				E030EE652A3346CB00F7B537 /* CkTaskChain.h */,
+				E030EE662A3346CB00F7B537 /* CkJws.h */,
+				E030EE672A3346CB00F7B537 /* CkEdDSA.h */,
+				E030EE682A3346CB00F7B537 /* CkStringBuilder.h */,
+				E030EE692A3346CB00F7B537 /* CkDhW.h */,
+				E030EE6A2A3346CB00F7B537 /* CkEmail.h */,
+				E030EE6B2A3346CB00F7B537 /* CkAtom.h */,
+				E030EE6C2A3346CB00F7B537 /* CkNtlm.h */,
+				E030EE6D2A3346CB00F7B537 /* CkOAuth1W.h */,
+				E030EE6E2A3346CB00F7B537 /* CkPem.h */,
+				E030EE6F2A3346CB00F7B537 /* CkCsv.h */,
+				E030EE702A3346CB00F7B537 /* CkPkcs11W.h */,
+				E030EE712A3346CB00F7B537 /* CkObject.h */,
+				E030EE722A3346CB00F7B537 /* CkJwe.h */,
+				E030EE732A3346CB00F7B537 /* CkUnixCompressW.h */,
+				E030EE742A3346CB00F7B537 /* CkScpW.h */,
+				E030EE752A3346CB00F7B537 /* CkJsonArray.h */,
+				E030EE762A3346CB00F7B537 /* CkDh.h */,
+				E030EE772A3346CB00F7B537 /* CkSshKey.h */,
+				E030EE782A3346CB00F7B537 /* CkBounceW.h */,
+				E030EE792A3346CB00F7B537 /* CkScMinidriver.h */,
+				E030EE7A2A3346CB00F7B537 /* CkAsn.h */,
+				E030EE7B2A3346CB00F7B537 /* CkCreateCSW.h */,
+				E030EE7C2A3346CB00F7B537 /* CkXmlCertVault.h */,
+				E030EE7D2A3346CB00F7B537 /* CkDtObjW.h */,
+				E030EE7E2A3346CB00F7B537 /* CkCert.h */,
+				E030EE7F2A3346CB00F7B537 /* CkSecureStringW.h */,
+				E030EE802A3346CB00F7B537 /* CkTarProgressW.h */,
+				E030EE812A3346CB00F7B537 /* CkCertStoreW.h */,
+				E030EE822A3346CB00F7B537 /* CkBz2.h */,
+				E030EE832A3346CB00F7B537 /* CkClassWithCallbacks.h */,
+				E030EE842A3346CB00F7B537 /* CkOAuth1.h */,
+				E030EE852A3346CB00F7B537 /* int64.h */,
+				E030EE862A3346CB00F7B537 /* CkAuthUtil.h */,
+				E030EE872A3346CB00F7B537 /* CkScp.h */,
+				E030EE882A3346CB00F7B537 /* CkJwtW.h */,
+				E030EE892A3346CB00F7B537 /* CkWideCharBase.h */,
+				E030EE8A2A3346CB00F7B537 /* CkMailboxesW.h */,
+				E030EE8B2A3346CB00F7B537 /* CkSshKeyW.h */,
+				E030EE8C2A3346CB00F7B537 /* CkByteData.h */,
+				E030EE8D2A3346CB00F7B537 /* CkSFtpDir.h */,
+				E030EE8E2A3346CB00F7B537 /* CkJwt.h */,
+				E030EE8F2A3346CB00F7B537 /* CkZipW.h */,
+				E030EE902A3346CB00F7B537 /* CkFileAccessW.h */,
+				E030EE912A3346CB00F7B537 /* CkZipEntry.h */,
+				E030EE922A3346CB00F7B537 /* CkServerSentEventW.h */,
+				E030EE932A3346CB00F7B537 /* CkCertStore.h */,
+				E030EE942A3346CB00F7B537 /* CkStringArrayW.h */,
+				E030EE952A3346CB00F7B537 /* CkDirTree.h */,
+				E030EE962A3346CB00F7B537 /* CkHttpResponseW.h */,
+				E030EE972A3346CB00F7B537 /* CkUrlW.h */,
+				E030EE982A3346CB00F7B537 /* CkTar.h */,
+				E030EE992A3346CB00F7B537 /* CkCompression.h */,
+				E030EE9A2A3346CB00F7B537 /* CkAuthAzureSASW.h */,
+				E030EE9B2A3346CB00F7B537 /* CkCache.h */,
+				E030EE9C2A3346CB00F7B537 /* CkTrustedRoots.h */,
+				E030EE9D2A3346CB00F7B537 /* CkStringTableW.h */,
+				E030EE9E2A3346CB00F7B537 /* CkTrustedRootsW.h */,
+				E030EE9F2A3346CB00F7B537 /* CkMimeW.h */,
+				E030EEA02A3346CB00F7B537 /* CkGzipW.h */,
+				E030EEA12A3346CB00F7B537 /* CkSFtp.h */,
+				E030EEA22A3346CB00F7B537 /* CkZipEntryW.h */,
+				E030EEA32A3346CB00F7B537 /* CkSpiderW.h */,
+				E030EEA42A3346CB00F7B537 /* CkFtp2ProgressW.h */,
+				E030EEA52A3346CB00F7B537 /* CkCharsetW.h */,
+				E030EEA62A3346CB00F7B537 /* CkTaskW.h */,
+				E030EEA72A3346CB00F7B537 /* CkDtObj.h */,
+				E030EEA82A3346CB00F7B537 /* CkCreateCS.h */,
+				E030EEA92A3346CB00F7B537 /* CkSFtpDirW.h */,
+				E030EEAA2A3346CB00F7B537 /* CkFileAccess.h */,
+				E030EEAB2A3346CB00F7B537 /* CkDsaW.h */,
+				E030EEAC2A3346CB00F7B537 /* CkString.h */,
+				E030EEAD2A3346CB00F7B537 /* CkScMinidriverW.h */,
+				E030EEAE2A3346CB00F7B537 /* CkZipProgressW.h */,
+				E030EEAF2A3346CB00F7B537 /* CkCsvW.h */,
+				E030EEB02A3346CB00F7B537 /* CkSocketW.h */,
+				E030EEB12A3346CB00F7B537 /* CkXmlDSigGen.h */,
+				E030EEB22A3346CB00F7B537 /* CkSshTunnel.h */,
+				E030EEB32A3346CB00F7B537 /* CkPrngW.h */,
+				E030EEB42A3346CB00F7B537 /* CkCrypt2W.h */,
+				E030EEB52A3346CB00F7B537 /* CkEmailW.h */,
+				E030EEB62A3346CB00F7B537 /* CkFtp2.h */,
+				E030EEB72A3346CB00F7B537 /* CkPfxW.h */,
+				E030EEB82A3346CB00F7B537 /* CkStringBuilderW.h */,
+				E030EEB92A3346CB00F7B537 /* CkXmlDSigGenW.h */,
+				E030EEBA2A3346CB00F7B537 /* CkSocket.h */,
+				E030EEBB2A3346CB00F7B537 /* CkSFtpFile.h */,
+				E030EEBC2A3346CB00F7B537 /* CkCsrW.h */,
+				E030EEBD2A3346CB00F7B537 /* CkHtmlToTextW.h */,
+				E030EEBE2A3346CB00F7B537 /* CkJavaKeyStore.h */,
+				E030EEBF2A3346CB00F7B537 /* CkJsonObjectW.h */,
+				E030EEC02A3346CB00F7B537 /* CkSshTunnelW.h */,
+				E030EEC12A3346CB00F7B537 /* CkUpload.h */,
+				E030EEC22A3346CB00F7B537 /* CkCertChainW.h */,
+				E030EEC32A3346CB00F7B537 /* CkDirTreeW.h */,
+				E030EEC42A3346CB00F7B537 /* CkSpider.h */,
+				E030EEC52A3346CB00F7B537 /* CkOAuth2.h */,
+				E030EEC62A3346CB00F7B537 /* CkAuthGoogle.h */,
+				E030EEC72A3346CC00F7B537 /* CkMessageSetW.h */,
+				E030EEC82A3346CC00F7B537 /* CkMime.h */,
+				E030EEC92A3346CC00F7B537 /* CkLog.h */,
+				E030EECA2A3346CC00F7B537 /* ck_inttypes.h */,
+				E030EECB2A3346CC00F7B537 /* CkUrl.h */,
+				E030EECC2A3346CC00F7B537 /* CkHashtableW.h */,
+				E030EECD2A3346CC00F7B537 /* CkPfx.h */,
+				E030EECE2A3346CC00F7B537 /* CkGlobalW.h */,
+				E030EECF2A3346CC00F7B537 /* CkXml.h */,
+				E030EED02A3346CC00F7B537 /* CkTask.h */,
+				E030EED12A3346CC00F7B537 /* CkTarW.h */,
+				E030EED22A3346CC00F7B537 /* CkFtp2Progress.h */,
+				E030EED32A3346CC00F7B537 /* CkFtp2W.h */,
+				E030EED42A3346CC00F7B537 /* CkUploadW.h */,
+				E030EED52A3346CC00F7B537 /* CkClassWithCallbacksW.h */,
+				E030EED62A3346CC00F7B537 /* CkCgiW.h */,
+				E030EED72A3346CC00F7B537 /* CkEmailBundle.h */,
+				E030EED82A3346CC00F7B537 /* CkSFtpW.h */,
+				E030EED92A3346CC00F7B537 /* CkCsp.h */,
+				E030EEDA2A3346CC00F7B537 /* CkCrypt2.h */,
+				E030EEDB2A3346CC00F7B537 /* CkSsh.h */,
+				E030EEDC2A3346CC00F7B537 /* CkGzip.h */,
+				E030EEDD2A3346CC00F7B537 /* CkMailManProgressW.h */,
+				E030EEDE2A3346CC00F7B537 /* CkJsonArrayW.h */,
+				E030EEDF2A3346CC00F7B537 /* CkAuthGoogleW.h */,
+				E030EEE02A3346CC00F7B537 /* CkMht.h */,
+				E030EEE12A3346CC00F7B537 /* CkJweW.h */,
+				E030EEE22A3346CC00F7B537 /* CkRest.h */,
+				E030EEE32A3346CC00F7B537 /* CkMailboxes.h */,
+				E030EEE42A3346CC00F7B537 /* CkKeyContainerW.h */,
+				E030EEE52A3346CC00F7B537 /* CkSettings.h */,
+				E030EEE62A3346CC00F7B537 /* CkPublicKey.h */,
+				E030EEE72A3346CC00F7B537 /* CkMhtW.h */,
+				E030EEE82A3346CC00F7B537 /* CkRsaW.h */,
+				E030EEE92A3346CC00F7B537 /* CkPrng.h */,
+				E030EEEA2A3346CC00F7B537 /* CkWebSocketW.h */,
+				E030EEEB2A3346CC00F7B537 /* CkEmailBundleW.h */,
+				E030EEEC2A3346CC00F7B537 /* CkBinDataW.h */,
+				E030EEED2A3346CC00F7B537 /* CkHttpProgress.h */,
+				E030EEEE2A3346CC00F7B537 /* CkAuthAzureStorage.h */,
+				E030EEEF2A3346CC00F7B537 /* CkPdfW.h */,
+				E030EEF02A3346CC00F7B537 /* CkEccW.h */,
+				E030EEF12A3346CC00F7B537 /* CkAuthAwsW.h */,
+				E030EEF22A3346CC00F7B537 /* CkAtomW.h */,
+				E030EEF32A3346CC00F7B537 /* CkDkimW.h */,
+				E030EEF42A3346CC00F7B537 /* CkPublicKeyW.h */,
+				E030EEF52A3346CC00F7B537 /* CkAsnW.h */,
+				E030EEF62A3346CC00F7B537 /* CkJsonObject.h */,
+				E030EEF72A3346CC00F7B537 /* CkCspW.h */,
+				E030EEF82A3346CC00F7B537 /* CkHttpRequestW.h */,
+				E030EEF92A3346CC00F7B537 /* CkZipCrc.h */,
+				E030EEFA2A3346CC00F7B537 /* CkMailManProgress.h */,
+				E030EEFB2A3346CC00F7B537 /* CkXmlW.h */,
+				E030EEFC2A3346CC00F7B537 /* CkCacheW.h */,
+				E030EEFD2A3346CC00F7B537 /* CkTarProgress.h */,
+				E030EEFE2A3346CC00F7B537 /* CkPkcs11.h */,
+				E030EEFF2A3346CC00F7B537 /* CkHttp.h */,
+				E030EF002A3346CC00F7B537 /* CkKeyContainer.h */,
+				E030EF012A3346CC00F7B537 /* CkBinData.h */,
+				E030EF022A3346CC00F7B537 /* CkXmp.h */,
+				E030EF032A3346CC00F7B537 /* CkCharset.h */,
+				E030EF042A3346CC00F7B537 /* CkXmpW.h */,
+				E030EF052A3346CC00F7B537 /* CkDkim.h */,
+				E030EF062A3346CC00F7B537 /* chilkatDefs.h */,
+				E030EF072A3346CC00F7B537 /* CkHttpResponse.h */,
+				E030EF082A3346CC00F7B537 /* CkCertChain.h */,
+				E030EF092A3346CC00F7B537 /* CkHashtable.h */,
+				E030EF0A2A3346CC00F7B537 /* CkWebSocket.h */,
+				E030EF0B2A3346CC00F7B537 /* CkZip.h */,
+				E030EF0C2A3346CC00F7B537 /* CkImapW.h */,
+				E030EF0D2A3346CC00F7B537 /* CkHtmlToText.h */,
+				E030EF0E2A3346CC00F7B537 /* CkStreamW.h */,
+				E030EF0F2A3346CC00F7B537 /* CkServerSentEvent.h */,
+				E030EF102A3346CC00F7B537 /* CkDsa.h */,
+				E030EF112A3346CC00F7B537 /* CkPrivateKey.h */,
+				E030EF122A3346CC00F7B537 /* CkStringTable.h */,
+				E030EF132A3346CC00F7B537 /* CkMessageSet.h */,
+				E030EF142A3346CC00F7B537 /* CkCertW.h */,
+				E030EF152A3346CC00F7B537 /* CkDateTime.h */,
+				E030EF162A3346CC00F7B537 /* CkJwsW.h */,
+				E030EF172A3346CC00F7B537 /* CkAuthAzureAD.h */,
+				E030EF182A3346CC00F7B537 /* CkRsa.h */,
+				E030EF192A3346CC00F7B537 /* CkBaseProgressW.h */,
+				E030EF1A2A3346CC00F7B537 /* CkSCardW.h */,
+				E030EF1B2A3346CC00F7B537 /* CkSFtpProgress.h */,
+				E030EF1C2A3346CC00F7B537 /* CkSecureString.h */,
+				E030EF1D2A3346CC00F7B537 /* CkStringArray.h */,
+				E030EF1E2A3346CC00F7B537 /* CkService.h */,
+				E030EF1F2A3346CC00F7B537 /* CkHtmlToXml.h */,
+				E030EF202A3346CC00F7B537 /* CkRssW.h */,
+				E030EF212A3346CC00F7B537 /* CkRegistry.h */,
+				E030EF222A3346CC00F7B537 /* CkPrivateKeyW.h */,
+				E030EF232A3346CC00F7B537 /* CkImap.h */,
+				E030EF242A3346CC00F7B537 /* CkGlobal.h */,
+				E030EF252A3346CC00F7B537 /* CkEcc.h */,
+				E030EF262A3346CC00F7B537 /* CkPemW.h */,
+				E030EF272A3346CC00F7B537 /* CkHtmlToXmlW.h */,
+				E030EF282A3346CC00F7B537 /* CkUnixCompress.h */,
+				E030EF292A3346CC00F7B537 /* CkZipProgress.h */,
+				E030EF2A2A3346CC00F7B537 /* CkSFtpFileW.h */,
+				E030EF2B2A3346CC00F7B537 /* CkRss.h */,
+				E030EF2C2A3346CC00F7B537 /* CkBounce.h */,
+				E030EF2D2A3346CC00F7B537 /* CkXmlCertVaultW.h */,
+				E030EF2E2A3346CC00F7B537 /* CkHttpProgressW.h */,
+				E030EF2F2A3346CC00F7B537 /* CkBz2W.h */,
+				E030EF302A3346CC00F7B537 /* CkHttpW.h */,
+				E030EF312A3346CC00F7B537 /* CkPdf.h */,
+				E030EF322A3346CC00F7B537 /* CkCgi.h */,
+				E030EF332A3346CC00F7B537 /* CkSFtpProgressW.h */,
+				E030EF342A3346CC00F7B537 /* CkJavaKeyStoreW.h */,
+				E030EF352A3346CC00F7B537 /* allUnicode.h */,
+				E030EF362A3346CC00F7B537 /* CkXmlDSig.h */,
+				E030EF372A3346CC00F7B537 /* CkLogW.h */,
+				E030EF382A3346CC00F7B537 /* CkStream.h */,
+				E030EF392A3346CC00F7B537 /* CkBaseProgress.h */,
+				E030EF3A2A3346CC00F7B537 /* SystemTime.h */,
+				E030EF3B2A3346CC00F7B537 /* CkHttpRequest.h */,
+				E030EF3C2A3346CC00F7B537 /* CkXmlDSigW.h */,
+				E030EF3D2A3346CC00F7B537 /* FileTime.h */,
+				E030EF3E2A3346CC00F7B537 /* CkOAuth2W.h */,
+				E030EF3F2A3346CC00F7B537 /* CkMultiByteBase.h */,
+			);
+			path = cpp_include;
+			sourceTree = "<group>";
+		};
+		E030EF402A3346CC00F7B537 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				E030EF412A3346CC00F7B537 /* i386 */,
+				E030EF432A3346CC00F7B537 /* armv7 */,
+				E030EF452A3346CC00F7B537 /* arm64-sim */,
+				E030EF472A3346CC00F7B537 /* arm64e */,
+				E030EF492A3346CC00F7B537 /* armv7s */,
+				E030EF4B2A3346CC00F7B537 /* arm64 */,
+				E030EF4D2A3346CC00F7B537 /* x86_64 */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		E030EF412A3346CC00F7B537 /* i386 */ = {
+			isa = PBXGroup;
+			children = (
+				E030EF422A3346CC00F7B537 /* libchilkatIos.a */,
+			);
+			path = i386;
+			sourceTree = "<group>";
+		};
+		E030EF432A3346CC00F7B537 /* armv7 */ = {
+			isa = PBXGroup;
+			children = (
+				E030EF442A3346CC00F7B537 /* libchilkatIos.a */,
+			);
+			path = armv7;
+			sourceTree = "<group>";
+		};
+		E030EF452A3346CC00F7B537 /* arm64-sim */ = {
+			isa = PBXGroup;
+			children = (
+				E030EF462A3346CC00F7B537 /* libchilkatIos.a */,
+			);
+			path = "arm64-sim";
+			sourceTree = "<group>";
+		};
+		E030EF472A3346CC00F7B537 /* arm64e */ = {
+			isa = PBXGroup;
+			children = (
+				E030EF482A3346CC00F7B537 /* libchilkatIos.a */,
+			);
+			path = arm64e;
+			sourceTree = "<group>";
+		};
+		E030EF492A3346CC00F7B537 /* armv7s */ = {
+			isa = PBXGroup;
+			children = (
+				E030EF4A2A3346CC00F7B537 /* libchilkatIos.a */,
+			);
+			path = armv7s;
+			sourceTree = "<group>";
+		};
+		E030EF4B2A3346CC00F7B537 /* arm64 */ = {
+			isa = PBXGroup;
+			children = (
+				E030EF4C2A3346CC00F7B537 /* libchilkatIos.a */,
+			);
+			path = arm64;
+			sourceTree = "<group>";
+		};
+		E030EF4D2A3346CC00F7B537 /* x86_64 */ = {
+			isa = PBXGroup;
+			children = (
+				E030EF4E2A3346CC00F7B537 /* libchilkatIos.a */,
+			);
+			path = x86_64;
+			sourceTree = "<group>";
+		};
 		E05733192A24F61C00B7A32D = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +1025,7 @@
 		E05733242A24F61C00B7A32D /* Gigma */ = {
 			isa = PBXGroup;
 			children = (
+				E030EDE42A3346CB00F7B537 /* chilkatIOS */,
 				E0549B282A28E0790002A8D4 /* GigmaModel.xcdatamodeld */,
 				E05733252A24F61C00B7A32D /* AppDelegate.h */,
 				E05733262A24F61C00B7A32D /* AppDelegate.m */,
@@ -261,6 +1069,8 @@
 				E00E095B2A312E3B002E82DB /* BluetoothDriver.m */,
 				E030EDE02A327CB900F7B537 /* ColourConverter.h */,
 				E030EDDE2A327C9F00F7B537 /* ColourConverter.m */,
+				E030EF5A2A3347BA00F7B537 /* RSAManager.h */,
+				E030EF5D2A334B8600F7B537 /* RSAManager.m */,
 				E00E095D2A322D1A002E82DB /* BTOpcode.h */,
 				E00E095E2A3236B5002E82DB /* BTOpcode.c */,
 				E00E09582A3128B5002E82DB /* CentralManagerAdapter.swift */,
@@ -431,9 +1241,12 @@
 			files = (
 				E00F0CD92A2A5BAE00E80FC3 /* PrefsSQL.plist in Resources */,
 				E00F0D1B2A2FE79A00E80FC3 /* Main750.storyboard in Resources */,
+				E030EF502A3346CD00F7B537 /* makeUniversalLib.sh in Resources */,
 				E0155F5E2A2A0E3E00069BEE /* Tests.py in Resources */,
+				E030EF592A3346CD00F7B537 /* makeUniversalSimLib.sh in Resources */,
 				E0472D612A27A78F00782EA0 /* Main.storyboard in Resources */,
 				E05733672A2608B900B7A32D /* AfterMain.storyboard in Resources */,
+				E030EF512A3346CD00F7B537 /* license.pdf in Resources */,
 				E05733352A24F61F00B7A32D /* LaunchScreen.storyboard in Resources */,
 				E05733322A24F61F00B7A32D /* Assets.xcassets in Resources */,
 			);
@@ -576,6 +1389,7 @@
 				E05733612A2601A100B7A32D /* FriendViewController.m in Sources */,
 				E00E095F2A3236B5002E82DB /* BTOpcode.c in Sources */,
 				E057332A2A24F61C00B7A32D /* SceneDelegate.m in Sources */,
+				E030EF5E2A334B8600F7B537 /* RSAManager.m in Sources */,
 				E0472C812A27687B00782EA0 /* MapViewController.swift in Sources */,
 				E0549B332A2908DE0002A8D4 /* MessageSelectionCell.m in Sources */,
 				E0D8264D2A29374C00E3A373 /* ComposeMessageViewController.m in Sources */,
@@ -763,24 +1577,55 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HT5FTRSPGC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Gigma/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/chilkat-9.5.0-ios/lib/i386",
+					"$(PROJECT_DIR)/chilkat-9.5.0-ios/lib/armv7",
+					"$(PROJECT_DIR)/chilkat-9.5.0-ios/lib/arm64-sim",
+					"$(PROJECT_DIR)/chilkat-9.5.0-ios/lib/arm64e",
+					"$(PROJECT_DIR)/chilkat-9.5.0-ios/lib/armv7s",
+					"$(PROJECT_DIR)/chilkat-9.5.0-ios/lib/arm64",
+					"$(PROJECT_DIR)/chilkat-9.5.0-ios/lib/x86_64",
+					"$(PROJECT_DIR)/Gigma/chilkatIOS/lib/arm64",
+					"$(PROJECT_DIR)/Gigma/chilkatIOS/lib/arm64e",
+					"$(PROJECT_DIR)/Gigma/chilkatIOS/lib/x86_64",
+					"$(PROJECT_DIR)/Gigma/chilkatIOS/lib/i386",
+				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"MapCache\"",
+					"-framework",
+					"\"MapKit\"",
+					"-framework",
+					"\"NSDate_Utils\"",
+					"-lresolv",
+					"-lpthread",
+					"-lstdc++",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = DRP.Gigma;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Gigma/Gigma-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -796,24 +1641,55 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HT5FTRSPGC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Gigma/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/chilkat-9.5.0-ios/lib/i386",
+					"$(PROJECT_DIR)/chilkat-9.5.0-ios/lib/armv7",
+					"$(PROJECT_DIR)/chilkat-9.5.0-ios/lib/arm64-sim",
+					"$(PROJECT_DIR)/chilkat-9.5.0-ios/lib/arm64e",
+					"$(PROJECT_DIR)/chilkat-9.5.0-ios/lib/armv7s",
+					"$(PROJECT_DIR)/chilkat-9.5.0-ios/lib/arm64",
+					"$(PROJECT_DIR)/chilkat-9.5.0-ios/lib/x86_64",
+					"$(PROJECT_DIR)/Gigma/chilkatIOS/lib/arm64",
+					"$(PROJECT_DIR)/Gigma/chilkatIOS/lib/arm64e",
+					"$(PROJECT_DIR)/Gigma/chilkatIOS/lib/x86_64",
+					"$(PROJECT_DIR)/Gigma/chilkatIOS/lib/i386",
+				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"MapCache\"",
+					"-framework",
+					"\"MapKit\"",
+					"-framework",
+					"\"NSDate_Utils\"",
+					"-lresolv",
+					"-lpthread",
+					"-lstdc++",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = DRP.Gigma;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Gigma/Gigma-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
