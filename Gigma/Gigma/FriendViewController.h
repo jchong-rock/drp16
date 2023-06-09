@@ -11,7 +11,7 @@
 @protocol FriendViewControllerDelegate <NSObject>
 
 - (void) setColour:(UIColor *) colour;
-- (BOOL) addFriend:(Friend *) friend;
+- (BOOL) addFriend:(NSString *) friendName withPubKey:(NSString *) pubKey;
 - (IBAction) discoverablePressed:(id) sender;
 
 @end
@@ -19,6 +19,7 @@
 @interface FriendViewController : UIViewController <FriendViewControllerDelegate> {
     IBOutlet UITableView * buttonStack;
     NSMutableArray * friendButtonList;
+
 }
 
 @property (retain, nonatomic) UITableView * buttonStack;

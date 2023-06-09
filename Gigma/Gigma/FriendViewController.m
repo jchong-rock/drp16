@@ -13,13 +13,14 @@
 #import "ComposeMessageViewController.h"
 #import "FriendListCell.h"
 #import "BluetoothDriver.h"
+#import "ColourConverter.h"
 
 @interface FriendViewController () {
     NSManagedObjectContext * managedObjectContext;
-    BluetoothDriver * btDriver;
 }
 
 @property (weak, nonatomic) UIColor * friendColour;
+@property (weak, nonatomic) BluetoothDriver * btDriver;
 
 @end
 
@@ -27,7 +28,7 @@
 
 @synthesize buttonStack;
 @synthesize discoverableButton;
-
+@synthesize btDriver;
 @synthesize friendColour;
 
 - (void) viewDidLoad {
@@ -83,6 +84,7 @@
     
     Friend * friend = [friendButtonList objectAtIndex: indexPath.row];
     cell.friend = friend;
+    cell.colourButton.tintColor = [ColourConverter toColour: friend.colour];
     cell.textLabel.text = friend.friendName;
     return cell;
 }
@@ -93,6 +95,28 @@
 
 - (NSInteger) tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger) section {
     return [friendButtonList count];
+}
+
+- (BOOL) addFriend:(NSString *) name withPubKey:(NSString *) pubKey {
+    for (Friend * f in friendButtonList) {
+        if (f.friendName == name) {
+            return NO;
+        }
+    }
+    
+    
+    
+    if (name != nil) {
+        Friend * friend = [NSEntityDescription insertNewObjectForEntityForName: @"Friend" inManagedObjectContext: managedObjectContext];
+        friend.friendName = name;
+        friend.deviceID = pubKey;
+        [friendButtonList addObject: friend];
+        [buttonStack reloadData];
+        NSError * error;
+        [managedObjectContext save: &error];
+        return YES;
+    }
+    return NO;
 }
 
 - (IBAction) discoverablePressed:(id) sender {
@@ -111,30 +135,9 @@
     discoverableButton.tintColor = [UIColor systemRedColor];
 }
 
-- (BOOL) addFriend:(Friend *) friend {
-    for (Friend * f in friendButtonList) {
-        if (f.friendName == friend.friendName) {
-            return NO;
-        }
-    }
-    
-    if (friend.friendName != nil) {
-        Friend * friend2 = [NSEntityDescription insertNewObjectForEntityForName: @"Friend" inManagedObjectContext: managedObjectContext];
-        friend2.friendName = friend.friendName;
-        friend2.deviceID = friend.deviceID;
-        [friendButtonList addObject: friend2];
-        [buttonStack reloadData];
-        NSError * error;
-        [managedObjectContext save: &error];
-        return YES;
-    }
-    return NO;
-}
-
-- (void)setColour:(UIColor *)colour {
+- (void) setColour:(UIColor *) colour {
     friendColour = colour;
 }
-
 
 - (IBAction) colourSelector:(id) sender {
     UIButton * button = (UIButton *) sender;

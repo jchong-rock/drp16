@@ -2,7 +2,7 @@
 //  Friend+CoreDataProperties.m
 //  
 //
-//  Created by Jake Chong on 08/06/2023.
+//  Created by Jake Chong on 09/06/2023.
 //
 //
 

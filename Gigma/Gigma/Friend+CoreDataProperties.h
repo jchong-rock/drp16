@@ -2,7 +2,7 @@
 //  Friend+CoreDataProperties.h
 //  
 //
-//  Created by Jake Chong on 08/06/2023.
+//  Created by Jake Chong on 09/06/2023.
 //
 //
 
@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSFetchRequest<Friend *> *)fetchRequest NS_SWIFT_NAME(fetchRequest());
 
 @property (nonatomic) int64_t colour;
-@property (nullable, nonatomic, retain) NSData *deviceID;
+@property (nullable, nonatomic, copy) NSString *deviceID;
 @property (nullable, nonatomic, copy) NSString *friendName;
 @property (nullable, nonatomic, retain) NSOrderedSet<Message *> *messages;
 
