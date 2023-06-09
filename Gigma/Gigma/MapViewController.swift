@@ -189,7 +189,7 @@ extension MapViewController : MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         return mapView.mapCacheRenderer(forOverlay: overlay)
     }
-    /*func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard !(annotation is MKUserLocation) else {
             return nil
         }
@@ -225,7 +225,14 @@ extension MapViewController : MKMapViewDelegate {
     
     //TODO: get the colour from CORE DATA
     func getFriendColour(name: String) -> UIColor {
-        
+        let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
+        let moc = appDelegate.persistentContainer.viewContext
+        let friends = MainViewController.getFriendsFrom(moc)
+        for friend in friends! {
+            if (friend as! Friend).friendName == name {
+                return ColourConverter.toColour(UInt64((friend as! Friend).colour))
+            }
+        }
         
         return .red
     }
@@ -255,15 +262,15 @@ extension MapViewController : MKMapViewDelegate {
         let markerRect = CGRect(origin: markerCentre, size: markerSize)
         let marker = UIBezierPath(ovalIn: markerRect)
         marker.lineWidth = 1
-
-
+        
+        
         return UIGraphicsImageRenderer(size: markerSize).image {
             _ in
-                colour.setFill()
-                marker.fill()
-                icon.draw(in: iconRect)
+            colour.setFill()
+            marker.fill()
+            icon.draw(in: iconRect)
         }
-    }*/
+    }
 }
 
 extension MapViewController : CLLocationManagerDelegate {
