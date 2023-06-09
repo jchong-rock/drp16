@@ -204,7 +204,7 @@ extension CentralManagerAdapter : CBCentralManagerDelegate {
                 return
         }
         
-        NSLog("Discovered %s at %d", String(describing: peripheral.name), RSSI.intValue)
+        //NSLog("Discovered %s at %d", String(describing: peripheral.name), RSSI.intValue)
         
         // Device is in range - have we already seen it?
         if discoveredPeripheral != peripheral {
@@ -337,7 +337,7 @@ extension CentralManagerAdapter: CBPeripheralDelegate {
         guard let characteristicData = characteristic.value,
             let stringFromData = String(data: characteristicData, encoding: .utf8) else { return }
         
-        NSLog("Received %d bytes: %s", characteristicData.count, stringFromData)
+        //NSLog("Received %d bytes: %s", characteristicData.count, stringFromData)
         
         // Have we received the end-of-message token?
         if stringFromData == "EOM" {

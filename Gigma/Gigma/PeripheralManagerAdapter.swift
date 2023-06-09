@@ -98,7 +98,7 @@ import CoreBluetooth
             }
             
             let stringFromData = String(data: chunk, encoding: .utf8)
-            NSLog("Sent %d bytes: %s", chunk.count, String(describing: stringFromData))
+            //NSLog("Sent %d bytes: %s", chunk.count, String(describing: stringFromData))
             
             // It did send, so update our index
             sendDataIndex += amountToSend
@@ -211,17 +211,20 @@ extension PeripheralManagerAdapter : CBPeripheralManagerDelegate {
     func peripheralManager(_ peripheral: CBPeripheralManager, central: CBCentral, didSubscribeTo characteristic: CBCharacteristic) {
         NSLog("Central subscribed to characteristic")
         
-        // Get the data
-        dataToSend = textData!
         
-        // Reset the index
-        sendDataIndex = 0
-        
-        // save central
-        connectedCentral = central
-        
-        // Start sending
-        sendData()
+        if (textData != nil) {
+            // Get the data
+            dataToSend = textData!
+            
+            // Reset the index
+            sendDataIndex = 0
+            
+            // save central
+            connectedCentral = central
+            
+            // Start sending
+            sendData()
+        }
     }
     
     /*
@@ -251,7 +254,7 @@ extension PeripheralManagerAdapter : CBPeripheralManagerDelegate {
                     continue
             }
             
-            NSLog("Received write request of %d bytes: %s", requestValue.count, stringFromData)
+            //NSLog("Received write request of %d bytes: %s", requestValue.count, stringFromData)
         }
     }
 }
