@@ -8,10 +8,11 @@
 #import <UIKit/UIKit.h>
 #import "FriendViewController.h"
 #import "BluetoothDriver.h"
+#import "Pair.h"
 
 @interface AddFriendViewController : UIViewController
     <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, NearbyDevicePickerDelegate> {
-        NSMutableArray <Friend *> * nearbyDevicesList;
+        NSMutableArray <NSString *> * nearbyDevicesList;
         IBOutlet UIPickerView * nearbyDevicePicker;
         IBOutlet UITextField * nicknameField;
         IBOutlet UILabel * nicknameTextLabel;

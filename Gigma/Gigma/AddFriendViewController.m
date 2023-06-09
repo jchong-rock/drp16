@@ -12,6 +12,8 @@
 
 @interface AddFriendViewController ()
 
+@property (retain, nonatomic) NSMutableDictionary * nearbyDevicesMap;
+
 @end
 
 @implementation AddFriendViewController
@@ -23,6 +25,7 @@
 @synthesize nicknameField;
 @synthesize chosenNickname;
 @synthesize bluetoothDriver;
+@synthesize nearbyDevicesMap;
 
 - (void) viewDidLoad {
     [super viewDidLoad];
@@ -31,6 +34,7 @@
     bluetoothDriver = appDelegate.bluetoothDriver;
     bluetoothDriver.nearbyDevicePickerDelegate = self;
     nearbyDevicesList = [[NSMutableArray alloc] init];
+    nearbyDevicesMap = [[NSMutableDictionary alloc] init];
 }
 
 - (void) viewDidAppear:(BOOL) animated {
@@ -52,8 +56,9 @@
 }
 
 - (NSString *) pickerView:(UIPickerView *) pickerView titleForRow:(NSInteger) row forComponent:(NSInteger) component {
-    Friend * friend = (Friend *) [nearbyDevicesList objectAtIndex: row];
-    return friend.friendName;
+    NSString * friend = (NSString *) [nearbyDevicesList objectAtIndex: row];
+    NSString * fName = [nearbyDevicesMap objectForKey: friend];
+    return fName;
 }
 
 - (IBAction) addButtonPressed:(id) sender {
@@ -63,10 +68,10 @@
         return;
     }
     
-    Friend * chosenDevice = [nearbyDevicesList objectAtIndex:
+    NSString * chosenDevice = [nearbyDevicesList objectAtIndex:
                                [nearbyDevicePicker selectedRowInComponent: 0]];
     
-    BOOL didAddSuccessfully = [delegate addFriend: chosenDevice];
+    BOOL didAddSuccessfully = [delegate addFriend: chosenNickname withPubKey: chosenDevice];
     if (didAddSuccessfully) {
         [self dismissViewControllerAnimated: YES completion: nil];
     } else {
@@ -80,7 +85,7 @@
     }
 }
 
-- (IBAction) nicknameFieldDoneEditing:(id)sender {
+- (IBAction) nicknameFieldDoneEditing:(id) sender {
     chosenNickname = nicknameField.text;
 }
 
@@ -89,8 +94,13 @@
     return NO;
 }
 
-- (void) addNearbyDevice:(Friend *) friend {
-    
+- (void) addNearbyDevice:(NSString *) friend withPubKey:(NSString * _Nullable) pubKey {
+    NSLog(@"name of friend: %@", friend);
+    if ([nearbyDevicesMap objectForKey: pubKey] == nil) {
+        [nearbyDevicesList addObject: pubKey];
+    }
+    [nearbyDevicesMap setObject: friend forKey: pubKey];
+    [nearbyDevicePicker reloadAllComponents];
 }
 
 @end
