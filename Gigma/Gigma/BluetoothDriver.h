@@ -9,9 +9,11 @@
 #import "Friend+CoreDataProperties.h"
 #import "BluetoothManager.h"
 
+@class CodableCoordinate;
+
 @protocol NearbyDevicePickerDelegate <NSObject>
 
-- (void) addNearbyDevice:(Friend * _Nonnull) friend;
+- (void) addNearbyDevice:(NSString * _Nonnull) friend withPubKey:(NSString * _Nullable) pubKey;
 
 @end
 
@@ -21,6 +23,7 @@
 - (void) usePeripheral;
 - (void) useCentral;
 - (void) retrieveData:(NSData * _Nonnull) data;
+- (CodableCoordinate * _Nonnull) getLocationWithPubKey:(NSData * _Nonnull) pubKey;
 
 @property (retain, strong, nonatomic) NSObject <NearbyDevicePickerDelegate> * _Nullable nearbyDevicePickerDelegate;
 
