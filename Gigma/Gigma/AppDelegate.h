@@ -10,6 +10,7 @@
 
 @class BluetoothDriver;
 @protocol DataBaseDriver;
+@class RSAManager;
 
 NSString * deviceName(void);
 
@@ -21,6 +22,7 @@ NSString * deviceName(void);
 @property (strong, nonatomic) UIWindow * window;
 @property (strong, nonatomic) BluetoothDriver * bluetoothDriver;
 @property (retain, strong, nonatomic) NSObject <DataBaseDriver> * data;
+@property (retain, strong, nonatomic) RSAManager * rsaManager;
 
 @end
 

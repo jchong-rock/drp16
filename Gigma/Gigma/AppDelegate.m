@@ -10,6 +10,7 @@
 #import <sys/utsname.h>
 #import "Gigma-Swift.h"
 #import "BluetoothDriver.h"
+#import "RSAManager.h"
 
 NSString * deviceName(void) {
     struct utsname systemInfo;
@@ -27,6 +28,7 @@ NSString * deviceName(void) {
 
 @synthesize data;
 @synthesize bluetoothDriver;
+@synthesize rsaManager;
 
 - (void) checkAndInitialisePrefs:(NSArray *) prefs {
     NSManagedObjectContext * managedObjectContext = self.persistentContainer.viewContext;
@@ -42,6 +44,8 @@ NSString * deviceName(void) {
     if (mutableFetchResults == nil) {
         NSLog(@"oops");
     }
+    
+    
     
     NSMutableArray * innerPrefs = [[NSMutableArray alloc] init];
     for (MapSetting * insidePref in mutableFetchResults) {
@@ -64,6 +68,7 @@ NSString * deviceName(void) {
     data = [[PostgreSQLDriver alloc] init];
     NSArray * prefs = [[NSArray alloc] initWithObjects: @"Show stages", @"Show toilets", @"Show water sources", nil];
     [self checkAndInitialisePrefs: prefs];
+    rsaManager = [[RSAManager alloc] init];
     bluetoothDriver = [[BluetoothDriver alloc] init];
     UIStoryboard * storyboard = [self grabStoryboard];
     self.window.rootViewController = [storyboard instantiateInitialViewController];
