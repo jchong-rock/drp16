@@ -14,6 +14,12 @@
 @implementation FestivalViewController
 
 @synthesize titleLabel;
+@synthesize settingsButton;
+
+- (void) viewWillAppear:(BOOL) animated {
+    [super viewWillAppear: animated];
+    [settingsButton setTitle: @"" forState: UIControlStateNormal];
+}
 
 - (void) viewDidAppear:(BOOL) animated {
     [super viewDidAppear: animated];

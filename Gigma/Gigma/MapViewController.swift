@@ -14,6 +14,7 @@ import CoreData
 
 class MapViewController : UIViewController {
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var settingsButton: UIButton!
     
     var data: DataBaseDriver
     var bluetooth: BluetoothDriver
@@ -82,6 +83,11 @@ class MapViewController : UIViewController {
         mapView.useCache(mapCache!)
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(clearCache), name: NSNotification.Name.clearCache, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        settingsButton.setTitle("", for: .normal)
     }
     
     override func viewDidAppear(_ animated: Bool) {

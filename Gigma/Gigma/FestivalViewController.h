@@ -12,5 +12,6 @@
 }
 
 @property (retain, nonatomic) UILabel * titleLabel;
+@property (retain, nonatomic) IBOutlet UIButton * settingsButton;
 
 @end

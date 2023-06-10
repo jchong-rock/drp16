@@ -70,7 +70,7 @@ NSString * deviceName(void) {
     [self checkAndInitialisePrefs: prefs];
     rsaManager = [[RSAManager alloc] init];
     bluetoothDriver = [[BluetoothDriver alloc] init];
-    UIStoryboard * storyboard = [self grabStoryboard];
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName: @"Welcome" bundle: nil];
     self.window.rootViewController = [storyboard instantiateInitialViewController];
     [self.window makeKeyAndVisible];
     return YES;
@@ -78,24 +78,6 @@ NSString * deviceName(void) {
 
 
 #pragma mark - UISceneSession lifecycle
-
-- (UIStoryboard *) grabStoryboard {
- 
-    UIStoryboard * storyboard;
- 
-    // detect the height of our screen
-    int screenHeight = [UIScreen mainScreen].bounds.size.height;
-    
-    if (screenHeight != 667) {
-        storyboard = [UIStoryboard storyboardWithName: @"Main" bundle:nil];
-        // NSLog(@"Device has a 3.5inch Display.");
-    } else {
-        storyboard = [UIStoryboard storyboardWithName: @"Main750" bundle:nil];
-        // NSLog(@"Device has a 4inch Display.");
-    }
- 
-    return storyboard;
-}
 
 
 - (UISceneConfiguration *) application:(UIApplication *) application configurationForConnectingSceneSession:(UISceneSession *) connectingSceneSession options:(UISceneConnectionOptions *) options  API_AVAILABLE(ios(13.0)) {
