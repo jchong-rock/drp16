@@ -22,6 +22,7 @@
 @synthesize rsa;
 @synthesize publicKey;
 @synthesize privateKey;
+@dynamic name;
 
 - (instancetype) init {
     self = [super init];

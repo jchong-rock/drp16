@@ -636,7 +636,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="displayNameDidChangeValue:" destination="NzZ-1b-hSC" eventType="valueChanged" id="GJy-Dh-dF9"/>
+                                    <action selector="displayNameDidFinishEditing:" destination="NzZ-1b-hSC" eventType="editingDidEnd" id="SCk-tH-Z31"/>
                                 </connections>
                             </textField>
                         </subviews>

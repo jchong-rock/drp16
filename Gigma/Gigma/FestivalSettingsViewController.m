@@ -23,12 +23,12 @@
     prefs = [NSUserDefaults standardUserDefaults];
 }
 
-- (void) viewDidAppear:(BOOL) animated {
-    [super viewDidAppear: animated];
+- (void) viewWillAppear:(BOOL) animated {
+    [super viewWillAppear: animated];
     textField.text = [prefs objectForKey: @"RSAName"];
 }
 
-- (IBAction) displayNameDidChangeValue:(id) sender {
+- (IBAction) displayNameDidFinishEditing:(id) sender {
     [prefs setObject: textField.text forKey: @"RSAName"];
 }
 

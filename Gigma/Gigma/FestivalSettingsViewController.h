@@ -12,6 +12,6 @@
 @property (retain, nonatomic) IBOutlet UITextField * textField;
 
 - (IBAction) leaveButtonPressed:(id) sender;
-- (IBAction) displayNameDidChangeValue:(id) sender;
+- (IBAction) displayNameDidFinishEditing:(id) sender;
 
 @end
