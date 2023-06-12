@@ -28,5 +28,6 @@
 
 @property (retain, strong, nonatomic) NSObject <NearbyDevicePickerDelegate> * _Nullable nearbyDevicePickerDelegate;
 @property (retain, strong, nonatomic) NSObject <FriendViewControllerDelegate> * _Nullable friendViewControllerDelegate;
+@property (nonatomic, strong) dispatch_semaphore_t _Nullable acceptFriendSemaphore;
 
 @end

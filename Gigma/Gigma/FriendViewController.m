@@ -98,15 +98,16 @@
     return [friendButtonList count];
 }
 
-- (BOOL) addFriend:(NSString *) name withPubKey:(NSString *) pubKey {
+- (BOOL) nameAlreadyExists:(NSString *) name {
     for (Friend * f in friendButtonList) {
         if (f.friendName == name) {
-            return NO;
+            return YES;
         }
     }
-    
-    
-    
+    return NO;
+}
+
+- (BOOL) addFriend:(NSString *) name withPubKey:(NSString *) pubKey {    
     if (name != nil) {
         Friend * friend = [NSEntityDescription insertNewObjectForEntityForName: @"Friend" inManagedObjectContext: managedObjectContext];
         friend.friendName = name;

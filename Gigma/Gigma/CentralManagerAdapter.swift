@@ -42,6 +42,9 @@ import CoreBluetooth
     
     func close() {
         centralManager.stopScan()
+        cleanup()
+        writeIterationsComplete = 0
+        connectionIterationsComplete = 0
     }
     
     deinit {
@@ -258,13 +261,9 @@ extension CentralManagerAdapter : CBCentralManagerDelegate {
         discoveredPeripheral = nil
         
         // We're disconnected, so start scanning again
-        if connectionIterationsComplete < defaultIterations {
-            retrievePeripheral()
-        } else {
-            NSLog("Connection iterations completed")
-        }
-    }
 
+        retrievePeripheral()
+    }
 }
 
 extension CentralManagerAdapter: CBPeripheralDelegate {

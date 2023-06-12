@@ -19,7 +19,6 @@
 @property (nonatomic, retain) PeripheralManagerAdapter * peripheralManager;
 @property (weak, atomic) NSObject <BluetoothManager> * currentManager;
 @property (weak, atomic) RSAManager * rsaManager;
-@property (nonatomic, strong) dispatch_semaphore_t acceptFriendSemaphore;
 
 @end
 
@@ -90,6 +89,7 @@
 }
 
 - (void) retrieveData:(NSData * _Nonnull) data {
+    NSLog(@"we are here");
     // switch on the first byte -- opcode
     // if the opcode is a message or location, forward the data, then check if it is intended for us
     // if the opcode is a friend request, call the appropriate method to prompt confirmation from the user
@@ -97,7 +97,6 @@
     const unsigned char firstByte = ((const unsigned char *) [data bytes]) [0];
     switch (firstByte) {
         case PUB_KEY: {
-            
             acceptFriendSemaphore = dispatch_semaphore_create(0);
                 
             NSUInteger dataLength = [data length];
@@ -106,24 +105,11 @@
             NSString * friendName = [[NSString alloc] initWithData: friendNameData encoding: NSUTF8StringEncoding];
             NSString * pubKey = [[NSString alloc] initWithData: pubKeyData encoding: NSUTF8StringEncoding];
             
-            // Set the timeout interval
-            double timeoutInSeconds = 15.0;
-            dispatch_time_t timeout = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeoutInSeconds * NSEC_PER_SEC));
-            
-            // Wait for the semaphore to be signaled or timeout
-            long result = dispatch_semaphore_wait(acceptFriendSemaphore, timeout);
-            
-            if (result == 0) {
-                NSLog(@"Completion handler has been called.");
-                if (friendViewControllerDelegate != nil) {
-                    [friendViewControllerDelegate addFriend: friendName withPubKey: pubKey];
-                }
-            } else {
-                NSLog(@"Timeout occurred.");
-            }
+            [nearbyDevicePickerDelegate addNearbyDevice: friendName withPubKey: pubKey];
             break;
         }
         case FRIEND_REQ: {
+            NSLog(@"friend req");
             NSString * encrypted = [[[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding] substringFromIndex: 1];
             NSString * decrypted = [rsaManager decryptString: encrypted];
             if (![[decrypted substringToIndex: 5] isEqual: @RSA_MAGIC]) {
@@ -163,6 +149,8 @@
             }
         }
     }
+    //[currentManager close];
+    //[currentManager open];
 }
 
 @end

@@ -71,17 +71,35 @@
     NSString * chosenDevice = [nearbyDevicesList objectAtIndex:
                                [nearbyDevicePicker selectedRowInComponent: 0]];
     
-    BOOL didAddSuccessfully = [delegate addFriend: chosenNickname withPubKey: chosenDevice];
-    if (didAddSuccessfully) {
-        [self dismissViewControllerAnimated: YES completion: nil];
-    } else {
-        if ([chosenNickname length] == 0) {
-            nicknameTextLabel.textColor = UIColor.redColor;
-            nicknameTextLabel.text = @"Nickname cannot be empty";
-        } else {
-            nicknameTextLabel.textColor = UIColor.redColor;
-            nicknameTextLabel.text = @"Nickname already in use";
+    if ([chosenNickname length] == 0) {
+        nicknameTextLabel.textColor = UIColor.redColor;
+        nicknameTextLabel.text = @"Nickname cannot be empty";
+    } else if ([delegate nameAlreadyExists: chosenNickname]) {
+       nicknameTextLabel.textColor = UIColor.redColor;
+       nicknameTextLabel.text = @"Nickname already in use";
+    }
+    
+    // Set the timeout interval
+    double timeoutInSeconds = 15.0;
+    dispatch_time_t timeout = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeoutInSeconds * NSEC_PER_SEC));
+    
+    // Wait for the semaphore to be signaled or timeout
+    
+    [bluetoothDriver usePeripheral];
+    long result = dispatch_semaphore_wait(bluetoothDriver.acceptFriendSemaphore, timeout);
+    [bluetoothDriver useCentral];
+    
+    if (result == 0) {
+        NSLog(@"Completion handler has been called.");
+        if (delegate != nil) {
+            BOOL didAddSuccessfully = [delegate addFriend: chosenNickname withPubKey: chosenDevice];
+            if (didAddSuccessfully) {
+                [self dismissViewControllerAnimated: YES completion: nil];
+            }
         }
+    } else {
+        NSLog(@"Timeout occurred.");
+        [self dismissViewControllerAnimated: YES completion: nil];
     }
 }
 
