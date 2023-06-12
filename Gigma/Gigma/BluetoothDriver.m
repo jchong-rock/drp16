@@ -59,14 +59,16 @@
     [currentManager open];
 }
 
-- (void) sendFriendRequest {
+- (void) sendFriendRequest:(NSString *) friendPK {
     if (inPeripheralMode) {
         NSString * pubKey = [rsaManager.publicKey stringByPaddingToLength: PUB_KEY_SIZE/4 withString: @" "  startingAtIndex: 0];
-        NSData * pk = [pubKey dataUsingEncoding: NSUTF8StringEncoding];
-        NSMutableData * data1 = [NSMutableData dataWithData: pk];
-        NSData * data2 = [rsaManager.name dataUsingEncoding: NSUTF8StringEncoding];
-        [data1 appendData: data2];
-        [currentManager sendData: data2 withOpcode: FRIEND_REQ];
+        //NSData * pk = [pubKey dataUsingEncoding: NSUTF8StringEncoding];
+        NSMutableString * data = [NSMutableString stringWithString: @RSA_MAGIC];
+        [data appendString: pubKey];
+        [data appendString: rsaManager.name];
+        NSString * encrypted = [rsaManager encryptString: data withPublicKey: friendPK];
+        NSData * data1 = [encrypted dataUsingEncoding: NSUTF8StringEncoding];
+        [currentManager sendData: data1 withOpcode: FRIEND_REQ];
     }
 }
 
@@ -122,11 +124,15 @@
             break;
         }
         case FRIEND_REQ: {
+            NSString * encrypted = [[[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding] substringFromIndex: 1];
+            NSString * decrypted = [rsaManager decryptString: encrypted];
+            if (![[decrypted substringToIndex: 5] isEqual: @RSA_MAGIC]) {
+                break;
+            }
+            NSString * data = [decrypted substringFromIndex: 5];
             NSUInteger dataLength = [data length];
-            NSData * pubKeyData = [data subdataWithRange: NSMakeRange(1, PUB_KEY_SIZE/4)];
-            NSData * friendNameData = [data subdataWithRange: NSMakeRange((PUB_KEY_SIZE/4) + 1, dataLength - (PUB_KEY_SIZE/4) - 1)];
-            NSString * friendName = [[NSString alloc] initWithData: friendNameData encoding: NSUTF8StringEncoding];
-            NSString * pubKey = [[NSString alloc] initWithData: pubKeyData encoding: NSUTF8StringEncoding];
+            NSString * pubKey = [data substringToIndex: PUB_KEY_SIZE/4];
+            NSString * friendName = [data substringWithRange: NSMakeRange((PUB_KEY_SIZE/4), dataLength - (PUB_KEY_SIZE/4) - 1)];
             __block BOOL accepted;
             UIAlertController * popup = [UIAlertController alertControllerWithTitle: @"Friend Request" message: friendName preferredStyle: UIAlertControllerStyleAlert];
             
@@ -140,18 +146,21 @@
                 if (accepted) {
                     [friendViewControllerDelegate addFriend: friendName withPubKey: pubKey];
                     [self usePeripheral];
-                    [currentManager sendData: [@" " dataUsingEncoding: NSUTF8StringEncoding] withOpcode: ACCEPT_REQ];
+                    [currentManager sendData: [pubKey dataUsingEncoding: NSUTF8StringEncoding] withOpcode: ACCEPT_REQ];
                     [self useCentral];
                 }
                 break;
             }
+            
         }
         case ACCEPT_REQ: {
             if (self.acceptFriendSemaphore != nil) {
-                dispatch_semaphore_signal(self.acceptFriendSemaphore);
+                NSString * pubKey = [[[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding] substringFromIndex: 1];
+                if ([pubKey isEqual: rsaManager.publicKey]) {
+                    dispatch_semaphore_signal(self.acceptFriendSemaphore);
+                }
                 self.acceptFriendSemaphore = nil;
             }
-            
         }
     }
 }

@@ -28,6 +28,7 @@
     self = [super init];
     
     self.rsa = [[CkoRsa alloc] init];
+    rsa.EncodingMode = @"base64";
     BOOL success;
     
     userDefs = [NSUserDefaults standardUserDefaults];
@@ -53,6 +54,16 @@
 
 - (NSString *) name {
     return [userDefs stringForKey: @"RSAName"];
+}
+
+- (NSString *) encryptString:(NSString *) plain withPublicKey:(NSString *) pk {
+    [self.rsa ImportPublicKey: pk];
+    return [rsa EncryptStringENC: plain bUsePrivateKey: NO];
+}
+
+- (NSString *) decryptString:(NSString *) plain {
+    [self.rsa ImportPrivateKey: self.privateKey];
+    return [rsa DecryptStringENC: plain bUsePrivateKey: YES];
 }
 
 - (void) dealloc {
