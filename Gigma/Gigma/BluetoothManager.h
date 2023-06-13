@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "BTOpcode.h"
+#import <MultipeerConnectivity/MultipeerConnectivity.h>
 
 @protocol BluetoothManager <NSObject>
 
@@ -19,5 +20,12 @@
 @protocol BluetoothDataDelegate <NSObject>
 
 - (void) retrieveData:(NSData * _Nonnull) data;
+
+@end
+
+@protocol NearbyDevicePickerDelegate <NSObject>
+
+- (void) addNearbyDevice:(MCPeerID * _Nonnull) friend;
+- (void) removeNearbyDevice:(MCPeerID * _Nonnull) friend;
 
 @end

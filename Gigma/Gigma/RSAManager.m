@@ -6,7 +6,7 @@
 //
 
 #import "RSAManager.h"
-#import "chilkatIOS/include/CkoRsa.h"
+#import "chilkat-9.5.0-ios/include/CkoRsa.h"
 #import "MainViewController.h"
 
 @interface RSAManager () {

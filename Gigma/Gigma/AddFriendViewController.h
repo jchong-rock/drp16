@@ -7,12 +7,12 @@
 
 #import <UIKit/UIKit.h>
 #import "FriendViewController.h"
-#import "BluetoothDriver.h"
+#import "MultipeerDriver.h"
 #import "Pair.h"
 
 @interface AddFriendViewController : UIViewController
     <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, NearbyDevicePickerDelegate> {
-        NSMutableArray <NSString *> * nearbyDevicesList;
+        NSMutableArray <MCPeerID *> * nearbyDevicesList;
         IBOutlet UIPickerView * nearbyDevicePicker;
         IBOutlet UITextField * nicknameField;
         IBOutlet UILabel * nicknameTextLabel;
@@ -24,7 +24,7 @@
 @property (retain, nonatomic) UIPickerView * nearbyDevicePicker;
 @property (retain, nonatomic) NSString * deviceIDHash;
 @property (retain, nonatomic) NSString * chosenNickname;
-@property (retain, nonatomic) BluetoothDriver * bluetoothDriver;
+@property (retain, nonatomic) MultipeerDriver * multipeerDriver;
 
 
 - (IBAction) addButtonPressed:(id) sender;

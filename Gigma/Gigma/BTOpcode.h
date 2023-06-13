@@ -11,12 +11,10 @@
 enum BTOpcode {
     NO_OP = 0,
     
-    // PUBLIC KEY
-    PUB_KEY,
-    
     // FRIEND
     FRIEND_REQ,
     ACCEPT_REQ,
+    DECLINE_REQ,
 
     // LOCATION
     SEND_LOC,
