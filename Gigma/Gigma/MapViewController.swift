@@ -24,6 +24,9 @@ class MapViewController : UIViewController {
     var managedObjectContext: NSManagedObjectContext?
     var userLocation: CLLocationCoordinate2D?
     
+    var headingImageView: UIImageView?
+    var userHeading: CLLocationDirection?
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         data = appDelegate.data
@@ -51,6 +54,7 @@ class MapViewController : UIViewController {
                 self.locationManager.delegate = self
                 self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
                 self.locationManager.startUpdatingLocation()
+                self.locationManager.startUpdatingHeading()
             }
         }
         
@@ -59,7 +63,7 @@ class MapViewController : UIViewController {
         let config = MapCacheConfig(withUrlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
         mapCache = MapCache(withConfig: config)
         mapView.showsUserLocation = true
-        
+        mapView.setUserTrackingMode(MKUserTrackingMode.followWithHeading, animated: true)
         
         guard let location = self.locationManager.location?.coordinate else { return }
         self.userLocation = location
@@ -230,7 +234,25 @@ extension MapViewController : MKMapViewDelegate {
             let friendColour = getFriendColour(name: annotation.title!!)
             annotationView!.image = makeImage(shape: "person.fill", colour: friendColour)
         }
+        
+        
         return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
+        if views.last?.annotation is MKUserLocation {
+            addHeadingView(toAnnotationView: views.last!)
+        }
+    }
+    
+    func addHeadingView(toAnnotationView annotationView: MKAnnotationView){
+        if headingImageView == nil {
+            let image = UIImage(systemName: "arrow.forward")
+            headingImageView = UIImageView(image: image)
+            headingImageView!.frame = CGRect(x: (annotationView.frame.size.width - image!.size.width)/2, y: (annotationView.frame.size.height - image!.size.height)/2, width: image!.size.width, height: image!.size.height)
+            annotationView.insertSubview(headingImageView!, at: 0)
+            headingImageView!.isHidden = true
+        }
     }
     
     //TODO: get the colour from CORE DATA
@@ -287,6 +309,24 @@ extension MapViewController : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = manager.location?.coordinate else { return }
         self.userLocation = location
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading){
+        if newHeading.headingAccuracy < 0 {return}
+        
+        let heading = newHeading.trueHeading > 0 ? newHeading.trueHeading : newHeading.magneticHeading
+        userHeading = heading
+        updateHeadingRotation()
+    }
+    
+    func updateHeadingRotation() {
+        if let heading = userHeading,
+           let headingImageView = headingImageView{
+            
+            headingImageView.isHidden = false
+            let rotation = CGFloat(heading/180 * Double.pi)
+            headingImageView.transform = CGAffineTransform(rotationAngle: rotation)
+        }
     }
 }
 

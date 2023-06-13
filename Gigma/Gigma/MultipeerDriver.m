@@ -6,6 +6,9 @@
 //
 
 #import "MultipeerDriver.h"
+#import "RSAManager.h"
+#import "FriendViewController.h"
+#import "AppDelegate.h"
 
 @interface MultipeerDriver ()
 
@@ -13,6 +16,7 @@
 @property (retain, nonatomic) MCNearbyServiceBrowser * browser;
 @property (nonatomic, strong) MCSession * session;
 @property (nonatomic, strong) MCPeerID * localPeerID;
+@property (nonatomic, weak) RSAManager * rsaManager;
 
 @end
 
@@ -22,6 +26,7 @@
 @synthesize browser;
 @synthesize session;
 @synthesize localPeerID;
+@synthesize rsaManager;
 
 @synthesize connectedPeers;
 @synthesize nearbyDevicePickerDelegate;
@@ -30,6 +35,7 @@
 - (instancetype) init {
     
     self = [super init];
+
     
     NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
     NSData * storedID = [prefs dataForKey: @"peerID"];
@@ -42,8 +48,10 @@
         self.localPeerID = peerID;
     }
     
+    AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    rsaManager = appDelegate.rsaManager;
 
-    session = [[MCSession alloc] initWithPeer: localPeerID securityIdentity: nil encryptionPreference: MCEncryptionNone];
+    session = [[MCSession alloc] initWithPeer: localPeerID securityIdentity: nil encryptionPreference: MCEncryptionRequired];
     session.delegate = self;
     
     browser = [[MCNearbyServiceBrowser alloc] initWithPeer: localPeerID serviceType: SERVICE_TYPE];
@@ -65,6 +73,21 @@
     [self.advertiser stopAdvertisingPeer];
 }
 
+- (void) sendFriendReqToPeer:(MCPeerID *) peerID {
+    NSString * dataString = [[self->rsaManager.publicKeyExponent stringByAppendingString: KEY_SEPARATOR] stringByAppendingString: self->rsaManager.publicKeyModulus];
+    
+    [self askConnectPeer: peerID withOpcode: FRIEND_REQ andData: [dataString dataUsingEncoding: NSUTF8StringEncoding]];
+}
+
+- (NSString *) extractPubKeyFromRawData:(NSData *) context {
+    NSRange range = NSMakeRange(1, [context length] - 1);
+    NSString * data = [[NSString alloc] initWithData: [context subdataWithRange: range] encoding: NSUTF8StringEncoding];
+    NSArray * pubKeyData = [data componentsSeparatedByString: KEY_SEPARATOR];
+    NSString * pubKeyExp = [pubKeyData objectAtIndex: 0];
+    NSString * pubKeyMod = [pubKeyData objectAtIndex: 1];
+    return [rsaManager publicKeyWithModulus: pubKeyMod andExponent: pubKeyExp];
+}
+
 - (void) advertiser:(nonnull MCNearbyServiceAdvertiser *) advertiser didReceiveInvitationFromPeer:(nonnull MCPeerID *) peerID withContext:(nullable NSData *) context invitationHandler:(nonnull void (^) (BOOL, MCSession * _Nullable)) invitationHandler {
     
     enum BTOpcode opcode = ((const char *) [context bytes]) [0];
@@ -79,13 +102,36 @@
         }
         case FRIEND_REQ: {
             NSLog(@"friend request");
+            
+            UIAlertController * popup = [UIAlertController alertControllerWithTitle: @"Friend request" message: peerID.displayName preferredStyle: UIAlertControllerStyleAlert];
+                NSString * pubKey = [self extractPubKeyFromRawData: context];
+            
+            UIAlertAction * ok = [UIAlertAction actionWithTitle: @"Accept" style: UIAlertActionStyleDefault handler: ^(UIAlertAction * action) {
+                [self->friendViewControllerDelegate addFriend: peerID.displayName withPubKey: pubKey];
+                
+                // merge our pubkey parts with :: separator
+                NSString * dataString = [[self->rsaManager.publicKeyExponent stringByAppendingString: KEY_SEPARATOR] stringByAppendingString: self->rsaManager.publicKeyModulus];
+                
+                [self askConnectPeer: peerID withOpcode: ACCEPT_REQ andData: [dataString dataUsingEncoding: NSUTF8StringEncoding]];
+                
+            }];
+            
+            UIAlertAction * cancel = [UIAlertAction actionWithTitle: @"Decline" style: UIAlertActionStyleDefault handler: ^(UIAlertAction * action) {}];
+            
+            [popup addAction: ok];
+            [popup addAction: cancel];
+            [friendViewControllerDelegate showPopup: popup withCompletion: nil];
+            
+            break;
+            
             // ask for accept or decline
             // if accept, send public key
-            break;
         }
         case ACCEPT_REQ: {
             NSLog(@"accept request");
             // send back public key
+            NSString * pubKey = [self extractPubKeyFromRawData: context];
+            [friendViewControllerDelegate addFriend: peerID.displayName withPubKey: pubKey];
             break;
         }
         case SEND_LOC: {
@@ -110,9 +156,12 @@
 }
 
 // call from AddFriendViewController
-- (void) askConnectPeer:(MCPeerID *) peerID withOpcode:(enum BTOpcode) opcode {
-    
-    [browser invitePeer: peerID toSession: session withContext: [NSData dataWithBytes: &opcode length: sizeof(char)] timeout: 10];
+- (void) askConnectPeer:(MCPeerID *) peerID withOpcode:(enum BTOpcode) opcode andData:(NSData * _Nullable) data {
+    NSMutableData * mutableData = [NSMutableData dataWithBytes: &opcode length: sizeof(char)];
+    if (data != nil) {
+        [mutableData appendData: data];
+    }
+    [browser invitePeer: peerID toSession: session withContext: mutableData timeout: 10];
 }
 
 - (void) broadcastData:(NSData *) data {

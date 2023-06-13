@@ -22,8 +22,9 @@
 
 - (void) startAdvertising;
 - (void) stopAdvertising;
-- (void) askConnectPeer:(MCPeerID *) peerID withOpcode:(enum BTOpcode) opcode;
+- (void) askConnectPeer:(MCPeerID *) peerID withOpcode:(enum BTOpcode) opcode andData:(NSData * _Nullable) data;
 - (void) broadcastData:(NSData *) data;
 - (void) sendData:(NSData *) data toPeer:(MCPeerID *) peer;
+- (void) sendFriendReqToPeer:(MCPeerID *) peerID;
 
 @end

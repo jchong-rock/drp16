@@ -123,8 +123,17 @@
 
 - (IBAction) discoverablePressed:(id) sender {
     discoverableButton.tintColor = [UIColor systemBlueColor];
+    [multipeerDriver stopAdvertising];
+    [NSTimer scheduledTimerWithTimeInterval: 1.0f
+                                     target: self
+                                   selector: @selector(discoverMiddle)
+                                   userInfo: nil
+                                    repeats: NO];
+}
+
+- (void) discoverMiddle {
     [multipeerDriver startAdvertising];
-    [NSTimer scheduledTimerWithTimeInterval: 6.0f
+    [NSTimer scheduledTimerWithTimeInterval: 5.0f
                                      target: self
                                    selector: @selector(discoverEnd)
                                    userInfo: nil
@@ -132,7 +141,6 @@
 }
 
 - (void) discoverEnd {
-    [multipeerDriver stopAdvertising];
     discoverableButton.tintColor = [UIColor systemRedColor];
 }
 

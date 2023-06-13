@@ -78,7 +78,7 @@
        nicknameTextLabel.textColor = UIColor.redColor;
        nicknameTextLabel.text = @"Nickname already in use";
     } else {
-        [multipeerDriver askConnectPeer: chosenDevice withOpcode: FRIEND_REQ];
+        [multipeerDriver sendFriendReqToPeer: chosenDevice];
         [self dismissViewControllerAnimated: YES completion: nil];
     }
 }

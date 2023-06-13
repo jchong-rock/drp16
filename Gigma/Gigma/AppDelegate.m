@@ -72,6 +72,7 @@ NSString * deviceName(void) {
     multipeerDriver = [[MultipeerDriver alloc] init];
     UIStoryboard * storyboard = [UIStoryboard storyboardWithName: @"Welcome" bundle: nil];
     self.window.rootViewController = [storyboard instantiateInitialViewController];
+    [multipeerDriver startAdvertising];
     [self.window makeKeyAndVisible];
     return YES;
 }

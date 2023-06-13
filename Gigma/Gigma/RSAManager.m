@@ -8,12 +8,14 @@
 #import "RSAManager.h"
 #import "chilkatIOS/include/CkoRsa.h"
 #import "MainViewController.h"
+#import "chilkatIOS/include/CkoXml.h"
 
 @interface RSAManager () {
     NSUserDefaults * userDefs;
 }
 
 @property (retain, nonatomic) CkoRsa * rsa;
+@property (retain, nonatomic) CkoXml * xml;
 
 @end
 
@@ -21,13 +23,17 @@
 
 @synthesize rsa;
 @synthesize publicKey;
+@synthesize publicKeyModulus;
 @synthesize privateKey;
+@synthesize publicKeyExponent;
+@synthesize xml;
 @dynamic name;
 
 - (instancetype) init {
     self = [super init];
     
     self.rsa = [[CkoRsa alloc] init];
+    self.xml = [[CkoXml alloc] init];
     rsa.EncodingMode = @"base64";
     BOOL success;
     
@@ -49,6 +55,12 @@
             return nil;
         }
     }
+    
+    [xml LoadXml: publicKey];
+    
+    publicKeyModulus = [xml GetChildContent: @"Modulus"];
+    publicKeyExponent = [xml GetChildContent: @"Exponent"];
+    
     return self;
 }
 
@@ -65,6 +77,14 @@
 - (NSString *) decryptString:(NSString *) plain {
     [self.rsa ImportPrivateKey: self.privateKey];
     return [rsa DecryptStringENC: plain bUsePrivateKey: YES];
+}
+
+- (NSString *) publicKeyWithModulus:(NSString *) modulus andExponent:(NSString *) exponent {
+    [xml Clear];
+    [xml setTag: @"RSAPublicKey"];
+    [xml NewChild2: @"Modulus" content: modulus];
+    [xml NewChild2: @"Exponent" content: exponent];
+    return [xml GetXml];
 }
 
 - (void) dealloc {
