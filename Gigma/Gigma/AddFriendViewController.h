@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 #import "FriendViewController.h"
 #import "MultipeerDriver.h"
 #import "Pair.h"

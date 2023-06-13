@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BAEF7652A3870FA00E52460 /* UserMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAEF7642A3870FA00E52460 /* UserMarker.swift */; };
+		0BAEF7682A38992900E52460 /* ColourConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BAEF7662A38992900E52460 /* ColourConverter.m */; };
+		0BAEF76B2A38B92C00E52460 /* AddCustomMarkerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BAEF76A2A38B92C00E52460 /* AddCustomMarkerViewController.m */; };
 		98045AE3BEA6BD9CF6C8E8FE /* Pods_GigmaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92D5AFFEFD8F2A8A0AA8DF49 /* Pods_GigmaUITests.framework */; };
 		9AAA7F51C4E228D3A0C23A97 /* Pods_GigmaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8424401AA17DB0D79C212DFD /* Pods_GigmaTests.framework */; };
 		E00E09542A312295002E82DB /* PeripheralManagerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E09532A312295002E82DB /* PeripheralManagerAdapter.swift */; };
@@ -81,6 +84,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0BAEF7642A3870FA00E52460 /* UserMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMarker.swift; sourceTree = "<group>"; };
+		0BAEF7662A38992900E52460 /* ColourConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColourConverter.m; sourceTree = "<group>"; };
+		0BAEF7672A38992900E52460 /* ColourConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColourConverter.h; sourceTree = "<group>"; };
+		0BAEF7692A38B78F00E52460 /* AddCustomMarkerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddCustomMarkerViewController.h; sourceTree = "<group>"; };
+		0BAEF76A2A38B92C00E52460 /* AddCustomMarkerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddCustomMarkerViewController.m; sourceTree = "<group>"; };
 		136E1FB23B63B6D6932575CB /* Pods-GigmaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GigmaTests.debug.xcconfig"; path = "Target Support Files/Pods-GigmaTests/Pods-GigmaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1729EED8EE825915FB11772D /* Pods-Gigma.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gigma.debug.xcconfig"; path = "Target Support Files/Pods-Gigma/Pods-Gigma.debug.xcconfig"; sourceTree = "<group>"; };
 		2DFE7B671E23B854A2513E5C /* Pods-GigmaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GigmaTests.release.xcconfig"; path = "Target Support Files/Pods-GigmaTests/Pods-GigmaTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -1047,6 +1055,8 @@
 				E0549B2E2A2907B00002A8D4 /* MessageDriver.m */,
 				E05733622A2601CB00B7A32D /* FriendViewController.h */,
 				E05733602A2601A100B7A32D /* FriendViewController.m */,
+				0BAEF7692A38B78F00E52460 /* AddCustomMarkerViewController.h */,
+				0BAEF76A2A38B92C00E52460 /* AddCustomMarkerViewController.m */,
 				E0549B202A27FA3F0002A8D4 /* FestivalSelectionCell.h */,
 				E0549B1E2A27FA270002A8D4 /* FestivalSelectionCell.m */,
 				E0472C8E2A2782DE00782EA0 /* MainViewController.h */,
@@ -1071,10 +1081,13 @@
 				E030EF5D2A334B8600F7B537 /* RSAManager.m */,
 				E00E095D2A322D1A002E82DB /* BTOpcode.h */,
 				E00E095E2A3236B5002E82DB /* BTOpcode.c */,
+				0BAEF7672A38992900E52460 /* ColourConverter.h */,
+				0BAEF7662A38992900E52460 /* ColourConverter.m */,
 				E00E09582A3128B5002E82DB /* CentralManagerAdapter.swift */,
 				E00E09532A312295002E82DB /* PeripheralManagerAdapter.swift */,
 				E00E09552A31249E002E82DB /* TransferService.swift */,
 				E0472C802A27687B00782EA0 /* MapViewController.swift */,
+				0BAEF7642A3870FA00E52460 /* UserMarker.swift */,
 				E0155F552A29EBA300069BEE /* Festival.swift */,
 				E0549B172A27DF140002A8D4 /* DataBaseDriver.swift */,
 				E00F0CD32A2A45E700E80FC3 /* PostgreSQLDriver.swift */,
@@ -1379,8 +1392,11 @@
 				E00E09592A3128B5002E82DB /* CentralManagerAdapter.swift in Sources */,
 				E05733382A24F61F00B7A32D /* main.m in Sources */,
 				E0549B182A27DF140002A8D4 /* DataBaseDriver.swift in Sources */,
+				0BAEF7652A3870FA00E52460 /* UserMarker.swift in Sources */,
 				E0472C902A2782FF00782EA0 /* MainViewController.m in Sources */,
 				E0549B2F2A2907B00002A8D4 /* MessageDriver.m in Sources */,
+				0BAEF76B2A38B92C00E52460 /* AddCustomMarkerViewController.m in Sources */,
+				0BAEF7682A38992900E52460 /* ColourConverter.m in Sources */,
 				E0549B2C2A2900B50002A8D4 /* MessagesViewController.m in Sources */,
 				E05733612A2601A100B7A32D /* FriendViewController.m in Sources */,
 				E00E095F2A3236B5002E82DB /* BTOpcode.c in Sources */,

@@ -150,7 +150,7 @@
 
 - (IBAction) colourSelector:(id) sender {
     UIButton * button = (UIButton *) sender;
-    //button.tintColor = //pull from core data
+    //button.tintColor = //TODO: pull from core data
     UIColorPickerViewController * picker = [[UIColorPickerViewController alloc] init];
     picker.delegate = (FriendListCell *) button.superview.superview;
     [self presentViewController: picker animated: YES completion: nil];
