@@ -336,17 +336,19 @@ extension MapViewController : MKMapViewDelegate {
         let coord = mapView.convert(touchPoint, toCoordinateFrom: mapView)
         
         //save in core data so that these are persistent
-        let coreMarker = NSEntityDescription.insertNewObject(forEntityName: "CustomMarker", into: managedObjectContext!) as! CustomMarker
+        // now done in AddCustomMarkerViewController
+//        let coreMarker = NSEntityDescription.insertNewObject(forEntityName: "CustomMarker", into: managedObjectContext!) as! CustomMarker
+//
+//        coreMarker.name = "User Marker"                    //TODO: Change -> needs to be dyanmic
+//        coreMarker.colour = ColourConverter.toHex(.blue)  //TODO: Change -> needs to be dynamic
+//        coreMarker.latitude = coord.latitude
+//        coreMarker.longitude = coord.longitude
         
-        coreMarker.name = "User Marker"                    //TODO: Change -> needs to be dyanmic
-        coreMarker.colour = ColourConverter.toHex(.blue)  //TODO: Cange -> needs to be dynamic
-        coreMarker.latitude = coord.latitude
-        coreMarker.longitude = coord.longitude
+//        do {
+//            try managedObjectContext!.save()
+//        } catch {} // I don't care about errors
         
-        do {
-            try managedObjectContext!.save()
-        } catch {} // I don't care about errors
-        
+        //TODO: call the view controller to handle the popup
         let newMarker = UserMarker.init(title: "User Marker", coordinate: coord, colour: .blue, info: "info")
         mapView.addAnnotation(newMarker)
     }
