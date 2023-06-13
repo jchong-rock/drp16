@@ -12,19 +12,26 @@
 #define SERVICE_TYPE @"gigma-svc"
 
 @protocol FriendViewControllerDelegate;
+@class Friend;
+
+@protocol UpdateLocationDelegate <NSObject>
+
+- (void) setLatitude:(double) latVal andLongitude:(double) longVal ofFriend:(Friend * _Nonnull) friend;
+
+@end
 
 @interface MultipeerDriver : NSObject <MCNearbyServiceAdvertiserDelegate, MCNearbyServiceBrowserDelegate, MCSessionDelegate>
 
-@property (retain, nonatomic) NSMutableArray <MCPeerID *> * nearbyPeers;
-@property (retain, nonatomic) NSMutableArray <MCPeerID *> * connectedPeers;
-@property (weak, nonatomic) NSObject <NearbyDevicePickerDelegate> * nearbyDevicePickerDelegate;
-@property (weak, nonatomic) NSObject <FriendViewControllerDelegate> * friendViewControllerDelegate;
+@property (weak, nonatomic) NSObject <UpdateLocationDelegate> * _Nullable updateLocationDelegate;
+@property (retain, nonatomic) NSMutableArray <MCPeerID *> * _Nonnull nearbyPeers;
+@property (retain, nonatomic) NSMutableArray <MCPeerID *> * _Nonnull connectedPeers;
+@property (weak, nonatomic) NSObject <NearbyDevicePickerDelegate> * _Nullable nearbyDevicePickerDelegate;
+@property (weak, nonatomic) NSObject <FriendViewControllerDelegate> * _Nullable friendViewControllerDelegate;
 
 - (void) startAdvertising;
 - (void) stopAdvertising;
-- (void) askConnectPeer:(MCPeerID *) peerID withOpcode:(enum BTOpcode) opcode andData:(NSData * _Nullable) data;
-- (void) broadcastData:(NSData *) data;
-- (void) sendData:(NSData *) data toPeer:(MCPeerID *) peer;
-- (void) sendFriendReqToPeer:(MCPeerID *) peerID;
+- (void) sendToPeer:(MCPeerID * _Nonnull) peerID withOpcode:(enum BTOpcode) opcode andData:(NSData * _Nullable) data;
+- (void) broadcastData:(NSData * _Nullable) data withOpcode:(enum BTOpcode) opcode;
+- (void) sendFriendReqToPeer:(MCPeerID * _Nullable) peerID;
 
 @end

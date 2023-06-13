@@ -2,7 +2,7 @@
 //  Friend+CoreDataProperties.h
 //  
 //
-//  Created by Jake Chong on 09/06/2023.
+//  Created by Jake Chong on 13/06/2023.
 //
 //
 
@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) int64_t colour;
 @property (nullable, nonatomic, copy) NSString *deviceID;
 @property (nullable, nonatomic, copy) NSString *friendName;
+@property (nonatomic) int64_t peerID;
 @property (nullable, nonatomic, retain) NSOrderedSet<Message *> *messages;
 
 @end

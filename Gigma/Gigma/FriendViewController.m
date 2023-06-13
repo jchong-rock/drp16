@@ -107,11 +107,12 @@
     return NO;
 }
 
-- (BOOL) addFriend:(NSString *) name withPubKey:(NSString *) pubKey {    
+- (BOOL) addFriend:(MCPeerID *) name withPubKey:(NSString *) pubKey {
     if (name != nil) {
         Friend * friend = [NSEntityDescription insertNewObjectForEntityForName: @"Friend" inManagedObjectContext: managedObjectContext];
-        friend.friendName = name;
+        friend.friendName = name.displayName;
         friend.deviceID = pubKey;
+        friend.peerID = name.hash;
         [friendButtonList addObject: friend];
         [buttonStack reloadData];
         NSError * error;

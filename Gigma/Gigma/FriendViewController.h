@@ -8,10 +8,12 @@
 #import <UIKit/UIKit.h>
 #import "Friend+CoreDataProperties.h"
 
+@class MCPeerID;
+
 @protocol FriendViewControllerDelegate <NSObject>
 
 - (void) setColour:(UIColor *) colour;
-- (BOOL) addFriend:(NSString *) friendName withPubKey:(NSString *) pubKey;
+- (BOOL) addFriend:(MCPeerID *) friendName withPubKey:(NSString *) pubKey;
 - (BOOL) nameAlreadyExists:(NSString *) name;
 - (IBAction) discoverablePressed:(id) sender;
 - (void) showPopup:(UIViewController *) popup withCompletion:(id) completion;

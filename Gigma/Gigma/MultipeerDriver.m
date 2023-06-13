@@ -9,8 +9,11 @@
 #import "RSAManager.h"
 #import "FriendViewController.h"
 #import "AppDelegate.h"
+#import "MainViewController.h"
 
-@interface MultipeerDriver ()
+@interface MultipeerDriver () {
+    NSManagedObjectContext * managedObjectContext;
+}
 
 @property (retain, nonatomic) MCNearbyServiceAdvertiser * advertiser;
 @property (retain, nonatomic) MCNearbyServiceBrowser * browser;
@@ -27,10 +30,12 @@
 @synthesize session;
 @synthesize localPeerID;
 @synthesize rsaManager;
+@synthesize nearbyPeers;
 
 @synthesize connectedPeers;
 @synthesize nearbyDevicePickerDelegate;
 @synthesize friendViewControllerDelegate;
+@synthesize updateLocationDelegate;
 
 - (instancetype) init {
     
@@ -50,6 +55,8 @@
     
     AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     rsaManager = appDelegate.rsaManager;
+    managedObjectContext = appDelegate.persistentContainer.viewContext;
+    
 
     session = [[MCSession alloc] initWithPeer: localPeerID securityIdentity: nil encryptionPreference: MCEncryptionRequired];
     session.delegate = self;
@@ -76,7 +83,7 @@
 - (void) sendFriendReqToPeer:(MCPeerID *) peerID {
     NSString * dataString = [[self->rsaManager.publicKeyExponent stringByAppendingString: KEY_SEPARATOR] stringByAppendingString: self->rsaManager.publicKeyModulus];
     
-    [self askConnectPeer: peerID withOpcode: FRIEND_REQ andData: [dataString dataUsingEncoding: NSUTF8StringEncoding]];
+    [self sendToPeer: peerID withOpcode: FRIEND_REQ andData: [dataString dataUsingEncoding: NSUTF8StringEncoding]];
 }
 
 - (NSString *) extractPubKeyFromRawData:(NSData *) context {
@@ -107,12 +114,12 @@
                 NSString * pubKey = [self extractPubKeyFromRawData: context];
             
             UIAlertAction * ok = [UIAlertAction actionWithTitle: @"Accept" style: UIAlertActionStyleDefault handler: ^(UIAlertAction * action) {
-                [self->friendViewControllerDelegate addFriend: peerID.displayName withPubKey: pubKey];
+                [self->friendViewControllerDelegate addFriend: peerID withPubKey: pubKey];
                 
                 // merge our pubkey parts with :: separator
                 NSString * dataString = [[self->rsaManager.publicKeyExponent stringByAppendingString: KEY_SEPARATOR] stringByAppendingString: self->rsaManager.publicKeyModulus];
                 
-                [self askConnectPeer: peerID withOpcode: ACCEPT_REQ andData: [dataString dataUsingEncoding: NSUTF8StringEncoding]];
+                [self sendToPeer: peerID withOpcode: ACCEPT_REQ andData: [dataString dataUsingEncoding: NSUTF8StringEncoding]];
                 
             }];
             
@@ -131,10 +138,47 @@
             NSLog(@"accept request");
             // send back public key
             NSString * pubKey = [self extractPubKeyFromRawData: context];
-            [friendViewControllerDelegate addFriend: peerID.displayName withPubKey: pubKey];
+            [friendViewControllerDelegate addFriend: peerID withPubKey: pubKey];
             break;
         }
         case SEND_LOC: {
+            [self rebroadcastData: context];
+            
+            NSRange range = NSMakeRange(1, [context length] - 1);
+            NSString * data = [[NSString alloc] initWithData: [context subdataWithRange: range] encoding: NSUTF8StringEncoding];
+            
+            NSString * decrypted = [rsaManager decryptString: data];
+            NSString * magic = [decrypted substringToIndex: [RSA_MAGIC length]];
+            if (![magic isEqual: RSA_MAGIC]) {
+                break;
+            }
+            
+            NSString * peerHash = [decrypted substringWithRange: NSMakeRange([RSA_MAGIC length], 8)];
+            const char * peerChars = [peerHash UTF8String];
+            NSUInteger peerInt = uintFromChars(peerChars);
+            NSArray * friends = [MainViewController getFriendsFromContext: managedObjectContext];
+            for (Friend * friend in friends) {
+                if (friend.peerID == peerInt) {
+                    NSString * latLong = [decrypted substringFromIndex: [RSA_MAGIC length] + 8];
+                    NSString * latLongDec = [rsaManager decryptString: latLong withPublicKey: friend.deviceID];
+                    const char * latLongChars = [latLongDec UTF8String];
+                    NSUInteger latInt = uintFromChars(latLongChars);
+                    NSUInteger longInt = uintFromChars(latLongChars + 8);
+                    
+                    union doubleThingy latThingy;
+                    union doubleThingy longThingy;
+                    
+                    latThingy.uinteger = latInt;
+                    longThingy.uinteger = longInt;
+
+                    double latitude = latThingy.value;
+                    double longitude = longThingy.value;
+                    if (updateLocationDelegate != nil) {
+                        [updateLocationDelegate setLatitude: latitude andLongitude: longitude ofFriend: friend];
+                    }
+                    break;
+                }
+            }
             
             break;
         }
@@ -156,7 +200,7 @@
 }
 
 // call from AddFriendViewController
-- (void) askConnectPeer:(MCPeerID *) peerID withOpcode:(enum BTOpcode) opcode andData:(NSData * _Nullable) data {
+- (void) sendToPeer:(MCPeerID *) peerID withOpcode:(enum BTOpcode) opcode andData:(NSData * _Nullable) data {
     NSMutableData * mutableData = [NSMutableData dataWithBytes: &opcode length: sizeof(char)];
     if (data != nil) {
         [mutableData appendData: data];
@@ -164,8 +208,32 @@
     [browser invitePeer: peerID toSession: session withContext: mutableData timeout: 10];
 }
 
-- (void) broadcastData:(NSData *) data {
-    [session sendData: data toPeers: connectedPeers withMode: MCSessionSendDataUnreliable error: nil];
+- (void) rebroadcastData:(NSData *) data {
+    if (data != nil) {
+        for (MCPeerID * peer in nearbyPeers) {
+            [browser invitePeer: peer toSession: session withContext: data timeout: 10];
+        }
+    }
+}
+
+- (void) broadcastLocation {
+    
+    [self broadcastData:<#(NSData * _Nullable)#> withOpcode:<#(enum BTOpcode)#>];
+    [NSTimer scheduledTimerWithTimeInterval: 6.0f
+                                     target: self
+                                   selector: @selector(broadcastLocation)
+                                   userInfo: nil
+                                    repeats: NO];
+}
+
+- (void) broadcastData:(NSData *) data withOpcode:(enum BTOpcode) opcode {
+    NSMutableData * mutableData = [NSMutableData dataWithBytes: &opcode length: sizeof(char)];
+    if (data != nil) {
+        [mutableData appendData: data];
+    }
+    for (MCPeerID * peer in nearbyPeers) {
+        [browser invitePeer: peer toSession: session withContext: mutableData timeout: 10];
+    }
 }
 
 - (void) sendData:(NSData *) data toPeer:(MCPeerID *) peer {
@@ -176,12 +244,14 @@
     if (nearbyDevicePickerDelegate != nil) {
         [nearbyDevicePickerDelegate addNearbyDevice: peerID];
     }
+    [nearbyPeers addObject: peerID];
 }
 
 - (void) browser:(nonnull MCNearbyServiceBrowser *) browser lostPeer:(nonnull MCPeerID *) peerID {
     if (nearbyDevicePickerDelegate != nil) {
         [nearbyDevicePickerDelegate removeNearbyDevice: peerID];
     }
+    [nearbyPeers removeObject: peerID];
 }
 
 - (void) session:(nonnull MCSession *) session didFinishReceivingResourceWithName:(nonnull NSString *) resourceName fromPeer:(nonnull MCPeerID *) peerID atURL:(nullable NSURL *) localURL withError:(nullable NSError *) error {
@@ -207,15 +277,6 @@
 }
 
 - (void) session:(nonnull MCSession *) session peer:(nonnull MCPeerID *) peerID didChangeState:(MCSessionState) state {
-    if (state == MCSessionStateConnected) {
-        NSLog(@"connect");
-        [self.connectedPeers addObject: peerID];
-    } else if (state == MCSessionStateNotConnected) {
-        NSLog(@"unconnect");
-        [self.connectedPeers removeObject: peerID];
-    } else {
-        NSLog(@"innit");
-    }
 }
 
 @end

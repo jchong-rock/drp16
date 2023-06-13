@@ -79,6 +79,11 @@
     return [rsa DecryptStringENC: plain bUsePrivateKey: YES];
 }
 
+- (NSString *) decryptString:(NSString *) plain withPublicKey:(NSString *) pk {
+    [self.rsa ImportPublicKey: pk];
+    return [rsa DecryptStringENC: plain bUsePrivateKey: NO];
+}
+
 - (NSString *) publicKeyWithModulus:(NSString *) modulus andExponent:(NSString *) exponent {
     [xml Clear];
     [xml setTag: @"RSAPublicKey"];

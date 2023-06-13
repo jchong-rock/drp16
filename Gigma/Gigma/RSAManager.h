@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 #import <Foundation/Foundation.h>
-#define RSA_MAGIC "69420"
+#define RSA_MAGIC @"69420"
 #define PUB_KEY_SIZE 2048
 #define KEY_SEPARATOR @"::"
 
@@ -21,6 +21,7 @@
 @property (readonly, copy, nonatomic) NSString * name;
 
 - (NSString *) encryptString:(NSString *) plain withPublicKey:(NSString *) pk;
+- (NSString *) decryptString:(NSString *) plain withPublicKey:(NSString *) pk;
 - (NSString *) decryptString:(NSString *) plain;
 - (NSString *) publicKeyWithModulus:(NSString *) modulus andExponent:(NSString *) exponent;
 

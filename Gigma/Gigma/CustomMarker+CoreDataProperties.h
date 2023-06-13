@@ -2,7 +2,7 @@
 //  CustomMarker+CoreDataProperties.h
 //  
 //
-//  Created by kup21 on 13/06/2023.
+//  Created by Jake Chong on 13/06/2023.
 //
 //
 
@@ -15,10 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<CustomMarker *> *)fetchRequest NS_SWIFT_NAME(fetchRequest());
 
-@property (nullable, nonatomic, copy) NSString *name;
 @property (nonatomic) int64_t colour;
 @property (nonatomic) double latitude;
 @property (nonatomic) double longitude;
+@property (nullable, nonatomic, copy) NSString *name;
 
 @end
 

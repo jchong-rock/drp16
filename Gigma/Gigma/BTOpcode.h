@@ -25,6 +25,13 @@ enum BTOpcode {
     MSG_READ
 };
 
+union doubleThingy {
+    unsigned long uinteger;
+    double value;
+};
+
 int opcodeValue(enum BTOpcode);
+uint64_t uintFromChars(char * chars);
+char * charsFromUint(uint64_t value);
 
 #endif /* BTOpcode_h */

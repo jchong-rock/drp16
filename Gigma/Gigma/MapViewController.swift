@@ -23,6 +23,7 @@ class MapViewController : UIViewController {
     var festival: Festival?
     var managedObjectContext: NSManagedObjectContext?
     var userLocation: CLLocationCoordinate2D?
+    var friendMarkers: [Friend : MKPointAnnotation] = [:]
     
     var headingImageView: UIImageView?
     var userHeading: CLLocationDirection?
@@ -63,7 +64,7 @@ class MapViewController : UIViewController {
         
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         self.managedObjectContext = appDelegate.persistentContainer.viewContext
-        
+        self.multipeer.updateLocationDelegate = self
         self.locationManager.requestAlwaysAuthorization()
         
         DispatchQueue.global().async {
@@ -177,12 +178,14 @@ class MapViewController : UIViewController {
         
         let friends = MainViewController.getFriendsFrom(managedObjectContext)
         mapView.removeAnnotations( annotationsToRemove )
+        friendMarkers = [:]
         friends!.forEach {friend in
             let marker = MKPointAnnotation()
             marker.title = (friend as! Friend).friendName
             marker.subtitle = "Friend"
             // FIX -- marker.coordinate = bluetooth.getLocation(uuid: (friend as! Friend).deviceID! as NSUUID).toCLCoordinate()
             mapView.addAnnotation(marker)
+            friendMarkers[friend as! Friend] = marker
         }
     }
     
@@ -425,6 +428,12 @@ extension MapViewController : CLLocationManagerDelegate {
 extension MapViewController : PopoverDelegate {
     func popoverDidDisappear() {
         self.checkPrefs()
+    }
+}
+
+extension MapViewController : UpdateLocationDelegate {
+    func setLatitude(_ latVal: Double, andLongitude longVal: Double, of friend: Friend) {
+        friendMarkers[friend]?.coordinate = CLLocationCoordinate2D(latitude: latVal, longitude: longVal)
     }
 }
 

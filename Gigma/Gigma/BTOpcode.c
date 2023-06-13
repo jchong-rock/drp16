@@ -6,8 +6,25 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "BTOpcode.h"
 
 int opcodeValue(enum BTOpcode btOpcode) {
     return btOpcode;
+}
+
+uint64_t uintFromChars(char * chars) {
+    uint64_t value = 0;
+    for (int i = 0; i < 8; i++) {
+        value += ((unsigned char) chars[i]) << (i * 8);
+    }
+    return value;
+}
+
+char * charsFromUint(uint64_t value) {
+    char * bytes = malloc(8);
+    for (int i = 0; i < 8; i++) {
+        bytes[i] = (char) ((value >> (i * 8)) & 0xFF);
+    }
+    return bytes;
 }
