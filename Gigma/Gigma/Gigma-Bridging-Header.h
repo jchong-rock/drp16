@@ -11,5 +11,5 @@
 #import "Friend+CoreDataProperties.h"
 #import "BluetoothManager.h"
 #import "BTOpcode.h"
-#import "BluetoothDriver.h"
+#import "MultipeerDriver.h"
 #import "ColourConverter.h"

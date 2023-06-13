@@ -12,7 +12,7 @@
 #import "MainViewController.h"
 #import "ComposeMessageViewController.h"
 #import "FriendListCell.h"
-#import "BluetoothDriver.h"
+#import "MultipeerDriver.h"
 #import "ColourConverter.h"
 
 @interface FriendViewController () {
@@ -20,7 +20,7 @@
 }
 
 @property (weak, nonatomic) UIColor * friendColour;
-@property (weak, nonatomic) BluetoothDriver * btDriver;
+@property (weak, nonatomic) MultipeerDriver * multipeerDriver;
 
 @end
 
@@ -28,7 +28,7 @@
 
 @synthesize buttonStack;
 @synthesize discoverableButton;
-@synthesize btDriver;
+@synthesize multipeerDriver;
 @synthesize friendColour;
 
 - (void) viewDidLoad {
@@ -37,8 +37,8 @@
     discoverableButton.tintColor = [UIColor systemRedColor];
     // Do any additional setup after loading the view.
     AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    btDriver = appDelegate.bluetoothDriver;
-    btDriver.friendViewControllerDelegate = self;
+    multipeerDriver = appDelegate.multipeerDriver;
+    multipeerDriver.friendViewControllerDelegate = self;
     managedObjectContext = appDelegate.persistentContainer.viewContext;
 }
 
@@ -123,8 +123,7 @@
 
 - (IBAction) discoverablePressed:(id) sender {
     discoverableButton.tintColor = [UIColor systemBlueColor];
-    [btDriver usePeripheral];
-    [btDriver broadcastName];
+    [multipeerDriver startAdvertising];
     [NSTimer scheduledTimerWithTimeInterval: 6.0f
                                      target: self
                                    selector: @selector(discoverEnd)
@@ -133,7 +132,7 @@
 }
 
 - (void) discoverEnd {
-    [btDriver useCentral];
+    [multipeerDriver stopAdvertising];
     discoverableButton.tintColor = [UIColor systemRedColor];
 }
 

@@ -9,7 +9,7 @@
 #import "MapSetting+CoreDataProperties.h"
 #import <sys/utsname.h>
 #import "Gigma-Swift.h"
-#import "BluetoothDriver.h"
+#import "MultipeerDriver.h"
 #import "RSAManager.h"
 
 NSString * deviceName(void) {
@@ -27,7 +27,7 @@ NSString * deviceName(void) {
 @implementation AppDelegate
 
 @synthesize data;
-@synthesize bluetoothDriver;
+@synthesize multipeerDriver;
 @synthesize rsaManager;
 
 - (void) checkAndInitialisePrefs:(NSArray *) prefs {
@@ -69,7 +69,7 @@ NSString * deviceName(void) {
     NSArray * prefs = [[NSArray alloc] initWithObjects: @"Show stages", @"Show toilets", @"Show water sources", nil];
     [self checkAndInitialisePrefs: prefs];
     rsaManager = [[RSAManager alloc] init];
-    bluetoothDriver = [[BluetoothDriver alloc] init];
+    multipeerDriver = [[MultipeerDriver alloc] init];
     UIStoryboard * storyboard = [UIStoryboard storyboardWithName: @"Welcome" bundle: nil];
     self.window.rootViewController = [storyboard instantiateInitialViewController];
     [self.window makeKeyAndVisible];

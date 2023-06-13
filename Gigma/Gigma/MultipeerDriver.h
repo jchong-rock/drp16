@@ -11,13 +11,18 @@
 
 #define SERVICE_TYPE @"gigma-svc"
 
+@protocol FriendViewControllerDelegate;
+
 @interface MultipeerDriver : NSObject <MCNearbyServiceAdvertiserDelegate, MCNearbyServiceBrowserDelegate, MCSessionDelegate>
 
 @property (retain, nonatomic) NSMutableArray <MCPeerID *> * nearbyPeers;
 @property (retain, nonatomic) NSMutableArray <MCPeerID *> * connectedPeers;
 @property (weak, nonatomic) NSObject <NearbyDevicePickerDelegate> * nearbyDevicePickerDelegate;
+@property (weak, nonatomic) NSObject <FriendViewControllerDelegate> * friendViewControllerDelegate;
 
-- (void) connectPeer:(MCPeerID *) peerID withOpcode:(enum BTOpcode) opcode;
+- (void) startAdvertising;
+- (void) stopAdvertising;
+- (void) askConnectPeer:(MCPeerID *) peerID withOpcode:(enum BTOpcode) opcode;
 - (void) broadcastData:(NSData *) data;
 - (void) sendData:(NSData *) data toPeer:(MCPeerID *) peer;
 

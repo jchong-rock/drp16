@@ -7,7 +7,7 @@
 
 #import "AddFriendViewController.h"
 #import "FriendViewController.h"
-#import "BluetoothDriver.h"
+#import "MultipeerDriver.h"
 #import "AppDelegate.h"
 
 @interface AddFriendViewController ()
@@ -31,7 +31,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    multipeerDriver = appDelegate.bluetoothDriver;
+    multipeerDriver = appDelegate.multipeerDriver;
     multipeerDriver.nearbyDevicePickerDelegate = self;
     nearbyDevicesList = [[NSMutableArray alloc] init];
     nearbyDevicesMap = [[NSMutableDictionary alloc] init];
@@ -78,7 +78,7 @@
        nicknameTextLabel.textColor = UIColor.redColor;
        nicknameTextLabel.text = @"Nickname already in use";
     } else {
-        [multipeerDriver connectPeer: chosenDevice withOpcode: FRIEND_REQ];
+        [multipeerDriver askConnectPeer: chosenDevice withOpcode: FRIEND_REQ];
         [self dismissViewControllerAnimated: YES completion: nil];
     }
 }

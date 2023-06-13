@@ -17,7 +17,7 @@ class MapViewController : UIViewController {
     @IBOutlet weak var settingsButton: UIButton!
     
     var data: DataBaseDriver
-    var bluetooth: BluetoothDriver
+    var multipeer: MultipeerDriver
     var mapCache: MapCache?
     let locationManager = CLLocationManager()
     var festival: Festival?
@@ -27,14 +27,14 @@ class MapViewController : UIViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         data = appDelegate.data
-        bluetooth = appDelegate.bluetoothDriver
+        multipeer = appDelegate.multipeerDriver
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
     required init?(coder: NSCoder) {
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         data = appDelegate.data
-        bluetooth = appDelegate.bluetoothDriver
+        multipeer = appDelegate.multipeerDriver
         super.init(coder: coder)
     }
     
@@ -58,7 +58,9 @@ class MapViewController : UIViewController {
         let festivalID = UserDefaults.standard.integer(forKey: "FestivalIDSet")
         let config = MapCacheConfig(withUrlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
         mapCache = MapCache(withConfig: config)
-        mapView.showsUserLocation = true;
+        mapView.showsUserLocation = true
+        
+        
         guard let location = self.locationManager.location?.coordinate else { return }
         self.userLocation = location
 
@@ -80,6 +82,8 @@ class MapViewController : UIViewController {
             }
             data.close()
         }
+        
+        
         mapView.useCache(mapCache!)
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(clearCache), name: NSNotification.Name.clearCache, object: nil)

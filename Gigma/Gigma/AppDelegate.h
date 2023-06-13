@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
-@class BluetoothDriver;
+@class MultipeerDriver;
 @protocol DataBaseDriver;
 @class RSAManager;
 
@@ -20,7 +20,7 @@ NSString * deviceName(void);
 - (void) saveContext;
 
 @property (strong, nonatomic) UIWindow * window;
-@property (strong, nonatomic) BluetoothDriver * bluetoothDriver;
+@property (strong, nonatomic) MultipeerDriver * multipeerDriver;
 @property (retain, strong, nonatomic) NSObject <DataBaseDriver> * data;
 @property (retain, strong, nonatomic) RSAManager * rsaManager;
 

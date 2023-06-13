@@ -25,19 +25,29 @@
 
 @synthesize connectedPeers;
 @synthesize nearbyDevicePickerDelegate;
+@synthesize friendViewControllerDelegate;
 
 - (instancetype) init {
+    
     self = [super init];
     
-    advertiser = [[MCNearbyServiceAdvertiser alloc] init];
-    advertiser.delegate = self;
+    NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
+    NSData * storedID = [prefs dataForKey: @"peerID"];
+    if (storedID != nil) {
+        self.localPeerID = [NSKeyedUnarchiver unarchivedObjectOfClass: MCPeerID.class fromData: storedID error: nil];
+    } else {
+        MCPeerID * peerID = [[MCPeerID alloc] initWithDisplayName: UIDevice.currentDevice.name];
+        NSData * data = [NSKeyedArchiver archivedDataWithRootObject: peerID];
+        [prefs setObject: data forKey: @"peerID"];
+        self.localPeerID = peerID;
+    }
     
-    browser = [[MCNearbyServiceBrowser alloc] init];
-    browser.delegate = self;
-    
-    localPeerID = [[MCPeerID alloc] initWithDisplayName: UIDevice.currentDevice.name];
+
     session = [[MCSession alloc] initWithPeer: localPeerID securityIdentity: nil encryptionPreference: MCEncryptionNone];
     session.delegate = self;
+    
+    browser = [[MCNearbyServiceBrowser alloc] initWithPeer: localPeerID serviceType: SERVICE_TYPE];
+    browser.delegate = self;
     
     [self.browser startBrowsingForPeers];
     
@@ -51,6 +61,10 @@
     [self.advertiser startAdvertisingPeer];
 }
 
+- (void) stopAdvertising {
+    [self.advertiser stopAdvertisingPeer];
+}
+
 - (void) advertiser:(nonnull MCNearbyServiceAdvertiser *) advertiser didReceiveInvitationFromPeer:(nonnull MCPeerID *) peerID withContext:(nullable NSData *) context invitationHandler:(nonnull void (^) (BOOL, MCSession * _Nullable)) invitationHandler {
     
     enum BTOpcode opcode = ((const char *) [context bytes]) [0];
@@ -60,32 +74,34 @@
             break;
         }
         case DECLINE_REQ: {
-            <#code#>
+            NSLog(@"decline request");
             break;
         }
         case FRIEND_REQ: {
+            NSLog(@"friend request");
             // ask for accept or decline
             // if accept, send public key
             break;
         }
         case ACCEPT_REQ: {
+            NSLog(@"accept request");
             // send back public key
             break;
         }
         case SEND_LOC: {
-            <#code#>
+            
             break;
         }
         case REQ_LOC: {
-            <#code#>
+            
             break;
         }
         case SEND_MSG: {
-            <#code#>
+            
             break;
         }
         case MSG_READ: {
-            <#code#>
+            
             break;
         }
     }
@@ -94,7 +110,8 @@
 }
 
 // call from AddFriendViewController
-- (void) connectPeer:(MCPeerID *) peerID withOpcode:(enum BTOpcode) opcode {
+- (void) askConnectPeer:(MCPeerID *) peerID withOpcode:(enum BTOpcode) opcode {
+    
     [browser invitePeer: peerID toSession: session withContext: [NSData dataWithBytes: &opcode length: sizeof(char)] timeout: 10];
 }
 
@@ -107,11 +124,15 @@
 }
 
 - (void) browser:(MCNearbyServiceBrowser *) browser foundPeer:(MCPeerID *) peerID withDiscoveryInfo:(NSDictionary <NSString *, NSString *> *) info {
-    [nearbyDevicePickerDelegate addNearbyDevice: peerID];
+    if (nearbyDevicePickerDelegate != nil) {
+        [nearbyDevicePickerDelegate addNearbyDevice: peerID];
+    }
 }
 
 - (void) browser:(nonnull MCNearbyServiceBrowser *) browser lostPeer:(nonnull MCPeerID *) peerID {
-    [nearbyDevicePickerDelegate removeNearbyDevice: peerID];
+    if (nearbyDevicePickerDelegate != nil) {
+        [nearbyDevicePickerDelegate removeNearbyDevice: peerID];
+    }
 }
 
 - (void) session:(nonnull MCSession *) session didFinishReceivingResourceWithName:(nonnull NSString *) resourceName fromPeer:(nonnull MCPeerID *) peerID atURL:(nullable NSURL *) localURL withError:(nullable NSError *) error {
@@ -126,15 +147,25 @@
     
 }
 
+- (void) session:(MCSession *) session didReceiveCertificate:(NSArray *) certificate fromPeer:(MCPeerID *) peerID certificateHandler:(void (^) (BOOL accept)) certificateHandler {
+     if (certificateHandler != nil) {
+         certificateHandler(YES);
+     }
+}
+
 - (void) session:(nonnull MCSession *) session didReceiveData:(nonnull NSData *) data fromPeer:(nonnull MCPeerID *) peerID {
     NSLog(@"%@", [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding]);
 }
 
 - (void) session:(nonnull MCSession *) session peer:(nonnull MCPeerID *) peerID didChangeState:(MCSessionState) state {
     if (state == MCSessionStateConnected) {
+        NSLog(@"connect");
         [self.connectedPeers addObject: peerID];
     } else if (state == MCSessionStateNotConnected) {
+        NSLog(@"unconnect");
         [self.connectedPeers removeObject: peerID];
+    } else {
+        NSLog(@"innit");
     }
 }
 
