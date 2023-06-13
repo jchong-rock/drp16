@@ -16,7 +16,6 @@
 		E00E09542A312295002E82DB /* PeripheralManagerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E09532A312295002E82DB /* PeripheralManagerAdapter.swift */; };
 		E00E09562A31249E002E82DB /* TransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E09552A31249E002E82DB /* TransferService.swift */; };
 		E00E09592A3128B5002E82DB /* CentralManagerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E09582A3128B5002E82DB /* CentralManagerAdapter.swift */; };
-		E00E095C2A312E3B002E82DB /* BluetoothDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = E00E095B2A312E3B002E82DB /* BluetoothDriver.m */; };
 		E00E095F2A3236B5002E82DB /* BTOpcode.c in Sources */ = {isa = PBXBuildFile; fileRef = E00E095E2A3236B5002E82DB /* BTOpcode.c */; };
 		E00F0CD42A2A45E700E80FC3 /* PostgreSQLDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00F0CD32A2A45E700E80FC3 /* PostgreSQLDriver.swift */; };
 		E00F0CD72A2A467A00E80FC3 /* PostgresClientKit in Frameworks */ = {isa = PBXBuildFile; productRef = E00F0CD62A2A467A00E80FC3 /* PostgresClientKit */; };
@@ -92,7 +91,6 @@
 		0BAEF76A2A38B92C00E52460 /* AddCustomMarkerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddCustomMarkerViewController.m; sourceTree = "<group>"; };
 		136E1FB23B63B6D6932575CB /* Pods-GigmaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GigmaTests.debug.xcconfig"; path = "Target Support Files/Pods-GigmaTests/Pods-GigmaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1729EED8EE825915FB11772D /* Pods-Gigma.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gigma.debug.xcconfig"; path = "Target Support Files/Pods-Gigma/Pods-Gigma.debug.xcconfig"; sourceTree = "<group>"; };
-		2BF74FB42A38F82900155F09 /* MultipeerDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipeerDriver.h; sourceTree = "<group>"; };
 		2BF74FB52A38F82900155F09 /* MultipeerDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipeerDriver.m; sourceTree = "<group>"; };
 		2DFE7B671E23B854A2513E5C /* Pods-GigmaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GigmaTests.release.xcconfig"; path = "Target Support Files/Pods-GigmaTests/Pods-GigmaTests.release.xcconfig"; sourceTree = "<group>"; };
 		3288B7B2E7E2B48AC12FDB22 /* Pods_Gigma.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gigma.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,8 +103,6 @@
 		E00E09552A31249E002E82DB /* TransferService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferService.swift; sourceTree = "<group>"; };
 		E00E09572A31266E002E82DB /* BluetoothManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BluetoothManager.h; sourceTree = "<group>"; };
 		E00E09582A3128B5002E82DB /* CentralManagerAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralManagerAdapter.swift; sourceTree = "<group>"; };
-		E00E095A2A312E24002E82DB /* BluetoothDriver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BluetoothDriver.h; sourceTree = "<group>"; };
-		E00E095B2A312E3B002E82DB /* BluetoothDriver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BluetoothDriver.m; sourceTree = "<group>"; };
 		E00E095D2A322D1A002E82DB /* BTOpcode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTOpcode.h; sourceTree = "<group>"; };
 		E00E095E2A3236B5002E82DB /* BTOpcode.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = BTOpcode.c; sourceTree = "<group>"; };
 		E00F0CD32A2A45E700E80FC3 /* PostgreSQLDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostgreSQLDriver.swift; sourceTree = "<group>"; };
@@ -524,6 +520,7 @@
 		E0D826502A294C9200E3A373 /* IndentedLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndentedLabel.m; sourceTree = "<group>"; };
 		E0D826522A294E0B00E3A373 /* MessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
 		E0D826542A294E1E00E3A373 /* MessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
+		E0E1F1832A39017000564536 /* MultipeerDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipeerDriver.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1040,7 +1037,7 @@
 				E05733262A24F61C00B7A32D /* AppDelegate.m */,
 				E05733282A24F61C00B7A32D /* SceneDelegate.h */,
 				E05733292A24F61C00B7A32D /* SceneDelegate.m */,
-				2BF74FB42A38F82900155F09 /* MultipeerDriver.h */,
+				E0E1F1832A39017000564536 /* MultipeerDriver.h */,
 				2BF74FB52A38F82900155F09 /* MultipeerDriver.m */,
 				E0472D5D2A279C8400782EA0 /* WelcomeViewController.h */,
 				E0472D5E2A279C8800782EA0 /* WelcomeViewController.m */,
@@ -1078,8 +1075,6 @@
 				E00F0CE02A2AB5D000E80FC3 /* MapSettingsCell.m */,
 				E00F0CE72A2B8C9500E80FC3 /* FriendListCell.h */,
 				E00F0CE52A2B8C7D00E80FC3 /* FriendListCell.m */,
-				E00E095A2A312E24002E82DB /* BluetoothDriver.h */,
-				E00E095B2A312E3B002E82DB /* BluetoothDriver.m */,
 				E030EDE02A327CB900F7B537 /* ColourConverter.h */,
 				E030EDDE2A327C9F00F7B537 /* ColourConverter.m */,
 				E030EF5A2A3347BA00F7B537 /* RSAManager.h */,
@@ -1377,7 +1372,6 @@
 			files = (
 				E057332D2A24F61C00B7A32D /* AddFriendViewController.m in Sources */,
 				E00E09542A312295002E82DB /* PeripheralManagerAdapter.swift in Sources */,
-				E00E095C2A312E3B002E82DB /* BluetoothDriver.m in Sources */,
 				E00F0CE12A2AB5D000E80FC3 /* MapSettingsCell.m in Sources */,
 				E05733272A24F61C00B7A32D /* AppDelegate.m in Sources */,
 				E0D826512A294C9200E3A373 /* IndentedLabel.m in Sources */,

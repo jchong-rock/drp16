@@ -44,8 +44,11 @@
     
     NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
     NSData * storedID = [prefs dataForKey: @"peerID"];
+    nearbyPeers = [[NSMutableArray alloc] init];
     if (storedID != nil) {
         self.localPeerID = [NSKeyedUnarchiver unarchivedObjectOfClass: MCPeerID.class fromData: storedID error: nil];
+        printf("hhh");
+        NSLog(@"%@", self.localPeerID);
     } else {
         MCPeerID * peerID = [[MCPeerID alloc] initWithDisplayName: UIDevice.currentDevice.name];
         NSData * data = [NSKeyedArchiver archivedDataWithRootObject: peerID];
@@ -99,7 +102,7 @@
 - (void) advertiser:(nonnull MCNearbyServiceAdvertiser *) advertiser didReceiveInvitationFromPeer:(nonnull MCPeerID *) peerID withContext:(nullable NSData *) context invitationHandler:(nonnull void (^) (BOOL, MCSession * _Nullable)) invitationHandler {
     
     enum BTOpcode opcode = ((const char *) [context bytes]) [0];
-    
+    NSLog(@"%u", opcode);
     switch (opcode) {
         case NO_OP: {
             break;
@@ -143,7 +146,8 @@
             break;
         }
         case SEND_LOC: {
-            [self rebroadcastData: context];
+            NSLog(@"sendlocation");
+            //[self rebroadcastData: context];
             
             NSRange range = NSMakeRange(1, [context length] - 1);
             NSString * data = [[NSString alloc] initWithData: [context subdataWithRange: range] encoding: NSUTF8StringEncoding];
@@ -151,20 +155,24 @@
             NSString * decrypted = [rsaManager decryptString: data];
             NSString * magic = [decrypted substringToIndex: [RSA_MAGIC length]];
             if (![magic isEqual: RSA_MAGIC]) {
+                NSLog(@"magic");
                 break;
             }
             
-            NSString * peerHash = [decrypted substringWithRange: NSMakeRange([RSA_MAGIC length], 8)];
-            const char * peerChars = [peerHash UTF8String];
-            NSUInteger peerInt = uintFromChars(peerChars);
+            NSString * peerHash = [decrypted substringWithRange: NSMakeRange([RSA_MAGIC length], 16)];
+            NSUInteger peerInt = strtoull([peerHash UTF8String], NULL, 16);
             NSArray * friends = [MainViewController getFriendsFromContext: managedObjectContext];
             for (Friend * friend in friends) {
                 if (friend.peerID == peerInt) {
-                    NSString * latLong = [decrypted substringFromIndex: [RSA_MAGIC length] + 8];
+                    NSLog(@"here");
+                    NSString * latLong = [decrypted substringFromIndex: [RSA_MAGIC length] + 16];
                     NSString * latLongDec = [rsaManager decryptString: latLong withPublicKey: friend.deviceID];
-                    const char * latLongChars = [latLongDec UTF8String];
-                    NSUInteger latInt = uintFromChars(latLongChars);
-                    NSUInteger longInt = uintFromChars(latLongChars + 8);
+                    
+                    NSString * latString = [latLongDec substringToIndex: 16];
+                    NSString * longString = [latLongDec substringFromIndex: 16];
+                    
+                    NSUInteger latInt = strtoull([latString UTF8String], NULL, 16);
+                    NSUInteger longInt = strtoull([longString UTF8String], NULL, 16);
                     
                     union doubleThingy latThingy;
                     union doubleThingy longThingy;
@@ -212,6 +220,7 @@
 - (void) rebroadcastData:(NSData *) data {
     if (data != nil) {
         for (MCPeerID * peer in nearbyPeers) {
+            NSLog(@"peer %@", peer);
             [browser invitePeer: peer toSession: session withContext: data timeout: 10];
         }
     }
@@ -230,15 +239,9 @@
     
     NSUInteger latInt = latThingy.uinteger;
     NSUInteger longInt = longThingy.uinteger;
-
-    char * latChar = charsFromUint(latInt);
-    char * longChar = charsFromUint(longInt);
     
-    NSString * latString = [NSString stringWithUTF8String: latChar];
-    NSString * longString = [NSString stringWithUTF8String: longChar];
-    
-    free(latChar);
-    free(longChar);
+    NSString * latString = [NSString stringWithFormat: @"%016lx", latInt];
+    NSString * longString = [NSString stringWithFormat: @"%016lx", longInt];
     
     NSString * latLongString = [latString stringByAppendingString: longString];
     
@@ -248,11 +251,14 @@
 
 - (NSString *) getEncryptedMess:(NSString *) encrLoc forFriend:(Friend *) friend {
     NSUInteger hash = localPeerID.hash;
-    char * hashChar = charsFromUint(hash);
-    NSString * hashString = [NSString stringWithUTF8String:hashChar];
-    free(hashChar);
+    NSString * hashString = [NSString stringWithFormat: @"%016lx", hash];
+    NSLog(@"hashString %@", hashString);
     
-    NSString * unencryptData = [[RSA_MAGIC stringByAppendingString:hashString] stringByAppendingString:encrLoc];
+    /*NSMutableString * unencryptData = [[NSMutableString alloc] initWithString: RSA_MAGIC];
+    [unencryptData appendString: hashString];
+    [unencryptData appendString: encrLoc];*/
+    NSString * unencryptData = [[RSA_MAGIC stringByAppendingString: hashString] stringByAppendingString:encrLoc];
+    //free(hashChar);
     
     return [rsaManager encryptString:unencryptData withPublicKey:friend.deviceID];
 }
@@ -280,6 +286,7 @@
         [mutableData appendData: data];
     }
     for (MCPeerID * peer in nearbyPeers) {
+        NSLog(@"peer %@", peer);
         [browser invitePeer: peer toSession: session withContext: mutableData timeout: 10];
     }
 }
@@ -292,6 +299,7 @@
     if (nearbyDevicePickerDelegate != nil) {
         [nearbyDevicePickerDelegate addNearbyDevice: peerID];
     }
+    NSLog(@"added peer %@", peerID);
     [nearbyPeers addObject: peerID];
 }
 
@@ -299,6 +307,7 @@
     if (nearbyDevicePickerDelegate != nil) {
         [nearbyDevicePickerDelegate removeNearbyDevice: peerID];
     }
+    NSLog(@"removed peer %@", peerID);
     [nearbyPeers removeObject: peerID];
 }
 
