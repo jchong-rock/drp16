@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 #import "BluetoothManager.h"
+#import <CoreLocation/CoreLocation.h>
 
 #define SERVICE_TYPE @"gigma-svc"
 
@@ -17,6 +18,7 @@
 @protocol UpdateLocationDelegate <NSObject>
 
 - (void) setLatitude:(double) latVal andLongitude:(double) longVal ofFriend:(Friend * _Nonnull) friend;
+- (CLLocationCoordinate2D) getUserLocation;
 
 @end
 

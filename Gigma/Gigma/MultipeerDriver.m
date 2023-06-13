@@ -65,6 +65,7 @@
     browser.delegate = self;
     
     [self.browser startBrowsingForPeers];
+    [self broadcastLocation];
     
     return self;
 }
@@ -216,9 +217,56 @@
     }
 }
 
-- (void) broadcastLocation {
+- (NSString *) getEncryptedLoc {
+    CLLocationCoordinate2D usercordinate = [updateLocationDelegate getUserLocation];
+    double longitude = usercordinate.longitude;
+    double latitude = usercordinate.latitude;
     
-    [self broadcastData:<#(NSData * _Nullable)#> withOpcode:<#(enum BTOpcode)#>];
+    union doubleThingy latThingy;
+    union doubleThingy longThingy;
+    
+    latThingy.value = latitude;
+    longThingy.value = longitude;
+    
+    NSUInteger latInt = latThingy.uinteger;
+    NSUInteger longInt = longThingy.uinteger;
+
+    char * latChar = charsFromUint(latInt);
+    char * longChar = charsFromUint(longInt);
+    
+    NSString * latString = [NSString stringWithUTF8String: latChar];
+    NSString * longString = [NSString stringWithUTF8String: longChar];
+    
+    free(latChar);
+    free(longChar);
+    
+    NSString * latLongString = [latString stringByAppendingString: longString];
+    
+    return [rsaManager encryptString: latLongString];
+    
+}
+
+- (NSString *) getEncryptedMess:(NSString *) encrLoc forFriend:(Friend *) friend {
+    NSUInteger hash = localPeerID.hash;
+    char * hashChar = charsFromUint(hash);
+    NSString * hashString = [NSString stringWithUTF8String:hashChar];
+    free(hashChar);
+    
+    NSString * unencryptData = [[RSA_MAGIC stringByAppendingString:hashString] stringByAppendingString:encrLoc];
+    
+    return [rsaManager encryptString:unencryptData withPublicKey:friend.deviceID];
+}
+
+
+- (void) broadcastLocation {
+    NSArray * friends = [MainViewController getFriendsFromContext: managedObjectContext];
+    
+    for (Friend * friend in friends) {
+        NSString * dataString = [self getEncryptedMess: [self getEncryptedLoc] forFriend: friend];
+        NSData * data = [dataString dataUsingEncoding: NSUTF8StringEncoding];
+        [self broadcastData: data withOpcode: SEND_LOC];
+    }
+    
     [NSTimer scheduledTimerWithTimeInterval: 6.0f
                                      target: self
                                    selector: @selector(broadcastLocation)

@@ -432,6 +432,10 @@ extension MapViewController : PopoverDelegate {
 }
 
 extension MapViewController : UpdateLocationDelegate {
+    func getUserLocation() -> CLLocationCoordinate2D {
+        return userLocation!
+    }
+    
     func setLatitude(_ latVal: Double, andLongitude longVal: Double, of friend: Friend) {
         friendMarkers[friend]?.coordinate = CLLocationCoordinate2D(latitude: latVal, longitude: longVal)
     }

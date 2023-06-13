@@ -2,18 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Gigma/CustomMarker+CoreDataProperties.h">
-   </FileRef>
-   <FileRef
-      location = "group:Gigma/CustomMarker+CoreDataProperties.m">
-   </FileRef>
-   <FileRef
-      location = "group:Gigma/CustomMarker+CoreDataProperties.h">
-   </FileRef>
-   <FileRef
-      location = "group:Gigma/CustomMarker+CoreDataProperties.m">
-   </FileRef>
-   <FileRef
       location = "group:Gigma/Friend+CoreDataProperties.h">
    </FileRef>
    <FileRef

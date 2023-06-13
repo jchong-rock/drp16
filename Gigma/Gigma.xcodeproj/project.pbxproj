@@ -10,6 +10,7 @@
 		0BAEF7652A3870FA00E52460 /* UserMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAEF7642A3870FA00E52460 /* UserMarker.swift */; };
 		0BAEF7682A38992900E52460 /* ColourConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BAEF7662A38992900E52460 /* ColourConverter.m */; };
 		0BAEF76B2A38B92C00E52460 /* AddCustomMarkerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BAEF76A2A38B92C00E52460 /* AddCustomMarkerViewController.m */; };
+		2BF74FB62A38F82900155F09 /* MultipeerDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF74FB52A38F82900155F09 /* MultipeerDriver.m */; };
 		98045AE3BEA6BD9CF6C8E8FE /* Pods_GigmaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92D5AFFEFD8F2A8A0AA8DF49 /* Pods_GigmaUITests.framework */; };
 		9AAA7F51C4E228D3A0C23A97 /* Pods_GigmaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8424401AA17DB0D79C212DFD /* Pods_GigmaTests.framework */; };
 		E00E09542A312295002E82DB /* PeripheralManagerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E09532A312295002E82DB /* PeripheralManagerAdapter.swift */; };
@@ -91,6 +92,8 @@
 		0BAEF76A2A38B92C00E52460 /* AddCustomMarkerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddCustomMarkerViewController.m; sourceTree = "<group>"; };
 		136E1FB23B63B6D6932575CB /* Pods-GigmaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GigmaTests.debug.xcconfig"; path = "Target Support Files/Pods-GigmaTests/Pods-GigmaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1729EED8EE825915FB11772D /* Pods-Gigma.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gigma.debug.xcconfig"; path = "Target Support Files/Pods-Gigma/Pods-Gigma.debug.xcconfig"; sourceTree = "<group>"; };
+		2BF74FB42A38F82900155F09 /* MultipeerDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipeerDriver.h; sourceTree = "<group>"; };
+		2BF74FB52A38F82900155F09 /* MultipeerDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipeerDriver.m; sourceTree = "<group>"; };
 		2DFE7B671E23B854A2513E5C /* Pods-GigmaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GigmaTests.release.xcconfig"; path = "Target Support Files/Pods-GigmaTests/Pods-GigmaTests.release.xcconfig"; sourceTree = "<group>"; };
 		3288B7B2E7E2B48AC12FDB22 /* Pods_Gigma.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gigma.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		519A46CA8638749528180F1E /* Pods-Gigma.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gigma.release.xcconfig"; path = "Target Support Files/Pods-Gigma/Pods-Gigma.release.xcconfig"; sourceTree = "<group>"; };
@@ -1037,6 +1040,8 @@
 				E05733262A24F61C00B7A32D /* AppDelegate.m */,
 				E05733282A24F61C00B7A32D /* SceneDelegate.h */,
 				E05733292A24F61C00B7A32D /* SceneDelegate.m */,
+				2BF74FB42A38F82900155F09 /* MultipeerDriver.h */,
+				2BF74FB52A38F82900155F09 /* MultipeerDriver.m */,
 				E0472D5D2A279C8400782EA0 /* WelcomeViewController.h */,
 				E0472D5E2A279C8800782EA0 /* WelcomeViewController.m */,
 				E057332B2A24F61C00B7A32D /* AddFriendViewController.h */,
@@ -1393,6 +1398,7 @@
 				E05733382A24F61F00B7A32D /* main.m in Sources */,
 				E0549B182A27DF140002A8D4 /* DataBaseDriver.swift in Sources */,
 				0BAEF7652A3870FA00E52460 /* UserMarker.swift in Sources */,
+				2BF74FB62A38F82900155F09 /* MultipeerDriver.m in Sources */,
 				E0472C902A2782FF00782EA0 /* MainViewController.m in Sources */,
 				E0549B2F2A2907B00002A8D4 /* MessageDriver.m in Sources */,
 				0BAEF76B2A38B92C00E52460 /* AddCustomMarkerViewController.m in Sources */,

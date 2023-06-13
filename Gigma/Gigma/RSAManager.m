@@ -74,6 +74,11 @@
     return [rsa EncryptStringENC: plain bUsePrivateKey: NO];
 }
 
+- (NSString *) encryptString:(NSString *) plain {
+    [self.rsa ImportPrivateKey: self.privateKey];
+    return [rsa EncryptStringENC: plain bUsePrivateKey: YES];
+}
+
 - (NSString *) decryptString:(NSString *) plain {
     [self.rsa ImportPrivateKey: self.privateKey];
     return [rsa DecryptStringENC: plain bUsePrivateKey: YES];

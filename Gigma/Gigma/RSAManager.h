@@ -22,7 +22,9 @@
 
 - (NSString *) encryptString:(NSString *) plain withPublicKey:(NSString *) pk;
 - (NSString *) decryptString:(NSString *) plain withPublicKey:(NSString *) pk;
+- (NSString *) encryptString:(NSString *) plain;
 - (NSString *) decryptString:(NSString *) plain;
 - (NSString *) publicKeyWithModulus:(NSString *) modulus andExponent:(NSString *) exponent;
+
 
 @end
