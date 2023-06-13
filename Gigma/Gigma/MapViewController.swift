@@ -23,10 +23,19 @@ class MapViewController : UIViewController {
     var managedObjectContext: NSManagedObjectContext?
     var userLocation: CLLocationCoordinate2D?
     
+    //constants to use for marker drawings
+    let SIDE: Double = 17.5
+    let MARKER_MUL: Double = 1.3
+    var MARKER_SIDE: Double
+    
+    //Custom user pins
+    var userMarkers: [UserMarker] = []
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         data = appDelegate.data
         bluetooth = appDelegate.bluetoothDriver
+        self.MARKER_SIDE = SIDE * MARKER_MUL
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -34,7 +43,14 @@ class MapViewController : UIViewController {
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         data = appDelegate.data
         bluetooth = appDelegate.bluetoothDriver
+        self.MARKER_SIDE = SIDE * MARKER_MUL
         super.init(coder: coder)
+    }
+    
+    @available(iOS 13.0, *)
+    func initLongPressGestureRecogniser() {
+        let lpgr = UILongPressGestureRecognizer(target: self, action:  #selector(addUserMarker))
+        mapView.addGestureRecognizer(lpgr)
     }
     
     override func viewDidLoad() {
@@ -64,6 +80,9 @@ class MapViewController : UIViewController {
         let errorLocation = CLLocationCoordinate2DMake(51.5124801, -0.2182141)
         let errorRegion = MKCoordinateRegion(center: userLocation ?? errorLocation, latitudinalMeters: 200, longitudinalMeters: 200)
         mapView.setRegion(errorRegion, animated: true)
+        if #available(iOS 13.0, *) {
+            initLongPressGestureRecogniser()
+        }
         
         if (festivalID != 0) {
             let connectionSuccess = data.connect()
@@ -82,6 +101,7 @@ class MapViewController : UIViewController {
         mapView.useCache(mapCache!)
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(clearCache), name: NSNotification.Name.clearCache, object: nil)
+    
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -185,11 +205,12 @@ class MapViewController : UIViewController {
     }
 }
 
+@available(iOS 13.0, *)
 extension MapViewController : MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         return mapView.mapCacheRenderer(forOverlay: overlay)
     }
-    /*func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard !(annotation is MKUserLocation) else {
             return nil
         }
@@ -201,38 +222,56 @@ extension MapViewController : MKMapViewDelegate {
         } else {
             annotationView!.annotation = annotation
         }
-        print(annotation.title)
-        print(annotation.subtitle)
         
-        if annotation.title == "Water Source" {
-            annotationView!.image = makeImage(shape: "drop.fill", colour: .brown)
-        }
-        if annotation.title == "Toilet" {
-            
-            print("Toilet")
-            annotationView!.image = makeImage(shape: "toilet.fill", colour: .blue)
-        }
-        if annotation.subtitle == "Stage" {
-            print("here")
-            annotationView!.image = makeImage(shape: "music.mic", colour: .systemPink)
-        }
-        if annotation.subtitle == "Friend" {
-            let friendColour = getFriendColour(name: annotation.title!!)
-            annotationView!.image = makeImage(shape: "person.fill", colour: friendColour)
-        }
+        imageSelector(annotationView: annotationView!, annotation: annotation)
+        
         return annotationView
     }
     
     //TODO: get the colour from CORE DATA
     func getFriendColour(name: String) -> UIColor {
-        
-        
         return .red
     }
-    func makeImage(shape: String, colour: UIColor) -> UIImage {
+    
+    /* Select the image to display and how it is displayed */
+    func imageSelector(annotationView: MKAnnotationView, annotation: MKAnnotation)  {
+        switch annotation.subtitle {
+        case "Custom Marker":
+            let custMarker = annotation as! UserMarker
+            annotationView.image = makeCustomMarker(shape: custMarker.icon, colour: custMarker.colour)
+        case "Stage":
+            annotationView.image = makePredefMarker(shape: "music.mic", colour: .systemPink)
+        case "Friend":
+            let friendColour = getFriendColour(name: annotation.title!!)
+            annotationView.image = makePredefMarker(shape: "person.fill", colour: friendColour)
+        default:
+            switch annotation.title {
+            case "Toilet":
+                annotationView.image = makePredefMarker(shape: "toilet.fill", colour: .blue)
+            case "Water Source":
+                annotationView.image = makePredefMarker(shape: "drop.fill", colour: .brown)
+            // no other case
+            default:
+                print("Error -- can't reach here")
+            }
+        }
+    }
+    func makeCustomMarker(shape: String, colour: UIColor) -> UIImage {
+        let icon = UIImage(systemName: shape)!.withTintColor(colour)
+        let size = CGSize(width: MARKER_SIDE, height: MARKER_SIDE)
+        
+        let iconRect = CGRect(origin: .zero, size: size)
+        
+        return UIGraphicsImageRenderer(size: size).image {
+            _ in
+            colour.setFill()
+            icon.draw(in: iconRect)
+        }
+    }
+    func makePredefMarker(shape: String, colour: UIColor) -> UIImage {
         let icon = UIImage(systemName: shape)!.withTintColor(.white) // draw the icon in white
         let SIDE: Double = 17.5             // CHANGE SIZE HERE <------------
-        let MARKER_SIDE = Double(SIDE) * 1.3
+        
         
         let iconSize = CGSize(width: SIDE, height: SIDE)
         let markerSize = CGSize(width: MARKER_SIDE, height: MARKER_SIDE)
@@ -263,7 +302,18 @@ extension MapViewController : MKMapViewDelegate {
                 marker.fill()
                 icon.draw(in: iconRect)
         }
-    }*/
+    }
+    
+    @objc func addUserMarker(recogniser: UIGestureRecognizer) {
+        if (recogniser.state != UIGestureRecognizer.State.began) {return}
+        
+        let touchPoint = recogniser.location(in: mapView)
+        let coord = mapView.convert(touchPoint, toCoordinateFrom: mapView)
+        
+        
+        let newMarker = UserMarker.init(title: "User Marker", coordinate: coord, colour: .blue, info: "info")
+        mapView.addAnnotation(newMarker)
+    }
 }
 
 extension MapViewController : CLLocationManagerDelegate {
