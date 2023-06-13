@@ -18,11 +18,11 @@
 
 #define l_shift(NUM, SHIFT) (NUM <<= SHIFT)
 
-#define hex_mask_shift(MASK, SHIFT) ((MASK & hex) >> SHIFT)
+#define hex_mask_shift(MASK, SHIFT) ((MASK & castHex) >> SHIFT)
 
 @implementation ColourConverter
 
-+ (u_int64_t) toHex: (UIColor *) colour {
++ (int64_t) toHex: (UIColor *) colour {
     CGFloat * redPtr = malloc(sizeof(CGFloat));
     CGFloat * greenPtr = malloc(sizeof(CGFloat));
     CGFloat * bluePtr = malloc(sizeof(CGFloat));
@@ -48,10 +48,11 @@
     free(bluePtr);
     free(alphaPtr);
     
-    return intVal;
+    return (int64_t) intVal;
 }
 
-+ (UIColor *) toColour: (u_int64_t) hex {
++ (UIColor *) toColour: (int64_t) hex {
+    u_int64_t castHex = (u_int64_t) hex;
     CGFloat red   = (CGFloat) hex_mask_shift(RED_MASK, RED_SHIFT);
     CGFloat green = (CGFloat) hex_mask_shift(GREEN_MASK, GREEN_SHIFT);
     CGFloat blue  = (CGFloat) hex_mask_shift(BLUE_MASK, GREEN_SHIFT);

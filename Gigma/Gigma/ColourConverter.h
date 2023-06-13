@@ -10,9 +10,9 @@
 
 @interface ColourConverter : NSObject
 
-+ (u_int64_t) toHex: (UIColor *) colour;
++ (int64_t) toHex: (UIColor *) colour;
 
-+ (UIColor *) toColour: (u_int64_t) hex;
++ (UIColor *) toColour: (int64_t) hex;
 
 @end
 

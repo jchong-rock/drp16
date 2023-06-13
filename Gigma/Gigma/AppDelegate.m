@@ -62,7 +62,7 @@ NSString * deviceName(void) {
 - (BOOL) application:(UIApplication *) application didFinishLaunchingWithOptions:(NSDictionary *) launchOptions {
     // Override point for customization after application launch.
     data = [[PostgreSQLDriver alloc] init];
-    NSArray * prefs = [[NSArray alloc] initWithObjects: @"Show stages", @"Show toilets", @"Show water sources", nil];
+    NSArray * prefs = [[NSArray alloc] initWithObjects: @"Show stages", @"Show toilets", @"Show water sources", /*@"Show custom markers",*/ nil];
     [self checkAndInitialisePrefs: prefs];
     bluetoothDriver = [[BluetoothDriver alloc] init];
     UIStoryboard * storyboard = [self grabStoryboard];

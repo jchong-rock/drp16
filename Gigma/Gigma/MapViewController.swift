@@ -29,7 +29,8 @@ class MapViewController : UIViewController {
     var MARKER_SIDE: Double
     
     //Custom user pins
-    var userMarkers: [UserMarker] = []
+//    var isCustomMarkers: Bool
+    //var userMarkers: [UserMarker] = []
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -101,15 +102,15 @@ class MapViewController : UIViewController {
         mapView.useCache(mapCache!)
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(clearCache), name: NSNotification.Name.clearCache, object: nil)
-    
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         showFriends()
+        renderCustomMarkers()
         checkPrefs()
     }
-    
     func checkPrefs() {
         let prefs = MainViewController.prefsList(self)
         prefs!.forEach {p in
@@ -121,9 +122,32 @@ class MapViewController : UIViewController {
                     pref.enabled ? showToilets() : hideToilets()
                 case "Show water sources":
                     pref.enabled ? showWater() : hideWater()
+//                case "Show custom markers":
+//                    pref.enabled ? showCustomMarkers() : hideCustomMarkers()
                 default:
                     MainViewController.showErrorPopup(self, withMessage: "Setting does not exist.")
             }
+        }
+    }
+    
+    // TODO: Not working! -> FIX
+    @objc func renderCustomMarkers() {
+        guard let markers = MainViewController.getCustomMarkers(from: managedObjectContext) else {
+                return
+        }
+        print("markers")
+        print(markers)
+        for marker in markers {
+            let customMarker = marker as! CustomMarker
+            let userMarker = UserMarker(
+                title: customMarker.name!,
+                coordinate: CLLocationCoordinate2DMake(
+                    customMarker.latitude,
+                    customMarker.longitude
+                ),
+                colour: ColourConverter.toColour(customMarker.colour),
+                info: "") //TODO: add info field to core data
+            mapView.addAnnotation(userMarker)
         }
     }
     
@@ -236,24 +260,24 @@ extension MapViewController : MKMapViewDelegate {
     /* Select the image to display and how it is displayed */
     func imageSelector(annotationView: MKAnnotationView, annotation: MKAnnotation)  {
         switch annotation.subtitle {
-        case "Custom Marker":
-            let custMarker = annotation as! UserMarker
-            annotationView.image = makeCustomMarker(shape: custMarker.icon, colour: custMarker.colour)
-        case "Stage":
-            annotationView.image = makePredefMarker(shape: "music.mic", colour: .systemPink)
-        case "Friend":
-            let friendColour = getFriendColour(name: annotation.title!!)
-            annotationView.image = makePredefMarker(shape: "person.fill", colour: friendColour)
-        default:
-            switch annotation.title {
-            case "Toilet":
-                annotationView.image = makePredefMarker(shape: "toilet.fill", colour: .blue)
-            case "Water Source":
-                annotationView.image = makePredefMarker(shape: "drop.fill", colour: .brown)
-            // no other case
+            case "Custom Marker":
+                let custMarker = annotation as! UserMarker
+                annotationView.image = makeCustomMarker(shape: custMarker.icon, colour: custMarker.colour)
+            case "Stage":
+                annotationView.image = makePredefMarker(shape: "music.mic", colour: .systemPink)
+            case "Friend":
+                let friendColour = getFriendColour(name: annotation.title!!)
+                annotationView.image = makePredefMarker(shape: "person.fill", colour: friendColour)
             default:
-                print("Error -- can't reach here")
-            }
+                switch annotation.title {
+                    case "Toilet":
+                        annotationView.image = makePredefMarker(shape: "toilet.fill", colour: .blue)
+                    case "Water Source":
+                        annotationView.image = makePredefMarker(shape: "drop.fill", colour: .brown)
+                    // no other case
+                    default:
+                        print("Error -- can't reach here")
+                }
         }
     }
     func makeCustomMarker(shape: String, colour: UIColor) -> UIImage {
@@ -307,9 +331,21 @@ extension MapViewController : MKMapViewDelegate {
     @objc func addUserMarker(recogniser: UIGestureRecognizer) {
         if (recogniser.state != UIGestureRecognizer.State.began) {return}
         
+        // gets the location of the touch and convert to coordinate
         let touchPoint = recogniser.location(in: mapView)
         let coord = mapView.convert(touchPoint, toCoordinateFrom: mapView)
         
+        //save in core data so that these are persistent
+        let coreMarker = NSEntityDescription.insertNewObject(forEntityName: "CustomMarker", into: managedObjectContext!) as! CustomMarker
+        
+        coreMarker.name = "User Marker"                    //TODO: Change -> needs to be dyanmic
+        coreMarker.colour = ColourConverter.toHex(.blue)  //TODO: Cange -> needs to be dynamic
+        coreMarker.latitude = coord.latitude
+        coreMarker.longitude = coord.longitude
+        
+        do {
+            try managedObjectContext!.save()
+        } catch {} // I don't care about errors
         
         let newMarker = UserMarker.init(title: "User Marker", coordinate: coord, colour: .blue, info: "info")
         mapView.addAnnotation(newMarker)
@@ -317,6 +353,7 @@ extension MapViewController : MKMapViewDelegate {
 }
 
 extension MapViewController : CLLocationManagerDelegate {
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = manager.location?.coordinate else { return }
         self.userLocation = location

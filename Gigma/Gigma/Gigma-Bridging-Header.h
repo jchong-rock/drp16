@@ -12,3 +12,5 @@
 #import "BluetoothManager.h"
 #import "BTOpcode.h"
 #import "BluetoothDriver.h"
+#import "CustomMarker+CoreDataProperties.h"
+#import "ColourConverter.h"
