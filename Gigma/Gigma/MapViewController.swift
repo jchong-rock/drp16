@@ -119,10 +119,10 @@ class MapViewController : UIViewController {
         settingsButton.setTitle("", for: .normal)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        settingsButton.setTitle("", for: .normal)
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        settingsButton.setTitle("", for: .normal)
+//    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -294,8 +294,9 @@ extension MapViewController : MKMapViewDelegate {
         let friends = MainViewController.getFriendsFrom(moc)
         for friend in friends! {
             if (friend as! Friend).friendName == name {
-                return ColourConverter.toColour(UInt64((friend as! Friend).colour))
+                return ColourConverter.toColour(((friend as! Friend).colour))
             }
+        }
         return .red
     }
     
@@ -325,7 +326,6 @@ extension MapViewController : MKMapViewDelegate {
     func makeCustomMarker(shape: String, colour: UIColor) -> UIImage {
         let icon = UIImage(systemName: shape)!.withTintColor(colour)
         let size = CGSize(width: MARKER_SIDE, height: MARKER_SIDE)
-        }
         let iconRect = CGRect(origin: .zero, size: size)
         
         return UIGraphicsImageRenderer(size: size).image {
