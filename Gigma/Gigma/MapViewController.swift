@@ -452,14 +452,17 @@ extension MapViewController : MKMapViewDelegate {
             let colourPicker = UIColorPickerViewController()
             colourPicker.delegate = self
             self.present(colourPicker, animated: true)
+            alertController.setValue(colourPicker.selectedColor, forKey: "Select Colour")
         }
 
         // Add the actions to the alert controller
         alertController.addAction(okAction)
         alertController.addAction(colourAction)
         alertController.addAction(cancelAction)
-        
 
+        // Colour initially red
+        alertController.setValue(UIColor.red, forKey: "Select Colour")
+        
         // Present the alert controller
         present(alertController, animated: true, completion: nil)
         
