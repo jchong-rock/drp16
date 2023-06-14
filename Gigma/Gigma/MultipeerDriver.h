@@ -14,6 +14,7 @@
 #define TIME_TO_LIVE 3;
 
 @protocol FriendViewControllerDelegate;
+@protocol ComposeDelegate;
 @class Friend;
 
 @protocol UpdateLocationDelegate <NSObject>
@@ -30,6 +31,7 @@
 @property (retain, nonatomic) NSMutableArray <MCPeerID *> * _Nonnull connectedPeers;
 @property (weak, nonatomic) NSObject <NearbyDevicePickerDelegate> * _Nullable nearbyDevicePickerDelegate;
 @property (weak, nonatomic) NSObject <FriendViewControllerDelegate> * _Nullable friendViewControllerDelegate;
+@property (weak, nonatomic) NSObject <ComposeDelegate> * _Nullable composeDelegate;
 
 - (void) startAdvertising;
 - (void) stopAdvertising;

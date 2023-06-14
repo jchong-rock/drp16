@@ -10,6 +10,7 @@
 #import "Message+CoreDataProperties.h"
 #import "MessageDriver.h"
 #import "AppDelegate.h"
+#import "MultipeerDriver.h"
 
 @interface ComposeMessageViewController () {
     NSObject <MessageDriver> * messageDriver;
@@ -34,12 +35,9 @@
     [super viewDidLoad];
     AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     messageDriver = [[FakeMessageSender alloc] init];
+    appDelegate.multipeerDriver.composeDelegate = self;
     [NSNotificationCenter.defaultCenter addObserver: self selector: @selector(keyboardWillShow:) name: UIKeyboardWillShowNotification object: nil];
     [NSNotificationCenter.defaultCenter addObserver: self selector: @selector(keyboardWillHide:) name: UIKeyboardWillHideNotification object: nil];
-    [[NSNotificationCenter defaultCenter] addObserver: self
-               selector: @selector(refresh)
-                   name: @"Message Received"
-                 object: nil];
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(dismissKeyboard)];
 
     [self.view addGestureRecognizer: tap];
@@ -147,7 +145,8 @@
     }
 }
 
-- (void) refresh {
+- (void) refreshWithMessage:(Message *) message {
+    [messageList addObject: message];
     [messageStack reloadData];
 }
 

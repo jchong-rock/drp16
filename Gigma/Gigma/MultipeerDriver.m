@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "MainViewController.h"
 #import "Message+CoreDataProperties.h"
+#import "ComposeMessageViewController.h"
 
 @interface MultipeerDriver () {
     NSManagedObjectContext * managedObjectContext;
@@ -37,6 +38,7 @@
 @synthesize nearbyDevicePickerDelegate;
 @synthesize friendViewControllerDelegate;
 @synthesize updateLocationDelegate;
+@synthesize composeDelegate;
 
 - (instancetype) init {
     
@@ -229,7 +231,7 @@
             NSArray * friends = [MainViewController getFriendsFromContext: managedObjectContext];
             for (Friend * friend in friends) {
                 if (friend.peerID == peerInt) {
-                    NSLog(@"here");
+                    NSLog(@"here msg");
                     NSString * text = [decrypted substringFromIndex: [RSA_MAGIC length] + 16];
                     NSString * messageDec = [rsaManager decryptString: text withPublicKey: friend.deviceID];
                     
@@ -241,6 +243,7 @@
                     message.contents = messageDec;
                     NSError * error;
                     [managedObjectContext save: &error];
+                    [composeDelegate refreshWithMessage: message];
                     
                     NSDictionary * userInfo = @{@"message": message};
                     [[NSNotificationCenter defaultCenter] postNotificationName: @"Message Received" object: nil userInfo: userInfo];

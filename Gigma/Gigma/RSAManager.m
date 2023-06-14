@@ -43,12 +43,14 @@
         publicKey = pubKey;
         NSLog(@"herererere: %@", pubKey);
         privateKey = [userDefs stringForKey: @"RSAPrivateKey"];
-    }
-    else {
+    } else {
+        NSLog(@"null key");
         success = [rsa GenerateKey: @(PUB_KEY_SIZE)];
         if (success) {
             publicKey = [rsa ExportPublicKey];
             privateKey = [rsa ExportPrivateKey];
+            [userDefs setObject: publicKey forKey: @"RSAPublicKey"];
+            [userDefs setObject: privateKey forKey: @"RSAPrivateKey"];
         }
         else {
             [rsa dispose];
@@ -91,13 +93,6 @@
 
 - (NSString *) publicKeyWithModulus:(NSString *) modulus andExponent:(NSString *) exponent {
     return [NSString stringWithFormat: @"<RSAPublicKey><Modulus>%@</Modulus><Exponent>%@</Exponent></RSAPublicKey>", modulus, exponent];
-}
-
-- (void) dealloc {
-    if ([userDefs stringForKey: @"RSAPublicKey"] == nil) {
-        [userDefs setObject: publicKey forKey: @"RSAPublicKey"];
-        [userDefs setObject: privateKey forKey: @"RSAPrivateKey"];
-    }
 }
 
 @end

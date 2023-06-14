@@ -16,7 +16,13 @@
 
 @end
 
-@interface ComposeMessageViewController : UIViewController {
+@protocol ComposeDelegate
+
+- (void) refreshWithMessage:(Message *) message;
+
+@end
+
+@interface ComposeMessageViewController : UIViewController <ComposeDelegate> {
     IBOutlet UITableView * messageStack;
     IBOutlet UITextField * textField;
     IBOutlet UIView * textBar;
