@@ -58,7 +58,7 @@ class MapViewController : UIViewController {
     
     @available(iOS 13.0, *)
     func initLongPressGestureRecogniser() {
-        let lpgr = UILongPressGestureRecognizer(target: self, action:  #selector(addUserMarker))
+        let lpgr = UILongPressGestureRecognizer(target: self, action:  #selector(addCustomMarker))
         mapView.addGestureRecognizer(lpgr)
     }
     
@@ -115,24 +115,21 @@ class MapViewController : UIViewController {
         mapView.useCache(mapCache!)
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(clearCache), name: NSNotification.Name.clearCache, object: nil)
-        
+        print("didload")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         settingsButton.setTitle("", for: .normal)
+        print("willappear")
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        settingsButton.setTitle("", for: .normal)
-//    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         showFriends()
         renderCustomMarkers()
         checkPrefs()
+        print("didappear")
     }
     func checkPrefs() {
         let prefs = MainViewController.prefsList(self)
@@ -310,8 +307,8 @@ extension MapViewController : MKMapViewDelegate {
     func imageSelector(annotationView: MKAnnotationView, annotation: MKAnnotation)  {
         switch annotation.subtitle {
             case "Custom Marker":
-                let custMarker = annotation as! UserMarker
-                annotationView.image = makeCustomMarker(shape: custMarker.icon, colour: custMarker.colour)
+                let userMarker = annotation as! UserMarker
+                annotationView.image = makeCustomMarker(shape: userMarker.icon, colour: userMarker.colour)
             case "Stage":
                 annotationView.image = makePredefMarker(shape: "music.mic", colour: .systemPink)
             case "Friend":
@@ -376,19 +373,87 @@ extension MapViewController : MKMapViewDelegate {
         }
     }
     
-    @objc func addUserMarker(recogniser: UIGestureRecognizer) {
+    //TODO: ad colour and icon?
+    func addNewMarker(name: String?, coord: CLLocationCoordinate2D) -> Bool {
+        if (name == nil) {return false}
+            
+        for marker in MainViewController.getCustomMarkers(from: managedObjectContext!) {
+            let custMarker = marker as! CustomMarker
+            if (name == custMarker.name) {
+                return false
+            }
+        }
+        let newMarker = NSEntityDescription.insertNewObject(forEntityName: "CustomMarker", into: managedObjectContext!)
+        let newCustMarker = newMarker as! CustomMarker
+        newCustMarker.name = name!
+        newCustMarker.latitude = coord.latitude
+        newCustMarker.longitude = coord.longitude
+        newCustMarker.colour = ColourConverter.toHex(.red)
+        //TODO: colour and icon?
+        
+        do {
+            print("saving marker")
+            try managedObjectContext!.save()
+            let newMarker = UserMarker.init(title: name!, coordinate: coord, colour: .blue, info: "info")
+            self.mapView.addAnnotation(newMarker)
+            return true
+            
+        } catch {
+            return false
+        }
+        
+        
+    }
+    
+    @objc func addCustomMarker(recogniser: UIGestureRecognizer) {
         if (recogniser.state != UIGestureRecognizer.State.began) {return}
         
         //create the adder view
-        let custAddView: AddCustomMarkerViewController = AddCustomMarkerViewController()
-        
+        // Create the alert controller
+        let alertController = UIAlertController(title: "New Custom Marker", message: nil, preferredStyle: .alert)
+
+        // Add a text field to the alert controller
+        alertController.addTextField { textField in
+            textField.placeholder = "Name"
+        }
         
         // gets the location of the touch and convert to coordinate
         let touchPoint = recogniser.location(in: mapView)
         let coord = mapView.convert(touchPoint, toCoordinateFrom: mapView)
         
-        custAddView.setCoordinate(coord)
-        present(custAddView, animated: true, completion: nil)
+        //custAddView.setCoordinate(coord)
+        //self.presentedViewController(custAddView, sender: self)
+//        present(custAddView, animated: true, completion: nil
+        
+        // Create an "OK" action
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            // Handle the user's input
+            if let textField = alertController.textFields?.first {
+                let enteredText = textField.text
+                // Do something with the entered text
+                print("Entered text: \(enteredText ?? "")")
+                let titleIsValid = self.addNewMarker(name: enteredText, coord: coord)
+//                var title: String
+//                if (titleIsValid) {
+//                    title = enteredText!
+//                } else {
+//                    title = "Untitled"
+//                }
+//
+//                let newMarker = UserMarker.init(title: title, coordinate: coord, colour: .blue, info: "info")
+//                self.mapView.addAnnotation(newMarker)
+            }
+        }
+
+        // Create a "Cancel" action
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        // Add the actions to the alert controller
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+
+        // Present the alert controller
+        present(alertController, animated: true, completion: nil)
         
         
         
@@ -406,8 +471,13 @@ extension MapViewController : MKMapViewDelegate {
 //        } catch {} // I don't care about errors
         
         //TODO: call the view controller to handle the popup
-        let newMarker = UserMarker.init(title: "User Marker", coordinate: coord, colour: .blue, info: "info")
-        mapView.addAnnotation(newMarker)
+    }
+    
+    func checkTitle(_ title: String?) -> Bool {
+        if (title == nil) {
+            return false
+        }
+        return true
     }
 }
 

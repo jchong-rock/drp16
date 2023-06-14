@@ -8,6 +8,7 @@
 #import "MainViewController.h"
 #import <CoreData/CoreData.h>
 #import "AppDelegate.h"
+#import "CustomMarker+CoreDataProperties.h"
 
 @interface MainViewController ()
 
@@ -67,5 +68,6 @@
     NSMutableArray * mutableFetchResults = [[managedObjectContext executeFetchRequest: request error: &error] mutableCopy];
     return mutableFetchResults;
 }
+
 
 @end
