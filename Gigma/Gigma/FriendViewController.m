@@ -14,6 +14,7 @@
 #import "FriendListCell.h"
 #import "MultipeerDriver.h"
 #import "ColourConverter.h"
+#import "RSAManager.h"
 
 @interface FriendViewController () {
     NSManagedObjectContext * managedObjectContext;
@@ -33,12 +34,14 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
+    
     discoverableButton.tintColor = [UIColor systemBlueColor];
     discoverableButton.tintColor = [UIColor systemRedColor];
     // Do any additional setup after loading the view.
     AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     multipeerDriver = appDelegate.multipeerDriver;
     multipeerDriver.friendViewControllerDelegate = self;
+    NSLog(@"my public key: %@" , appDelegate.rsaManager.publicKey);
     managedObjectContext = appDelegate.persistentContainer.viewContext;
 }
 
@@ -111,6 +114,7 @@
 }
 
 - (BOOL) addFriend:(MCPeerID *) name withPubKey:(NSString *) pubKey {
+    NSLog(@"friend public key: %@" , pubKey);
     if (name != nil) {
         Friend * friend = [NSEntityDescription insertNewObjectForEntityForName: @"Friend" inManagedObjectContext: managedObjectContext];
         friend.friendName = name.displayName;
