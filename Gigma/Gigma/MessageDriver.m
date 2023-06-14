@@ -6,14 +6,28 @@
 //
 
 #import "MessageDriver.h"
+#import "AppDelegate.h"
+#import "MultipeerDriver.h"
+
+@interface FakeMessageSender ()
+
+@property (nonatomic, weak) MultipeerDriver * multipeerDriver;
+
+@end
 
 @implementation FakeMessageSender
 
 @synthesize managedObjectContext;
+@synthesize multipeerDriver;
 
 // change to use real method
 - (Message *) sendMessage:(NSString *) content toFriend:(Friend *) friend {
     if (content != nil && [content length] > 0) {
+        
+        NSString * dataString = [multipeerDriver getEncryptedMess: [multipeerDriver encryptTextMess: (NSString*) content] forFriend: friend];
+        NSData * data = [dataString dataUsingEncoding: NSUTF8StringEncoding];
+        [multipeerDriver broadcastData: data withOpcode: SEND_MSG];
+        
         Message * message = [NSEntityDescription insertNewObjectForEntityForName: @"Message" inManagedObjectContext: managedObjectContext];
         message.recipient = friend;
         message.dateTime = [NSDate date];
@@ -27,8 +41,11 @@
     return nil;
 }
 
-- (instancetype) initWithContext:(NSManagedObjectContext *) context {
-    self.managedObjectContext = context;
+- (instancetype) init {
+    self = [super init];
+    AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    multipeerDriver = appDelegate.multipeerDriver;
+    managedObjectContext = appDelegate.persistentContainer.viewContext;
     return self;
 }
 

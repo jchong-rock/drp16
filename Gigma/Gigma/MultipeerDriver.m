@@ -10,6 +10,7 @@
 #import "FriendViewController.h"
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "Message+CoreDataProperties.h"
 
 @interface MultipeerDriver () {
     NSManagedObjectContext * managedObjectContext;
@@ -197,6 +198,39 @@
         }
         case SEND_MSG: {
             
+            NSRange range = NSMakeRange(1, [context length] - 1);
+            NSString * data = [[NSString alloc] initWithData: [context subdataWithRange: range] encoding: NSUTF8StringEncoding];
+            
+            NSString * decrypted = [rsaManager decryptString: data];
+            NSString * magic = [decrypted substringToIndex: [RSA_MAGIC length]];
+            if (![magic isEqual: RSA_MAGIC]) {
+                NSLog(@"magic");
+                break;
+            }
+            
+            NSString * peerHash = [decrypted substringWithRange: NSMakeRange([RSA_MAGIC length], 16)];
+            NSUInteger peerInt = strtoull([peerHash UTF8String], NULL, 16);
+            NSArray * friends = [MainViewController getFriendsFromContext: managedObjectContext];
+            for (Friend * friend in friends) {
+                if (friend.peerID == peerInt) {
+                    NSLog(@"here");
+                    NSString * text = [decrypted substringFromIndex: [RSA_MAGIC length] + 16];
+                    NSString * messageDec = [rsaManager decryptString: text withPublicKey: friend.deviceID];
+                    
+                    Message * message = [NSEntityDescription insertNewObjectForEntityForName: @"Message" inManagedObjectContext: managedObjectContext];
+                    message.recipient = friend;
+                    message.dateTime = [NSDate date];
+                    message.weSentIt = NO;
+                    message.wasRead = YES;
+                    message.contents = messageDec;
+                    NSError * error;
+                    [managedObjectContext save: &error];
+                   
+                    break;
+                }
+            }
+            
+            
             break;
         }
         case MSG_READ: {
@@ -207,6 +241,7 @@
     
     invitationHandler(YES, self.session);
 }
+
 
 // call from AddFriendViewController
 - (void) sendToPeer:(MCPeerID *) peerID withOpcode:(enum BTOpcode) opcode andData:(NSData * _Nullable) data {
@@ -263,6 +298,9 @@
     return [rsaManager encryptString:unencryptData withPublicKey:friend.deviceID];
 }
 
+- (NSString *) encyprtTextMess: (NSString *) content {
+    return [rsaManager encryptString:content];
+}
 
 - (void) broadcastLocation {
     NSArray * friends = [MainViewController getFriendsFromContext: managedObjectContext];

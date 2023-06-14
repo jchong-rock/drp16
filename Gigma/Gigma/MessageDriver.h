@@ -19,6 +19,4 @@
 
 @property (nonatomic, weak) NSManagedObjectContext * managedObjectContext;
 
-- (instancetype) initWithContext:(NSManagedObjectContext *) context;
-
 @end
