@@ -11,6 +11,7 @@
 #import <CoreLocation/CoreLocation.h>
 
 #define SERVICE_TYPE @"gigma-svc"
+#define TIME_TO_LIVE 3;
 
 @protocol FriendViewControllerDelegate;
 @class Friend;
