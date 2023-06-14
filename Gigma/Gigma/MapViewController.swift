@@ -12,7 +12,7 @@ import MapKit
 import NotificationCenter
 import CoreData
 
-class MapViewController : UIViewController {
+class MapViewController : UIViewController, UIColorPickerViewControllerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var settingsButton: UIButton!
     
@@ -28,14 +28,16 @@ class MapViewController : UIViewController {
     var headingImageView: UIImageView?
     var userHeading: CLLocationDirection?
     
+    // CustomMarkerAdder delegate
+//    var custMarkAdderDelegate: AddCustomMarkerDelegate
+    
     //constants to use for marker drawings
     let SIDE: Double = 17.5
     let MARKER_MUL: Double = 1.3
     var MARKER_SIDE: Double
     
     //Custom user pins
-//    var isCustomMarkers: Bool
-    //var userMarkers: [UserMarker] = []
+    var lastCustomColour: UIColor = .red
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -55,7 +57,7 @@ class MapViewController : UIViewController {
     
     @available(iOS 13.0, *)
     func initLongPressGestureRecogniser() {
-        let lpgr = UILongPressGestureRecognizer(target: self, action:  #selector(addUserMarker))
+        let lpgr = UILongPressGestureRecognizer(target: self, action:  #selector(addCustomMarker))
         mapView.addGestureRecognizer(lpgr)
     }
     
@@ -112,24 +114,21 @@ class MapViewController : UIViewController {
         mapView.useCache(mapCache!)
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(clearCache), name: NSNotification.Name.clearCache, object: nil)
-        
+        print("didload")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         settingsButton.setTitle("", for: .normal)
+        print("willappear")
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        settingsButton.setTitle("", for: .normal)
-//    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         showFriends()
         renderCustomMarkers()
         checkPrefs()
+        print("didappear")
     }
     func checkPrefs() {
         let prefs = MainViewController.prefsList(self)
@@ -307,8 +306,8 @@ extension MapViewController : MKMapViewDelegate {
     func imageSelector(annotationView: MKAnnotationView, annotation: MKAnnotation)  {
         switch annotation.subtitle {
             case "Custom Marker":
-                let custMarker = annotation as! UserMarker
-                annotationView.image = makeCustomMarker(shape: custMarker.icon, colour: custMarker.colour)
+                let userMarker = annotation as! UserMarker
+                annotationView.image = makeCustomMarker(shape: userMarker.icon, colour: userMarker.colour)
             case "Stage":
                 annotationView.image = makePredefMarker(shape: "music.mic", colour: .systemPink)
             case "Friend":
@@ -373,12 +372,101 @@ extension MapViewController : MKMapViewDelegate {
         }
     }
     
-    @objc func addUserMarker(recogniser: UIGestureRecognizer) {
+    //TODO: ad colour and icon?
+    func addNewMarker(name: String?, coord: CLLocationCoordinate2D) -> Bool {
+        if (name == nil) {return false}
+            
+        for marker in MainViewController.getCustomMarkers(from: managedObjectContext!) {
+            let custMarker = marker as! CustomMarker
+            if (name == custMarker.name) {
+                return false
+            }
+        }
+        let newMarker = NSEntityDescription.insertNewObject(forEntityName: "CustomMarker", into: managedObjectContext!)
+        let newCustMarker = newMarker as! CustomMarker
+        newCustMarker.name = name!
+        newCustMarker.latitude = coord.latitude
+        newCustMarker.longitude = coord.longitude
+        newCustMarker.colour = ColourConverter.toHex(.red)
+        //TODO: colour and icon?
+        
+        do {
+            print("saving marker")
+            try managedObjectContext!.save()
+            let newMarker = UserMarker.init(title: name!, coordinate: coord, colour: .blue, info: "info")
+            self.mapView.addAnnotation(newMarker)
+            return true
+            
+        } catch {
+            return false
+        }
+        
+        
+    }
+    
+    @objc func addCustomMarker(recogniser: UIGestureRecognizer) {
         if (recogniser.state != UIGestureRecognizer.State.began) {return}
+        
+        //create the adder view
+        // Create the alert controller
+        let alertController = UIAlertController(title: "New Custom Marker", message: nil, preferredStyle: .alert)
+
+        // Add a text field to the alert controller
+        alertController.addTextField { textField in
+            textField.placeholder = "Name"
+        }
         
         // gets the location of the touch and convert to coordinate
         let touchPoint = recogniser.location(in: mapView)
         let coord = mapView.convert(touchPoint, toCoordinateFrom: mapView)
+        
+        //custAddView.setCoordinate(coord)
+        //self.presentedViewController(custAddView, sender: self)
+//        present(custAddView, animated: true, completion: nil
+        
+        // Create an "OK" action
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            // Handle the user's input
+            if let textField = alertController.textFields?.first {
+                let enteredText = textField.text
+                // Do something with the entered text
+                print("Entered text: \(enteredText ?? "")")
+                let titleIsValid = self.addNewMarker(name: enteredText, coord: coord)
+//                var title: String
+//                if (titleIsValid) {
+//                    title = enteredText!
+//                } else {
+//                    title = "Untitled"
+//                }
+//
+//                let newMarker = UserMarker.init(title: title, coordinate: coord, colour: .blue, info: "info")
+//                self.mapView.addAnnotation(newMarker)
+            }
+        }
+
+        // Create a "Cancel" action
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {_ in
+            self.lastCustomColour = .red
+        }
+        let colourAction = UIAlertAction(title: "Select Colour", style: .default) { _ in
+            let colourPicker = UIColorPickerViewController()
+            colourPicker.delegate = self
+            self.present(colourPicker, animated: true)
+            alertController.setValue(colourPicker.selectedColor, forKey: "Select Colour")
+        }
+
+        // Add the actions to the alert controller
+        alertController.addAction(okAction)
+        alertController.addAction(colourAction)
+        alertController.addAction(cancelAction)
+
+        // Colour initially red
+        alertController.setValue(UIColor.red, forKey: "Select Colour")
+        
+        // Present the alert controller
+        present(alertController, animated: true, completion: nil)
+        
+        
         
         //save in core data so that these are persistent
         // now done in AddCustomMarkerViewController
@@ -394,8 +482,21 @@ extension MapViewController : MKMapViewDelegate {
 //        } catch {} // I don't care about errors
         
         //TODO: call the view controller to handle the popup
-        let newMarker = UserMarker.init(title: "User Marker", coordinate: coord, colour: .blue, info: "info")
-        mapView.addAnnotation(newMarker)
+    }
+
+    
+    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+        lastCustomColour = viewController.selectedColor
+    }
+    func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
+        lastCustomColour = viewController.selectedColor
+    }
+    
+    func checkTitle(_ title: String?) -> Bool {
+        if (title == nil) {
+            return false
+        }
+        return true
     }
 }
 
