@@ -123,6 +123,7 @@
                 
                 // merge our pubkey parts with :: separator
                 NSString * dataString = [[self->rsaManager.publicKeyExponent stringByAppendingString: KEY_SEPARATOR] stringByAppendingString: self->rsaManager.publicKeyModulus];
+                NSLog(@"my unwrapped key %@", dataString);
                 
                 [self sendToPeer: peerID withOpcode: ACCEPT_REQ andData: [dataString dataUsingEncoding: NSUTF8StringEncoding]];
                 

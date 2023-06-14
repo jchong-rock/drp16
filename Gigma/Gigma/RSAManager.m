@@ -90,11 +90,7 @@
 }
 
 - (NSString *) publicKeyWithModulus:(NSString *) modulus andExponent:(NSString *) exponent {
-    [xml Clear];
-    [xml setTag: @"RSAPublicKey"];
-    [xml NewChild2: @"Modulus" content: modulus];
-    [xml NewChild2: @"Exponent" content: exponent];
-    return [xml GetXml];
+    return [NSString stringWithFormat: @"<RSAPublicKey><Modulus>%@</Modulus><Exponent>%@</Exponent></RSAPublicKey>", modulus, exponent];
 }
 
 - (void) dealloc {
