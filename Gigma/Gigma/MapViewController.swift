@@ -12,7 +12,7 @@ import MapKit
 import NotificationCenter
 import CoreData
 
-class MapViewController : UIViewController {
+class MapViewController : UIViewController, UIColorPickerViewControllerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var settingsButton: UIButton!
     
@@ -37,8 +37,7 @@ class MapViewController : UIViewController {
     var MARKER_SIDE: Double
     
     //Custom user pins
-//    var isCustomMarkers: Bool
-    //var userMarkers: [UserMarker] = []
+    var lastCustomColour: UIColor = .red
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -446,11 +445,20 @@ extension MapViewController : MKMapViewDelegate {
         }
 
         // Create a "Cancel" action
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {_ in
+            self.lastCustomColour = .red
+        }
+        let colourAction = UIAlertAction(title: "Select Colour", style: .default) { _ in
+            let colourPicker = UIColorPickerViewController()
+            colourPicker.delegate = self
+            self.present(colourPicker, animated: true)
+        }
 
         // Add the actions to the alert controller
         alertController.addAction(okAction)
+        alertController.addAction(colourAction)
         alertController.addAction(cancelAction)
+        
 
         // Present the alert controller
         present(alertController, animated: true, completion: nil)
@@ -471,6 +479,14 @@ extension MapViewController : MKMapViewDelegate {
 //        } catch {} // I don't care about errors
         
         //TODO: call the view controller to handle the popup
+    }
+
+    
+    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+        lastCustomColour = viewController.selectedColor
+    }
+    func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
+        lastCustomColour = viewController.selectedColor
     }
     
     func checkTitle(_ title: String?) -> Bool {
