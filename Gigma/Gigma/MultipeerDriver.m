@@ -147,9 +147,10 @@
         }
         case SEND_LOC: {
             NSLog(@"sendlocation");
-            //[self rebroadcastData: context];
             
-            NSRange range = NSMakeRange(1, [context length] - 1);
+            [self rebroadcastData: context];
+            
+            NSRange range = NSMakeRange(1 + sizeof(uint32_t), [context length] - 1);
             NSString * data = [[NSString alloc] initWithData: [context subdataWithRange: range] encoding: NSUTF8StringEncoding];
             
             NSString * decrypted = [rsaManager decryptString: data];
@@ -219,9 +220,16 @@
 
 - (void) rebroadcastData:(NSData *) data {
     if (data != nil) {
-        for (MCPeerID * peer in nearbyPeers) {
-            NSLog(@"peer %@", peer);
-            [browser invitePeer: peer toSession: session withContext: data timeout: 10];
+        uint32_t * ttlPtr = (uint32_t *) ([data bytes] + sizeof(char));
+        uint32_t time = *ttlPtr;
+        if (time > 0) {
+            time--;
+            NSMutableData * ttl = [NSMutableData dataWithBytes: &time length: sizeof(uint32_t)];
+            NSRange range = NSMakeRange(1 + sizeof(uint32_t), [data length] - 1);
+            NSData * context = [data subdataWithRange: range];
+            [ttl appendData: context];
+            enum BTOpcode opcode = ((const char *) [data bytes]) [0];
+            [self broadcastData: ttl withOpcode: opcode];
         }
     }
 }
@@ -253,12 +261,7 @@
     NSUInteger hash = localPeerID.hash;
     NSString * hashString = [NSString stringWithFormat: @"%016lx", hash];
     NSLog(@"hashString %@", hashString);
-    
-    /*NSMutableString * unencryptData = [[NSMutableString alloc] initWithString: RSA_MAGIC];
-    [unencryptData appendString: hashString];
-    [unencryptData appendString: encrLoc];*/
     NSString * unencryptData = [[RSA_MAGIC stringByAppendingString: hashString] stringByAppendingString:encrLoc];
-    //free(hashChar);
     
     return [rsaManager encryptString:unencryptData withPublicKey:friend.deviceID];
 }
@@ -269,7 +272,9 @@
     
     for (Friend * friend in friends) {
         NSString * dataString = [self getEncryptedMess: [self getEncryptedLoc] forFriend: friend];
-        NSData * data = [dataString dataUsingEncoding: NSUTF8StringEncoding];
+        uint32_t timeToLive = TIME_TO_LIVE;
+        NSMutableData * data = [[NSMutableData alloc] initWithBytes: &timeToLive length: sizeof(uint32_t)];
+        [data appendData: [dataString dataUsingEncoding: NSUTF8StringEncoding]];
         [self broadcastData: data withOpcode: SEND_LOC];
     }
     
