@@ -15,10 +15,11 @@
 #define GREEN_SHIFT 16
 #define BLUE_SHIFT 8
 #define ALPHA_SHIFT 0
+#define SHIFT 8
 
 #define l_shift(NUM, SHIFT) (NUM <<= SHIFT)
 
-#define hex_mask_shift(MASK, SHIFT) ((MASK & castHex) >> SHIFT)
+#define hex_mask_shift(MASK, SHIFT) ((MASK & castHex) >> SHIFT) / 255
 
 @implementation ColourConverter
 
@@ -31,18 +32,20 @@
     //if guard needed
     BOOL isColour = [colour getRed: redPtr green: greenPtr blue: bluePtr alpha: alphaPtr];
     
-    u_int64_t intVal = 0;
-    intVal += *redPtr;
-    intVal <<= RED_SHIFT;
+    int64_t intVal = 0;
     
-    intVal += *greenPtr;
-    intVal <<= GREEN_SHIFT;
+    intVal |= (uint32_t) (*redPtr * 255);
+    intVal <<= SHIFT;
     
-    intVal += *bluePtr;
-    intVal <<= BLUE_MASK;
+    intVal |= (uint32_t) (*greenPtr * 255);
+    intVal <<= SHIFT;
     
-    intVal += *alphaPtr;
-//    intVal <<= ALPHA_MASK;
+    intVal |= (uint32_t) (*bluePtr * 255);
+    intVal <<= SHIFT;
+    
+    intVal |= (uint32_t) (*alphaPtr * 255);
+//    intVal <<= SHIFT;
+    
     free(redPtr);
     free(greenPtr);
     free(bluePtr);
