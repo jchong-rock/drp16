@@ -27,11 +27,14 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    // change this to init instead of initWithObjects
     
     AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     managedObjectContext = appDelegate.persistentContainer.viewContext;
-
+    
+    [[NSNotificationCenter defaultCenter] addObserver: self
+               selector: @selector(refresh)
+                   name: @"Message Received"
+                 object: nil];
 }
 
 - (void) viewWillAppear:(BOOL) animated {
@@ -82,21 +85,6 @@
     [managedObjectContext save: &error];
 }
 
-// change to use real method
-- (void) sendMessage:(NSString *) content toFriend:(Friend *) friend {
-    if (content != nil) {
-        Message * message = [NSEntityDescription insertNewObjectForEntityForName: @"Message" inManagedObjectContext: managedObjectContext];
-        message.recipient = friend;
-        message.dateTime = [NSDate date];
-        message.weSentIt = YES;
-        message.wasRead = NO;
-        message.contents = content;
-        [messageStack reloadData];
-        NSError * error;
-        [managedObjectContext save: &error];
-    }
-}
-
 - (void) refresh {
     [messageStack reloadData];
 }
@@ -109,5 +97,11 @@
         destinationVC.delegate = self;
     }
 }
+
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
 
 @end

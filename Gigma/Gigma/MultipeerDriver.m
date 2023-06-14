@@ -150,16 +150,23 @@
             NSLog(@"sendlocation");
             
             [self rebroadcastData: context];
-            
-            NSRange range = NSMakeRange(1 + sizeof(uint32_t), [context length] - 1);
+            NSLog(@"context sendlocation is %@", context);
+            NSRange range = NSMakeRange(1 + sizeof(unsigned char), [context length] - 1 - sizeof(unsigned char));
             NSString * data = [[NSString alloc] initWithData: [context subdataWithRange: range] encoding: NSUTF8StringEncoding];
             
             NSString * decrypted = [rsaManager decryptString: data];
-            NSString * magic = [decrypted substringToIndex: [RSA_MAGIC length]];
-            if (![magic isEqual: RSA_MAGIC]) {
-                NSLog(@"magic");
+            NSLog(@"decrypted %@", decrypted);
+            
+            if (decrypted == nil || [decrypted length] == 0) {
+                NSLog(@"nil");
                 break;
             }
+            NSString * magic = [decrypted substringToIndex: [RSA_MAGIC length]];
+            if (![magic isEqual: RSA_MAGIC]) {
+                NSLog(@"magic %@", magic);
+                break;
+            }
+            NSLog(@"locationfound");
             
             NSString * peerHash = [decrypted substringWithRange: NSMakeRange([RSA_MAGIC length], 16)];
             NSUInteger peerInt = strtoull([peerHash UTF8String], NULL, 16);
@@ -198,16 +205,23 @@
             break;
         }
         case SEND_MSG: {
-            
-            NSRange range = NSMakeRange(1, [context length] - 1);
+            NSLog(@"context sendmsg is %@", context);
+            NSLog(@"contextsendmsg %x", *((unsigned char *)[context bytes]+sizeof(char)));
+            NSRange range = NSMakeRange(1 + sizeof(unsigned char), [context length] - sizeof(unsigned char) - 1);
             NSString * data = [[NSString alloc] initWithData: [context subdataWithRange: range] encoding: NSUTF8StringEncoding];
             
             NSString * decrypted = [rsaManager decryptString: data];
-            NSString * magic = [decrypted substringToIndex: [RSA_MAGIC length]];
-            if (![magic isEqual: RSA_MAGIC]) {
-                NSLog(@"magic");
+            if (decrypted == nil || [decrypted length] == 0) {
+                NSLog(@"nilmsg");
                 break;
             }
+            NSString * magic = [decrypted substringToIndex: [RSA_MAGIC length]];
+            if (![magic isEqual: RSA_MAGIC]) {
+                NSLog(@"magic msg");
+                break;
+            }
+            
+            NSLog(@"caught msg");
             
             NSString * peerHash = [decrypted substringWithRange: NSMakeRange([RSA_MAGIC length], 16)];
             NSUInteger peerInt = strtoull([peerHash UTF8String], NULL, 16);
@@ -226,7 +240,9 @@
                     message.contents = messageDec;
                     NSError * error;
                     [managedObjectContext save: &error];
-                   
+                    
+                    NSDictionary * userInfo = @{@"message": message};
+                    [[NSNotificationCenter defaultCenter] postNotificationName: @"Message Received" object: nil userInfo: userInfo];
                     break;
                 }
             }
@@ -255,12 +271,15 @@
 
 - (void) rebroadcastData:(NSData *) data {
     if (data != nil) {
-        uint32_t * ttlPtr = (uint32_t *) ([data bytes] + sizeof(char));
-        uint32_t time = *ttlPtr;
+        unsigned char * ttlPtr = (unsigned char *) ([data bytes] + sizeof(char));
+        unsigned char time = *ttlPtr;
+        NSLog(@"ttl received: %d", time);
         if (time > 0) {
             time--;
-            NSMutableData * ttl = [NSMutableData dataWithBytes: &time length: sizeof(uint32_t)];
-            NSRange range = NSMakeRange(1 + sizeof(uint32_t), [data length] - 1);
+            NSMutableData * ttl = [NSMutableData dataWithBytes: &time length: sizeof(unsigned char)];
+            
+            NSRange range = NSMakeRange(1 + sizeof(unsigned char), [data length] - sizeof(unsigned char) - 1);
+            NSLog(@"crash");
             NSData * context = [data subdataWithRange: range];
             [ttl appendData: context];
             enum BTOpcode opcode = ((const char *) [data bytes]) [0];
@@ -296,12 +315,12 @@
     NSUInteger hash = localPeerID.hash;
     NSString * hashString = [NSString stringWithFormat: @"%016lx", hash];
     NSLog(@"hashString %@", hashString);
-    NSString * unencryptData = [[RSA_MAGIC stringByAppendingString: hashString] stringByAppendingString:encrLoc];
+    NSString * unencryptData = [[RSA_MAGIC stringByAppendingString: hashString] stringByAppendingString: encrLoc];
     
-    return [rsaManager encryptString:unencryptData withPublicKey:friend.deviceID];
+    return [rsaManager encryptString: unencryptData withPublicKey: friend.deviceID];
 }
 
-- (NSString *) encyprtTextMess: (NSString *) content {
+- (NSString *) encryptTextMess: (NSString *) content {
     return [rsaManager encryptString:content];
 }
 
@@ -310,8 +329,8 @@
     
     for (Friend * friend in friends) {
         NSString * dataString = [self getEncryptedMess: [self getEncryptedLoc] forFriend: friend];
-        uint32_t timeToLive = TIME_TO_LIVE;
-        NSMutableData * data = [[NSMutableData alloc] initWithBytes: &timeToLive length: sizeof(uint32_t)];
+        unsigned char timeToLive = TIME_TO_LIVE;
+        NSMutableData * data = [[NSMutableData alloc] initWithBytes: &timeToLive length: sizeof(unsigned char)];
         [data appendData: [dataString dataUsingEncoding: NSUTF8StringEncoding]];
         [self broadcastData: data withOpcode: SEND_LOC];
     }
@@ -321,6 +340,14 @@
                                    selector: @selector(broadcastLocation)
                                    userInfo: nil
                                     repeats: NO];
+}
+
+- (void) broadcastMessage:(NSString *) message toFriend:(Friend *) friend {
+    NSString * dataString = [self getEncryptedMess: [self encryptTextMess: message] forFriend: friend];
+    unsigned char timeToLive = TIME_TO_LIVE;
+    NSMutableData * data = [[NSMutableData alloc] initWithBytes: &timeToLive length: sizeof(unsigned char)];
+    [data appendData: [dataString dataUsingEncoding: NSUTF8StringEncoding]];
+    [self broadcastData: data withOpcode: SEND_MSG];
 }
 
 - (void) broadcastData:(NSData *) data withOpcode:(enum BTOpcode) opcode {

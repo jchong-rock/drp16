@@ -35,6 +35,7 @@
 - (void) stopAdvertising;
 - (void) sendToPeer:(MCPeerID * _Nonnull) peerID withOpcode:(enum BTOpcode) opcode andData:(NSData * _Nullable) data;
 - (void) broadcastData:(NSData * _Nullable) data withOpcode:(enum BTOpcode) opcode;
+- (void) broadcastMessage:(NSString * _Nonnull) message toFriend:(Friend * _Nonnull) friend;
 - (void) sendFriendReqToPeer:(MCPeerID * _Nullable) peerID;
 - (NSString * _Nonnull) encryptTextMess:(NSString * _Nonnull) content;
 - (NSString * _Nonnull) getEncryptedMess:(NSString * _Nonnull) encrLoc forFriend:(Friend * _Nonnull) friend;

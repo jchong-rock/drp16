@@ -27,20 +27,26 @@
 @synthesize recipient;
 @synthesize messageList;
 @synthesize delegate;
+@synthesize backButton;
+@synthesize sendButton;
 
 - (void) viewDidLoad {
     [super viewDidLoad];
     AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    messageDriver = [[FakeMessageSender alloc] initWithContext: appDelegate.persistentContainer.viewContext];
+    messageDriver = [[FakeMessageSender alloc] init];
     [NSNotificationCenter.defaultCenter addObserver: self selector: @selector(keyboardWillShow:) name: UIKeyboardWillShowNotification object: nil];
     [NSNotificationCenter.defaultCenter addObserver: self selector: @selector(keyboardWillHide:) name: UIKeyboardWillHideNotification object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver: self
+               selector: @selector(refresh)
+                   name: @"Message Received"
+                 object: nil];
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(dismissKeyboard)];
 
     [self.view addGestureRecognizer: tap];
 }
 
 -(void) dismissKeyboard {
-    [textField resignFirstResponder];
+    [self.view endEditing: YES];
 }
 
 - (void) keyboardWillShow:(NSNotification *) notification {
@@ -60,6 +66,12 @@
     }];
 }
 
+- (void) viewWillAppear:(BOOL) animated {
+    [super viewWillAppear: animated];
+    [backButton setTitle: @"" forState: UIControlStateNormal];
+    [sendButton setTitle: @"" forState: UIControlStateNormal];
+}
+
 - (BOOL) tableView:(UITableView *) tableView canEditRowAtIndexPath:(NSIndexPath *) indexPath {
     return YES;
 }
@@ -74,6 +86,7 @@
 }
 
 - (void) keyboardWillHide:(NSNotification *) notification {
+    NSLog(@"hiding keyboard");
     [UIView animateWithDuration: 0.25 animations: ^{
         self.textBar.frame = self->textBarFrame;
         self.messageStack.contentInset = UIEdgeInsetsZero;
@@ -132,6 +145,14 @@
         [messageStack setContentOffset: CGPointMake(0, messageStack.contentSize.height) animated: YES];
         [messageStack reloadData];
     }
+}
+
+- (void) refresh {
+    [messageStack reloadData];
+}
+
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver: self];
 }
 
 

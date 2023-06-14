@@ -24,9 +24,8 @@
 - (Message *) sendMessage:(NSString *) content toFriend:(Friend *) friend {
     if (content != nil && [content length] > 0) {
         
-        NSString * dataString = [multipeerDriver getEncryptedMess: [multipeerDriver encryptTextMess: (NSString*) content] forFriend: friend];
-        NSData * data = [dataString dataUsingEncoding: NSUTF8StringEncoding];
-        [multipeerDriver broadcastData: data withOpcode: SEND_MSG];
+        [multipeerDriver broadcastMessage: content toFriend: friend];
+
         
         Message * message = [NSEntityDescription insertNewObjectForEntityForName: @"Message" inManagedObjectContext: managedObjectContext];
         message.recipient = friend;

@@ -13,6 +13,8 @@
 @synthesize friend;
 @synthesize colourButton;
 @synthesize delegate;
+@synthesize messageButton;
+@synthesize locationButton;
 
 - (void) colorPickerViewControllerDidFinish:(UIColorPickerViewController *) viewController {
     [delegate setColour: viewController.selectedColor];

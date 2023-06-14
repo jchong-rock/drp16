@@ -20,10 +20,14 @@
     IBOutlet UITableView * messageStack;
     IBOutlet UITextField * textField;
     IBOutlet UIView * textBar;
+    IBOutlet UIButton * backButton;
+    IBOutlet UIButton * sendButton;
 }
 
 @property (nonatomic, weak) IBOutlet UILabel * nameLabel;
 @property (retain, nonatomic) UITextField * textField;
+@property (retain, nonatomic) UIButton * backButton;
+@property (retain, nonatomic) UIButton * sendButton;
 @property (retain, nonatomic) UITableView * messageStack;
 @property (retain, nonatomic) UIView * textBar;
 @property (retain, nonatomic) Friend * recipient;

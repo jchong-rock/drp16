@@ -86,6 +86,9 @@
     Friend * friend = [friendButtonList objectAtIndex: indexPath.row];
     cell.friend = friend;
     cell.colourButton.tintColor = [ColourConverter toColour: friend.colour];
+    [cell.messageButton setTitle: @"" forState: UIControlStateNormal];
+    [cell.locationButton setTitle: @"" forState: UIControlStateNormal];
+    [cell.colourButton setTitle: @"" forState: UIControlStateNormal];
     cell.textLabel.text = friend.friendName;
     return cell;
 }
