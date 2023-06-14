@@ -28,6 +28,9 @@ class MapViewController : UIViewController {
     var headingImageView: UIImageView?
     var userHeading: CLLocationDirection?
     
+    // CustomMarkerAdder delegate
+//    var custMarkAdderDelegate: AddCustomMarkerDelegate
+    
     //constants to use for marker drawings
     let SIDE: Double = 17.5
     let MARKER_MUL: Double = 1.3
@@ -376,9 +379,18 @@ extension MapViewController : MKMapViewDelegate {
     @objc func addUserMarker(recogniser: UIGestureRecognizer) {
         if (recogniser.state != UIGestureRecognizer.State.began) {return}
         
+        //create the adder view
+        let custAddView: AddCustomMarkerViewController = AddCustomMarkerViewController()
+        
+        
         // gets the location of the touch and convert to coordinate
         let touchPoint = recogniser.location(in: mapView)
         let coord = mapView.convert(touchPoint, toCoordinateFrom: mapView)
+        
+        custAddView.setCoordinate(coord)
+        present(custAddView, animated: true, completion: nil)
+        
+        
         
         //save in core data so that these are persistent
         // now done in AddCustomMarkerViewController
