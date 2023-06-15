@@ -116,7 +116,10 @@
             break;
         }
     }
-    if (!foundThread) {
+    if (foundThread) {
+        dispatch_semaphore_signal(recentThreadsSemaphore);
+        return;
+    } else {
         recentThreads[recentThreadsIndex++] = context.hash;
         if (recentThreadsIndex == MOST_RECENT_THREADS) {
             recentThreadsIndex = 0;
@@ -124,8 +127,8 @@
         if (recentThreadsIndex > MOST_RECENT_THREADS) {
             NSLog(@"race condition detected in multipeerdriver");
         }
+        dispatch_semaphore_signal(recentThreadsSemaphore);
     }
-    dispatch_semaphore_signal(recentThreadsSemaphore);
     
     enum BTOpcode opcode = ((const char *) [context bytes]) [0];
     NSLog(@"%u", opcode);
