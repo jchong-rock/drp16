@@ -15,6 +15,7 @@
 
 @interface MessagesViewController ()  {
     NSManagedObjectContext * managedObjectContext;
+    AppDelegate * appDelegate;
 }
 
 @end
@@ -28,7 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     managedObjectContext = appDelegate.persistentContainer.viewContext;
     
     [[NSNotificationCenter defaultCenter] addObserver: self
@@ -43,6 +44,11 @@
     if (friendButtonList == nil) {
         [MainViewController showErrorPopup: self withMessage: @"Failed to load friend list"];
     }
+}
+
+- (void) viewDidAppear:(BOOL) animated {
+    [super viewDidAppear: animated];
+    appDelegate.currentViewController = self;
 }
 
 - (UITableViewCell *) tableView:(UITableView *) tableView cellForRowAtIndexPath:(nonnull NSIndexPath *) indexPath {

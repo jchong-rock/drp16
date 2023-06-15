@@ -6,8 +6,11 @@
 //
 
 #import "FestivalViewController.h"
+#import "AppDelegate.h"
 
-@interface FestivalViewController ()
+@interface FestivalViewController () {
+    AppDelegate * appDelegate;
+}
 
 @end
 
@@ -18,12 +21,14 @@
 
 - (void) viewWillAppear:(BOOL) animated {
     [super viewWillAppear: animated];
+    appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     [settingsButton setTitle: @"" forState: UIControlStateNormal];
 }
 
 - (void) viewDidAppear:(BOOL) animated {
     [super viewDidAppear: animated];
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    appDelegate.currentViewController = self;
+    NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
     NSString * festivalIsSet = [prefs stringForKey: @"FestivalIsSet"];
     if (festivalIsSet != nil) {
         titleLabel.text = festivalIsSet;

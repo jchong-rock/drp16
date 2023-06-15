@@ -15,3 +15,4 @@
 #import "CustomMarker+CoreDataProperties.h"
 #import "ColourConverter.h"
 #import "CustomColourViewController.h"
+#import "FriendViewController.h"

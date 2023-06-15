@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsUserLocation="YES" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qy8-ah-uK3">
-                                <rect key="frame" x="0.0" y="132" width="390" height="611"/>
+                                <rect key="frame" x="0.0" y="132" width="390" height="660"/>
                                 <imageryMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktx-hg-gm9">
@@ -190,6 +190,9 @@
                                                     <rect key="frame" x="258" y="4.3333333333333321" width="50" height="35"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="location.circle" catalog="system"/>
+                                                    <connections>
+                                                        <segue destination="0de-fE-ZB6" kind="presentation" identifier="goToMapFL" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="9md-Zu-M8T"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0S8-Ap-ysw">
                                                     <rect key="frame" x="224" y="4.3333333333333321" width="50" height="35"/>
@@ -197,6 +200,15 @@
                                                     <buttonConfiguration key="configuration" style="plain" image="person.circle" catalog="system" title=""/>
                                                     <connections>
                                                         <action selector="colourSelector:" destination="9nV-TC-Sn8" eventType="touchUpInside" id="xZJ-kF-Q8t"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCB-FO-xJo">
+                                                    <rect key="frame" x="0.0" y="4" width="216" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title=""/>
+                                                    <connections>
+                                                        <action selector="rename:" destination="4kk-GC-KsE" eventType="touchUpInside" id="uuZ-nx-ffP"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -612,6 +624,9 @@
             <point key="canvasLocation" x="-588" y="7"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="9md-Zu-M8T"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="antenna.radiowaves.left.and.right" catalog="system" width="128" height="111"/>
         <image name="arrowshape.backward.fill" catalog="system" width="128" height="104"/>

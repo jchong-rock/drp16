@@ -12,6 +12,7 @@
 
 @interface FestivalSettingsViewController () {
     NSUserDefaults * prefs;
+    AppDelegate * appDelegate;
 }
 
 @end
@@ -22,17 +23,23 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
+    appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     prefs = [NSUserDefaults standardUserDefaults];
 }
 
 - (void) viewWillAppear:(BOOL) animated {
     [super viewWillAppear: animated];
-    NSString * savedName = ((AppDelegate *) [[UIApplication sharedApplication] delegate]).rsaManager.name;
+    NSString * savedName = appDelegate.rsaManager.name;
     if (savedName != nil) {
         displayName.text = [@"Display name: " stringByAppendingString: savedName];
     } else {
         displayName.text = @"Display name not set";
     }
+}
+
+- (void) viewDidAppear:(BOOL) animated {
+    [super viewDidAppear: animated];
+    appDelegate.currentViewController = self;
 }
 
 - (IBAction) leaveButtonPressed:(id) sender {

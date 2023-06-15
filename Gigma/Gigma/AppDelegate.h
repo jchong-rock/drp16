@@ -23,6 +23,7 @@ NSString * deviceName(void);
 @property (strong, nonatomic) MultipeerDriver * multipeerDriver;
 @property (retain, strong, nonatomic) NSObject <DataBaseDriver> * data;
 @property (retain, strong, nonatomic) RSAManager * rsaManager;
+@property (weak, nonatomic) UIViewController * currentViewController;
 
 @end
 

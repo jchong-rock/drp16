@@ -2,7 +2,7 @@
 //  Friend+CoreDataProperties.m
 //  
 //
-//  Created by Jake Chong on 13/06/2023.
+//  Created by Jake Chong on 15/06/2023.
 //
 //
 
@@ -18,6 +18,9 @@
 @dynamic deviceID;
 @dynamic friendName;
 @dynamic peerID;
+@dynamic latitude;
+@dynamic longitude;
+@dynamic icon;
 @dynamic messages;
 
 @end

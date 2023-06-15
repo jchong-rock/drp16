@@ -11,6 +11,7 @@ import MapCache
 import MapKit
 import NotificationCenter
 import CoreData
+import AudioToolbox
 
 class MapViewController : UIViewController {
     @IBOutlet weak var mapView: MKMapView!
@@ -25,6 +26,7 @@ class MapViewController : UIViewController {
     var managedObjectContext: NSManagedObjectContext?
     var userLocation: CLLocationCoordinate2D?
     var friendMarkers: [Friend : MKPointAnnotation] = [:]
+    @objc public var currentFriend: Friend?
     
     var headingImageView: UIImageView?
     var userHeading: CLLocationDirection?
@@ -128,10 +130,21 @@ class MapViewController : UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         showFriends()
+        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.currentViewController = self
+        if (currentFriend != nil) {
+            let friendLocation = MainViewController.getFriendLocation(currentFriend)
+            if (friendLocation.latitude != 0 || friendLocation.longitude != 0) {
+                let errorRegion = MKCoordinateRegion(center: friendLocation, latitudinalMeters: 200, longitudinalMeters: 200)
+                mapView.setRegion(errorRegion, animated: true)
+            }
+            currentFriend = nil
+        }
         renderCustomMarkers()
         checkPrefs()
         print("didappear")
     }
+    
     func checkPrefs() {
         let prefs = MainViewController.prefsList(self)
         prefs!.forEach {p in
@@ -152,6 +165,9 @@ class MapViewController : UIViewController {
     }
     
     @IBAction func alertBeaconPopUp(_ sender: AnyObject) {
+        
+        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+        
         let alertController = UIAlertController(title: "Alert Friends", message: "Do you want to ping all your friends the location?", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let okaAction = UIAlertAction(title: "Send", style: .default) { _ in

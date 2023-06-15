@@ -17,6 +17,7 @@
 - (BOOL) nameAlreadyExists:(NSString *) name;
 - (IBAction) discoverablePressed:(id) sender;
 - (void) showPopup:(UIViewController *) popup withCompletion:(id) completion;
+- (void) refresh;
 
 @end
 

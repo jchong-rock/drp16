@@ -12,6 +12,7 @@
 
 @interface WelcomeViewController () {
     NSDictionary * displayNames;
+    AppDelegate * appDelegate;
 }
 
 @end
@@ -23,12 +24,13 @@
 @synthesize data;
 
 - (void) viewDidLoad {
-    AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     data = appDelegate.data;
 }
 
 - (void) viewDidAppear:(BOOL) animated {
     [super viewDidAppear: animated];
+    appDelegate.currentViewController = self;
     NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
     NSString * festivalIsSet = [prefs stringForKey: @"FestivalIsSet"];
     if (festivalIsSet != nil) {

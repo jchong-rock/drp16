@@ -2,7 +2,7 @@
 //  Friend+CoreDataClass.m
 //  
 //
-//  Created by Jake Chong on 13/06/2023.
+//  Created by Jake Chong on 15/06/2023.
 //
 //
 

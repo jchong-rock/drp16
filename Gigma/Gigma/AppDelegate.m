@@ -29,6 +29,7 @@ NSString * deviceName(void) {
 @synthesize data;
 @synthesize multipeerDriver;
 @synthesize rsaManager;
+@synthesize currentViewController;
 
 - (void) checkAndInitialisePrefs:(NSArray *) prefs {
     NSManagedObjectContext * managedObjectContext = self.persistentContainer.viewContext;

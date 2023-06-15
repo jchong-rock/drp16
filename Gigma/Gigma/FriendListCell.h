@@ -17,5 +17,6 @@
 @property (nonatomic, weak) IBOutlet UIButton * messageButton;
 @property (nonatomic, weak) IBOutlet UIButton * locationButton;
 @property (nonatomic, weak) NSObject <FriendViewControllerDelegate> * delegate;
+- (IBAction) rename:(id) sender;
 
 @end

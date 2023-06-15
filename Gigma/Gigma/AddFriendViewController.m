@@ -10,7 +10,9 @@
 #import "MultipeerDriver.h"
 #import "AppDelegate.h"
 
-@interface AddFriendViewController ()
+@interface AddFriendViewController () {
+    AppDelegate * appDelegate;
+}
 
 @property (retain, nonatomic) NSMutableDictionary * nearbyDevicesMap;
 
@@ -28,7 +30,7 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     multipeerDriver = appDelegate.multipeerDriver;
     multipeerDriver.nearbyDevicePickerDelegate = self;
     nearbyDevicesList = [[NSMutableArray alloc] init];
@@ -37,6 +39,7 @@
 
 - (void) viewDidAppear:(BOOL) animated {
     [super viewDidAppear: animated];
+    appDelegate.currentViewController = self;
     multipeerDriver.nearbyDevicePickerDelegate = self;
 }
 

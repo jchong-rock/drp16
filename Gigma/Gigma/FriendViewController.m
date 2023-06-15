@@ -15,9 +15,11 @@
 #import "MultipeerDriver.h"
 #import "ColourConverter.h"
 #import "RSAManager.h"
+#import "Gigma-Swift.h"
 
 @interface FriendViewController () {
     NSManagedObjectContext * managedObjectContext;
+    AppDelegate * appDelegate;
 }
 
 @property (weak, nonatomic) UIColor * friendColour;
@@ -38,7 +40,7 @@
     discoverableButton.tintColor = [UIColor systemBlueColor];
     discoverableButton.tintColor = [UIColor systemRedColor];
     // Do any additional setup after loading the view.
-    AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     multipeerDriver = appDelegate.multipeerDriver;
     multipeerDriver.friendViewControllerDelegate = self;
     NSLog(@"my public key: %@" , appDelegate.rsaManager.publicKey);
@@ -53,6 +55,17 @@
     }
 }
 
+- (void) refresh {
+    [buttonStack reloadData];
+    NSError * error;
+    [managedObjectContext save: &error];
+}
+
+- (void) viewDidAppear:(BOOL) animated {
+    [super viewDidAppear: animated];
+    appDelegate.currentViewController = self;
+}
+
 - (void) prepareForSegue:(UIStoryboardSegue *) segue sender:(id) sender {
     id destination = [segue destinationViewController];
     if ([destination isKindOfClass: [AddFriendViewController class]]) {
@@ -62,6 +75,11 @@
         FriendListCell * selectedCell = (FriendListCell *) ((UIButton *) sender).superview.superview;
         ComposeMessageViewController * destinationVC = segue.destinationViewController;
         destinationVC.recipient = selectedCell.friend;
+    }
+    if ([segue.identifier isEqualToString: @"goToMapFL"]) {
+        FriendListCell * selectedCell = (FriendListCell *) ((UIButton *) sender).superview.superview;
+        MapViewController * destinationVC = segue.destinationViewController;
+        destinationVC.currentFriend = selectedCell.friend;
     }
 }
 

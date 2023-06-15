@@ -15,6 +15,7 @@
 @interface ComposeMessageViewController () {
     NSObject <MessageDriver> * messageDriver;
     CGRect textBarFrame;
+    AppDelegate * appDelegate;
 }
 
 @end
@@ -34,7 +35,7 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
-    AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     messageDriver = [[FakeMessageSender alloc] init];
     appDelegate.multipeerDriver.composeDelegate = self;
     [NSNotificationCenter.defaultCenter addObserver: self selector: @selector(keyboardWillShow:) name: UIKeyboardWillShowNotification object: nil];
@@ -97,6 +98,7 @@
 
 - (void) viewDidAppear:(BOOL) animated {
     [super viewDidAppear: animated];
+    appDelegate.currentViewController = self;
     messageList = [NSMutableArray arrayWithArray: recipient.messages.array];
     nameLabel.text = recipient.friendName;
     [messageStack reloadData];

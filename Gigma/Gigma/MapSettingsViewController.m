@@ -13,6 +13,7 @@
 
 @interface MapSettingsViewController () {
     NSManagedObjectContext * managedObjectContext;
+    AppDelegate * appDelegate;
 }
 @end
 
@@ -26,8 +27,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     managedObjectContext = appDelegate.persistentContainer.viewContext;
+}
+
+- (void) viewDidAppear:(BOOL) animated {
+    [super viewDidAppear: animated];
+    appDelegate.currentViewController = self;
 }
 
 

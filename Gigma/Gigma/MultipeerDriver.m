@@ -22,6 +22,7 @@
 @property (nonatomic, strong) MCSession * session;
 @property (nonatomic, strong) MCPeerID * localPeerID;
 @property (nonatomic, weak) RSAManager * rsaManager;
+@property (nonatomic, weak) AppDelegate * appDelegate;
 
 @end
 
@@ -39,11 +40,12 @@
 @synthesize friendViewControllerDelegate;
 @synthesize updateLocationDelegate;
 @synthesize composeDelegate;
+@synthesize appDelegate;
 
 - (instancetype) init {
     
     self = [super init];
-    AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     rsaManager = appDelegate.rsaManager;
     managedObjectContext = appDelegate.persistentContainer.viewContext;
     
@@ -192,6 +194,8 @@
                     double latitude = latThingy.value;
                     double longitude = longThingy.value;
                     if (updateLocationDelegate != nil) {
+                        friend.latitude = latitude;
+                        friend.longitude = longitude;
                         [updateLocationDelegate setLatitude: latitude andLongitude: longitude ofFriend: friend];
                     }
                     break;
@@ -246,13 +250,14 @@
                     double latitude = latThingy.value;
                     double longitude = longThingy.value;
                     
-                    UIAlertController * popup = [UIAlertController alertControllerWithTitle: @"Beacon" message: [[NSString alloc] initWithFormat: @"%@ wants your attention.", friend.friendName] preferredStyle: UIAlertControllerStyleAlert];
+                    UIAlertController * popup = [UIAlertController alertControllerWithTitle: @"Beacon" message: [[NSString alloc] initWithFormat: @"Alert from %@", friend.friendName] preferredStyle: UIAlertControllerStyleAlert];
+                    
+                    NSLog (@"beaconeddd");
                     
                     UIAlertAction * ok = [UIAlertAction actionWithTitle: @"OK" style: UIAlertActionStyleDefault handler: ^(UIAlertAction * action) {}];
                     
-                    
                     [popup addAction: ok];
-                    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController: popup animated: YES completion: nil];
+                    [appDelegate.currentViewController presentViewController: popup animated: YES completion: nil];
                     
                     break;
                 }

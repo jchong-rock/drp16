@@ -9,12 +9,17 @@
 #import <CoreData/CoreData.h>
 #import "AppDelegate.h"
 #import "CustomMarker+CoreDataProperties.h"
+#import "Friend+CoreDataProperties.h"
 
 @interface MainViewController ()
 
 @end
 
 @implementation MainViewController
+
++ (CLLocationCoordinate2D) getFriendLocation:(Friend *) friend {
+    return CLLocationCoordinate2DMake(friend.latitude, friend.longitude);
+}
 
 + (void) showErrorPopup:(UIViewController *) vc withMessage:(NSString *) msg {
     UIAlertController * popup = [UIAlertController alertControllerWithTitle: @"Error" message: msg preferredStyle: UIAlertControllerStyleAlert];
