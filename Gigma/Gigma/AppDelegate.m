@@ -64,30 +64,6 @@ NSString * deviceName(void) {
 }
 
 - (BOOL) application:(UIApplication *) application didFinishLaunchingWithOptions:(NSDictionary *) launchOptions {
-    NSUserDefaults * userDefs = [NSUserDefaults standardUserDefaults];
-    if ([userDefs stringForKey: @"RSAName"] == nil) {
-        UIAlertController * alertController = [UIAlertController alertControllerWithTitle: @"Choose display name" message: nil preferredStyle: UIAlertControllerStyleAlert];
-        
-        [alertController addTextFieldWithConfigurationHandler: ^(UITextField * textField) {
-            textField.placeholder = @"Display name";
-        }];
-        
-        UIAlertAction * okAction = [UIAlertAction actionWithTitle: @"OK" style: UIAlertActionStyleDefault handler: ^(UIAlertAction * action) {
-            UITextField * textField = alertController.textFields.firstObject;
-            NSString * enteredText = textField.text;
-            
-            [userDefs setObject: enteredText forKey: @"RSAName"];
-            [userDefs synchronize];
-
-        }];
-        
-        [alertController addAction: okAction];
-        UIWindow * window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
-        window.rootViewController = [[UIViewController alloc] init];
-        [window makeKeyAndVisible];
-        [window.rootViewController presentViewController: alertController animated: YES completion: nil];
-    }
-    
     data = [[PostgreSQLDriver alloc] init];
     NSArray * prefs = [[NSArray alloc] initWithObjects: @"Show stages", @"Show toilets", @"Show water sources", /*@"Show custom markers",*/ nil];
     [self checkAndInitialisePrefs: prefs];

@@ -34,30 +34,6 @@
     if (festivalIsSet != nil) {
         [self performSegueWithIdentifier: @"goToMain" sender: self];
     }
-    NSString * rsaName = [prefs stringForKey: @"RSAName"];
-    if (rsaName == nil) {
-        UIAlertController * alertController = [UIAlertController alertControllerWithTitle: @"Choose display name" message: nil preferredStyle: UIAlertControllerStyleAlert];
-            
-        [alertController addTextFieldWithConfigurationHandler: ^(UITextField * textField) {
-            textField.placeholder = @"Display name";
-        }];
-        
-        UIAlertAction * okAction = [UIAlertAction actionWithTitle: @"OK" style: UIAlertActionStyleDefault handler: ^(UIAlertAction * action) {
-            UITextField * textField = alertController.textFields.firstObject;
-            NSString * enteredText = textField.text;
-            
-            // Use the entered text as needed
-            AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-            [prefs setObject: enteredText forKey: @"RSAName"];
-            appDelegate.multipeerDriver = [[MultipeerDriver alloc] init];
-            [appDelegate.multipeerDriver startAdvertising];
-        }];
-
-        [alertController addAction: okAction];
-        
-        [self presentViewController: alertController animated: YES completion: nil];
-        
-    }
     // handle connection failure
     BOOL connectionSuccess = [data connect];
     if (!connectionSuccess) {

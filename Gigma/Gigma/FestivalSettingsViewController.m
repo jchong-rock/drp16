@@ -7,6 +7,8 @@
 
 #import "FestivalSettingsViewController.h"
 #import "Gigma-Swift.h"
+#import "AppDelegate.h"
+#import "RSAManager.h"
 
 @interface FestivalSettingsViewController () {
     NSUserDefaults * prefs;
@@ -25,7 +27,7 @@
 
 - (void) viewWillAppear:(BOOL) animated {
     [super viewWillAppear: animated];
-    NSString * savedName = [prefs objectForKey: @"RSAName"];
+    NSString * savedName = ((AppDelegate *) [[UIApplication sharedApplication] delegate]).rsaManager.name;
     if (savedName != nil) {
         displayName.text = [@"Display name: " stringByAppendingString: savedName];
     } else {
