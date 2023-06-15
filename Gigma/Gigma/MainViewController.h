@@ -14,4 +14,5 @@
 + (NSMutableArray *) getFriendsFromContext:(NSManagedObjectContext *) managedObjectContext;
 + (NSMutableArray *) getCustomMarkersFromContext:(NSManagedObjectContext *) managedObjectContext;
 
+
 @end

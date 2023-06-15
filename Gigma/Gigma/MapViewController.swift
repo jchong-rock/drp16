@@ -15,6 +15,7 @@ import CoreData
 class MapViewController : UIViewController, UIColorPickerViewControllerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var beaconButton: UIButton!
     
     var data: DataBaseDriver
     var multipeer: MultipeerDriver
@@ -148,6 +149,21 @@ class MapViewController : UIViewController, UIColorPickerViewControllerDelegate 
             }
         }
     }
+    
+    @IBAction func alerBeaconPopUp(_ sender: AnyObject) {
+        let alertController = UIAlertController(title: "Alert Friends", message: "Do you want to ping all your friends the location?", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let okaAction = UIAlertAction(title: "Send", style: .default)
+        {_ in
+            // Send alert request to friends
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(okaAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    
     
     // TODO: Not working! -> FIX
     @objc func renderCustomMarkers() {

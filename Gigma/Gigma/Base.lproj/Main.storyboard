@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g0P-qa-hzP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g0P-qa-hzP">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -43,6 +43,14 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Xd-Xd-HGq">
+                                <rect key="frame" x="316" y="684" width="58" height="42"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="antenna.radiowaves.left.and.right" catalog="system"/>
+                                <connections>
+                                    <action selector="alerBeaconPopUp:" destination="0de-fE-ZB6" eventType="touchUpInside" id="iCk-DS-7ni"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bJM-8D-VKI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -55,11 +63,15 @@
                             <constraint firstItem="bJM-8D-VKI" firstAttribute="bottom" secondItem="Qy8-ah-uK3" secondAttribute="bottom" constant="18" id="QJA-vD-XYu"/>
                             <constraint firstItem="Qy8-ah-uK3" firstAttribute="top" secondItem="bJM-8D-VKI" secondAttribute="top" constant="85" id="cxD-c1-tiQ"/>
                             <constraint firstItem="bJM-8D-VKI" firstAttribute="trailing" secondItem="N3z-10-h3h" secondAttribute="trailing" constant="16" id="faJ-DM-7sb"/>
+                            <constraint firstItem="bJM-8D-VKI" firstAttribute="bottom" secondItem="8Xd-Xd-HGq" secondAttribute="bottom" constant="35" id="fiv-GK-WVP"/>
                             <constraint firstItem="N3z-10-h3h" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ktx-hg-gm9" secondAttribute="trailing" constant="8" symbolic="YES" id="hk6-bS-rkX"/>
+                            <constraint firstItem="8Xd-Xd-HGq" firstAttribute="leading" secondItem="bJM-8D-VKI" secondAttribute="leading" constant="316" id="mFg-Xb-6hU"/>
+                            <constraint firstItem="8Xd-Xd-HGq" firstAttribute="trailing" secondItem="N3z-10-h3h" secondAttribute="trailing" id="vQi-Dp-nGv"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" id="Lh9-pX-bT0"/>
                     <connections>
+                        <outlet property="beaconButton" destination="8Xd-Xd-HGq" id="g9J-0O-vQO"/>
                         <outlet property="mapView" destination="Qy8-ah-uK3" id="cXp-gJ-dEt"/>
                         <outlet property="settingsButton" destination="N3z-10-h3h" id="mIP-EP-bMb"/>
                     </connections>
@@ -73,11 +85,11 @@
             <objects>
                 <viewController id="Jzb-oo-lUV" userLabel="MapSettings" customClass="MapSettingsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jCm-ik-GBz">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Sgn-WW-iJu">
-                                <rect key="frame" x="16" y="88" width="358" height="514"/>
+                                <rect key="frame" x="16" y="41" width="358" height="608"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MapSettingCellIdentifier" id="ECQ-xO-d0h" customClass="MapSettingsCell">
@@ -107,7 +119,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Yg-fS-hi6">
-                                <rect key="frame" x="16" y="680" width="358" height="57"/>
+                                <rect key="frame" x="16" y="727" width="358" height="57"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="57" id="pH0-oM-SSc"/>
                                 </constraints>
@@ -258,11 +270,11 @@
             <objects>
                 <viewController id="6SL-4g-POU" customClass="AddFriendViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ubR-un-3fb">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BsV-ED-DYm">
-                                <rect key="frame" x="16" y="680" width="358" height="57"/>
+                                <rect key="frame" x="16" y="727" width="358" height="57"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="57" id="oAG-hj-RGe"/>
                                 </constraints>
@@ -286,7 +298,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Friend" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bl-d0-fgm">
-                                <rect key="frame" x="126.66666666666669" y="47" width="137" height="35"/>
+                                <rect key="frame" x="126.66666666666669" y="0.0" width="137" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -324,7 +336,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="PKl-Jl-ZYJ">
-                                <rect key="frame" x="0.0" y="101" width="390" height="632"/>
+                                <rect key="frame" x="0.0" y="54" width="390" height="713"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="390" id="MNN-T0-LLl"/>
@@ -394,7 +406,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="679-XC-YbA" userLabel="Back">
-                                <rect key="frame" x="16" y="63" width="51" height="35"/>
+                                <rect key="frame" x="16" y="16" width="51" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="arrowshape.backward.fill" catalog="system"/>
                                 <connections>
@@ -402,7 +414,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qps-81-BUC">
-                                <rect key="frame" x="2" y="741" width="386" height="53"/>
+                                <rect key="frame" x="2" y="775" width="386" height="53"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ul6-HQ-ifv" userLabel="Send">
                                         <rect key="frame" x="334" y="8" width="36" height="34"/>
@@ -441,7 +453,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDK-AP-aSe">
-                                <rect key="frame" x="75" y="92" width="269" height="0.0"/>
+                                <rect key="frame" x="75" y="45" width="269" height="0.0"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="269" id="KqQ-ZF-RzD"/>
                                 </constraints>
@@ -528,11 +540,11 @@
             <objects>
                 <viewController id="NzZ-1b-hSC" userLabel="Festival Settings" customClass="FestivalSettingsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bcZ-yU-0ak">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7BK-Lx-ZTh">
-                                <rect key="frame" x="16" y="680" width="358" height="57"/>
+                                <rect key="frame" x="16" y="727" width="358" height="57"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="57" id="y1g-x7-VHA"/>
                                 </constraints>
@@ -544,7 +556,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Display name: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyl-AY-E5J">
-                                <rect key="frame" x="16" y="63" width="358" height="21"/>
+                                <rect key="frame" x="16" y="16" width="358" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -601,6 +613,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="antenna.radiowaves.left.and.right" catalog="system" width="128" height="111"/>
         <image name="arrowshape.backward.fill" catalog="system" width="128" height="104"/>
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="info.circle" catalog="system" width="128" height="123"/>
