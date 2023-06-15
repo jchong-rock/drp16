@@ -67,7 +67,7 @@
 }
 
 - (NSString *) name {
-    return @"iPhone";
+    return UIDevice.currentDevice.name;
 }
 
 - (NSString *) encryptString:(NSString *) plain withPublicKey:(NSString *) pk {

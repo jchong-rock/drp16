@@ -67,9 +67,9 @@ NSString * deviceName(void) {
     data = [[PostgreSQLDriver alloc] init];
     NSArray * prefs = [[NSArray alloc] initWithObjects: @"Show stages", @"Show toilets", @"Show water sources", /*@"Show custom markers",*/ nil];
     [self checkAndInitialisePrefs: prefs];
+    rsaManager = [[RSAManager alloc] init];
     multipeerDriver = [[MultipeerDriver alloc] init];
     [multipeerDriver startAdvertising];
-    rsaManager = [[RSAManager alloc] init];
     UIStoryboard * storyboard = [UIStoryboard storyboardWithName: @"Welcome" bundle: nil];
     self.window.rootViewController = [storyboard instantiateInitialViewController];
     [self.window makeKeyAndVisible];
