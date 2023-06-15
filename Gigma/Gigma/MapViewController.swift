@@ -166,8 +166,6 @@ class MapViewController : UIViewController {
     
     @IBAction func alertBeaconPopUp(_ sender: AnyObject) {
         
-        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-        
         let alertController = UIAlertController(title: "Alert Friends", message: "Do you want to ping all your friends the location?", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let okaAction = UIAlertAction(title: "Send", style: .default) { _ in

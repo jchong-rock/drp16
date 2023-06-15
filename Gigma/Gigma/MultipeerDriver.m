@@ -12,6 +12,7 @@
 #import "MainViewController.h"
 #import "Message+CoreDataProperties.h"
 #import "ComposeMessageViewController.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface MultipeerDriver () {
     NSManagedObjectContext * managedObjectContext;
@@ -226,6 +227,8 @@
             }
             NSLog(@"locationfound33333");
             
+            
+            
             NSString * peerHash = [decrypted substringWithRange: NSMakeRange([RSA_MAGIC length], 16)];
             NSUInteger peerInt = strtoull([peerHash UTF8String], NULL, 16);
             NSArray * friends = [MainViewController getFriendsFromContext: managedObjectContext];
@@ -249,6 +252,24 @@
 
                     double latitude = latThingy.value;
                     double longitude = longThingy.value;
+                    
+                    
+                    AudioServicesPlayAlertSound(1259);
+                    
+                    //AudioServicesPlayAlertSound(1259);
+                    
+                    
+                    //AudioServicesPlayAlertSound(1350);
+                    
+                    
+                    //AudioServicesPlayAlertSound(4095);
+                    
+                    
+                    //AudioServicesPlayAlertSound(1151);
+                    
+                    
+                    //AudioServicesPlayAlertSound(1322);
+                    
                     
                     UIAlertController * popup = [UIAlertController alertControllerWithTitle: @"Beacon" message: [[NSString alloc] initWithFormat: @"Alert from %@", friend.friendName] preferredStyle: UIAlertControllerStyleAlert];
                     
