@@ -67,8 +67,7 @@
 }
 
 - (NSString *) name {
-    return @"name";
-    //return [userDefs stringForKey: @"RSAName"];
+    return [userDefs stringForKey: @"RSAName"];
 }
 
 - (NSString *) encryptString:(NSString *) plain withPublicKey:(NSString *) pk {

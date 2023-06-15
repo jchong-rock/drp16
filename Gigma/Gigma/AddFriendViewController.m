@@ -19,10 +19,8 @@
 @implementation AddFriendViewController
 
 @synthesize delegate;
-@synthesize nicknameTextLabel;
 @synthesize deviceIDHash;
 @synthesize nearbyDevicePicker;
-@synthesize nicknameField;
 @synthesize chosenNickname;
 @synthesize multipeerDriver;
 @synthesize nearbyDevicesMap;
@@ -68,28 +66,11 @@
         return;
     }
     
-    MCPeerID * chosenDevice = [nearbyDevicesList objectAtIndex:
-                               [nearbyDevicePicker selectedRowInComponent: 0]];
-    
-    if ([chosenNickname length] == 0) {
-        nicknameTextLabel.textColor = UIColor.redColor;
-        nicknameTextLabel.text = @"Nickname cannot be empty";
-    } else if ([delegate nameAlreadyExists: chosenNickname]) {
-       nicknameTextLabel.textColor = UIColor.redColor;
-       nicknameTextLabel.text = @"Nickname already in use";
-    } else {
-        [multipeerDriver sendFriendReqToPeer: chosenDevice];
-        [self dismissViewControllerAnimated: YES completion: nil];
-    }
-}
+    MCPeerID * chosenDevice = [nearbyDevicesList objectAtIndex: [nearbyDevicePicker selectedRowInComponent: 0]];
 
-- (IBAction) nicknameFieldDoneEditing:(id) sender {
-    chosenNickname = nicknameField.text;
-}
+    [multipeerDriver sendFriendReqToPeer: chosenDevice];
+    [self dismissViewControllerAnimated: YES completion: nil];
 
-- (BOOL) textFieldShouldReturn:(UITextField *) textField {
-    [self.view endEditing: YES];
-    return NO;
 }
 
 - (void) addNearbyDevice:(MCPeerID *) friend {

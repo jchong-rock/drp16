@@ -43,7 +43,9 @@
 - (instancetype) init {
     
     self = [super init];
-
+    AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    rsaManager = appDelegate.rsaManager;
+    managedObjectContext = appDelegate.persistentContainer.viewContext;
     
     NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
     NSData * storedID = [prefs dataForKey: @"peerID"];
@@ -58,11 +60,6 @@
         [prefs setObject: data forKey: @"peerID"];
         self.localPeerID = peerID;
     }
-    
-    AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    rsaManager = appDelegate.rsaManager;
-    managedObjectContext = appDelegate.persistentContainer.viewContext;
-    
 
     session = [[MCSession alloc] initWithPeer: localPeerID securityIdentity: nil encryptionPreference: MCEncryptionRequired];
     session.delegate = self;

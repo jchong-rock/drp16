@@ -9,9 +9,8 @@
 
 @interface FestivalSettingsViewController : UIViewController
 
-@property (retain, nonatomic) IBOutlet UITextField * textField;
+@property (retain, nonatomic) IBOutlet UILabel * displayName;
 
 - (IBAction) leaveButtonPressed:(id) sender;
-- (IBAction) displayNameDidFinishEditing:(id) sender;
 
 @end

@@ -15,13 +15,9 @@
     <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, NearbyDevicePickerDelegate> {
         NSMutableArray <MCPeerID *> * nearbyDevicesList;
         IBOutlet UIPickerView * nearbyDevicePicker;
-        IBOutlet UITextField * nicknameField;
-        IBOutlet UILabel * nicknameTextLabel;
 }
 
 @property (assign, nonatomic) id <FriendViewControllerDelegate> delegate;
-@property (retain, nonatomic) UITextField * nicknameField;
-@property (retain, nonatomic) UILabel * nicknameTextLabel;
 @property (retain, nonatomic) UIPickerView * nearbyDevicePicker;
 @property (retain, nonatomic) NSString * deviceIDHash;
 @property (retain, nonatomic) NSString * chosenNickname;
@@ -29,7 +25,6 @@
 
 
 - (IBAction) addButtonPressed:(id) sender;
-- (IBAction) nicknameFieldDoneEditing:(id) sender;
 
 @end
 

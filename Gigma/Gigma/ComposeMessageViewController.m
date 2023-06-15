@@ -30,6 +30,7 @@
 @synthesize delegate;
 @synthesize backButton;
 @synthesize sendButton;
+@synthesize bottomConstraint;
 
 - (void) viewDidLoad {
     [super viewDidLoad];
@@ -44,12 +45,14 @@
 }
 
 -(void) dismissKeyboard {
+    bottomConstraint.constant = 16;
     [self.view endEditing: YES];
 }
 
 - (void) keyboardWillShow:(NSNotification *) notification {
     CGSize keyboardSize = [[[notification userInfo] objectForKey: UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
     NSLog(@"%f",keyboardSize.height);
+    bottomConstraint.constant = keyboardSize.height;
     textBarFrame = self.textBar.frame;
     NSInteger screenHeight = [UIScreen mainScreen].bounds.size.height;
     NSInteger movement = (screenHeight == 667) ? 0 : 42;

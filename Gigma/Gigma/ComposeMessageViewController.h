@@ -30,6 +30,7 @@
     IBOutlet UIButton * sendButton;
 }
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint * bottomConstraint;
 @property (nonatomic, weak) IBOutlet UILabel * nameLabel;
 @property (retain, nonatomic) UITextField * textField;
 @property (retain, nonatomic) UIButton * backButton;

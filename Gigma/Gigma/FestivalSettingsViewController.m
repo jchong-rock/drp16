@@ -16,7 +16,7 @@
 
 @implementation FestivalSettingsViewController
 
-@synthesize textField;
+@synthesize displayName;
 
 - (void) viewDidLoad {
     [super viewDidLoad];
@@ -25,11 +25,12 @@
 
 - (void) viewWillAppear:(BOOL) animated {
     [super viewWillAppear: animated];
-    textField.text = [prefs objectForKey: @"RSAName"];
-}
-
-- (IBAction) displayNameDidFinishEditing:(id) sender {
-    [prefs setObject: textField.text forKey: @"RSAName"];
+    NSString * savedName = [prefs objectForKey: @"RSAName"];
+    if (savedName != nil) {
+        displayName.text = [@"Display name: " stringByAppendingString: savedName];
+    } else {
+        displayName.text = @"Display name not set";
+    }
 }
 
 - (IBAction) leaveButtonPressed:(id) sender {

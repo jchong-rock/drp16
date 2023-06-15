@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0BAEF7652A3870FA00E52460 /* UserMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAEF7642A3870FA00E52460 /* UserMarker.swift */; };
 		0BAEF7682A38992900E52460 /* ColourConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BAEF7662A38992900E52460 /* ColourConverter.m */; };
-		0BAEF76B2A38B92C00E52460 /* AddCustomMarkerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BAEF76A2A38B92C00E52460 /* AddCustomMarkerViewController.m */; };
 		2BF74FB62A38F82900155F09 /* MultipeerDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF74FB52A38F82900155F09 /* MultipeerDriver.m */; };
 		98045AE3BEA6BD9CF6C8E8FE /* Pods_GigmaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92D5AFFEFD8F2A8A0AA8DF49 /* Pods_GigmaUITests.framework */; };
 		9AAA7F51C4E228D3A0C23A97 /* Pods_GigmaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8424401AA17DB0D79C212DFD /* Pods_GigmaTests.framework */; };
@@ -87,8 +86,6 @@
 		0BAEF7642A3870FA00E52460 /* UserMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMarker.swift; sourceTree = "<group>"; };
 		0BAEF7662A38992900E52460 /* ColourConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColourConverter.m; sourceTree = "<group>"; };
 		0BAEF7672A38992900E52460 /* ColourConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColourConverter.h; sourceTree = "<group>"; };
-		0BAEF7692A38B78F00E52460 /* AddCustomMarkerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddCustomMarkerViewController.h; sourceTree = "<group>"; };
-		0BAEF76A2A38B92C00E52460 /* AddCustomMarkerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddCustomMarkerViewController.m; sourceTree = "<group>"; };
 		136E1FB23B63B6D6932575CB /* Pods-GigmaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GigmaTests.debug.xcconfig"; path = "Target Support Files/Pods-GigmaTests/Pods-GigmaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1729EED8EE825915FB11772D /* Pods-Gigma.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gigma.debug.xcconfig"; path = "Target Support Files/Pods-Gigma/Pods-Gigma.debug.xcconfig"; sourceTree = "<group>"; };
 		2BF74FB52A38F82900155F09 /* MultipeerDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipeerDriver.m; sourceTree = "<group>"; };
@@ -1057,8 +1054,6 @@
 				E0549B2E2A2907B00002A8D4 /* MessageDriver.m */,
 				E05733622A2601CB00B7A32D /* FriendViewController.h */,
 				E05733602A2601A100B7A32D /* FriendViewController.m */,
-				0BAEF7692A38B78F00E52460 /* AddCustomMarkerViewController.h */,
-				0BAEF76A2A38B92C00E52460 /* AddCustomMarkerViewController.m */,
 				E0549B202A27FA3F0002A8D4 /* FestivalSelectionCell.h */,
 				E0549B1E2A27FA270002A8D4 /* FestivalSelectionCell.m */,
 				E0472C8E2A2782DE00782EA0 /* MainViewController.h */,
@@ -1395,7 +1390,6 @@
 				2BF74FB62A38F82900155F09 /* MultipeerDriver.m in Sources */,
 				E0472C902A2782FF00782EA0 /* MainViewController.m in Sources */,
 				E0549B2F2A2907B00002A8D4 /* MessageDriver.m in Sources */,
-				0BAEF76B2A38B92C00E52460 /* AddCustomMarkerViewController.m in Sources */,
 				0BAEF7682A38992900E52460 /* ColourConverter.m in Sources */,
 				E0549B2C2A2900B50002A8D4 /* MessagesViewController.m in Sources */,
 				E05733612A2601A100B7A32D /* FriendViewController.m in Sources */,
