@@ -169,7 +169,7 @@ class PostgreSQLDriver : NSObject, DataBaseDriver {
     
     func getInfo(festivalID: Int) -> String {
         // TODO: implement (Bjorna)
-        return ""
+        return "" 
     }
  
 }
