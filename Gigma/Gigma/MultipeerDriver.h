@@ -11,7 +11,8 @@
 #import <CoreLocation/CoreLocation.h>
 
 #define SERVICE_TYPE @"gigma-svc"
-#define TIME_TO_LIVE 3;
+#define TIME_TO_LIVE 3
+#define MOST_RECENT_THREADS 20
 
 @protocol FriendViewControllerDelegate;
 @protocol ComposeDelegate;

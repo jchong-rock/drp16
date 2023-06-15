@@ -15,6 +15,9 @@
 
 @interface MultipeerDriver () {
     NSManagedObjectContext * managedObjectContext;
+    dispatch_semaphore_t recentThreadsSemaphore;
+    NSUInteger recentThreads [MOST_RECENT_THREADS];
+    NSUInteger recentThreadsIndex;
 }
 
 @property (retain, nonatomic) MCNearbyServiceAdvertiser * advertiser;
@@ -48,6 +51,8 @@
     appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     rsaManager = appDelegate.rsaManager;
     managedObjectContext = appDelegate.persistentContainer.viewContext;
+    recentThreadsIndex = 0;
+    recentThreadsSemaphore = dispatch_semaphore_create(1);
     
     NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
     NSData * storedID = [prefs dataForKey: @"peerID"];
@@ -102,6 +107,25 @@
 }
 
 - (void) advertiser:(nonnull MCNearbyServiceAdvertiser *) advertiser didReceiveInvitationFromPeer:(nonnull MCPeerID *) peerID withContext:(nullable NSData *) context invitationHandler:(nonnull void (^) (BOOL, MCSession * _Nullable)) invitationHandler {
+    
+    dispatch_semaphore_wait(recentThreadsSemaphore, DISPATCH_TIME_FOREVER);
+    BOOL foundThread = NO;
+    for (int i = 0; i < MOST_RECENT_THREADS; i++) {
+        if (recentThreads[i] == context.hash) {
+            foundThread = YES;
+            break;
+        }
+    }
+    if (!foundThread) {
+        recentThreads[recentThreadsIndex++] = context.hash;
+        if (recentThreadsIndex == MOST_RECENT_THREADS) {
+            recentThreadsIndex = 0;
+        }
+        if (recentThreadsIndex > MOST_RECENT_THREADS) {
+            NSLog(@"race condition detected in multipeerdriver");
+        }
+    }
+    dispatch_semaphore_signal(recentThreadsSemaphore);
     
     enum BTOpcode opcode = ((const char *) [context bytes]) [0];
     NSLog(@"%u", opcode);
