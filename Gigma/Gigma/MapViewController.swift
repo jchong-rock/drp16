@@ -208,13 +208,24 @@ class MapViewController : UIViewController {
         let friends = MainViewController.getFriendsFrom(managedObjectContext)
         mapView.removeAnnotations( annotationsToRemove )
         friendMarkers = [:]
-        friends!.forEach {friend in
+        friends!.forEach { friend in
             let marker = MKPointAnnotation()
-            marker.title = (friend as! Friend).friendName
+            let newFriend = friend as! Friend
+            
+            if let currentData = newFriend.lastSeenTime {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "HH:mm"
+                let currentTime = dateFormatter.string(from: currentData)
+                marker.title = newFriend.friendName! + " Last Seen: " + currentTime
+            } else {
+                marker.title = newFriend.friendName
+            }
+            marker.coordinate = CLLocationCoordinate2D(latitude: newFriend.latitude, longitude: newFriend.longitude)
             marker.subtitle = "Friend"
-            // FIX -- marker.coordinate = bluetooth.getLocation(uuid: (friend as! Friend).deviceID! as NSUUID).toCLCoordinate()
+            print ("kagan",marker)
+            friendMarkers[newFriend] = marker
             mapView.addAnnotation(marker)
-            friendMarkers[friend as! Friend] = marker
+            
         }
     }
     
@@ -579,7 +590,26 @@ extension MapViewController : UpdateLocationDelegate {
     
     func setLatitude(_ latVal: Double, andLongitude longVal: Double, of friend: Friend) {
         print("coords", latVal, longVal)
-        friendMarkers[friend]?.coordinate = CLLocationCoordinate2D(latitude: latVal, longitude: longVal)
+        if (friendMarkers[friend] != nil) {
+            mapView.removeAnnotation(friendMarkers[friend]!)
+        }
+        let marker = MKPointAnnotation()
+        let newFriend = friend
+        
+        if let currentData = newFriend.lastSeenTime {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm"
+            let currentTime = dateFormatter.string(from: currentData)
+            marker.title = newFriend.friendName! + " Last Seen: " + currentTime
+        } else {
+            marker.title = newFriend.friendName
+        }
+        marker.coordinate = CLLocationCoordinate2D(latitude: latVal, longitude: longVal)
+        marker.subtitle = "Friend"
+        print ("kagan2",marker)
+        mapView.addAnnotation(marker)
+        friendMarkers[friend] = marker
+        
     }
 }
 

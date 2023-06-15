@@ -199,6 +199,14 @@
                         friend.longitude = longitude;
                         [updateLocationDelegate setLatitude: latitude andLongitude: longitude ofFriend: friend];
                     }
+                    
+                    //Get the current time
+                    friend.lastSeenTime = [NSDate date];
+                    
+                    NSError * error;
+                    [managedObjectContext save: &error];
+                    
+                    
                     break;
                 }
             }
@@ -253,22 +261,21 @@
                     double latitude = latThingy.value;
                     double longitude = longThingy.value;
                     
+                    if (updateLocationDelegate != nil) {
+                        friend.latitude = latitude;
+                        friend.longitude = longitude;
+                        [updateLocationDelegate setLatitude: latitude andLongitude: longitude ofFriend: friend];
+                    }
+                    
+                    //Get the current time
+                    friend.lastSeenTime = [NSDate date];
+                    
+                    NSError * error;
+                    [managedObjectContext save: &error];
+                    
                     
                     AudioServicesPlayAlertSound(1259);
-                    
-                    //AudioServicesPlayAlertSound(1259);
-                    
-                    
-                    //AudioServicesPlayAlertSound(1350);
-                    
-                    
-                    //AudioServicesPlayAlertSound(4095);
-                    
-                    
-                    //AudioServicesPlayAlertSound(1151);
-                    
-                    
-                    //AudioServicesPlayAlertSound(1322);
+                    AudioServicesPlayAlertSound(4095);
                     
                     
                     UIAlertController * popup = [UIAlertController alertControllerWithTitle: @"Beacon" message: [[NSString alloc] initWithFormat: @"Alert from %@", friend.friendName] preferredStyle: UIAlertControllerStyleAlert];
@@ -311,6 +318,9 @@
             for (Friend * friend in friends) {
                 if (friend.peerID == peerInt) {
                     NSLog(@"here msg");
+                    
+                    AudioServicesPlayAlertSound(1307);
+                    
                     NSString * text = [decrypted substringFromIndex: [RSA_MAGIC length] + 16];
                     NSString * messageDec = [rsaManager decryptString: text withPublicKey: friend.deviceID];
                     

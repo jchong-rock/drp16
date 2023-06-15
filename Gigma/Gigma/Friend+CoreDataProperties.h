@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) double latitude;
 @property (nonatomic) double longitude;
 @property (nullable, nonatomic, copy) NSString *icon;
+@property (nullable, nonatomic, copy) NSDate *lastSeenTime;
 @property (nullable, nonatomic, retain) NSOrderedSet<Message *> *messages;
 
 @end
