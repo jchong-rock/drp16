@@ -55,7 +55,7 @@
         printf("hhh");
         NSLog(@"%@", self.localPeerID);
     } else {
-        MCPeerID * peerID = [[MCPeerID alloc] initWithDisplayName: UIDevice.currentDevice.name];
+        MCPeerID * peerID = [[MCPeerID alloc] initWithDisplayName: rsaManager.name];
         NSData * data = [NSKeyedArchiver archivedDataWithRootObject: peerID];
         [prefs setObject: data forKey: @"peerID"];
         self.localPeerID = peerID;
