@@ -17,7 +17,7 @@ class UserMarker : NSObject, MKAnnotation {
     var icon: String // name of the system icon to display
     
     
-    init(title: String, coordinate: CLLocationCoordinate2D, icon: String = "pin.circle.fill", colour: UIColor = .red, info: String = "") {
+    init(title: String, coordinate: CLLocationCoordinate2D, icon: String = "person.circle.fill", colour: UIColor = .red, info: String = "") {
         self.title = title
         self.coordinate = coordinate
         self.colour = colour

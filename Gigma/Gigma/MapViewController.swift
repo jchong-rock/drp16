@@ -12,7 +12,7 @@ import MapKit
 import NotificationCenter
 import CoreData
 
-class MapViewController : UIViewController, UIColorPickerViewControllerDelegate {
+class MapViewController : UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var beaconButton: UIButton!
@@ -121,6 +121,7 @@ class MapViewController : UIViewController, UIColorPickerViewControllerDelegate 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         settingsButton.setTitle("", for: .normal)
+        beaconButton.setTitle("", for: .normal)
         print("willappear")
     }
     
@@ -150,12 +151,11 @@ class MapViewController : UIViewController, UIColorPickerViewControllerDelegate 
         }
     }
     
-    @IBAction func alerBeaconPopUp(_ sender: AnyObject) {
+    @IBAction func alertBeaconPopUp(_ sender: AnyObject) {
         let alertController = UIAlertController(title: "Alert Friends", message: "Do you want to ping all your friends the location?", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let okaAction = UIAlertAction(title: "Send", style: .default)
-        {_ in
-            // Send alert request to friends
+        let okaAction = UIAlertAction(title: "Send", style: .default) { _ in
+            self.multipeer.beaconLocation()
         }
         alertController.addAction(cancelAction)
         alertController.addAction(okaAction)
@@ -263,6 +263,23 @@ class MapViewController : UIViewController, UIColorPickerViewControllerDelegate 
                 destinationViewController.delegate = self
             }
         }
+    }
+}
+
+extension MapViewController : UIColorPickerViewControllerDelegate {
+    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+        let vc = viewController as! CustomColourViewController
+        let coord = CLLocationCoordinate2D(latitude: vc.locationLatitude as! Double, longitude: vc.locationLongitude as! Double)
+        let titleIsValid = self.addNewMarker(name: vc.markerName, coord: coord, colour: vc.selectedColor)
+        if !titleIsValid {
+            actuallyAddMarker(coord: coord)
+        }
+    }
+    func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
+        lastCustomColour = viewController.selectedColor
+    }
+    func colorPickerViewController(_ viewController: UIColorPickerViewController, didSelect color: UIColor, continuously: Bool) {
+        
     }
 }
 
@@ -389,7 +406,7 @@ extension MapViewController : MKMapViewDelegate {
     }
     
     //TODO: ad colour and icon?
-    func addNewMarker(name: String?, coord: CLLocationCoordinate2D) -> Bool {
+    func addNewMarker(name: String?, coord: CLLocationCoordinate2D, colour: UIColor) -> Bool {
         if (name == nil) {return false}
             
         for marker in MainViewController.getCustomMarkers(from: managedObjectContext!) {
@@ -403,13 +420,13 @@ extension MapViewController : MKMapViewDelegate {
         newCustMarker.name = name!
         newCustMarker.latitude = coord.latitude
         newCustMarker.longitude = coord.longitude
-        newCustMarker.colour = ColourConverter.toHex(.red)
+        newCustMarker.colour = ColourConverter.toHex(colour)
         //TODO: colour and icon?
         
         do {
             print("saving marker")
             try managedObjectContext!.save()
-            let newMarker = UserMarker.init(title: name!, coordinate: coord, colour: .blue, info: "info")
+            let newMarker = UserMarker.init(title: name!, coordinate: coord, colour: colour, info: "info")
             self.mapView.addAnnotation(newMarker)
             return true
             
@@ -422,7 +439,11 @@ extension MapViewController : MKMapViewDelegate {
     
     @objc func addCustomMarker(recogniser: UIGestureRecognizer) {
         if (recogniser.state != UIGestureRecognizer.State.began) {return}
-        
+        let touchPoint = recogniser.location(in: mapView)
+        let coord = mapView.convert(touchPoint, toCoordinateFrom: mapView)
+        actuallyAddMarker(coord: coord)
+    }
+    @objc func actuallyAddMarker(coord: CLLocationCoordinate2D) {
         //create the adder view
         // Create the alert controller
         let alertController = UIAlertController(title: "New Custom Marker", message: nil, preferredStyle: .alert)
@@ -433,8 +454,6 @@ extension MapViewController : MKMapViewDelegate {
         }
         
         // gets the location of the touch and convert to coordinate
-        let touchPoint = recogniser.location(in: mapView)
-        let coord = mapView.convert(touchPoint, toCoordinateFrom: mapView)
         
         //custAddView.setCoordinate(coord)
         //self.presentedViewController(custAddView, sender: self)
@@ -447,7 +466,14 @@ extension MapViewController : MKMapViewDelegate {
                 let enteredText = textField.text
                 // Do something with the entered text
                 print("Entered text: \(enteredText ?? "")")
-                let titleIsValid = self.addNewMarker(name: enteredText, coord: coord)
+                let colourPicker = CustomColourViewController()
+                colourPicker.delegate = self
+                colourPicker.markerName = enteredText
+                colourPicker.locationLatitude = coord.latitude as NSNumber
+                colourPicker.locationLongitude = coord.longitude as NSNumber
+                self.present(colourPicker, animated: true)
+                
+                
 //                var title: String
 //                if (titleIsValid) {
 //                    title = enteredText!
@@ -464,20 +490,12 @@ extension MapViewController : MKMapViewDelegate {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {_ in
             self.lastCustomColour = .red
         }
-        let colourAction = UIAlertAction(title: "Select Colour", style: .default) { _ in
-            let colourPicker = UIColorPickerViewController()
-            colourPicker.delegate = self
-            self.present(colourPicker, animated: true)
-            alertController.setValue(colourPicker.selectedColor, forKey: "Select Colour")
-        }
-
         // Add the actions to the alert controller
         alertController.addAction(okAction)
-        alertController.addAction(colourAction)
         alertController.addAction(cancelAction)
 
         // Colour initially red
-        alertController.setValue(UIColor.red, forKey: "Select Colour")
+        //alertController.setValue(UIColor.red, forKey: "Select Colour")
         
         // Present the alert controller
         present(alertController, animated: true, completion: nil)
@@ -498,14 +516,6 @@ extension MapViewController : MKMapViewDelegate {
 //        } catch {} // I don't care about errors
         
         //TODO: call the view controller to handle the popup
-    }
-
-    
-    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
-        lastCustomColour = viewController.selectedColor
-    }
-    func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
-        lastCustomColour = viewController.selectedColor
     }
     
     func checkTitle(_ title: String?) -> Bool {

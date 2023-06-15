@@ -35,6 +35,7 @@
 
 - (void) startAdvertising;
 - (void) stopAdvertising;
+- (void) beaconLocation;
 - (void) sendToPeer:(MCPeerID * _Nonnull) peerID withOpcode:(enum BTOpcode) opcode andData:(NSData * _Nullable) data;
 - (void) broadcastData:(NSData * _Nullable) data withOpcode:(enum BTOpcode) opcode;
 - (void) broadcastMessage:(NSString * _Nonnull) message toFriend:(Friend * _Nonnull) friend;

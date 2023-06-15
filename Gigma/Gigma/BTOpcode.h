@@ -18,7 +18,7 @@ enum BTOpcode {
 
     // LOCATION
     SEND_LOC,
-    REQ_LOC,
+    BEACON_LOC,
     
     // MESSAGES
     SEND_MSG,

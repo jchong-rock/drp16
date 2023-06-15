@@ -200,7 +200,63 @@
             
             break;
         }
-        case REQ_LOC: {
+        case BEACON_LOC: {
+            NSLog(@"sendlocationbeacon");
+            
+            [self rebroadcastData: context];
+            NSLog(@"context sendlocation is %@", context);
+            NSRange range = NSMakeRange(1 + sizeof(unsigned char), [context length] - 1 - sizeof(unsigned char));
+            NSString * data = [[NSString alloc] initWithData: [context subdataWithRange: range] encoding: NSUTF8StringEncoding];
+            
+            NSString * decrypted = [rsaManager decryptString: data];
+            NSLog(@"decrypted %@", decrypted);
+            
+            if (decrypted == nil || [decrypted length] == 0) {
+                NSLog(@"nil");
+                break;
+            }
+            NSString * magic = [decrypted substringToIndex: [RSA_MAGIC length]];
+            if (![magic isEqual: RSA_MAGIC]) {
+                NSLog(@"magic %@", magic);
+                break;
+            }
+            NSLog(@"locationfound33333");
+            
+            NSString * peerHash = [decrypted substringWithRange: NSMakeRange([RSA_MAGIC length], 16)];
+            NSUInteger peerInt = strtoull([peerHash UTF8String], NULL, 16);
+            NSArray * friends = [MainViewController getFriendsFromContext: managedObjectContext];
+            for (Friend * friend in friends) {
+                if (friend.peerID == peerInt) {
+                    NSLog(@"here");
+                    NSString * latLong = [decrypted substringFromIndex: [RSA_MAGIC length] + 16];
+                    NSString * latLongDec = [rsaManager decryptString: latLong withPublicKey: friend.deviceID];
+                    
+                    NSString * latString = [latLongDec substringToIndex: 16];
+                    NSString * longString = [latLongDec substringFromIndex: 16];
+                    
+                    NSUInteger latInt = strtoull([latString UTF8String], NULL, 16);
+                    NSUInteger longInt = strtoull([longString UTF8String], NULL, 16);
+                    
+                    union doubleThingy latThingy;
+                    union doubleThingy longThingy;
+                    
+                    latThingy.uinteger = latInt;
+                    longThingy.uinteger = longInt;
+
+                    double latitude = latThingy.value;
+                    double longitude = longThingy.value;
+                    
+                    UIAlertController * popup = [UIAlertController alertControllerWithTitle: @"Beacon" message: [[NSString alloc] initWithFormat: @"%@ wants your attention.", friend.friendName] preferredStyle: UIAlertControllerStyleAlert];
+                    
+                    UIAlertAction * ok = [UIAlertAction actionWithTitle: @"OK" style: UIAlertActionStyleDefault handler: ^(UIAlertAction * action) {}];
+                    
+                    
+                    [popup addAction: ok];
+                    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController: popup animated: YES completion: nil];
+                    
+                    break;
+                }
+            }
             
             break;
         }
@@ -341,6 +397,18 @@
                                    selector: @selector(broadcastLocation)
                                    userInfo: nil
                                     repeats: NO];
+}
+
+- (void) beaconLocation {
+    NSArray * friends = [MainViewController getFriendsFromContext: managedObjectContext];
+    
+    for (Friend * friend in friends) {
+        NSString * dataString = [self getEncryptedMess: [self getEncryptedLoc] forFriend: friend];
+        unsigned char timeToLive = TIME_TO_LIVE;
+        NSMutableData * data = [[NSMutableData alloc] initWithBytes: &timeToLive length: sizeof(unsigned char)];
+        [data appendData: [dataString dataUsingEncoding: NSUTF8StringEncoding]];
+        [self broadcastData: data withOpcode: BEACON_LOC];
+    }
 }
 
 - (void) broadcastMessage:(NSString *) message toFriend:(Friend *) friend {
