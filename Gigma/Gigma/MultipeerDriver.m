@@ -117,7 +117,7 @@
         }
     }
     if (foundThread) {
-        dispatch_semaphore_signal(recentThreadsSemaphore);
+        dispatch_semaphore_signal(recentThreadsSemaphore); // with credit to kagan
         return;
     } else {
         recentThreads[recentThreadsIndex++] = context.hash;
