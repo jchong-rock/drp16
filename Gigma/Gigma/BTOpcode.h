@@ -15,6 +15,7 @@ enum BTOpcode {
     FRIEND_REQ,
     ACCEPT_REQ,
     DECLINE_REQ,
+    UNFRIEND,
 
     // LOCATION
     SEND_LOC,

@@ -13,6 +13,7 @@
 #define SERVICE_TYPE @"gigma-svc"
 #define TIME_TO_LIVE 3
 #define MOST_RECENT_THREADS 20
+#define STRIP_RANGE (NSMakeRange(1 + sizeof(unsigned char) + sizeof(NSTimeInterval), [context length] - 1 - sizeof(unsigned char) - sizeof(NSTimeInterval)))
 
 @protocol FriendViewControllerDelegate;
 @protocol ComposeDelegate;
@@ -33,6 +34,7 @@
 @property (weak, nonatomic) NSObject <NearbyDevicePickerDelegate> * _Nullable nearbyDevicePickerDelegate;
 @property (weak, nonatomic) NSObject <FriendViewControllerDelegate> * _Nullable friendViewControllerDelegate;
 @property (weak, nonatomic) NSObject <ComposeDelegate> * _Nullable composeDelegate;
+@property BOOL doBroadcastLocation;
 
 - (void) startAdvertising;
 - (void) stopAdvertising;
@@ -41,7 +43,8 @@
 - (void) broadcastData:(NSData * _Nullable) data withOpcode:(enum BTOpcode) opcode;
 - (void) broadcastMessage:(NSString * _Nonnull) message toFriend:(Friend * _Nonnull) friend;
 - (void) sendFriendReqToPeer:(MCPeerID * _Nullable) peerID;
+- (void) sendUnfriendRequest:(Friend * _Nonnull) friend;
 - (NSString * _Nonnull) encryptTextMess:(NSString * _Nonnull) content;
-- (NSString * _Nonnull) getEncryptedMess:(NSString * _Nonnull) encrLoc forFriend:(Friend * _Nonnull) friend;
+- (NSString * _Nonnull) getEncryptedMessage:(NSString * _Nullable) encrLoc forFriend:(Friend * _Nonnull) friend;
 
 @end

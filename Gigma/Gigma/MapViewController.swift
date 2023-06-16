@@ -156,8 +156,8 @@ class MapViewController : UIViewController {
                     pref.enabled ? showToilets() : hideToilets()
                 case "Show water sources":
                     pref.enabled ? showWater() : hideWater()
-//                case "Show custom markers":
-//                    pref.enabled ? showCustomMarkers() : hideCustomMarkers()
+                case "Broadcast location":
+                    multipeer.doBroadcastLocation = pref.enabled
                 default:
                     MainViewController.showErrorPopup(self, withMessage: "Setting does not exist.")
             }

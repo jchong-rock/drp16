@@ -45,6 +45,7 @@
 @synthesize updateLocationDelegate;
 @synthesize composeDelegate;
 @synthesize appDelegate;
+@synthesize doBroadcastLocation;
 
 - (instancetype) init {
     
@@ -109,29 +110,34 @@
 
 - (void) advertiser:(nonnull MCNearbyServiceAdvertiser *) advertiser didReceiveInvitationFromPeer:(nonnull MCPeerID *) peerID withContext:(nullable NSData *) context invitationHandler:(nonnull void (^) (BOOL, MCSession * _Nullable)) invitationHandler {
     
-    dispatch_semaphore_wait(recentThreadsSemaphore, DISPATCH_TIME_FOREVER);
-    BOOL foundThread = NO;
-    for (int i = 0; i < MOST_RECENT_THREADS; i++) {
-        if (recentThreads[i] == context.hash) {
-            foundThread = YES;
-            break;
+    NSData * contextStripped = [context subdataWithRange: NSMakeRange(2, context.length - 2)];
+    enum BTOpcode opcode = ((const char *) [context bytes]) [0];
+    
+    if (!(opcode == FRIEND_REQ || opcode == ACCEPT_REQ)) {
+        dispatch_semaphore_wait(recentThreadsSemaphore, DISPATCH_TIME_FOREVER);
+        BOOL foundThread = NO;
+        for (int i = 0; i < MOST_RECENT_THREADS; i++) {
+            if (recentThreads[i] == contextStripped.hash) {
+                foundThread = YES;
+                break;
+            }
         }
-    }
-    if (foundThread) {
-        dispatch_semaphore_signal(recentThreadsSemaphore); // with credit to kagan
-        return;
-    } else {
-        recentThreads[recentThreadsIndex++] = context.hash;
-        if (recentThreadsIndex == MOST_RECENT_THREADS) {
-            recentThreadsIndex = 0;
+        if (foundThread) {
+            dispatch_semaphore_signal(recentThreadsSemaphore); // with credit to kagan
+            return;
+        } else {
+            recentThreads[recentThreadsIndex++] = contextStripped.hash;
+            if (recentThreadsIndex == MOST_RECENT_THREADS) {
+                recentThreadsIndex = 0;
+            }
+            if (recentThreadsIndex > MOST_RECENT_THREADS) {
+                NSLog(@"race condition detected in multipeerdriver");
+            }
+            dispatch_semaphore_signal(recentThreadsSemaphore);
         }
-        if (recentThreadsIndex > MOST_RECENT_THREADS) {
-            NSLog(@"race condition detected in multipeerdriver");
-        }
-        dispatch_semaphore_signal(recentThreadsSemaphore);
     }
     
-    enum BTOpcode opcode = ((const char *) [context bytes]) [0];
+    
     NSLog(@"%u", opcode);
     switch (opcode) {
         case NO_OP: {
@@ -181,7 +187,7 @@
             
             [self rebroadcastData: context];
             NSLog(@"context sendlocation is %@", context);
-            NSRange range = NSMakeRange(1 + sizeof(unsigned char), [context length] - 1 - sizeof(unsigned char));
+            NSRange range = STRIP_RANGE;
             NSString * data = [[NSString alloc] initWithData: [context subdataWithRange: range] encoding: NSUTF8StringEncoding];
             
             NSString * decrypted = [rsaManager decryptString: data];
@@ -245,7 +251,7 @@
             
             [self rebroadcastData: context];
             NSLog(@"context sendlocation is %@", context);
-            NSRange range = NSMakeRange(1 + sizeof(unsigned char), [context length] - 1 - sizeof(unsigned char));
+            NSRange range = STRIP_RANGE;
             NSString * data = [[NSString alloc] initWithData: [context subdataWithRange: range] encoding: NSUTF8StringEncoding];
             
             NSString * decrypted = [rsaManager decryptString: data];
@@ -323,7 +329,7 @@
         case SEND_MSG: {
             NSLog(@"context sendmsg is %@", context);
             NSLog(@"contextsendmsg %x", *((unsigned char *)[context bytes]+sizeof(char)));
-            NSRange range = NSMakeRange(1 + sizeof(unsigned char), [context length] - sizeof(unsigned char) - 1);
+            NSRange range = STRIP_RANGE;
             NSString * data = [[NSString alloc] initWithData: [context subdataWithRange: range] encoding: NSUTF8StringEncoding];
             
             NSString * decrypted = [rsaManager decryptString: data];
@@ -367,10 +373,46 @@
                 }
             }
             
-            
             break;
         }
         case MSG_READ: {
+            
+            break;
+        }
+        case UNFRIEND: {
+            NSLog(@"context sendmsg is %@", context);
+            NSLog(@"contextsendmsg %x", *((unsigned char *)[context bytes]+sizeof(char)));
+            NSRange range = STRIP_RANGE;
+            NSString * data = [[NSString alloc] initWithData: [context subdataWithRange: range] encoding: NSUTF8StringEncoding];
+            
+            NSString * decrypted = [rsaManager decryptString: data];
+            if (decrypted == nil || [decrypted length] == 0) {
+                NSLog(@"nilmsg");
+                break;
+            }
+            NSString * magic = [decrypted substringToIndex: [RSA_MAGIC length]];
+            if (![magic isEqual: RSA_MAGIC]) {
+                NSLog(@"magic msg");
+                break;
+            }
+            
+            NSLog(@"caught msg");
+            
+            NSString * peerHash = [decrypted substringWithRange: NSMakeRange([RSA_MAGIC length], 16)];
+            NSUInteger peerInt = strtoull([peerHash UTF8String], NULL, 16);
+            NSArray * friends = [MainViewController getFriendsFromContext: managedObjectContext];
+            for (Friend * friend in friends) {
+                if (friend.peerID == peerInt) {
+                    NSLog(@"here delete msg");
+                    [managedObjectContext deleteObject: friend];
+                    if (friendViewControllerDelegate != nil) {
+                        [friendViewControllerDelegate deleteFriend: friend];
+                    }
+                    NSError * error;
+                    [managedObjectContext save: &error];
+                    break;
+                }
+            }
             
             break;
         }
@@ -408,6 +450,11 @@
     }
 }
 
+- (void) sendUnfriendRequest:(Friend *) friend {
+    NSString * dataString = [self getEncryptedMessage: nil forFriend: friend];
+    [self sendDataString: dataString withOpcode: UNFRIEND];
+}
+
 - (NSString *) getEncryptedLoc {
     CLLocationCoordinate2D usercordinate = [updateLocationDelegate getUserLocation];
     double longitude = usercordinate.longitude;
@@ -431,11 +478,12 @@
     
 }
 
-- (NSString *) getEncryptedMess:(NSString *) encrLoc forFriend:(Friend *) friend {
+- (NSString *) getEncryptedMessage:(NSString *) encrLoc forFriend:(Friend *) friend {
     NSUInteger hash = localPeerID.hash;
     NSString * hashString = [NSString stringWithFormat: @"%016lx", hash];
     NSLog(@"hashString %@", hashString);
-    NSString * unencryptData = [[RSA_MAGIC stringByAppendingString: hashString] stringByAppendingString: encrLoc];
+    NSString * magicString = [RSA_MAGIC stringByAppendingString: hashString];
+    NSString * unencryptData = (encrLoc == nil) ? magicString : [magicString stringByAppendingString: encrLoc];
     
     return [rsaManager encryptString: unencryptData withPublicKey: friend.deviceID];
 }
@@ -445,14 +493,13 @@
 }
 
 - (void) broadcastLocation {
-    NSArray * friends = [MainViewController getFriendsFromContext: managedObjectContext];
-    
-    for (Friend * friend in friends) {
-        NSString * dataString = [self getEncryptedMess: [self getEncryptedLoc] forFriend: friend];
-        unsigned char timeToLive = TIME_TO_LIVE;
-        NSMutableData * data = [[NSMutableData alloc] initWithBytes: &timeToLive length: sizeof(unsigned char)];
-        [data appendData: [dataString dataUsingEncoding: NSUTF8StringEncoding]];
-        [self broadcastData: data withOpcode: SEND_LOC];
+    if (doBroadcastLocation) {
+        NSArray * friends = [MainViewController getFriendsFromContext: managedObjectContext];
+        
+        for (Friend * friend in friends) {
+            NSString * dataString = [self getEncryptedMessage: [self getEncryptedLoc] forFriend: friend];
+            [self sendDataString: dataString withOpcode: SEND_LOC];
+        }
     }
     
     [NSTimer scheduledTimerWithTimeInterval: 6.0f
@@ -462,24 +509,29 @@
                                     repeats: NO];
 }
 
+- (void) sendDataString:(NSString *) dataString withOpcode:(enum BTOpcode) opcode {
+    unsigned char timeToLive = TIME_TO_LIVE;
+    NSMutableData * data = [[NSMutableData alloc] initWithBytes: &timeToLive length: sizeof(unsigned char)];
+    NSDate * date = [NSDate date];
+    NSTimeInterval unixTimestamp = [date timeIntervalSince1970];
+    NSData * timestampData = [[NSData alloc] initWithBytes: &unixTimestamp length: sizeof(NSTimeInterval)];
+    [data appendData: timestampData];
+    [data appendData: [dataString dataUsingEncoding: NSUTF8StringEncoding]];
+    [self broadcastData: data withOpcode: opcode];
+}
+
 - (void) beaconLocation {
     NSArray * friends = [MainViewController getFriendsFromContext: managedObjectContext];
     
     for (Friend * friend in friends) {
-        NSString * dataString = [self getEncryptedMess: [self getEncryptedLoc] forFriend: friend];
-        unsigned char timeToLive = TIME_TO_LIVE;
-        NSMutableData * data = [[NSMutableData alloc] initWithBytes: &timeToLive length: sizeof(unsigned char)];
-        [data appendData: [dataString dataUsingEncoding: NSUTF8StringEncoding]];
-        [self broadcastData: data withOpcode: BEACON_LOC];
+        NSString * dataString = [self getEncryptedMessage: [self getEncryptedLoc] forFriend: friend];
+        [self sendDataString: dataString withOpcode: BEACON_LOC];
     }
 }
 
 - (void) broadcastMessage:(NSString *) message toFriend:(Friend *) friend {
-    NSString * dataString = [self getEncryptedMess: [self encryptTextMess: message] forFriend: friend];
-    unsigned char timeToLive = TIME_TO_LIVE;
-    NSMutableData * data = [[NSMutableData alloc] initWithBytes: &timeToLive length: sizeof(unsigned char)];
-    [data appendData: [dataString dataUsingEncoding: NSUTF8StringEncoding]];
-    [self broadcastData: data withOpcode: SEND_MSG];
+    NSString * dataString = [self getEncryptedMessage: [self encryptTextMess: message] forFriend: friend];
+    [self sendDataString: dataString withOpcode: SEND_MSG];
 }
 
 - (void) broadcastData:(NSData *) data withOpcode:(enum BTOpcode) opcode {

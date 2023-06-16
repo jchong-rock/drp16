@@ -95,13 +95,18 @@
 
 - (void) tableView:(UITableView *) tableView commitEditingStyle:(UITableViewCellEditingStyle) editingStyle forRowAtIndexPath:(NSIndexPath *) indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
-        [managedObjectContext deleteObject: [friendButtonList objectAtIndex: indexPath.row]];
-        [friendButtonList removeObjectAtIndex: indexPath.row];
-        [buttonStack reloadData];
+        Friend * friend = [friendButtonList objectAtIndex: indexPath.row];
+        [multipeerDriver sendUnfriendRequest: friend];
+        [managedObjectContext deleteObject: friend];
+        [self deleteFriend: friend];
         NSError * error;
         [managedObjectContext save: &error];
     }
+}
+
+- (void) deleteFriend:(Friend *) friend {
+    [friendButtonList removeObject: friend];
+    [buttonStack reloadData];
 }
 
 - (UITableViewCell *) tableView:(UITableView *) tableView cellForRowAtIndexPath:(nonnull NSIndexPath *) indexPath {

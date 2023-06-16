@@ -66,7 +66,7 @@ NSString * deviceName(void) {
 
 - (BOOL) application:(UIApplication *) application didFinishLaunchingWithOptions:(NSDictionary *) launchOptions {
     data = [[PostgreSQLDriver alloc] init];
-    NSArray * prefs = [[NSArray alloc] initWithObjects: @"Show stages", @"Show toilets", @"Show water sources", /*@"Show custom markers",*/ nil];
+    NSArray * prefs = [[NSArray alloc] initWithObjects: @"Show stages", @"Show toilets", @"Show water sources", @"Broadcast location", nil];
     [self checkAndInitialisePrefs: prefs];
     rsaManager = [[RSAManager alloc] init];
     multipeerDriver = [[MultipeerDriver alloc] init];

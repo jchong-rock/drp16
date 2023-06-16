@@ -17,6 +17,7 @@
 - (IBAction) discoverablePressed:(id) sender;
 - (void) showPopup:(UIViewController *) popup withCompletion:(id) completion;
 - (void) refresh;
+- (void) deleteFriend:(Friend *) friend;
 
 @end
 
