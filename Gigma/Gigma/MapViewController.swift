@@ -445,7 +445,6 @@ extension MapViewController : MKMapViewDelegate {
             let newMarker = UserMarker.init(title: name!, coordinate: coord, colour: colour, info: "info")
             self.mapView.addAnnotation(newMarker)
             return true
-            
         } catch {
             return false
         }

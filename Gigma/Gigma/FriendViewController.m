@@ -16,6 +16,7 @@
 #import "ColourConverter.h"
 #import "RSAManager.h"
 #import "Gigma-Swift.h"
+#import "FriendIconPickerViewController.h"
 
 @interface FriendViewController () {
     NSManagedObjectContext * managedObjectContext;
@@ -81,6 +82,12 @@
         MapViewController * destinationVC = segue.destinationViewController;
         destinationVC.currentFriend = selectedCell.friend;
     }
+    
+    if ([segue.identifier isEqualToString: @"goToFriendIconPicker"]) {
+        FriendListCell * selectedCell = (FriendListCell *) ((UIButton *) sender).superview.superview;
+        FriendIconPickerViewController * destinationVC = segue.destinationViewController;
+        destinationVC.currentFriend = selectedCell.friend;
+    }
 }
 
 - (BOOL) tableView:(UITableView *) tableView canEditRowAtIndexPath:(NSIndexPath *) indexPath {
@@ -138,6 +145,8 @@
         friend.friendName = name.displayName;
         friend.deviceID = pubKey;
         friend.peerID = name.hash;
+        friend.colour = [ColourConverter toHex:UIColor.systemPinkColor];
+        friend.icon = [FriendIcons getDefault];
         [friendButtonList addObject: friend];
         [buttonStack reloadData];
         NSError * error;
@@ -177,11 +186,15 @@
 - (IBAction) colourSelector:(id) sender {
     UIButton * button = (UIButton *) sender;
     //button.tintColor = //TODO: pull from core data
-    UIColorPickerViewController * picker = [[UIColorPickerViewController alloc] init];
-    picker.delegate = (FriendListCell *) button.superview.superview;
-    [self presentViewController: picker animated: YES completion: nil];
+    UIColorPickerViewController * colourPicker = [[UIColorPickerViewController alloc] init];
+    colourPicker.delegate = (FriendListCell *) button.superview.superview;
+    [self presentViewController: colourPicker animated: YES completion: ^{
+        [self performSegueWithIdentifier:@"goToFriendIconPicker" sender:self];
+        
+    }];
     
 }
+
 
 - (void) showPopup:(UIViewController *) popup withCompletion:(id) completion {
     [self presentViewController: popup animated: YES completion: completion];

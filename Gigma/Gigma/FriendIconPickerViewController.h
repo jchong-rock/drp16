@@ -5,8 +5,20 @@
 //  Created by kup21 on 16/06/2023.
 //
 
-#ifndef Header_h
-#define Header_h
+#import <UIKit/UIKit.h>
+#import "AppDelegate.h"
+#import "Friend+CoreDataProperties.h"
 
+@interface FriendIconPickerViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource> {
+    AppDelegate * appDelegate;
+    NSArray * icons;
+    
+}
 
-#endif /* Header_h */
+@property (weak, nonatomic) Friend * currentFriend;
+@property (weak, nonatomic) IBOutlet UIPickerView * picker;
+
+- (IBAction) selectIcon: (id) sender;
+
+@end
+
