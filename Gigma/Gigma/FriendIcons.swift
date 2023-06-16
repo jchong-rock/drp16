@@ -42,7 +42,7 @@ enum FriendIcon : String, CaseIterable {
     case LEAF     = "leaf.fill"
     
     case STACHE   = "moustache.fill"
-    case EYEGLASS = "eyeglasses.fill"
+    case EYEGLASS = "eyeglasses"
     case CARROT   = "carrot.fill"
     
     case ATOM     = "atom"
