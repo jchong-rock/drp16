@@ -13,6 +13,12 @@ enum FriendIcon : String, CaseIterable {
     case DEFAULT  = "person.fill"
     case CIRCLE   = "person.circle"
     case SQUARE   = "person.crop.square"
+    
+    // bullshit
+    case GRADS    = "graduationcap.fill"
+    case APPL     = "applelogo"
+    case PLAYS    = "logo.playstation"
+    
     //figure
     case FIGURE   = "figure.stand"
     case WAVE     = "figure.wave"
