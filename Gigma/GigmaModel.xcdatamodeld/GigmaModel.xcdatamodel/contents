@@ -28,4 +28,8 @@
         <attribute name="weSentIt" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="recipient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Friend" inverseName="messages" inverseEntity="Friend"/>
     </entity>
+    <entity name="Paragraph" representedClassName="Paragraph" syncable="YES" codeGenerationType="class">
+        <attribute name="body" optional="YES" attributeType="String"/>
+        <attribute name="heading" optional="YES" attributeType="String"/>
+    </entity>
 </model>

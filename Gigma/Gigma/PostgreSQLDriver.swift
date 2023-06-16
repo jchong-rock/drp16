@@ -167,9 +167,9 @@ class PostgreSQLDriver : NSObject, DataBaseDriver {
         return Festival(festivalID: nil, height: 0, width: 0, stages: nil, toilets: nil, water: nil)
     }
     
-    func getInfo(festivalID: Int) -> String {
-        // TODO: implement (Bjorna)
-        return "" 
+    func getInfo(festivalID: Int) -> [String : String] {
+        // TODO: implement (Kagan)
+        return [:]
     }
  
 }

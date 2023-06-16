@@ -2,6 +2,18 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Gigma/Paragraph+CoreDataProperties.h">
+   </FileRef>
+   <FileRef
+      location = "group:Gigma/Paragraph+CoreDataClass.h">
+   </FileRef>
+   <FileRef
+      location = "group:Gigma/Paragraph+CoreDataClass.m">
+   </FileRef>
+   <FileRef
+      location = "group:Gigma/Paragraph+CoreDataProperties.m">
+   </FileRef>
+   <FileRef
       location = "group:Gigma/Friend+CoreDataProperties.h">
    </FileRef>
    <FileRef

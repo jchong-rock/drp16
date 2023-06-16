@@ -1598,6 +1598,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Gigma/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Allow message passing across festival";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Allow friends to view your location for the duration of the festival";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow friends to view your location for the duration of the festival";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1637,7 +1640,7 @@
 					"-lpthread",
 					"-lstdc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = DRP.Gigma;
+				PRODUCT_BUNDLE_IDENTIFIER = DRP.Gigma2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1662,6 +1665,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Gigma/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Allow message passing across festival";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Allow friends to view your location for the duration of the festival";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow friends to view your location for the duration of the festival";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1701,7 +1707,7 @@
 					"-lpthread",
 					"-lstdc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = DRP.Gigma;
+				PRODUCT_BUNDLE_IDENTIFIER = DRP.Gigma2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
