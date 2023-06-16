@@ -17,11 +17,11 @@
             <objects>
                 <viewController title="Map" id="0de-fE-ZB6" customClass="MapViewController" customModule="Gigma" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2PX-6p-fIY">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsUserLocation="YES" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qy8-ah-uK3">
-                                <rect key="frame" x="0.0" y="132" width="390" height="660"/>
+                                <rect key="frame" x="0.0" y="132" width="390" height="637"/>
                                 <imageryMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktx-hg-gm9">
@@ -272,7 +272,7 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="location.circle" catalog="system"/>
                                                     <connections>
-                                                        <segue destination="0de-fE-ZB6" kind="presentation" identifier="goToMapFL" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="9md-Zu-M8T"/>
+                                                        <segue destination="0de-fE-ZB6" kind="presentation" identifier="goToMapFL" modalPresentationStyle="automatic" modalTransitionStyle="coverVertical" id="9md-Zu-M8T"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0S8-Ap-ysw">

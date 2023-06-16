@@ -60,8 +60,8 @@
 }
 
 - (NSAttributedString *) pickerView:(UIPickerView *) pickerView attributedTitleForRow:(NSInteger) row forComponent:(NSInteger) component {
-    NSString * symbolName = icons[row]; // Replace with your symbol names
-    UIImage * symbolImage = [UIImage systemImageNamed: symbolName];
+    NSString * symbolName = icons[row];
+    UIImage * symbolImage = [[UIImage systemImageNamed: symbolName] imageWithTintColor: UIColor.labelColor];
     
     NSTextAttachment * attachment = [[NSTextAttachment alloc] init];
     attachment.image = symbolImage;
