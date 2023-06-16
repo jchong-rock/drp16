@@ -17,14 +17,24 @@
 @synthesize messageButton;
 @synthesize locationButton;
 
+- (instancetype) init {
+    self = [super init];
+    appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    return self;
+}
+
+
 - (void) colorPickerViewControllerDidFinish:(UIColorPickerViewController *) viewController {
-    [delegate setColour: viewController.selectedColor];
     friend.colour = [ColourConverter toHex: viewController.selectedColor];
+    
+    NSError * error;
+    [appDelegate.persistentContainer.viewContext save: &error];
+    NSLog (@"colour error is %@", error);
     colourButton.tintColor = viewController.selectedColor;
 }
 
 - (IBAction) rename:(id) sender {
-    AppDelegate * appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
     UIAlertController * alertController = [UIAlertController alertControllerWithTitle: @"Rename Friend" message: nil preferredStyle: UIAlertControllerStyleAlert];
 
     [alertController addTextFieldWithConfigurationHandler: ^(UITextField * textField) {
@@ -38,14 +48,13 @@
         } else {
             [self rename: nil];
         }
-        [((FriendViewController *) appDelegate.currentViewController) refresh];
+        [((FriendViewController *) self->appDelegate.currentViewController) refresh];
     }];
     
-    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle: @"Cancel" style: UIAlertActionStyleDefault handler: nil];
+    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle: @"Cancel" style: UIAlertActionStyleCancel handler: nil];
 
-    [alertController addAction: okAction];
     [alertController addAction: cancelAction];
-    
+    [alertController addAction: okAction];
     
     [appDelegate.currentViewController presentViewController: alertController animated: YES completion: nil];
     

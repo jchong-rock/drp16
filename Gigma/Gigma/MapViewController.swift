@@ -216,7 +216,7 @@ class MapViewController : UIViewController {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "HH:mm"
                 let currentTime = dateFormatter.string(from: currentData)
-                marker.title = newFriend.friendName! + " Last Seen: " + currentTime
+                marker.title = newFriend.friendName! + " (Last Seen: " + currentTime + ")"
             } else {
                 marker.title = newFriend.friendName
             }
@@ -349,6 +349,7 @@ extension MapViewController : MKMapViewDelegate {
     
     //TODO: get the colour from CORE DATA
     func getFriendColour(name: String) -> UIColor {
+        let name = name.components(separatedBy: " (Last Seen: ")[0]
         let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
         let moc = appDelegate.persistentContainer.viewContext
         let friends = MainViewController.getFriendsFrom(moc)
@@ -362,6 +363,7 @@ extension MapViewController : MKMapViewDelegate {
     
     /* Select the image to display and how it is displayed */
     func imageSelector(annotationView: MKAnnotationView, annotation: MKAnnotation)  {
+
         switch annotation.subtitle {
             case "Custom Marker":
                 let userMarker = annotation as! UserMarker
@@ -599,7 +601,7 @@ extension MapViewController : UpdateLocationDelegate {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "HH:mm"
             let currentTime = dateFormatter.string(from: currentData)
-            marker.title = newFriend.friendName! + " Last Seen: " + currentTime
+            marker.title = newFriend.friendName! + " (Last Seen: " + currentTime + ")"
         } else {
             marker.title = newFriend.friendName
         }

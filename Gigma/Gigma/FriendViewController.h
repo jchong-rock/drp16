@@ -12,7 +12,6 @@
 
 @protocol FriendViewControllerDelegate <NSObject>
 
-- (void) setColour:(UIColor *) colour;
 - (BOOL) addFriend:(MCPeerID *) friendName withPubKey:(NSString *) pubKey;
 - (BOOL) nameAlreadyExists:(NSString *) name;
 - (IBAction) discoverablePressed:(id) sender;

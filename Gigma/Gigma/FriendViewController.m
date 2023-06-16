@@ -23,7 +23,6 @@
     AppDelegate * appDelegate;
 }
 
-@property (weak, nonatomic) UIColor * friendColour;
 @property (weak, nonatomic) MultipeerDriver * multipeerDriver;
 
 @end
@@ -33,7 +32,6 @@
 @synthesize buttonStack;
 @synthesize discoverableButton;
 @synthesize multipeerDriver;
-@synthesize friendColour;
 
 - (void) viewDidLoad {
     [super viewDidLoad];
@@ -87,6 +85,7 @@
         FriendListCell * selectedCell = (FriendListCell *) ((UIButton *) sender).superview.superview;
         FriendIconPickerViewController * destinationVC = segue.destinationViewController;
         destinationVC.currentFriend = selectedCell.friend;
+        destinationVC.friendDelegate = self;
     }
 }
 
@@ -113,7 +112,8 @@
     
     Friend * friend = [friendButtonList objectAtIndex: indexPath.row];
     cell.friend = friend;
-    cell.colourButton.tintColor = [ColourConverter toColour: friend.colour];
+    [cell.colourButton setImage: [UIImage systemImageNamed: friend.icon] forState: UIControlStateNormal];
+    [cell.colourButton setTintColor: [ColourConverter toColour: friend.colour]];
     [cell.messageButton setTitle: @"" forState: UIControlStateNormal];
     [cell.locationButton setTitle: @"" forState: UIControlStateNormal];
     [cell.colourButton setTitle: @"" forState: UIControlStateNormal];
@@ -145,7 +145,7 @@
         friend.friendName = name.displayName;
         friend.deviceID = pubKey;
         friend.peerID = name.hash;
-        friend.colour = [ColourConverter toHex:UIColor.systemPinkColor];
+        friend.colour = [ColourConverter toHex: UIColor.systemPinkColor];
         friend.icon = [FriendIcons getDefault];
         [friendButtonList addObject: friend];
         [buttonStack reloadData];
@@ -179,18 +179,13 @@
     discoverableButton.tintColor = [UIColor systemRedColor];
 }
 
-- (void) setColour:(UIColor *) colour {
-    friendColour = colour;
-}
-
 - (IBAction) colourSelector:(id) sender {
     UIButton * button = (UIButton *) sender;
     //button.tintColor = //TODO: pull from core data
     UIColorPickerViewController * colourPicker = [[UIColorPickerViewController alloc] init];
     colourPicker.delegate = (FriendListCell *) button.superview.superview;
     [self presentViewController: colourPicker animated: YES completion: ^{
-        [self performSegueWithIdentifier:@"goToFriendIconPicker" sender:self];
-        
+        [self performSegueWithIdentifier:@"goToFriendIconPicker" sender: sender];
     }];
     
 }

@@ -30,7 +30,7 @@
     CGFloat * alphaPtr = malloc(sizeof(CGFloat));
     
     //if guard needed
-    BOOL isColour = [colour getRed: redPtr green: greenPtr blue: bluePtr alpha: alphaPtr];
+    BOOL _ = [colour getRed: redPtr green: greenPtr blue: bluePtr alpha: alphaPtr];
     
     int64_t intVal = 0;
     
@@ -44,7 +44,6 @@
     intVal <<= SHIFT;
     
     intVal |= (uint32_t) (*alphaPtr * 255);
-//    intVal <<= SHIFT;
     
     free(redPtr);
     free(greenPtr);
@@ -58,7 +57,7 @@
     u_int64_t castHex = (u_int64_t) hex;
     CGFloat red   = (CGFloat) hex_mask_shift(RED_MASK, RED_SHIFT);
     CGFloat green = (CGFloat) hex_mask_shift(GREEN_MASK, GREEN_SHIFT);
-    CGFloat blue  = (CGFloat) hex_mask_shift(BLUE_MASK, GREEN_SHIFT);
+    CGFloat blue  = (CGFloat) hex_mask_shift(BLUE_MASK, BLUE_SHIFT);
     CGFloat alpha = (CGFloat) hex_mask_shift(ALPHA_MASK, ALPHA_SHIFT);
     
     return [UIColor colorWithRed: red green: green blue: blue alpha: alpha];
