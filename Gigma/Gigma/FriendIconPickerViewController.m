@@ -59,8 +59,16 @@
     return [icons count];
 }
 
-- (NSString *) pickerView:(UIPickerView *) pickerView titleForRow:(NSInteger) row forComponent:(NSInteger) component {
-    return icons[row];
+- (NSAttributedString *) pickerView:(UIPickerView *) pickerView attributedTitleForRow:(NSInteger) row forComponent:(NSInteger) component {
+    NSString * symbolName = icons[row]; // Replace with your symbol names
+    UIImage * symbolImage = [UIImage systemImageNamed: symbolName];
+    
+    NSTextAttachment * attachment = [[NSTextAttachment alloc] init];
+    attachment.image = symbolImage;
+    
+    NSAttributedString * attributedString = [NSAttributedString attributedStringWithAttachment: attachment];
+    
+    return attributedString;
 }
 
 
