@@ -62,6 +62,7 @@
 		E057334E2A24F61F00B7A32D /* GigmaUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E057334D2A24F61F00B7A32D /* GigmaUITestsLaunchTests.m */; };
 		E05733612A2601A100B7A32D /* FriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E05733602A2601A100B7A32D /* FriendViewController.m */; };
 		E05733672A2608B900B7A32D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E05733652A2608B900B7A32D /* Main.storyboard */; };
+		E0AE39F82A3CD91F006B15BB /* ParagraphCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0AE39F72A3CD91F006B15BB /* ParagraphCell.m */; };
 		E0D8264D2A29374C00E3A373 /* ComposeMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D8264C2A29374C00E3A373 /* ComposeMessageViewController.m */; };
 		E0D826512A294C9200E3A373 /* IndentedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D826502A294C9200E3A373 /* IndentedLabel.m */; };
 		E0D826532A294E0B00E3A373 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D826522A294E0B00E3A373 /* MessageCell.m */; };
@@ -519,6 +520,8 @@
 		E05733602A2601A100B7A32D /* FriendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendViewController.m; sourceTree = "<group>"; };
 		E05733622A2601CB00B7A32D /* FriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendViewController.h; sourceTree = "<group>"; };
 		E05733662A2608B900B7A32D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E0AE39F72A3CD91F006B15BB /* ParagraphCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParagraphCell.m; sourceTree = "<group>"; };
+		E0AE39F92A3CD92A006B15BB /* ParagraphCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParagraphCell.h; sourceTree = "<group>"; };
 		E0D8264C2A29374C00E3A373 /* ComposeMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeMessageViewController.m; sourceTree = "<group>"; };
 		E0D8264E2A294B6A00E3A373 /* ComposeMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeMessageViewController.h; sourceTree = "<group>"; };
 		E0D8264F2A294C6D00E3A373 /* IndentedLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndentedLabel.h; sourceTree = "<group>"; };
@@ -1072,6 +1075,8 @@
 				E00F0CE22A2B4BB900E80FC3 /* Pair.m */,
 				E0549B142A27DC690002A8D4 /* FestivalViewController.h */,
 				E0549B152A27DC8F0002A8D4 /* FestivalViewController.m */,
+				E0AE39F92A3CD92A006B15BB /* ParagraphCell.h */,
+				E0AE39F72A3CD91F006B15BB /* ParagraphCell.m */,
 				E00F0CDC2A2AB47F00E80FC3 /* MapSettingsViewController.h */,
 				E00F0CDD2A2AB48E00E80FC3 /* MapSettingsViewController.m */,
 				E00F0CDF2A2AB5CA00E80FC3 /* MapSettingsCell.h */,
@@ -1404,6 +1409,7 @@
 				0BAEF7652A3870FA00E52460 /* UserMarker.swift in Sources */,
 				2BF74FB62A38F82900155F09 /* MultipeerDriver.m in Sources */,
 				E0472C902A2782FF00782EA0 /* MainViewController.m in Sources */,
+				E0AE39F82A3CD91F006B15BB /* ParagraphCell.m in Sources */,
 				E0549B2F2A2907B00002A8D4 /* MessageDriver.m in Sources */,
 				0BAEF7682A38992900E52460 /* ColourConverter.m in Sources */,
 				E0549B2C2A2900B50002A8D4 /* MessagesViewController.m in Sources */,

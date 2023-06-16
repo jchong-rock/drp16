@@ -61,6 +61,19 @@
     return mutableFetchResults;
 }
 
++ (NSMutableArray *) getParagraphsFromContext:(NSManagedObjectContext *) managedObjectContext {
+    NSEntityDescription * entity = [NSEntityDescription entityForName: @"Paragraph" inManagedObjectContext: managedObjectContext];
+    NSFetchRequest * request = [[NSFetchRequest alloc] init];
+    [request setEntity: entity];
+    NSSortDescriptor * sortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"heading" ascending: YES];
+    NSArray * sortDescriptors = [[NSArray alloc] initWithObjects: sortDescriptor, nil];
+    [request setSortDescriptors: sortDescriptors];
+    
+    NSError * error;
+    NSMutableArray * mutableFetchResults = [[managedObjectContext executeFetchRequest: request error: &error] mutableCopy];
+    return mutableFetchResults;
+}
+
 + (NSMutableArray *) getCustomMarkersFromContext:(NSManagedObjectContext *) managedObjectContext {
     NSEntityDescription * entity = [NSEntityDescription entityForName: @"CustomMarker" inManagedObjectContext: managedObjectContext];
     NSFetchRequest * request = [[NSFetchRequest alloc] init];

@@ -613,20 +613,68 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="uyg-zy-gtp">
+                                <rect key="frame" x="16" y="129" width="358" height="618"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ParagraphCellIdentifier" rowHeight="226" id="b9p-im-k1y" customClass="ParagraphCell">
+                                        <rect key="frame" x="0.0" y="50" width="358" height="226"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b9p-im-k1y" id="pS3-g8-Snv">
+                                            <rect key="frame" x="0.0" y="0.0" width="358" height="226"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gar-iR-jyg">
+                                                    <rect key="frame" x="0.0" y="25" width="358" height="201"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <accessibilityTraits key="traits" notEnabled="YES"/>
+                                                    </accessibility>
+                                                    <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                                    <color key="textColor" systemColor="labelColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Heading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fr-3e-B1Z">
+                                                    <rect key="frame" x="5" y="0.0" width="348" height="26"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="body" destination="gar-iR-jyg" id="2cN-rh-9n1"/>
+                                            <outlet property="heading" destination="8fr-3e-B1Z" id="wrQ-m8-fBR"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Vip-uw-9vP" id="lhN-bc-A1x"/>
+                                    <outlet property="delegate" destination="Vip-uw-9vP" id="1bY-yy-XOh"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PPd-i7-bRp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="uyg-zy-gtp" firstAttribute="top" secondItem="PPd-i7-bRp" secondAttribute="top" constant="82" id="4Y4-DM-T6b"/>
+                            <constraint firstItem="PPd-i7-bRp" firstAttribute="bottom" secondItem="uyg-zy-gtp" secondAttribute="bottom" constant="14" id="9BX-OE-PeE"/>
                             <constraint firstItem="PPd-i7-bRp" firstAttribute="trailing" secondItem="dWt-tO-Uoy" secondAttribute="trailing" constant="16" id="J74-Xw-9uI"/>
+                            <constraint firstItem="PPd-i7-bRp" firstAttribute="trailing" secondItem="uyg-zy-gtp" secondAttribute="trailing" constant="16" id="PhP-6X-LUq"/>
                             <constraint firstItem="dWt-tO-Uoy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lBx-yI-i2F" secondAttribute="trailing" constant="4" id="Y3X-Db-u04"/>
                             <constraint firstItem="dWt-tO-Uoy" firstAttribute="centerY" secondItem="lBx-yI-i2F" secondAttribute="centerY" id="bFP-DR-XXY"/>
                             <constraint firstItem="lBx-yI-i2F" firstAttribute="leading" secondItem="PPd-i7-bRp" secondAttribute="leading" constant="16" id="cnx-fD-bga"/>
                             <constraint firstItem="dWt-tO-Uoy" firstAttribute="top" secondItem="PPd-i7-bRp" secondAttribute="top" constant="16" id="pVZ-L5-Nzh"/>
                             <constraint firstItem="lBx-yI-i2F" firstAttribute="top" secondItem="PPd-i7-bRp" secondAttribute="top" constant="16" id="wvu-nY-68u"/>
+                            <constraint firstItem="uyg-zy-gtp" firstAttribute="centerX" secondItem="PPd-i7-bRp" secondAttribute="centerX" id="xCX-6w-QOU"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Info" image="info.circle" catalog="system" id="stc-Ug-qS7"/>
                     <connections>
+                        <outlet property="paragraphTable" destination="uyg-zy-gtp" id="qtX-xO-1Yk"/>
                         <outlet property="settingsButton" destination="dWt-tO-Uoy" id="ZUZ-EZ-mQ4"/>
                         <outlet property="titleLabel" destination="lBx-yI-i2F" id="jBo-PY-sPC"/>
                     </connections>
@@ -730,6 +778,9 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

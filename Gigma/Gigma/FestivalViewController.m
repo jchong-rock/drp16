@@ -8,11 +8,14 @@
 #import "FestivalViewController.h"
 #import "AppDelegate.h"
 #import "Gigma-Swift.h"
+#import "Paragraph+CoreDataProperties.h"
+#import "ParagraphCell.h"
 
 @interface FestivalViewController () {
     AppDelegate * appDelegate;
     NSUserDefaults * prefs;
-    NSString * dummyString; // replace with real string
+    NSArray <Paragraph *> * paragraphs;
+    NSManagedObjectContext * managedObjectContext;
 }
 
 @end
@@ -21,11 +24,14 @@
 
 @synthesize titleLabel;
 @synthesize settingsButton;
+@synthesize paragraphTable;
 
 - (void) viewDidLoad {
     [super viewDidLoad];
     appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     prefs = [NSUserDefaults standardUserDefaults];
+    managedObjectContext = appDelegate.persistentContainer.viewContext;
+    paragraphs = [MainViewController getParagraphsFromContext: managedObjectContext];
 }
 
 - (void) viewWillAppear:(BOOL) animated {
@@ -42,16 +48,36 @@
     }
 }
 
-- (void) getFestivalInfo {
-    NSString * description = [prefs stringForKey: @"FestivalDescription"];
-    if (description != nil) {
-        dummyString = description; // REPLACE
-    } else {
-        NSObject <DataBaseDriver> * databaseDriver = appDelegate.data;
-        NSInteger festivalID = [prefs integerForKey: @"FestivalIDSet"];
-        NSString * foundDescription = [databaseDriver getInfoWithFestivalID: festivalID];
-        
+- (UITableViewCell *) tableView:(UITableView *) tableView cellForRowAtIndexPath:(nonnull NSIndexPath *) indexPath {
+    ParagraphCell * cell = [tableView dequeueReusableCellWithIdentifier: @"ParagraphCellIdentifier"];
+    if (cell == nil) {
+        cell = [[ParagraphCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"ParagraphCellIdentifier"];
     }
+    
+    Paragraph * paragraph = [paragraphs objectAtIndex: indexPath.row];
+    [ParagraphCell adjustTextViewHeight: cell.body];
+    cell.body.text = paragraph.body;
+    cell.heading.text = paragraph.heading;
+
+    return cell;
+
 }
+
+- (CGFloat) tableView:(UITableView *) tableView heightForRowAtIndexPath:(NSIndexPath *) indexPath {
+    return 226.0;
+}
+
+- (NSInteger) numberOfSectionsInTableView:(UITableView *) tableView {
+    return 1;
+}
+
+- (NSInteger) tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger) section {
+    return [paragraphs count];
+}
+
+- (void) refresh {
+    [paragraphTable reloadData];
+}
+
 
 @end

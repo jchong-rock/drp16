@@ -45,6 +45,13 @@
 - (IBAction) leaveButtonPressed:(id) sender {
     [prefs setObject: nil forKey: @"FestivalIsSet"];
     [[NSNotificationCenter defaultCenter] postNotification: [NSNotification notificationWithName: @"clear-cache" object: nil]];
+    
+    NSFetchRequest * request = [[NSFetchRequest alloc] initWithEntityName: @"Paragraph"];
+    NSBatchDeleteRequest * delete = [[NSBatchDeleteRequest alloc] initWithFetchRequest: request];
+    NSManagedObjectContext * moc = appDelegate.persistentContainer.viewContext;
+    NSError * error;
+    [moc.persistentStoreCoordinator executeRequest: delete withContext: moc error: &error];
+    
     [self performSegueWithIdentifier: @"goToWelcome" sender: self];
 }
 

@@ -9,6 +9,7 @@
 #import "FestivalSelectionCell.h"
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "Paragraph+CoreDataProperties.h"
 
 @interface WelcomeViewController () {
     NSDictionary * displayNames;
@@ -75,13 +76,32 @@
     NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
     [prefs setObject: cell.button.titleLabel.text forKey: @"FestivalIsSet"];
     [prefs setInteger: cell.festivalID forKey: @"FestivalIDSet"];
+    NSDictionary <NSString *, NSString *> * foundDescription = [data getInfoWithFestivalID: cell.festivalID];
+    [self saveFestivalPreferences: foundDescription];
     [self performSegueWithIdentifier: @"goToMain" sender: self];
+}
+
+- (void) saveFestivalPreferences:(NSDictionary <NSString *, NSString *> *) description {
+    
+    NSManagedObjectContext * managedObjectContext = appDelegate.persistentContainer.viewContext;
+    
+    for (NSString * heading in description) {
+        Paragraph * paragraph = [NSEntityDescription insertNewObjectForEntityForName: @"Paragraph" inManagedObjectContext: managedObjectContext];
+        paragraph.heading = heading;
+        paragraph.body = [description objectForKey: heading];
+        NSError * error;
+        [managedObjectContext save: &error];
+    }
 }
 
 - (IBAction) notListedButtonPressed:(id) sender {
     NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
     [prefs setObject: @"Unknown Festival" forKey: @"FestivalIsSet"];
     [prefs setInteger: 0 forKey: @"FestivalIDSet"];
+    //
+    NSDictionary <NSString *, NSString *> * foundDescription = [data getInfoWithFestivalID: 0];
+    [self saveFestivalPreferences: foundDescription];
+    //
     [self performSegueWithIdentifier: @"goToMain" sender: self];
 }
 

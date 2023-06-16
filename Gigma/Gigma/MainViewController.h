@@ -16,6 +16,7 @@
 + (NSArray *) prefsList:(UIViewController *) vc;
 + (NSMutableArray *) getFriendsFromContext:(NSManagedObjectContext *) managedObjectContext;
 + (NSMutableArray *) getCustomMarkersFromContext:(NSManagedObjectContext *) managedObjectContext;
++ (NSMutableArray *) getParagraphsFromContext:(NSManagedObjectContext *) managedObjectContext;
 
 
 @end
