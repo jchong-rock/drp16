@@ -21,6 +21,7 @@
 @dynamic latitude;
 @dynamic longitude;
 @dynamic icon;
+@dynamic lastSeenTime;
 @dynamic messages;
 
 @end
