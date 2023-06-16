@@ -16,3 +16,4 @@
 #import "ColourConverter.h"
 #import "CustomColourViewController.h"
 #import "FriendViewController.h"
+#import "PinIconPickerViewController.h"

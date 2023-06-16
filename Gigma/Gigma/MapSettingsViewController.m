@@ -68,7 +68,6 @@
     MapSetting * pref = [prefButtonList objectAtIndex: indexPath.row];
     cell.pref = pref;
     cell.textLabel.text = pref.prefName;
-    pref.enabled = YES;
     cell.toggle.on = pref.enabled;
     return cell;
 }

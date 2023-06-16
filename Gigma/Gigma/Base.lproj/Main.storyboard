@@ -82,6 +82,7 @@
                         <outlet property="beaconButton" destination="8Xd-Xd-HGq" id="g9J-0O-vQO"/>
                         <outlet property="mapView" destination="Qy8-ah-uK3" id="cXp-gJ-dEt"/>
                         <outlet property="settingsButton" destination="N3z-10-h3h" id="mIP-EP-bMb"/>
+                        <segue destination="E2v-KF-qGt" kind="show" identifier="goToChooserFromMap" id="0kt-kJ-th9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c0v-sj-P69" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -758,6 +759,79 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LTa-Lf-H93" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-588" y="7"/>
+        </scene>
+        <!--Pin Icon Picker View Controller-->
+        <scene sceneID="fN8-MB-meX">
+            <objects>
+                <viewController id="E2v-KF-qGt" customClass="PinIconPickerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N8R-zm-3gI">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUB-Yu-yvQ">
+                                <rect key="frame" x="16" y="680" width="358" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="l06-gu-xuJ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Done"/>
+                                <connections>
+                                    <action selector="selectIcon:" destination="E2v-KF-qGt" eventType="touchUpInside" id="8bi-ba-Oea"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose an icon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcv-J0-8ja">
+                                <rect key="frame" x="98.666666666666686" y="213" width="193" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pin name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wh-UJ-cgi">
+                                <rect key="frame" x="63" y="47" width="264" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mlU-G1-z6r">
+                                <rect key="frame" x="35" y="107" width="320" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y0A-UR-C1K">
+                                <rect key="frame" x="35" y="257" width="320" height="272"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="E2v-KF-qGt" id="HRO-IJ-j4c"/>
+                                    <outlet property="delegate" destination="E2v-KF-qGt" id="1b5-as-1YR"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ecO-Ab-ojy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bcv-J0-8ja" firstAttribute="top" secondItem="ecO-Ab-ojy" secondAttribute="top" constant="166" id="1Ai-jZ-c04"/>
+                            <constraint firstItem="ecO-Ab-ojy" firstAttribute="bottom" secondItem="mUB-Yu-yvQ" secondAttribute="bottom" constant="50" id="44V-cj-51h"/>
+                            <constraint firstItem="mUB-Yu-yvQ" firstAttribute="leading" secondItem="N8R-zm-3gI" secondAttribute="leadingMargin" id="5un-OE-3Fp"/>
+                            <constraint firstItem="5wh-UJ-cgi" firstAttribute="top" secondItem="ecO-Ab-ojy" secondAttribute="top" id="8f5-4b-mNq"/>
+                            <constraint firstItem="mlU-G1-z6r" firstAttribute="trailing" secondItem="y0A-UR-C1K" secondAttribute="trailing" id="KlP-Ui-PlI"/>
+                            <constraint firstItem="5wh-UJ-cgi" firstAttribute="centerX" secondItem="bcv-J0-8ja" secondAttribute="centerX" id="Lbv-pT-TMd"/>
+                            <constraint firstItem="5wh-UJ-cgi" firstAttribute="leading" secondItem="ecO-Ab-ojy" secondAttribute="leading" constant="63" id="Mm0-HJ-bZx"/>
+                            <constraint firstItem="y0A-UR-C1K" firstAttribute="top" secondItem="ecO-Ab-ojy" secondAttribute="top" constant="210" id="Qsa-lR-HJr"/>
+                            <constraint firstItem="mlU-G1-z6r" firstAttribute="top" secondItem="5wh-UJ-cgi" secondAttribute="bottom" constant="25" id="Xos-uZ-Ekq"/>
+                            <constraint firstItem="mUB-Yu-yvQ" firstAttribute="centerX" secondItem="y0A-UR-C1K" secondAttribute="centerX" id="dWE-co-wv1"/>
+                            <constraint firstItem="y0A-UR-C1K" firstAttribute="centerX" secondItem="ecO-Ab-ojy" secondAttribute="centerX" id="eTW-vQ-A8y"/>
+                            <constraint firstItem="bcv-J0-8ja" firstAttribute="centerX" secondItem="ecO-Ab-ojy" secondAttribute="centerX" id="f5L-Vd-ssk"/>
+                            <constraint firstItem="ecO-Ab-ojy" firstAttribute="bottom" secondItem="y0A-UR-C1K" secondAttribute="bottom" constant="258" id="hbr-b7-tMu"/>
+                            <constraint firstItem="mlU-G1-z6r" firstAttribute="leading" secondItem="y0A-UR-C1K" secondAttribute="leading" id="oQD-QW-n9P"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="jTJ-3D-Agd"/>
+                    <connections>
+                        <outlet property="displayName" destination="mlU-G1-z6r" id="EV1-uz-ua0"/>
+                        <outlet property="picker" destination="y0A-UR-C1K" id="PN4-pp-NDc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ovJ-lF-bk6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1260" y="904"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

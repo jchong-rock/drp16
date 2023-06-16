@@ -63,6 +63,7 @@
 		E05733612A2601A100B7A32D /* FriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E05733602A2601A100B7A32D /* FriendViewController.m */; };
 		E05733672A2608B900B7A32D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E05733652A2608B900B7A32D /* Main.storyboard */; };
 		E0AE39F82A3CD91F006B15BB /* ParagraphCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0AE39F72A3CD91F006B15BB /* ParagraphCell.m */; };
+		E0AE39FC2A3D07C0006B15BB /* PinIconPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0AE39FB2A3D07C0006B15BB /* PinIconPickerViewController.m */; };
 		E0D8264D2A29374C00E3A373 /* ComposeMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D8264C2A29374C00E3A373 /* ComposeMessageViewController.m */; };
 		E0D826512A294C9200E3A373 /* IndentedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D826502A294C9200E3A373 /* IndentedLabel.m */; };
 		E0D826532A294E0B00E3A373 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D826522A294E0B00E3A373 /* MessageCell.m */; };
@@ -522,6 +523,8 @@
 		E05733662A2608B900B7A32D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E0AE39F72A3CD91F006B15BB /* ParagraphCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParagraphCell.m; sourceTree = "<group>"; };
 		E0AE39F92A3CD92A006B15BB /* ParagraphCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParagraphCell.h; sourceTree = "<group>"; };
+		E0AE39FA2A3D07C0006B15BB /* PinIconPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinIconPickerViewController.h; sourceTree = "<group>"; };
+		E0AE39FB2A3D07C0006B15BB /* PinIconPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinIconPickerViewController.m; sourceTree = "<group>"; };
 		E0D8264C2A29374C00E3A373 /* ComposeMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeMessageViewController.m; sourceTree = "<group>"; };
 		E0D8264E2A294B6A00E3A373 /* ComposeMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeMessageViewController.h; sourceTree = "<group>"; };
 		E0D8264F2A294C6D00E3A373 /* IndentedLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndentedLabel.h; sourceTree = "<group>"; };
@@ -1095,6 +1098,8 @@
 				E05309E02A3B5A0600636F25 /* CustomColourViewController.m */,
 				0BB2032A2A3C6B5A00B27B52 /* FriendIconPickerViewController.h */,
 				0BB2032B2A3C6C1300B27B52 /* FriendIconPickerViewController.m */,
+				E0AE39FA2A3D07C0006B15BB /* PinIconPickerViewController.h */,
+				E0AE39FB2A3D07C0006B15BB /* PinIconPickerViewController.m */,
 				E00E09582A3128B5002E82DB /* CentralManagerAdapter.swift */,
 				E00E09532A312295002E82DB /* PeripheralManagerAdapter.swift */,
 				E00E09552A31249E002E82DB /* TransferService.swift */,
@@ -1421,6 +1426,7 @@
 				E0472C812A27687B00782EA0 /* MapViewController.swift in Sources */,
 				E0549B332A2908DE0002A8D4 /* MessageSelectionCell.m in Sources */,
 				E0D8264D2A29374C00E3A373 /* ComposeMessageViewController.m in Sources */,
+				E0AE39FC2A3D07C0006B15BB /* PinIconPickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

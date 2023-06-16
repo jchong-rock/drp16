@@ -83,8 +83,8 @@ class MapViewController : UIViewController {
         
         mapView.delegate = self
         let festivalID = UserDefaults.standard.integer(forKey: "FestivalIDSet")
-        let config = MapCacheConfig(withUrlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
-        mapCache = MapCache(withConfig: config)
+        //let config = MapCacheConfig(withUrlTemplate: "https://api.maptiler.com/maps/outdoor-v2/{z}/{x}/{y}.png?key=CttW1NIeC2FXTvxN09SK")
+        //mapCache = MapCache(withConfig: config)
         mapView.showsUserLocation = true
         mapView.setUserTrackingMode(MKUserTrackingMode.followWithHeading, animated: true)
         
@@ -114,7 +114,7 @@ class MapViewController : UIViewController {
         }
         
         
-        mapView.useCache(mapCache!)
+        //mapView.useCache(mapCache!)
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(clearCache), name: NSNotification.Name.clearCache, object: nil)
         print("didload")
@@ -158,6 +158,8 @@ class MapViewController : UIViewController {
                     pref.enabled ? showWater() : hideWater()
                 case "Broadcast location":
                     multipeer.doBroadcastLocation = pref.enabled
+                case "Satellite view":
+                    mapView.mapType = pref.enabled ? .satellite : .standard
                 default:
                     MainViewController.showErrorPopup(self, withMessage: "Setting does not exist.")
             }
@@ -166,7 +168,7 @@ class MapViewController : UIViewController {
     
     @IBAction func alertBeaconPopUp(_ sender: AnyObject) {
         
-        let alertController = UIAlertController(title: "Alert Friends", message: "Do you want to ping all your friends the location?", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Alert Friends", message: "Do you want to send an SOS notification to your friends?", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let okaAction = UIAlertAction(title: "Send", style: .default) { _ in
             self.multipeer.beaconLocation()
@@ -194,8 +196,9 @@ class MapViewController : UIViewController {
                     customMarker.latitude,
                     customMarker.longitude
                 ),
+                icon: customMarker.image ?? "pin.circle.fill",
                 colour: ColourConverter.toColour(customMarker.colour),
-                info: "") //TODO: add info field to core data
+                info: "", delegate: self) //TODO: add info field to core data
             mapView.addAnnotation(userMarker)
         }
     }
@@ -288,6 +291,15 @@ class MapViewController : UIViewController {
                 destinationViewController.delegate = self
             }
         }
+        if segue.identifier == "goToChooserFromMap" {
+            if let destinationVC = segue.destination as? PinIconPickerViewController {
+                if let coord = sender as? CLLocationCoordinate2D {
+                    destinationVC.colourDelegate = self
+                    destinationVC.latitude = coord.latitude
+                    destinationVC.longitude = coord.longitude
+                }
+            }
+        }
     }
 }
 
@@ -295,7 +307,8 @@ extension MapViewController : UIColorPickerViewControllerDelegate {
     func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
         let vc = viewController as! CustomColourViewController
         let coord = CLLocationCoordinate2D(latitude: vc.locationLatitude as! Double, longitude: vc.locationLongitude as! Double)
-        let titleIsValid = self.addNewMarker(name: vc.markerName, coord: coord, colour: vc.selectedColor)
+        let image = vc.image!
+        let titleIsValid = self.addNewMarker(name: vc.markerName, coord: coord, colour: vc.selectedColor, image: image)
         if !titleIsValid {
             actuallyAddMarker(coord: coord)
         }
@@ -326,6 +339,10 @@ extension MapViewController : MKMapViewDelegate {
             annotationView!.annotation = annotation
         }
         
+        let longPressGesture = UITapGestureRecognizer(target: annotation, action: #selector(removeAnnotationOnLongPress(_:)))
+        longPressGesture.numberOfTapsRequired = 2
+        annotationView!.addGestureRecognizer(longPressGesture)
+        
         imageSelector(annotationView: annotationView!, annotation: annotation)
         
         return annotationView
@@ -334,6 +351,13 @@ extension MapViewController : MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
         if views.last?.annotation is MKUserLocation {
             addHeadingView(toAnnotationView: views.last!)
+        }
+    }
+    
+    @objc func removeAnnotationOnLongPress(_ sender: MKAnnotation?) {
+        print("called it")
+        if (sender != nil) {
+            mapView.removeAnnotation(sender!)
         }
     }
     
@@ -447,7 +471,7 @@ extension MapViewController : MKMapViewDelegate {
     }
     
     //TODO: ad colour and icon?
-    func addNewMarker(name: String?, coord: CLLocationCoordinate2D, colour: UIColor) -> Bool {
+    func addNewMarker(name: String?, coord: CLLocationCoordinate2D, colour: UIColor, image: String) -> Bool {
         if (name == nil) {return false}
             
         for marker in MainViewController.getCustomMarkers(from: managedObjectContext!) {
@@ -462,12 +486,13 @@ extension MapViewController : MKMapViewDelegate {
         newCustMarker.latitude = coord.latitude
         newCustMarker.longitude = coord.longitude
         newCustMarker.colour = ColourConverter.toHex(colour)
+        newCustMarker.image = image
         //TODO: colour and icon?
         
         do {
             print("saving marker")
             try managedObjectContext!.save()
-            let newMarker = UserMarker.init(title: name!, coordinate: coord, colour: colour, info: "info")
+            let newMarker = UserMarker.init(title: name!, coordinate: coord, icon: image, colour: colour, info: "info", delegate: self)
             self.mapView.addAnnotation(newMarker)
             return true
         } catch {
@@ -486,6 +511,11 @@ extension MapViewController : MKMapViewDelegate {
     @objc func actuallyAddMarker(coord: CLLocationCoordinate2D) {
         //create the adder view
         // Create the alert controller
+        
+        performSegue(withIdentifier: "goToChooserFromMap", sender: coord)
+        
+        
+        /*
         let alertController = UIAlertController(title: "New Custom Marker", message: nil, preferredStyle: .alert)
 
         // Add a text field to the alert controller
@@ -513,16 +543,6 @@ extension MapViewController : MKMapViewDelegate {
                 colourPicker.locationLongitude = coord.longitude as NSNumber
                 self.present(colourPicker, animated: true)
                 
-                
-//                var title: String
-//                if (titleIsValid) {
-//                    title = enteredText!
-//                } else {
-//                    title = "Untitled"
-//                }
-//
-//                let newMarker = UserMarker.init(title: title, coordinate: coord, colour: .blue, info: "info")
-//                self.mapView.addAnnotation(newMarker)
             }
         }
 
@@ -540,7 +560,7 @@ extension MapViewController : MKMapViewDelegate {
         // Present the alert controller
         present(alertController, animated: true, completion: nil)
         
-        
+        */
         
         //save in core data so that these are persistent
         // now done in AddCustomMarkerViewController
@@ -563,6 +583,29 @@ extension MapViewController : MKMapViewDelegate {
             return false
         }
         return true
+    }
+}
+
+extension MapViewController : RemoveMarkerDelegate {
+    func removeMarker(marker: MKAnnotation) {
+        mapView.removeAnnotation(marker)
+        
+        let fetchRequest: NSFetchRequest<CustomMarker> = CustomMarker.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "name == %@", marker.title!!) // Replace "itemIdentifier" with the identifier of the item you want to remove
+
+        do {
+            let results = try managedObjectContext!.fetch(fetchRequest)
+            if let markerToDelete: CustomMarker = results.first {
+                // Delete the managed object from the context.
+                managedObjectContext!.delete(markerToDelete)
+                
+                // Save the context to persist the changes.
+                try managedObjectContext!.save()
+            }
+        } catch {
+            print("Failed to fetch or delete item: \(error)")
+        }
+        
     }
 }
 

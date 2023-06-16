@@ -2,7 +2,7 @@
 //  CustomMarker+CoreDataProperties.h
 //  
 //
-//  Created by Jake Chong on 13/06/2023.
+//  Created by Jake Chong on 16/06/2023.
 //
 //
 
@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) double latitude;
 @property (nonatomic) double longitude;
 @property (nullable, nonatomic, copy) NSString *name;
+@property (nullable, nonatomic, copy) NSString *image;
 
 @end
 

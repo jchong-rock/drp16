@@ -57,7 +57,7 @@ NSString * deviceName(void) {
         if (![innerPrefs containsObject: pref]) {
             MapSetting * newPref = [NSEntityDescription insertNewObjectForEntityForName: @"MapSetting" inManagedObjectContext: managedObjectContext];
             newPref.prefName = pref;
-            newPref.enabled = NO;
+            newPref.enabled = YES;
             NSError * error;
             [managedObjectContext save: &error];
         }
@@ -66,7 +66,7 @@ NSString * deviceName(void) {
 
 - (BOOL) application:(UIApplication *) application didFinishLaunchingWithOptions:(NSDictionary *) launchOptions {
     data = [[PostgreSQLDriver alloc] init];
-    NSArray * prefs = [[NSArray alloc] initWithObjects: @"Show stages", @"Show toilets", @"Show water sources", @"Broadcast location", nil];
+    NSArray * prefs = [[NSArray alloc] initWithObjects: @"Show stages", @"Show toilets", @"Show water sources", @"Broadcast location", @"Satellite view", nil];
     [self checkAndInitialisePrefs: prefs];
     rsaManager = [[RSAManager alloc] init];
     multipeerDriver = [[MultipeerDriver alloc] init];

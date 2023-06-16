@@ -47,6 +47,13 @@ enum FriendIcon : String, CaseIterable {
     
     case ATOM     = "atom"
     
+    case CAR      = "car.fill"
+    case TENT     = "tent.fill"
+    case BIKE     = "bicycle.circle.fill"
+    case DRINK    = "cup.and.saucer.fill"
+    case FOOD     = "fork.knife"
+    case ALCOHOL  = "wineglass.fill"
+    
     case SMILEY   = "smiley"
     // numbers
     case ZERO     = "0.circle.fill"
