@@ -10,7 +10,7 @@
 #import "Friend+CoreDataProperties.h"
 #import "FriendViewController.h"
 
-@interface FriendIconPickerViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource> {
+@interface FriendIconPickerViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate> {
     AppDelegate * appDelegate;
     NSArray * icons;
     
@@ -18,6 +18,7 @@
 
 @property (weak, nonatomic) Friend * currentFriend;
 @property (weak, nonatomic) IBOutlet UIPickerView * picker;
+@property (weak, nonatomic) IBOutlet UITextField * displayName;
 @property (weak, nonatomic) NSObject <FriendViewControllerDelegate> * friendDelegate;
 
 - (IBAction) selectIcon: (id) sender;

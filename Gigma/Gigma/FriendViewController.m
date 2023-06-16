@@ -112,11 +112,12 @@
     
     Friend * friend = [friendButtonList objectAtIndex: indexPath.row];
     cell.friend = friend;
-    [cell.colourButton setImage: [UIImage systemImageNamed: friend.icon] forState: UIControlStateNormal];
+    [cell.iconButton setImage: [UIImage systemImageNamed: friend.icon] forState: UIControlStateNormal];
     [cell.colourButton setTintColor: [ColourConverter toColour: friend.colour]];
     [cell.messageButton setTitle: @"" forState: UIControlStateNormal];
     [cell.locationButton setTitle: @"" forState: UIControlStateNormal];
     [cell.colourButton setTitle: @"" forState: UIControlStateNormal];
+    [cell.iconButton setTitle: @"" forState: UIControlStateNormal];
     cell.textLabel.text = friend.friendName;
     return cell;
 }
@@ -184,10 +185,11 @@
     //button.tintColor = //TODO: pull from core data
     UIColorPickerViewController * colourPicker = [[UIColorPickerViewController alloc] init];
     colourPicker.delegate = (FriendListCell *) button.superview.superview;
-    [self presentViewController: colourPicker animated: YES completion: ^{
-        [self performSegueWithIdentifier:@"goToFriendIconPicker" sender: sender];
-    }];
-    
+    [self presentViewController: colourPicker animated: YES completion: nil];
+}
+
+- (IBAction) iconSelector:(id) sender {
+    [self performSegueWithIdentifier:@"goToFriendIconPicker" sender: sender];
 }
 
 

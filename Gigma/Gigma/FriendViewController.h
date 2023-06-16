@@ -30,5 +30,8 @@
 @property (retain, nonatomic) UIButton * colourButton;
 @property (retain, nonatomic) IBOutlet UIButton * discoverableButton;
 
+- (IBAction) iconSelector:(id) sender;
+- (IBAction) colourSelector:(id) sender;
+
 @end
 

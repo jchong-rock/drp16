@@ -361,6 +361,19 @@ extension MapViewController : MKMapViewDelegate {
         return .red
     }
     
+    func getFriendIcon(name: String) -> String {
+        let name = name.components(separatedBy: " (Last Seen: ")[0]
+        let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
+        let moc = appDelegate.persistentContainer.viewContext
+        let friends = MainViewController.getFriendsFrom(moc)
+        for friend in friends! {
+            if (friend as! Friend).friendName == name {
+                return (friend as! Friend).icon ?? "person.fill"
+            }
+        }
+        return "person.fill"
+    }
+    
     /* Select the image to display and how it is displayed */
     func imageSelector(annotationView: MKAnnotationView, annotation: MKAnnotation)  {
 
@@ -372,7 +385,8 @@ extension MapViewController : MKMapViewDelegate {
                 annotationView.image = makePredefMarker(shape: "music.mic", colour: .systemPink)
             case "Friend":
                 let friendColour = getFriendColour(name: annotation.title!!)
-                annotationView.image = makePredefMarker(shape: "person.fill", colour: friendColour)
+                let friendIcon = getFriendIcon(name: annotation.title!!)
+                annotationView.image = makePredefMarker(shape: friendIcon, colour: friendColour)
             default:
                 switch annotation.title {
                     case "Toilet":

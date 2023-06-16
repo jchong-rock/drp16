@@ -14,6 +14,7 @@
 
 @synthesize currentFriend;
 @synthesize picker;
+@synthesize displayName;
 @synthesize friendDelegate;
 
 - (void) viewDidLoad {
@@ -26,12 +27,22 @@
 - (void) viewDidAppear:(BOOL) animated {
     [super viewDidAppear: animated];
     appDelegate.currentViewController = self;
+    displayName.delegate = self;
+    [displayName setPlaceholder: currentFriend.friendName];
 }
+
+- (BOOL) textFieldShouldReturn:(UITextField *) textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
 
 - (IBAction) selectIcon:(id) sender {
     NSString * pickedIcon = [icons objectAtIndex: [picker selectedRowInComponent: 0]];
-//    UIButton * selectButton
     currentFriend.icon = pickedIcon;
+    if ([displayName.text length] > 0) {
+        self.currentFriend.friendName = displayName.text;
+    }
     
     NSError * error;
     [appDelegate.persistentContainer.viewContext save: &error];
