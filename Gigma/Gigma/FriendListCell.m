@@ -40,8 +40,11 @@
         }
         [((FriendViewController *) appDelegate.currentViewController) refresh];
     }];
+    
+    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle: @"Cancel" style: UIAlertActionStyleDefault handler: nil];
 
     [alertController addAction: okAction];
+    [alertController addAction: cancelAction];
     
     
     [appDelegate.currentViewController presentViewController: alertController animated: YES completion: nil];
