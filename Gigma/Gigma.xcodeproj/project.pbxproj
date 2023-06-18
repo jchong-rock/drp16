@@ -1609,6 +1609,7 @@
 				DEVELOPMENT_TEAM = HT5FTRSPGC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Gigma/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Lost & Sound";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Allow message passing across festival";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Allow friends to view your location for the duration of the festival";
@@ -1676,6 +1677,7 @@
 				DEVELOPMENT_TEAM = HT5FTRSPGC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Gigma/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Lost & Sound";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Allow message passing across festival";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Allow friends to view your location for the duration of the festival";
