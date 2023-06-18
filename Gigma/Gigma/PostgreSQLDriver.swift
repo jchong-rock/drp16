@@ -168,8 +168,35 @@ class PostgreSQLDriver : NSObject, DataBaseDriver {
     }
     
     func getInfo(festivalID: Int) -> [String : String] {
-        // TODO: implement (Kagan)
-        return [:]
+        let name = String(festivalID)
+        
+        var dictionary: [String: String] = [:]
+        do {
+            
+            let text0 = "SELECT festival, info FROM festivals WHERE festival = $1;"
+            let statement0 = try connection!.prepareStatement(text: text0)
+            defer { statement0.close() }
+            
+            let cursor0 = try statement0.execute(parameterValues: [ name ])
+            defer { cursor0.close() }
+            
+            var text: String = ""
+            
+            for row in cursor0 {
+                let columns = try row.get().columns
+                text = try columns[1].string()
+            }
+            let substrings = text.components(separatedBy: " , ").map { String($0) }
+            for str in substrings {
+                let components = str.components(separatedBy: " : ").map { String($0) }
+                dictionary[components[0]] = components[1]
+            }
+            
+            
+        } catch {
+            print(error)
+        }
+        return dictionary
     }
  
 }

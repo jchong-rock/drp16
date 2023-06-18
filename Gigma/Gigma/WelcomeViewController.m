@@ -76,8 +76,11 @@
     NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
     [prefs setObject: cell.button.titleLabel.text forKey: @"FestivalIsSet"];
     [prefs setInteger: cell.festivalID forKey: @"FestivalIDSet"];
-    NSDictionary <NSString *, NSString *> * foundDescription = [data getInfoWithFestivalID: cell.festivalID];
-    [self saveFestivalPreferences: foundDescription];
+    if ([data connect]) {
+        NSDictionary <NSString *, NSString *> * foundDescription = [data getInfoWithFestivalID: cell.festivalID];
+        [data close];
+        [self saveFestivalPreferences: foundDescription];
+    }
     [self performSegueWithIdentifier: @"goToMain" sender: self];
 }
 
