@@ -339,9 +339,11 @@ extension MapViewController : MKMapViewDelegate {
             annotationView!.annotation = annotation
         }
         
-        let longPressGesture = UITapGestureRecognizer(target: annotation, action: #selector(removeAnnotationOnLongPress(_:)))
-        longPressGesture.numberOfTapsRequired = 2
-        annotationView!.addGestureRecognizer(longPressGesture)
+        if annotation.subtitle == "Custom Marker" {
+            let longPressGesture = UITapGestureRecognizer(target: annotation, action: #selector(removeAnnotationOnLongPress(_:)))
+            longPressGesture.numberOfTapsRequired = 2
+            annotationView!.addGestureRecognizer(longPressGesture)
+        }
         
         imageSelector(annotationView: annotationView!, annotation: annotation)
         
@@ -356,7 +358,7 @@ extension MapViewController : MKMapViewDelegate {
     
     @objc func removeAnnotationOnLongPress(_ sender: MKAnnotation?) {
         print("called it")
-        if (sender != nil) {
+        if (sender != nil && sender!.subtitle == "Custom Marker") {
             mapView.removeAnnotation(sender!)
         }
     }
