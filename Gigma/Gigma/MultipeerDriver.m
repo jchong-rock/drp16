@@ -327,6 +327,9 @@
             break;
         }
         case SEND_MSG: {
+            
+            [self rebroadcastData: context];
+            
             NSLog(@"context sendmsg is %@", context);
             NSLog(@"contextsendmsg %x", *((unsigned char *)[context bytes]+sizeof(char)));
             NSRange range = STRIP_RANGE;
@@ -382,6 +385,7 @@
         case UNFRIEND: {
             NSLog(@"context sendmsg is %@", context);
             NSLog(@"contextsendmsg %x", *((unsigned char *)[context bytes]+sizeof(char)));
+            [self rebroadcastData: context];
             NSRange range = STRIP_RANGE;
             NSString * data = [[NSString alloc] initWithData: [context subdataWithRange: range] encoding: NSUTF8StringEncoding];
             
