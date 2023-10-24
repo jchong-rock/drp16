@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "CustomMarker+CoreDataProperties.h"
 #import "Friend+CoreDataProperties.h"
+#import <NSDate_Utils/NSDate+NSDate_Util.h>
 
 @interface MainViewController ()
 
@@ -59,6 +60,10 @@
     NSError * error;
     NSMutableArray * mutableFetchResults = [[managedObjectContext executeFetchRequest: request error: &error] mutableCopy];
     return mutableFetchResults;
+}
+
++ (NSString *) stringFromDate:(NSDate *) date {
+    return [NSDate stringForDisplayFromDate: date];
 }
 
 + (NSMutableArray *) getParagraphsFromContext:(NSManagedObjectContext *) managedObjectContext {

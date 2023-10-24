@@ -11,6 +11,7 @@
 #import "Gigma-Swift.h"
 #import "MultipeerDriver.h"
 #import "RSAManager.h"
+#import "MapCache.h"
 
 NSString * deviceName(void) {
     struct utsname systemInfo;
@@ -30,6 +31,7 @@ NSString * deviceName(void) {
 @synthesize multipeerDriver;
 @synthesize rsaManager;
 @synthesize currentViewController;
+@synthesize mapCache;
 
 - (void) checkAndInitialisePrefs:(NSArray *) prefs {
     NSManagedObjectContext * managedObjectContext = self.persistentContainer.viewContext;
@@ -68,6 +70,7 @@ NSString * deviceName(void) {
     data = [[PostgreSQLDriver alloc] init];
     NSArray * prefs = [[NSArray alloc] initWithObjects: @"Show stages", @"Show toilets", @"Show water sources", @"Broadcast location", @"Satellite view", nil];
     [self checkAndInitialisePrefs: prefs];
+    mapCache = [[MapCache alloc] init];
     rsaManager = [[RSAManager alloc] init];
     multipeerDriver = [[MultipeerDriver alloc] init];
     [multipeerDriver startAdvertising];

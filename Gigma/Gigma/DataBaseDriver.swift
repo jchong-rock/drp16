@@ -12,4 +12,5 @@
     func getDisplayNames() -> [Int : String]
     func getFestival(festivalID: Int) -> Festival
     func getInfo(festivalID: Int) -> [String : String]
+    func getTiles(festivalID: Int)
 }

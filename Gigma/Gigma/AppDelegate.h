@@ -11,6 +11,7 @@
 @class MultipeerDriver;
 @protocol DataBaseDriver;
 @class RSAManager;
+@class MapCache;
 
 NSString * deviceName(void);
 
@@ -24,6 +25,7 @@ NSString * deviceName(void);
 @property (retain, strong, nonatomic) NSObject <DataBaseDriver> * data;
 @property (retain, strong, nonatomic) RSAManager * rsaManager;
 @property (weak, nonatomic) UIViewController * currentViewController;
+@property (retain, nonatomic) MapCache * mapCache;
 
 @end
 

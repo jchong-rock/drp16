@@ -17,6 +17,6 @@
 + (NSMutableArray *) getFriendsFromContext:(NSManagedObjectContext *) managedObjectContext;
 + (NSMutableArray *) getCustomMarkersFromContext:(NSManagedObjectContext *) managedObjectContext;
 + (NSMutableArray *) getParagraphsFromContext:(NSManagedObjectContext *) managedObjectContext;
-
++ (NSString *) stringFromDate:(NSDate *) date;
 
 @end

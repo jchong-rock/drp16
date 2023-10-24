@@ -17,3 +17,4 @@
 #import "CustomColourViewController.h"
 #import "FriendViewController.h"
 #import "PinIconPickerViewController.h"
+#import "MapCache.h"

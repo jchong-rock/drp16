@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import MapCache
 import MapKit
 import NotificationCenter
 import CoreData
@@ -20,13 +19,14 @@ class MapViewController : UIViewController {
     
     var data: DataBaseDriver
     var multipeer: MultipeerDriver
-    var mapCache: MapCache?
     let locationManager = CLLocationManager()
     var festival: Festival?
     var managedObjectContext: NSManagedObjectContext?
     var userLocation: CLLocationCoordinate2D?
     var friendMarkers: [Friend : MKPointAnnotation] = [:]
     @objc public var currentFriend: Friend?
+    var tileRenderer: MKTileOverlayRenderer?
+    var mapCache: MapCache
     
     var headingImageView: UIImageView?
     var userHeading: CLLocationDirection?
@@ -46,6 +46,7 @@ class MapViewController : UIViewController {
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         data = appDelegate.data
         multipeer = appDelegate.multipeerDriver
+        mapCache = appDelegate.mapCache
         self.MARKER_SIDE = SIDE * MARKER_MUL
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
@@ -54,6 +55,7 @@ class MapViewController : UIViewController {
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         data = appDelegate.data
         multipeer = appDelegate.multipeerDriver
+        mapCache = appDelegate.mapCache
         self.MARKER_SIDE = SIDE * MARKER_MUL
         super.init(coder: coder)
     }
@@ -63,6 +65,14 @@ class MapViewController : UIViewController {
         let lpgr = UILongPressGestureRecognizer(target: self, action:  #selector(addCustomMarker))
         mapView.addGestureRecognizer(lpgr)
     }
+    
+    private func setupTileRenderer() {
+        let overlay = mapCache.overlay!
+        overlay.canReplaceMapContent = true
+        mapView.addOverlay(overlay, level: .aboveLabels)
+        tileRenderer = MKTileOverlayRenderer(tileOverlay: overlay)
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -215,11 +225,9 @@ class MapViewController : UIViewController {
             let marker = MKPointAnnotation()
             let newFriend = friend as! Friend
             
-            if let currentData = newFriend.lastSeenTime {
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "HH:mm"
-                let currentTime = dateFormatter.string(from: currentData)
-                marker.title = newFriend.friendName! + " (Last Seen: " + currentTime + ")"
+            if let currentDate = newFriend.lastSeenTime {
+                let currentTime = MainViewController.string(from: currentDate)
+                marker.title = newFriend.friendName! + " (Last Seen: " + currentTime! + ")"
             } else {
                 marker.title = newFriend.friendName
             }
@@ -282,7 +290,7 @@ class MapViewController : UIViewController {
     }
     
     @objc func clearCache() {
-        mapCache?.clear() {}
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -323,9 +331,11 @@ extension MapViewController : UIColorPickerViewControllerDelegate {
 
 @available(iOS 13.0, *)
 extension MapViewController : MKMapViewDelegate {
+    
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        return mapView.mapCacheRenderer(forOverlay: overlay)
+        return tileRenderer!
     }
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard !(annotation is MKUserLocation) else {
             return nil

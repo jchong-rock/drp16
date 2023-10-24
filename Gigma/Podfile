@@ -6,9 +6,7 @@ target 'Gigma' do
   use_frameworks!
 
   # Pods for Gigma
-  pod 'MapCache'
   pod 'NSDate_Utils'
-#  pod 'SCPCoreBluetoothManager'
 
   target 'GigmaTests' do
     inherit! :search_paths

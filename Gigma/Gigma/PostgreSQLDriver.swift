@@ -9,6 +9,10 @@ import Foundation
 import PostgresClientKit
 
 class PostgreSQLDriver : NSObject, DataBaseDriver {
+    func getTiles(festivalID: Int) {
+        
+    }
+    
 
     private var configuration: ConnectionConfiguration
     private var connection: Connection?
@@ -26,6 +30,7 @@ class PostgreSQLDriver : NSObject, DataBaseDriver {
         configuration.database = prefsSQL!["dbName"] as! String
         configuration.user = prefsSQL!["user"] as! String
         configuration.port = prefsSQL!["port"] as! Int
+        configuration.socketTimeout = prefsSQL!["timeout"] as! Int
         let password = prefsSQL!["password"] as! String
         switch (prefsSQL!["authMethod"] as! String) {
             case "clearText": configuration.credential = Credential.cleartextPassword(password: password)
